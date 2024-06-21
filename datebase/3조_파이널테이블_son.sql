@@ -16,9 +16,9 @@ CREATE TABLE DEPARTMENT (
 	CODE              NUMBER        PRIMARY KEY
 	, NAME            VARCHAR2(100)
 	, STATE           VARCHAR2(100)
-	, ENROLL_DATE     DATE
+	, ENROLL_DATE     TIMESTAMP
 	, MODIFY_DATE     TIMESTAMP
-	, END_DATE        DATE
+	, END_DATE        TIMESTAMP
 );
 
 -----외래키 제약조건-----
@@ -209,8 +209,8 @@ CREATE TABLE EMPLOYEE (
 	, NAME              VARCHAR2(100)
 	, PHONE             CHAR(11)
 	, ADDRESS           VARCHAR2(100)
-	, ENROLL_DATE       DATE
-	, RETIRE_DATE       DATE
+	, ENROLL_DATE       TIMESTAMP
+	, RETIRE_DATE       TIMESTAMP
 	, RETIRE_YN         CHAR(1)             DEFAULT 'N'
 );
 

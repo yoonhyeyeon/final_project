@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Jua&display=swap');
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/adminPage.css">
-    <link rel="stylesheet" href="../css/adminPageBoard.css">
-    <link rel="stylesheet" href="../css/adminPageInsert.css">
     <link rel="stylesheet" href="../css/teamRoom.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
     <script defer src="../js/adminUtil.js"></script>
     <script defer src="../js/sidebar.js"></script>
     <title>Document</title>
 </head>
 
 <body id="container">
-  <aside id="sidebar"></aside>
-    <div id="warp">
-        <header id="headerContainer"></header>
-        <nav id="navContainer"></nav>
-        <section id="main">
-          <div class="teamRoomMainDiv">
-            <h1>바로가기</h1>
-          </div>
-          <div class="teamRoomMainDiv">
-            <h1>공지사항1</h1>
-          </div>
-          <div class="teamRoomMainDiv">
-            <h1>캘린더</h1>
-            <hr>
-            <h1>오늘일정</h1>
-          </div>
-          <div class="teamRoomMainDiv">
-            <h1>공지사항2</h1>
-          </div>
-        </section>
-        <footer id="footerContainer"></footer>
-    </div>
+  <div id="warp">
+    <header id="headerContainer"></header>
+    <nav id="navContainer"></nav>
+    <section id="main">
+      <div class="teamRoomMainDiv">
+        <h1>바로가기</h1>
+      </div>
+      <div class="teamRoomMainDiv">
+        <h1>공지사항1</h1>
+      </div>
+      <div class="teamRoomMainDiv">
+        <h1>캘린더</h1>
+        <hr>
+        <h1>오늘일정</h1>
+      </div>
+      <div class="teamRoomMainDiv">
+        <h1>공지사항2</h1>
+      </div>
+    </section>
+    <footer id="footerContainer"></footer>
+  </div>
+  
+  
+    <aside class="sidebar" id="sidebar"></aside>
+    <button id="sidebarBtn"><span>메뉴</span></button>
 </body>
 
 </html>

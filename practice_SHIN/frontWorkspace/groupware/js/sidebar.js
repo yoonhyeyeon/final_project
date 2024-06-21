@@ -1,20 +1,18 @@
-// 사이드바 버튼
 const btnTag = document.querySelector("#sidebarBtn");
-// 사이드바
-const sidebar = document.querySelector("#sidebar");
+const sidebar = document.querySelector(".sidebar");
 
-//클릭 이벤트
-document.addEventListener("click", function(e) {
-    // 클릭한 요소가 사이드바 내부가 아니고 버튼 내부도 아닐 때
-    if (!sidebar.contains(e.target) && e.target !== btnTag) {
-        // 사이드바를 닫는다.
-        sidebar.classList.remove("active"); 
-    // 그게 아니라면
-    } else {
-        // 버튼을 클릭한 경우 사이드바를 토글한다.
-        sidebar.classList.toggle("active");
-    }
+btnTag.addEventListener("click", e => {
+  e.stopPropagation(); // 이벤트 전파를 막음
+  sidebar.classList.toggle("active");
 });
 
-
-
+//사이드바 영역 이외 클릭/터치 시 닫기
+document.addEventListener("click", function(e) {
+  // 사이드바 영역 외의 영역을 클릭했을 때
+  if (!sidebar.contains(e.target) && e.target !== btnTag) {
+    // 사이드바가 열려있는지 확인하고 열려 있다면 닫습니다.
+    if (sidebar.classList.contains("active")) {
+      sidebar.classList.remove("active");
+    }
+  }
+});

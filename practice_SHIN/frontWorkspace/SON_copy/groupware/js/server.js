@@ -1,29 +1,27 @@
+const express = require('express');
 const { google } = require('googleapis');
 const fs = require('fs');
 const readline = require('readline');
 
-const TOKEN_PATH = 'token.json'; // 토큰 저장 경로
+const app = express();
+const PORT = 3000;
+const TOKEN_PATH = 'client_secret_298429017150-98tgjf1g2ig8agicq5gpgj81nu4317k7.apps.googleusercontent.com.json';
+const credentials = require('./path/to/your/client_secret.json');
 
-// 클라이언트 정보 로드
-const credentials = require('path/to/your/client_secret.json'); // 클라이언트 시크릿 파일 경로
-
-// 구글 OAuth2 클라이언트 설정
 const { client_secret, client_id, redirect_uris } = credentials.installed;
 const oAuth2Client = new google.auth.OAuth2(
     client_id, client_secret, redirect_uris[0]
 );
 
-// 토큰 로드 함수
 function loadToken() {
     try {
         const token = fs.readFileSync(TOKEN_PATH);
         oAuth2Client.setCredentials(JSON.parse(token));
     } catch (err) {
-        return getAccessToken(oAuth2Client);
+        getAccessToken(oAuth2Client);
     }
 }
 
-// 토큰 획득 함수
 function getAccessToken(oAuth2Client) {
     const authUrl = oAuth2Client.generateAuthUrl({
         access_type: 'offline',
@@ -44,9 +42,9 @@ function getAccessToken(oAuth2Client) {
     });
 }
 
-// 메인 함수
-function main() {
-    loadToken();
+loadToken();
+
+app.get('/events', (req, res) => {
     const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
     calendar.events.list({
         calendarId: 'primary',
@@ -54,19 +52,13 @@ function main() {
         maxResults: 10,
         singleEvents: true,
         orderBy: 'startTime',
-    }, (err, res) => {
-        if (err) return console.error('API 호출 오류:', err);
-        const events = res.data.items;
-        if (events.length) {
-            console.log('다음 이벤트를 찾았습니다:');
-            events.map((event, i) => {
-                const start = event.start.dateTime || event.start.date;
-                console.log(`${start} - ${event.summary}`);
-            });
-        } else {
-            console.log('다음 몇 가지 이벤트가 없습니다.');
-        }
+    }, (err, response) => {
+        if (err) return res.status(500).send('API 호출 오류: ' + err);
+        const events = response.data.items;
+        res.json(events);
     });
-}
+});
 
-main();
+app.listen(PORT, () => {
+    console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
+});

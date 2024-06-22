@@ -53,7 +53,9 @@ section {
 	grid-template-columns: 2fr 4fr 2fr;
 	background:linear-gradient(90deg,#4A6FB9, #37538A, #3B30B8, #1B0063);
 	border-radius: 15px;
-	margin: 5%;
+	margin: 15%;
+	margin-bottom: 0;
+	margin-top: 5%;
 }
 
 #headerContainer button{
@@ -65,17 +67,17 @@ section {
 
 .btn{
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	margin: 6%;
 	justify-content: center;
 	justify-items: center;
 	align-content: center;
-
+	align-items: center;
 }
 
-#schedule, #noti {
+#goto, #leave{
   border: 1px solid white;
   border-radius: 10px;
-  margin: 5%;
   background-color: transparent;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   font-family: 'Arial', sans-serif; 
@@ -83,7 +85,7 @@ section {
   transition: transform 0.2s, box-shadow 0.2s; 
 }
 
-#schedule:hover, #noti:hover {
+#goto:hover, #leave:hover {
   transform: scale(1.05); 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
@@ -98,9 +100,6 @@ section {
 
 
 
-.btn #schedule, #noti{
-
-}
 
 #profile{
 	display: grid;
@@ -120,6 +119,24 @@ section {
   justify-content: center;
   align-items: flex-end;
   height: 50px;
+}
+
+.upload-container {
+	color: white;
+	text-align: center;
+	background: transparent;
+	padding: 20px;
+	border-radius: 15%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.upload-container img {
+	max-width: 50%;
+	height: auto;
+	display: none;
+	margin-top: 20px;
+}
+.upload-container input {
+	margin-top: 20px;
 }
 /*-------------------------------*/
 .jua-regular {
@@ -178,9 +195,4 @@ nav:hover {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-footer img{
-  height: 100px;
-  width: 100px;
 }

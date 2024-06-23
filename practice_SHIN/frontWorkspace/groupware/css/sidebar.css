@@ -4,7 +4,7 @@
   border: none;
   border-radius: 10px;
   background-color: rgb(59, 124, 227);
-  position: absolute;
+  position: fixed;
   right: 50px;
   bottom: 25px;
   cursor: pointer;
@@ -57,9 +57,26 @@
   bottom: 100px;
 }
 
-
-img{
-  height: 100px;
-  width: 100px;
+.sideList {
   display: flex;
+  flex-direction: column; /* 버튼들을 세로로 배치 */
+  align-items: center;    /* 가로 중앙 정렬 */
+  justify-content: center;/* 세로 중앙 정렬 */
+  height: 100%;           /* 필요 시 부모 요소의 높이 설정 */
 }
+
+.sideList button{
+  border-radius: 15px;
+  border: none;
+  margin: 3%;
+  width: 100px;
+  background-color: #f0f0f0; 
+  box-shadow: 3px 3px 5px #aaa;
+  transition: box-shadow 0.3s ease; 
+}
+
+.sideList button:hover {
+  box-shadow: 5px 5px 10px #888; /* hover 시 더 강한 그림자 */
+}
+
+

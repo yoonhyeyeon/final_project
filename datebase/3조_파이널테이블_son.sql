@@ -233,6 +233,37 @@ REFERENCES AUTHORITY (RANK);
 --------------------------------------------------
 
 
+--------------------------------------------------
+-------------------인사관리계정---------------------
+--------------------------------------------------
+
+-----시퀀스 삭제-----
+DROP SEQUENCE SEQ_HR_ACCOUNT_NO;
+
+-----시퀀스 생성-----
+CREATE SEQUENCE SEQ_HR_ACCOUNT_NO NOCACHE NOCYCLE;
+
+-----테이블 삭제-----
+DROP TABLE HR_ACCOUNT CASCADE CONSTRAINTS;
+
+-----테이블 생성-----
+CREATE TABLE HR_ACCOUNT(
+    NO      NUMBER
+    , RANK  NUMBER
+    , ID    VARCHAR2(100)
+    , PWD   VARCHAR2(100)
+    , NICK VARCHAR2(100)
+);
+
+-----외래키 제약조건-----
+ALTER TABLE HR_ACCOUNT ADD CONSTRAINT FK_AUTHORITY_TO_HR_ACCOUNT FOREIGN KEY (RANK)
+REFERENCES AUTHORITY (RANK);
+
+
+--------------------------------------------------
+
+
+
 
 
 

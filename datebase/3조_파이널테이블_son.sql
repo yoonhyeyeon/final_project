@@ -27,6 +27,31 @@ CREATE TABLE DEPARTMENT (
 
 
 --------------------------------------------------
+-------------------프로젝트팀-----------------------
+--------------------------------------------------
+
+-----테이블 삭제-----
+DROP TABLE DIVISION CASCADE CONSTRAINTS;
+
+-----테이블 생성-----
+CREATE TABLE DIVISION (
+	CODE              NUMBER        PRIMARY KEY
+    , DEPT_CODE       NUMBER
+	, NAME            VARCHAR2(100)
+	, STATE           VARCHAR2(100)
+	, ENROLL_DATE     TIMESTAMP
+	, MODIFY_DATE     TIMESTAMP
+	, END_DATE        TIMESTAMP
+);
+
+-----외래키 제약조건-----
+ALTER TABLE DIVISION ADD CONSTRAINT FK_DEPARTMENT_TO_DIVISION FOREIGN KEY (DEPT_CODE)
+REFERENCES DEPARTMENT (CODE);
+
+--------------------------------------------------
+
+
+--------------------------------------------------
 -------------------------권한---------------------
 --------------------------------------------------
 
@@ -198,6 +223,7 @@ DROP TABLE EMPLOYEE CASCADE CONSTRAINTS;
 CREATE TABLE EMPLOYEE (
 	NO                  NUMBER              PRIMARY KEY
 	, DEPT_CODE         NUMBER
+    , DIV_CODE          NUMBER
 	, POSITION_CODE     NUMBER
 	, STATE             NUMBER
 	, SALARY_CODE       NUMBER

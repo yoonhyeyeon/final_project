@@ -25,6 +25,7 @@ public class AdminEmpVo {
     private String retireYn;
 
     private String deptName;
+    private String divName;
     private String positionName;
 
 }

@@ -24,4 +24,8 @@ public class AdminEmpDao {
     public AdminEmpVo adminEmpByNo(String no) {
         return mapper.adminEmpByNo(no);
     }
+
+    public List<AdminEmpVo> adminEmpSearch(String empCategory, String searchBox, int offset, int size) {
+        return mapper.adminEmpSearch(empCategory, searchBox, offset, size);
+    }
 }

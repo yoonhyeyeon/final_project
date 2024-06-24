@@ -16,4 +16,9 @@ public class AdminEmpDao {
     public List<AdminEmpVo> adminEmpList() {
         return mapper.adminEmpList();
     }
+
+
+    public AdminEmpVo adminEmpByNo(String no) {
+        return mapper.adminEmpByNo(no);
+    }
 }

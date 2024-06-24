@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -20,9 +21,16 @@ public class AdminEmpController {
     @GetMapping("list")
     public ModelAndView adminEmpList() {
         List<AdminEmpVo> voList = service.adminEmpList();
-        System.out.println("voList = " + voList);
-        ModelAndView mav = new ModelAndView("adminEmpMngr/adminEmpList"); // 뷰의 이름 설정 (접두사 및 접미사는 application.properties에서 설정)
-        mav.addObject("voList", voList); // 모델에 데이터 추가
+        ModelAndView mav = new ModelAndView("adminEmpMngr/adminEmpList");
+        mav.addObject("voList", voList);
+        return mav;
+    }
+
+    @GetMapping("detail")
+    public ModelAndView adminEmpByNo(@RequestParam("no") String no) {
+        AdminEmpVo vo = service.adminEmpByNo(no);
+        ModelAndView mav = new ModelAndView("adminEmpMngr/adminEmpDetail");
+        mav.addObject("vo", vo);
         return mav;
     }
 }

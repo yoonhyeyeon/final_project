@@ -12,16 +12,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #eae9f0;
-  display: grid;
-  grid-template-columns: 60% 40%;
-  height: 100vh;
-  margin: 0;
-  font-family: 'DM Serif Display', serif;
-  overflow: hidden; 
-}
-
 .background {
   position: fixed;
   top: 0;
@@ -29,10 +19,11 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(-45deg, #4550e9, #4d8df4, #34fff8, #1ba8df);
+  background: linear-gradient(-45deg, #0d21ff, hwb(221 67% 0%), #07008e);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
 }
+
 
 @keyframes gradientAnimation {
   0% {
@@ -46,36 +37,34 @@ body {
   }
 }
 
-/*----------------------*/
+
+/*-------------------------------*/
 
 
 
-.container {
-  text-align: center;
-  margin-top: 30%;
+/*-------------------------------*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
-.animation {
-  opacity: 0; /* 초기에는 숨김 */
+
+.do-hyeon-regular {
   font-family: "Do Hyeon", sans-serif;
-  font-weight: normal;
-  font-size: 65px;
-  color: aliceblue;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  font-weight: 400;
+  font-style: normal;
 }
-/* 애니메이션 효과 정의 */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
 
 
-/*----------------------*/
-.login {
+.join {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,58 +76,69 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   transform: translateY(0);
+  width: 400px;
 }
 
-.login:hover {
+.join:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(115, 162, 250, 0.3);
 }
 
-.login h1 {
+.join h1 {
   color: rgb(74, 143, 173);
   margin-bottom: 25px;
   font-family: "Do Hyeon", sans-serif;
   font-weight: normal;
+
+  background: linear-gradient(to right, rgb(33, 66, 255), rgb(218, 218, 218), #6b68ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientMove 3s ease infinite; 
+
 }
 
-.login form {
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.join form {
   display: flex;
   flex-direction: column;
   width: 80%;
-  
 }
 
-#username, #password{
-  background-color:  rgb(176, 231, 255);
-} 
-
-.login label {
-  color: rgb(74, 143, 173);
+.join label {
+  color: rgb(54, 20, 245);
   margin-bottom: 5px;
   font-family: "Do Hyeon", sans-serif;
   font-weight: normal;
 }
 
-.login input {
+.join input, .join select {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
   border: none;
+  background-color: rgb(210, 225, 255);
 }
 
-#joinButton{
-  margin-top: 80px;
-  width: 80%;
-}
-
-.login button {
+.join button {
   padding: 10px;
   margin-top: 5%;
   border-radius: 5px;
   border: none;
-  background-color: rgb(222, 222, 222);
-  border-color:  rgb(176, 231, 255);
-  color: rgb(74, 143, 173);
+  background-color: rgb(210, 225, 255);
+  border-color: rgb(9, 0, 251);
+  color: rgb(0, 40, 237);
   font-size: 16px;
   font-family: "Do Hyeon", sans-serif;
   font-weight: normal;
@@ -148,7 +148,7 @@ body {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.login button::before {
+.join button::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -161,16 +161,18 @@ body {
   pointer-events: none;
 }
 
-.login button:hover {
-  background-color:rgb(147, 233, 255);
-  box-shadow: 0 0 15px rgba(138, 228, 255, 0.6);
+.join button:hover {
+  background-color: rgb(210, 225, 255);
+  box-shadow: 0 0 15px rgba(21, 0, 255, 0.5);
 }
 
-.login button:active::before {
+.join button:active::before {
   opacity: 1;
   transition: opacity 0s;
 }
 
-.login button:active {
+.join button:active {
   box-shadow: 0 0 20px rgb(74, 143, 173);
 }
+
+

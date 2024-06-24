@@ -49,17 +49,18 @@
             </c:if>
         </div>
         <div>
-            <form action="" method="post">
-                <select>
+            <form action="/adminEmpMngr/search" method="post">
+                <select name="empCategory">
                     <option value="deptName">부서</option>
                     <option value="positionName">직급</option>
                     <option value="name">이름</option>
                 </select>
-                <input type="text" name="searchBox" id="searchBox">
+                <input type="text" name="searchBox">
                 <button type="submit" class="tableButton">검색</button>
             </form>
+            <button onclick="/adminEmpMngr/enrollEmp">사원등록</button>
             <c:if test="">
-                <button onclick="">사원등록</button>
+
             </c:if>
         </div>
     </div>

@@ -26,4 +26,9 @@ public class AdminEmpService {
     public AdminEmpVo adminEmpByNo(String no) {
         return dao.adminEmpByNo(no);
     }
+
+    public List<AdminEmpVo> adminEmpSearch(String empCategory, String searchBox, int page, int size) {
+        int offset = (page - 1) * size;
+        return dao.adminEmpSearch(empCategory, searchBox, offset, size);
+    }
 }

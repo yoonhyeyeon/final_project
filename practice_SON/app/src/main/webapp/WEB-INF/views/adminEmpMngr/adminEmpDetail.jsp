@@ -18,6 +18,10 @@
             <td>부서명</td>
             <td>${vo.deptName}</td>
         </tr>
+            <tr>
+                <td>팀명</td>
+                <td>${vo.divName}</td>
+            </tr>
         <tr>
             <td>직책명</td>
             <td>${vo.positionName}</td>

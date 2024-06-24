@@ -7,14 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자 직원 목록</title>
-    <script>
-        ${voList}
-    </script>
 </head>
 <body>
-
     <div>
-
         <table border="1">
             <thead>
                 <tr>
@@ -22,7 +17,7 @@
                     <th>부서명</th>
                     <th>직급</th>
                     <th>이름</th>
-
+                </tr>
             </thead>
             <tbody>
                 <c:forEach items="${voList}" var="vo">
@@ -36,21 +31,21 @@
             </tbody>
         </table>
         <div>
-            <c:if test="${pvo.currentPage > 1}">
-                <a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage-1}">이전</a>
+            <c:if test="${currentPage > 1}">
+                <a href="/adminEmpMngr/list?page=${currentPage - 1}">이전</a>
             </c:if>
-            <c:forEach begin="${pvo.startPage}" end="${pvo.endPage}" var="x">
+            <c:forEach begin="1" end="${totalPages}" var="x">
                 <c:choose>
-                    <c:when test="${pvo.currentPage == x}">
+                    <c:when test="${currentPage == x}">
                         <strong>${x}</strong>
                     </c:when>
                     <c:otherwise>
-                        <a href="/LoveDiary/notice/noticeList?pno=${x}">${x}</a>
+                        <a href="/adminEmpMngr/list?page=${x}">${x}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
-            <c:if test="${pvo.currentPage < pvo.maxPage}">
-                <a href="/LoveDiary/notice/noticeList?pno=${pvo.currentPage+1}">다음</a>
+            <c:if test="${currentPage < totalPages}">
+                <a href="/adminEmpMngr/list?page=${currentPage + 1}">다음</a>
             </c:if>
         </div>
         <div>
@@ -68,6 +63,5 @@
             </c:if>
         </div>
     </div>
-
 </body>
 </html>

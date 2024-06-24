@@ -13,10 +13,13 @@ public class AdminEmpDao {
 
     private final AdminEmpMapper mapper;
 
-    public List<AdminEmpVo> adminEmpList() {
-        return mapper.adminEmpList();
+    public List<AdminEmpVo> adminEmpList(int offset, int size) {
+        return mapper.adminEmpList(offset, size);
     }
 
+    public int getTotalCount() {
+        return mapper.getTotalCount();
+    }
 
     public AdminEmpVo adminEmpByNo(String no) {
         return mapper.adminEmpByNo(no);

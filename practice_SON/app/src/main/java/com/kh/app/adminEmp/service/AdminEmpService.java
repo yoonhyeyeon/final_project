@@ -14,8 +14,13 @@ public class AdminEmpService {
 
     private final AdminEmpDao dao;
 
-    public List<AdminEmpVo> adminEmpList() {
-        return dao.adminEmpList();
+    public List<AdminEmpVo> adminEmpList(int page, int size) {
+        int offset = (page - 1) * size;
+        return dao.adminEmpList(offset, size);
+    }
+
+    public int getTotalCount() {
+        return dao.getTotalCount();
     }
 
     public AdminEmpVo adminEmpByNo(String no) {

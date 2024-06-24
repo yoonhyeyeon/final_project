@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class AdminEmpVo {
 
+    // employee table
     private String no;
     private String deptCode;
     private String positionCode;
@@ -22,5 +23,8 @@ public class AdminEmpVo {
     private String enrollDate;
     private String retireDate;
     private String retireYn;
+
+    private String deptName;
+    private String positionName;
 
 }

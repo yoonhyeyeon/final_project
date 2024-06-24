@@ -16,6 +16,9 @@ public class AdminEmpService {
 
     public List<AdminEmpVo> adminEmpList() {
         return dao.adminEmpList();
+    }
 
+    public AdminEmpVo adminEmpByNo(String no) {
+        return dao.adminEmpByNo(no);
     }
 }

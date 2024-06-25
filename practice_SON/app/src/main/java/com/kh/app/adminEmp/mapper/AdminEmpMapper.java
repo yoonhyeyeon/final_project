@@ -36,11 +36,15 @@ public interface AdminEmpMapper {
             "SELECT E.NO, D.NAME AS DEPT_NAME, DIV.NAME AS DIV_NAME, P.NAME AS POSITION_NAME, E.NAME ",
             "FROM EMPLOYEE E ",
             "JOIN DEPARTMENT D ON E.DEPT_CODE = D.CODE ",
+            "JOIN DIVISION DIV ON E.DIV_CODE = DIV.CODE ",  // Add this line to join the DIVISION table
             "JOIN POSITION P ON E.POSITION_CODE = P.CODE ",
             "WHERE ",
             "<choose>",
             "<when test='empCategory == \"deptName\"'>",
             "D.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"divName\"'>",
+            "DIV.NAME LIKE '%' || #{searchBox} || '%'",  // This line requires the DIVISION table join
             "</when>",
             "<when test='empCategory == \"positionName\"'>",
             "P.NAME LIKE '%' || #{searchBox} || '%'",
@@ -55,5 +59,6 @@ public interface AdminEmpMapper {
     })
     List<AdminEmpVo> adminEmpSearch(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox,
                                     @Param("offset") int offset, @Param("limit") int limit);
+
 
 }

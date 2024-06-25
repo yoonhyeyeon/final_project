@@ -17,17 +17,19 @@
                     <th>팀명</th>
                     <th>팀 상태</th>
                     <th>팀 생성일</th>
-                    <th>팀 생성일</th>
+                    <th>팀 변경일</th>
+                    <th>팀 수정</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach items="${voList}" var="vo">
                     <tr>
-                        <td>${vo.name}</a></td>
-                        <td>${vo.deptName}</a></td>
-                        <td>${vo.state}</a></td>
-                        <td>${vo.enrollDate}</a></td>
-                        <td>${vo.modifyDate}</a></td>
+                        <td>${vo.deptName}</td>
+                        <td>${vo.name}</td>
+                        <td>${vo.state}</td>
+                        <td>${vo.enrollDate}</td>
+                        <td>${vo.modifyDate}</td>
+                        <td><a href="/adminDeptMngr/edit?code=${vo.code}">수정</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -60,7 +62,7 @@
                 <input type="text" name="searchBox">
                 <button type="submit" class="tableButton">검색</button>
             </form>
-            <button onclick="/adminDeptMngr/enrollEmp">프로젝트등록</button>
+            <button onclick="window.location.href='/adminDeptMngr/enrollDiv'">프로젝트등록</button>
             <c:if test="">
 
             </c:if>

@@ -54,6 +54,7 @@
             <form action="/adminEmpMngr/search" method="post">
                 <select name="empCategory">
                     <option value="deptName">부서</option>
+                    <option value="divName">팀</option>
                     <option value="positionName">직급</option>
                     <option value="name">이름</option>
                 </select>

@@ -22,6 +22,22 @@ public class AdminDeptDao {
     }
 
     public List<DivisionVo> adminDeptSearch(String empCategory, String searchBox, int offset, int size) {
-        return  mapper.adminDeptSearch(empCategory, searchBox, offset, size);
+        return mapper.adminDeptSearch(empCategory, searchBox, offset, size);
+    }
+
+    public void enrollDiv(DivisionVo divisionVo) {
+        mapper.enrollDiv(divisionVo);
+    }
+
+    public String getDeptName(String deptCode) {
+        return mapper.getDeptName(deptCode);
+    }
+
+    public DivisionVo getDivisionByCode(String code) {
+        return mapper.getDivisionByCode(code);
+    }
+
+    public void updateDivision(DivisionVo divisionVo) {
+        mapper.updateDivision(divisionVo);
     }
 }

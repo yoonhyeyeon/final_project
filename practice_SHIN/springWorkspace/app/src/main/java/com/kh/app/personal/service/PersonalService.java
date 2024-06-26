@@ -19,7 +19,8 @@ public class PersonalService {
         return dao.write(vo);
     }
 
-    public List<PersonalVo> getPersonalList() {
-        return dao.getPersonalList();
+
+    public void savePersonal(PersonalVo vo) {
+        dao.save(vo);
     }
 }

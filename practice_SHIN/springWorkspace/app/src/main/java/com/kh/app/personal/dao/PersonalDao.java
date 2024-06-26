@@ -14,12 +14,12 @@ public class PersonalDao {
 
     private final PersonalMapper mapper;
 
-    @Transactional
     public int write(PersonalVo vo) {
         return mapper.write(vo);
     }
 
-    public List<PersonalVo> getPersonalList() {
-        return mapper.getPersonalList();
+
+    public void save(PersonalVo vo) {
+        mapper.insertPersonal(vo);
     }
 }

@@ -4,10 +4,8 @@ import com.kh.app.personal.service.PersonalService;
 import com.kh.app.personal.vo.PersonalVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,24 +16,21 @@ public class PersonalController {
 
     private final PersonalService service;
 
-    //일정 작성 (화면)
-    @GetMapping("write")
-    public String write(){return "personal/list";}
+    // 일정 작성 폼 화면
+    @GetMapping("writeForm")
+    public String writeForm() {
+        return "personal/write";
+    }
 
-    //게시글 작성
     @PostMapping("write")
     @ResponseBody
-    public int write(PersonalVo vo){
-        int result = service.write(vo);
-        return result;
+    public String writePersonal(@RequestBody PersonalVo personalVo) {
+        // 받아온 데이터를 서비스 계층을 통해 데이터베이스에 저장
+        service.savePersonal(personalVo);
+
+        return "success"; // 성공적으로 저장되었음을 클라이언트에게 응답
     }
 
-    //게시글 목록조회
-    @GetMapping("list")
-    @ResponseBody
-    public List<PersonalVo> getPersonalList(){
-        List<PersonalVo> voList = service.getPersonalList();
-        return voList;
-    }
+
 
 }

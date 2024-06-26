@@ -7,11 +7,12 @@ public class PersonalVo {
 
     private String no;
     private String no2;
+    private String number;
     private String stateBNo;
-    private String typeNo;
-    private String startDate;
-    private String endDate;
-    private String modifyDate;
+    private String  typeNo;
+    private String  startDate;
+    private String  endDate;
+    private String  modifyDate;
     private String title;
     private String content;
 

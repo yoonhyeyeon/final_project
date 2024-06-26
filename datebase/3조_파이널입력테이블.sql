@@ -418,7 +418,7 @@ CREATE TABLE PROJECT_WORK(
 -- 일정 타입
 CREATE TABLE WORK_TYPE(
     NO          NUMBER          PRIMARY KEY,
-    NAME        VARCHAR2(10)    NOT NULL
+    NAME        VARCHAR2(2000)    NOT NULL
 );
 
 -- 기타 일정

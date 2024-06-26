@@ -68,7 +68,8 @@ public interface AdminDeptMapper {
             "NAME = #{name}, " +
             "STATE = #{state}, " +
             "ENROLL_DATE = #{enrollDate}, " +
-            "MODIFY_DATE = CURRENT_TIMESTAMP " +
+            "MODIFY_DATE = #{modifyDate} " +
             "WHERE CODE = #{code}")
     void updateDivision(DivisionVo divisionVo);
+
 }

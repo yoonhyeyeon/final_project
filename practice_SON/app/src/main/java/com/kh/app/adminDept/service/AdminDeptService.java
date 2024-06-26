@@ -46,4 +46,5 @@ public class AdminDeptService {
     public void updateDivision(DivisionVo divisionVo) {
         dao.updateDivision(divisionVo);
     }
+    
 }

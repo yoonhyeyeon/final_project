@@ -5,10 +5,7 @@ import com.kh.app.adminDept.vo.DivisionVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -90,6 +87,7 @@ public class AdminDeptController {
             @RequestParam("deptCode") String deptCode,
             @RequestParam("name") String name,
             @RequestParam("code") String code,
+            @RequestParam("enrollDate") String enrollDate,
             @RequestParam("modifyDate") String modifyDate,
             @RequestParam("state") String state){
 
@@ -97,6 +95,7 @@ public class AdminDeptController {
         divisionVo.setDeptCode(deptCode);
         divisionVo.setName(name);
         divisionVo.setCode(code);
+        divisionVo.setEnrollDate(enrollDate);
         divisionVo.setModifyDate(modifyDate);
         divisionVo.setState(state);
 

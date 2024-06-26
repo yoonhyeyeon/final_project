@@ -23,8 +23,8 @@
             <tbody>
                 <c:forEach items="${voList}" var="vo">
                     <tr>
-                        <td>${vo.no}</td>
-                        <td><a href="/adminEmpMngr/detail?no=${vo.no}">${vo.deptName}</a></td>
+                        <td><a href="/adminEmpMngr/detail?no=${vo.no}">${vo.no}</td>
+                        <td>${vo.deptName}</a></td>
                         <td>${vo.divName}</a></td>
                         <td>${vo.positionName}</td>
                         <td>${vo.name}</td>
@@ -69,3 +69,56 @@
     </div>
 </body>
 </html>
+
+<%--
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            loadEmployeeData(1, 20); // Default page and size
+
+            function loadEmployeeData(page, size) {
+                $.ajax({
+                    url: '/adminEmpMngr/listData',
+                    type: 'GET',
+                    data: { page: page, size: size },
+                    dataType: 'json',
+                    success: function(data) {
+                        var tableContent = '';
+                        $.each(data.voList, function(index, vo) {
+                            tableContent += '<tr>';
+                            tableContent += '<td><a href="/adminEmpMngr/detail?no=' + vo.no + '">' + vo.no + '</a></td>';
+                            tableContent += '<td>' + vo.deptName + '</td>';
+                            tableContent += '<td>' + vo.divName + '</td>';
+                            tableContent += '<td>' + vo.positionName + '</td>';
+                            tableContent += '<td>' + vo.name + '</td>';
+                            tableContent += '</tr>';
+                        });
+                        $('#employeeTable tbody').html(tableContent);
+                        setupPagination(data.currentPage, data.totalPages);
+                    },
+                    error: function(request, status, error) {
+                        console.log("Error: " + error);
+                    }
+                });
+            }
+
+            function setupPagination(currentPage, totalPages) {
+                var paginationContent = '';
+                for (var i = 1; i <= totalPages; i++) {
+                    if (i == currentPage) {
+                        paginationContent += '<span>' + i + '</span> ';
+                    } else {
+                        paginationContent += '<a href="#" class="page-link" data-page="' + i + '">' + i + '</a> ';
+                    }
+                }
+                $('#pagination').html(paginationContent);
+
+                $('.page-link').click(function(e) {
+                    e.preventDefault();
+                    var page = $(this).data('page');
+                    loadEmployeeData(page, 20);
+                });
+            }
+        });
+    </script>
+    --%>

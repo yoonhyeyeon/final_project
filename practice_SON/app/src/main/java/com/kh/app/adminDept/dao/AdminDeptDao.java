@@ -40,4 +40,5 @@ public class AdminDeptDao {
     public void updateDivision(DivisionVo divisionVo) {
         mapper.updateDivision(divisionVo);
     }
+
 }

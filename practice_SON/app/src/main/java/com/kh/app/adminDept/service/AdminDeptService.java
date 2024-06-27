@@ -28,14 +28,23 @@ public class AdminDeptService {
         return dao.adminDeptSearch(empCategory, searchBox, offset, size);
     }
 
+    public List<DivisionVo> adminDeptSearchData(String empCategory, String searchBox, int page, int size) {
+        int offset = (page - 1) * size;
+        return dao.adminDeptSearchData(empCategory, searchBox, page, size);
+    }
+
     @Transactional
     public void enrollDiv(DivisionVo divisionVo) {
-        // Retrieve deptName from DEPARTMENT table
         String deptName = dao.getDeptName(divisionVo.getDeptCode());
         divisionVo.setDeptName(deptName);
-
-        // Insert the Division record
         dao.enrollDiv(divisionVo);
+    }
+
+    @Transactional
+    public List<DivisionVo> enrollDivData(DivisionVo divisionVo) {
+        String deptName = dao.getDeptName(divisionVo.getDeptCode());
+        divisionVo.setDeptName(deptName);
+        return dao.enrollDivData(divisionVo);
     }
 
     public DivisionVo getDivisionByCode(String code) {
@@ -46,5 +55,6 @@ public class AdminDeptService {
     public void updateDivision(DivisionVo divisionVo) {
         dao.updateDivision(divisionVo);
     }
-    
+
+
 }

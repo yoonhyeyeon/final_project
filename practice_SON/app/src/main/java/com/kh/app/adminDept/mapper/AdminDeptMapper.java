@@ -43,12 +43,40 @@ public interface AdminDeptMapper {
             "</script>"})
     List<DivisionVo> adminDeptSearch(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox, @Param("offset") int offset, @Param("limit") int limit);
 
+    @Select({"<script>",
+            "SELECT D.CODE, D.DEPT_CODE, D.NAME, D.STATE, " +
+                    "TO_CHAR(D.ENROLL_DATE, 'YYYY.MM.DD') AS ENROLL_DATE, " +
+                    "TO_CHAR(D.MODIFY_DATE, 'YYYY.MM.DD') AS MODIFY_DATE, " +
+                    "DEPT.NAME AS DEPT_NAME " +
+                    "FROM DIVISION D " +
+                    "JOIN DEPARTMENT DEPT ON D.DEPT_CODE = DEPT.CODE " +
+                    "WHERE ",
+            "<choose>",
+            "<when test='empCategory == \"deptName\"'>",
+            "DEPT.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"name\"'>",
+            "D.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"state\"'>",
+            "D.STATE LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "</choose>",
+            "ORDER BY D.CODE " +
+                    "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY",
+            "</script>"})
+    List<DivisionVo> adminDeptSearchData(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox, @Param("offset") int offset, @Param("limit") int limit);
+
     @Select("SELECT COUNT(*) FROM DIVISION")
     int getTotalCount();
 
     @Insert("INSERT INTO DIVISION (CODE, DEPT_CODE, NAME, STATE, ENROLL_DATE, MODIFY_DATE, END_DATE) " +
             "VALUES (#{code}, #{deptCode}, #{name}, #{state}, #{enrollDate}, CURRENT_TIMESTAMP, NULL)")
     void enrollDiv(DivisionVo divisionVo);
+
+    @Insert("INSERT INTO DIVISION (CODE, DEPT_CODE, NAME, STATE, ENROLL_DATE, MODIFY_DATE, END_DATE) " +
+            "VALUES (#{code}, #{deptCode}, #{name}, #{state}, #{enrollDate}, CURRENT_TIMESTAMP, NULL)")
+    List<DivisionVo> enrollDivData(DivisionVo divisionVo);
 
     @Select("SELECT NAME FROM DEPARTMENT WHERE CODE = #{deptCode}")
     String getDeptName(@Param("deptCode") String deptCode);

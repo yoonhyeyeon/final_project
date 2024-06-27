@@ -25,8 +25,16 @@ public class AdminDeptDao {
         return mapper.adminDeptSearch(empCategory, searchBox, offset, size);
     }
 
+    public List<DivisionVo> adminDeptSearchData(String empCategory, String searchBox, int offset, int size) {
+        return mapper.adminDeptSearchData(empCategory, searchBox, offset, size);
+    }
+
     public void enrollDiv(DivisionVo divisionVo) {
         mapper.enrollDiv(divisionVo);
+    }
+
+    public List<DivisionVo> enrollDivData(DivisionVo divisionVo) {
+        return mapper.enrollDivData(divisionVo);
     }
 
     public String getDeptName(String deptCode) {

@@ -18,8 +18,43 @@ public interface AdminEmpMapper {
             "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY")
     List<AdminEmpVo> adminEmpList(@Param("offset") int offset, @Param("limit") int limit);
 
+    @Select("SELECT E.NO, D.NAME AS DEPT_NAME, DIV.NAME AS DIV_NAME, P.NAME AS POSITION_NAME, E.NAME " +
+            "FROM EMPLOYEE E " +
+            "JOIN DEPARTMENT D ON E.DEPT_CODE = D.CODE " +
+            "JOIN DIVISION DIV ON E.DIV_CODE = DIV.CODE " +
+            "JOIN POSITION P ON E.POSITION_CODE = P.CODE " +
+            "ORDER BY E.NO " +
+            "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY")
+    List<AdminEmpVo> adminEmpListData(@Param("offset") int offset, @Param("limit") int limit);
+
     @Select("SELECT COUNT(*) FROM EMPLOYEE")
     int getTotalCount();
+
+    @Select({
+            "<script>",
+            "SELECT COUNT(*)",
+            "FROM EMPLOYEE E ",
+            "JOIN DEPARTMENT D ON E.DEPT_CODE = D.CODE ",
+            "JOIN DIVISION DIV ON E.DIV_CODE = DIV.CODE ",
+            "JOIN POSITION P ON E.POSITION_CODE = P.CODE ",
+            "WHERE ",
+            "<choose>",
+            "<when test='empCategory == \"deptName\"'>",
+            "D.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"divName\"'>",
+            "DIV.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"positionName\"'>",
+            "P.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"name\"'>",
+            "E.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "</choose>",
+            "</script>"
+    })
+    int getSearchTotalCount(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox);
 
     @Select("SELECT E.NO, D.NAME AS DEPT_NAME, DIV.NAME AS DIV_NAME, P.NAME AS POSITION_NAME, E.NAME, " +
             "E.DEPT_CODE, E.POSITION_CODE, E.STATE, E.SALARY_CODE, E.RANK, " +
@@ -60,5 +95,33 @@ public interface AdminEmpMapper {
     List<AdminEmpVo> adminEmpSearch(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox,
                                     @Param("offset") int offset, @Param("limit") int limit);
 
+    @Select({
+            "<script>",
+            "SELECT E.NO, D.NAME AS DEPT_NAME, DIV.NAME AS DIV_NAME, P.NAME AS POSITION_NAME, E.NAME ",
+            "FROM EMPLOYEE E ",
+            "JOIN DEPARTMENT D ON E.DEPT_CODE = D.CODE ",
+            "JOIN DIVISION DIV ON E.DIV_CODE = DIV.CODE ",  // Add this line to join the DIVISION table
+            "JOIN POSITION P ON E.POSITION_CODE = P.CODE ",
+            "WHERE ",
+            "<choose>",
+            "<when test='empCategory == \"deptName\"'>",
+            "D.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"divName\"'>",
+            "DIV.NAME LIKE '%' || #{searchBox} || '%'",  // This line requires the DIVISION table join
+            "</when>",
+            "<when test='empCategory == \"positionName\"'>",
+            "P.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"name\"'>",
+            "E.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "</choose>",
+            "ORDER BY E.NO ",
+            "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY",
+            "</script>"
+    })
+    List<AdminEmpVo> adminEmpSearchData(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox,
+                                        @Param("offset") int offset, @Param("limit") int limit);
 
 }

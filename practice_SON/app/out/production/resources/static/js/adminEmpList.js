@@ -19,11 +19,11 @@ $(document).ready(function() {
                 for (var i = 0; i < voList.length; i++) {
                     var vo = voList[i];
                     var row = '<div class="emp-row list-body-row">' +
-                         `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/detail?no=${vo.no}">${vo.no}</a></div>` +
+                        '<div class="emp-data list-body-low">' + vo.no + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.deptName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.divName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.positionName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.name + '</div>' +
+                        `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/detail?no=${vo.no}">${vo.name}</a></div>` +
                         '</div>';
                     $('#empContainer').append(row);
                 }
@@ -86,11 +86,11 @@ $(document).ready(function() {
                 for (var i = 0; i < voList.length; i++) {
                     var vo = voList[i];
                     var row = '<div class="emp-row list-body-row">' +
-                         `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/detail?no=${vo.no}">${vo.no}</a></div>` +
+                        '<div class="emp-data list-body-low">' + vo.no + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.deptName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.divName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.positionName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.name + '</div>' +
+                        `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/detail?no=${vo.no}">${vo.name}</a></div>` +
                         '</div>';
                     $('#empContainer').append(row);
                 }

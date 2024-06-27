@@ -18,20 +18,8 @@ public class AdminDeptController {
 
     private final AdminDeptService service;
 
-
-
     @GetMapping("list")
-    public String adminDeptList(
-            @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "20") int size,
-            Model model) {
-        List<DivisionVo> voList = service.adminDeptList(page, size);
-        int totalCount = service.getTotalCount();
-        int totalPages = (int) Math.ceil((double) totalCount / size);
-
-        model.addAttribute("voList", voList);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", totalPages);
+    public String adminDeptList() {
         return "adminDeptMngr/adminDeptList";
     }//method
 
@@ -52,20 +40,7 @@ public class AdminDeptController {
     }
 
     @PostMapping("search")
-    public String adminDeptSearch(
-            @RequestParam("empCategory") String empCategory,
-            @RequestParam("searchBox") String searchBox,
-            @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "20") int size,
-            Model model) {
-
-        List<DivisionVo> voList = service.adminDeptSearch(empCategory, searchBox, page, size);
-        int totalCount = service.getTotalCount();
-        int totalPages = (int) Math.ceil((double) totalCount / size);
-
-        model.addAttribute("voList", voList);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", totalPages);
+    public String adminDeptSearch() {
         return "adminDeptMngr/adminDeptList";
     }//method
 

@@ -17,8 +17,16 @@ public class AdminEmpDao {
         return mapper.adminEmpList(offset, size);
     }
 
+    public List<AdminEmpVo> adminEmpListData(int offset, int size) {
+        return mapper.adminEmpListData(offset, size);
+    }
+
     public int getTotalCount() {
         return mapper.getTotalCount();
+    }
+
+    public int getSearchTotalCount(String empCategory, String searchBox) {
+        return mapper.getSearchTotalCount(empCategory, searchBox);
     }
 
     public AdminEmpVo adminEmpByNo(String no) {
@@ -28,4 +36,9 @@ public class AdminEmpDao {
     public List<AdminEmpVo> adminEmpSearch(String empCategory, String searchBox, int offset, int size) {
         return mapper.adminEmpSearch(empCategory, searchBox, offset, size);
     }
+
+    public List<AdminEmpVo> adminEmpSearchData(String empCategory, String searchBox, int offset, int size) {
+        return mapper.adminEmpSearchData(empCategory, searchBox, offset, size);
+    }
+
 }

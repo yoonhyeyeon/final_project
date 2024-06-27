@@ -6,10 +6,7 @@ import com.kh.app.adminEmp.vo.AdminEmpVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,18 +22,48 @@ public class AdminEmpController {
     private final AdminEmpService service;
 
     @GetMapping("list")
-    public String adminEmpList(
+    public String adminEmpList() {
+        return "adminEmpMngr/adminEmpList";
+    }
+
+    @GetMapping("listData")
+    @ResponseBody
+    public Map<String, Object> adminEmpListData(
             @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "20") int size,
-            Model model) {
-        List<AdminEmpVo> voList = service.adminEmpList(page, size);
+            @RequestParam(value = "size", defaultValue = "20") int size) {
+        List<AdminEmpVo> voList = service.adminEmpListData(page, size);
         int totalCount = service.getTotalCount();
         int totalPages = (int) Math.ceil((double) totalCount / size);
 
-        model.addAttribute("voList", voList);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", totalPages);
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        result.put("currentPage", page);
+        result.put("totalPages", totalPages);
+        return result;
+    }
+
+    @PostMapping("search")
+    public String adminEmpSearch() {
         return "adminEmpMngr/adminEmpList";
+    }
+
+    @PostMapping("searchData")
+    @ResponseBody
+    public Map<String, Object> adminEmpSearchData(
+            @RequestParam("empCategory") String empCategory,
+            @RequestParam("searchBox") String searchBox,
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "20") int size) {
+
+        List<AdminEmpVo> voList = service.adminEmpSearchData(empCategory, searchBox, page, size);
+        int totalCount = service.getSearchTotalCount(empCategory, searchBox);
+        int totalPages = (int) Math.ceil((double) totalCount / size);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        result.put("currentPage", page);
+        result.put("totalPages", totalPages);
+        return result;
     }
 
     @GetMapping("detail")
@@ -46,39 +73,5 @@ public class AdminEmpController {
         return "adminEmpMngr/adminEmpDetail";
     }
 
-    @PostMapping("search")
-    public String adminEmpSearch(
-            @RequestParam("empCategory") String empCategory,
-            @RequestParam("searchBox") String searchBox,
-            @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "20") int size,
-            Model model) {
-
-        List<AdminEmpVo> voList = service.adminEmpSearch(empCategory, searchBox, page, size);
-        int totalCount = service.getTotalCount();
-        int totalPages = (int) Math.ceil((double) totalCount / size);
-
-        model.addAttribute("voList", voList);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("totalPages", totalPages);
-        return "adminEmpMngr/adminEmpList";
-    }
-
-//    // JSON 데이터를 반환하는 메서드 추가
-//    @GetMapping("/listData")
-//    public ResponseEntity<Map<String, Object>> getAdminEmpListData(
-//            @RequestParam(value = "page", defaultValue = "1") int page,
-//            @RequestParam(value = "size", defaultValue = "20") int size) {
-//        List<AdminEmpVo> voList = service.adminEmpList(page, size);
-//        int totalCount = service.getTotalCount();
-//        int totalPages = (int) Math.ceil((double) totalCount / size);
-//
-//        Map<String, Object> response = new HashMap<>();
-//        response.put("voList", voList);
-//        response.put("currentPage", page);
-//        response.put("totalPages", totalPages);
-//
-//        return ResponseEntity.ok(response);
-//    }
 
 }

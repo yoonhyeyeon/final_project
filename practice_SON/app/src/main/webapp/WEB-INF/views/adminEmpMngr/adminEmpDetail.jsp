@@ -5,84 +5,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
     <title>Document</title>
 </head>
 <body>
 
-    <table border="1">
-        <tr>
-            <td>사원번호</td>
-            <td>${vo.no}</td>
-        </tr>
-        <tr>
-            <td>부서명</td>
-            <td>${vo.deptName}</td>
-        </tr>
-            <tr>
-                <td>팀명</td>
-                <td>${vo.divName}</td>
-            </tr>
-        <tr>
-            <td>직책명</td>
-            <td>${vo.positionName}</td>
-        </tr>
-        <tr>
-            <td>상태</td>
-            <td>${vo.state}</td>
-        </tr>
-        <tr>
-            <td>연봉 코드</td>
-            <td>${vo.salaryCode}</td>
-        </tr>
-        <tr>
-            <td>직급</td>
-            <td>${vo.rank}</td>
-        </tr>
-        <tr>
-            <td>연봉</td>
-            <td>${vo.salary}</td>
-        </tr>
-        <tr>
-            <td>보너스</td>
-            <td>${vo.bonus}</td>
-        </tr>
-        <tr>
-            <td>아이디</td>
-            <td>${vo.id}</td>
-        </tr>
-        <tr>
-            <td>비밀번호</td>
-            <td>${vo.pwd}</td>
-        </tr>
-        <tr>
-            <td>닉네임</td>
-            <td>${vo.nick}</td>
-        </tr>
-        <tr>
-            <td>이름</td>
-            <td>${vo.name}</td>
-        </tr>
-        <tr>
-            <td>전화번호</td>
-            <td>${vo.phone}</td>
-        </tr>
-        <tr>
-            <td>주소</td>
-            <td>${vo.address}</td>
-        </tr>
-        <tr>
-            <td>입사일</td>
-            <td>${vo.enrollDate}</td>
-        </tr>
-        <tr>
-            <td>퇴사일</td>
-            <td>${vo.retireDate}</td>
-        </tr>
-        <tr>
-            <td>퇴사 여부</td>
-            <td>${vo.retireYn}</td>
-        </tr>
-    </table>
-    
+    <div class="form-container">
+        <div class="form-group">
+            <div class="label">이름</div>
+            <div class="value">${vo.name}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">전화번호</div>
+            <div class="value">${vo.phone}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">주소</div>
+            <div class="value">${vo.address}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">사원번호</div>
+            <div class="value">${vo.no}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">부서</div>
+            <div class="value">${vo.deptName}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">팀</div>
+            <div class="value">${vo.divName}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">직급</div>
+            <div class="value">${vo.positionName}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">직급</div>
+            <div class="value">${vo.rank}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">연봉</div>
+            <div class="value">${vo.salary}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">보너스</div>
+            <div class="value">${vo.bonus}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">아이디</div>
+            <div class="value">${vo.id}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">닉네임</div>
+            <div class="value">${vo.nick}</div>
+        </div>
+
+        <div class="form-group">
+            <div class="label">입사일</div>
+            <div class="value">${vo.enrollDate}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">퇴사일</div>
+            <div class="value">${vo.retireDate}</div>
+        </div>
+        <div class="form-group">
+            <div class="label">퇴사 여부</div>
+            <div class="value">${vo.retireYn}</div>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -18,11 +18,13 @@ public class AdminDeptController {
 
     private final AdminDeptService service;
 
+    // 목록 뷰
     @GetMapping("list")
     public String adminDeptList() {
         return "adminDeptMngr/adminDeptList";
     }//method
 
+    // 목록 데이터
     @GetMapping("listData")
     @ResponseBody
     public Map<String, Object> adminDeptListData(
@@ -39,11 +41,13 @@ public class AdminDeptController {
         return result;
     }
 
+    // 검색 화면
     @PostMapping("search")
     public String adminDeptSearch() {
         return "adminDeptMngr/adminDeptList";
     }//method
 
+    // 검색 데이터
     @PostMapping("searchData")
     @ResponseBody
     public Map<String, Object> adminDeptSearchData(
@@ -63,11 +67,13 @@ public class AdminDeptController {
         return result;
     }
 
+    // 수정 페이지 데이터 채우기
     @GetMapping("enrollDiv")
     public String enrollDivForm() {
         return "adminDeptMngr/adminDeptEnrollDiv";
     }//method
 
+    // 수정 제출
     @PostMapping("enrollDiv")
     public String enrollDiv(
             @RequestParam("deptCategory") String deptCode,

@@ -73,5 +73,15 @@ public class AdminEmpController {
         return "adminEmpMngr/adminEmpDetail";
     }
 
+    @GetMapping("enrollEmp")
+    public String adminEmpEnroll(){
+        return "adminEmpMngr/adminEmpEnroll";
+    }
+
+    @PostMapping("enrollEmpData")
+    public String adminEmpEnrollData(AdminEmpVo vo) {
+        service.adminEmpEnrollData(vo);
+        return "redirect:/adminEmpMngr/list";
+    }
 
 }

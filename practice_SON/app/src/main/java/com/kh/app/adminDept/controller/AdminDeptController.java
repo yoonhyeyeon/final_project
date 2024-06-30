@@ -67,13 +67,11 @@ public class AdminDeptController {
         return result;
     }
 
-    // 수정 페이지 데이터 채우기
     @GetMapping("enrollDiv")
     public String enrollDivForm() {
         return "adminDeptMngr/adminDeptEnrollDiv";
     }//method
 
-    // 수정 제출
     @PostMapping("enrollDiv")
     public String enrollDiv(
             @RequestParam("deptCategory") String deptCode,

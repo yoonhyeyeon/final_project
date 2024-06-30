@@ -26,7 +26,7 @@
                     <input type="text" id="searchBox" name="searchBox">
                     <button type="submit" class="tableButton">검색</button>
                 </form>
-                <button class="enroll-button" onclick="location.href='/adminEmpMngr/enrollEmp'">사원등록</button>
+                <button class="enroll-button" onclick="window.location.href='/adminEmpMngr/enrollEmp'">사원등록</button>
             </div>
         </body>
 

@@ -41,4 +41,8 @@ public class AdminEmpDao {
         return mapper.adminEmpSearchData(empCategory, searchBox, offset, size);
     }
 
+
+    public void adminEmpEnrollData(AdminEmpVo vo) {
+        mapper.adminEmpEnrollData(vo);
+    }
 }

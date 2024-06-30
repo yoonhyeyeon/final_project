@@ -26,7 +26,5 @@
 <div class="upload-container">
   <h5>프로필</h5>
   <h3>유저 정보 ::: ${loginMemberVo.nick}</h3>
-     <c:if test="${not empty loginMemberVo}">
-      <button onclick="location.href='/member/quit?num=${loginMemberVo.no}'">탈퇴하기</button>
-     </c:if>
+
 </div>

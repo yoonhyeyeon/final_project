@@ -1,6 +1,7 @@
 package com.kh.app.adminEmp.mapper;
 
 import com.kh.app.adminEmp.vo.AdminEmpVo;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -124,4 +125,8 @@ public interface AdminEmpMapper {
     List<AdminEmpVo> adminEmpSearchData(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox,
                                         @Param("offset") int offset, @Param("limit") int limit);
 
+
+    @Insert("INSERT INTO EMPLOYEE (NO, ID, NICK, PWD, NAME, PHONE, ADDRESS, DEPT_CODE, DIV_CODE, POSITION_CODE, ENROLL_DATE) " +
+            "VALUES (SEQ_EMPLOYEE.NEXTVAL, #{id}, #{nick}, #{pwd}, #{name}, #{phone}, #{address}, #{deptCode}, #{divCode}, #{positionCode}, #{enrollDate})")
+    void adminEmpEnrollData(AdminEmpVo vo);
 }

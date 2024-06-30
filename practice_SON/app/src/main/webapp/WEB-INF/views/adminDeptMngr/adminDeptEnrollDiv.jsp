@@ -5,9 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>부서 등록</title>
+    <link rel="stylesheet" type="text/css" href="/css/adminDeptList.css">
     <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="/js/adminDeptEnrollDiv.js"></script>
+    <script defer src="/js/adminDeptListEnroll.js"></script>
+    <title>부서 등록</title>
 </head>
 <body>
     <div class="form-container">
@@ -44,9 +47,17 @@
             <input class="enroll-button" type="submit" value="작성하기">
         </div>
     </div>
-    <div>
-        <div class="team-container list-container" id="teamContainer"></div>
-        <div class="pagination" id="pagination"></div>
+    <div id="search-form" class="search-form">
+        <form id="searchForm">
+            <select id="empCategory">
+                <option value="deptName">부서</option>
+                <option value="name">팀</option>
+            </select>
+            <input type="text" id="searchBox" name="searchBox">
+            <button type="submit" class="tableButton">검색</button>
+        </form>
     </div>
-</body>
+    <div class="team-container list-container" id="teamContainer"></div>
+    <div class="pagination" id="pagination"></div>
+
 </html>

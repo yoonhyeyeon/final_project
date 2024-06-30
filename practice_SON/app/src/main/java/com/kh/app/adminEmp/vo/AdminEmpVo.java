@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class AdminEmpVo {
 
-    // employee table
     private String no;
     private String deptCode;
+    private String divCode;
     private String positionCode;
     private String state;
     private String salaryCode;

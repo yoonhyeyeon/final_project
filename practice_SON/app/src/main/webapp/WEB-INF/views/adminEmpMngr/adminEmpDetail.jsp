@@ -40,10 +40,6 @@
             <div class="value">${vo.positionName}</div>
         </div>
         <div class="form-group">
-            <div class="label">직급</div>
-            <div class="value">${vo.rank}</div>
-        </div>
-        <div class="form-group">
             <div class="label">연봉</div>
             <div class="value">${vo.salary}</div>
         </div>
@@ -59,7 +55,6 @@
             <div class="label">닉네임</div>
             <div class="value">${vo.nick}</div>
         </div>
-
         <div class="form-group">
             <div class="label">입사일</div>
             <div class="value">${vo.enrollDate}</div>

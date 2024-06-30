@@ -46,4 +46,8 @@ public class AdminEmpService {
         return dao.adminEmpSearchData(empCategory, searchBox, offset, size);
     }
 
+
+    public void adminEmpEnrollData(AdminEmpVo vo) {
+        dao.adminEmpEnrollData(vo);
+    }
 }

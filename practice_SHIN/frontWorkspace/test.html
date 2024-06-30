@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파이널</title>
+
+</head>
+<body>
+   <h1>게시글 작성 ~ !</h1>
+
+   <input type="text" id="title">
+   <br/>
+   <textarea id="content"></textarea>
+   <br/>
+   <button onclick="write();">작성하기</button>
+
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+  function write() {
+    //제목, 내용 가져오기
+    const titleValue = document.querySelector("#title").value; //아이디가 타이틀인 요소의 벨류 꺼냄
+    const contentValue = document.querySelector("#content").innerText;
+    //api 호출하기
+
+    $ajax{
+      url: "http://127.0.0.1:8989/api.board",
+      type:'post',
+      data:{
+        title:'ttt',
+        content:'ccccccc',
+        writerNo:1,
+      },
+
+      success: function(x){
+        console.log(x);
+      },
+      
+      error: function (x) {
+        console.log(error);
+      },
+
+    }
+  }
+</script>
+
+
+
+
+
+

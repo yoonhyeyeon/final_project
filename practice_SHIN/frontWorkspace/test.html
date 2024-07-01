@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -9,50 +10,61 @@
 
 </head>
 <body>
-   <h1>게시글 작성 ~ !</h1>
+   <h1>공지사항 상세조회</h1>
+ 
+      <input type="text" name="title" placeholder="제목" readonly>
+     <br>
+     <input type="submit" name="content" placeholder="내용" readonly0>
 
-   <input type="text" id="title">
-   <br/>
-   <textarea id="content"></textarea>
-   <br/>
-   <button onclick="write();">작성하기</button>
+     <button onclick="location.href='/notice/delete'">삭제하기</button>
 
+     <table>
+      <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>조회수</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+     </table>
 
 </body>
 </html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
 <script>
-  function write() {
-    //제목, 내용 가져오기
-    const titleValue = document.querySelector("#title").value; //아이디가 타이틀인 요소의 벨류 꺼냄
-    const contentValue = document.querySelector("#content").innerText;
-    //api 호출하기
 
-    $ajax{
-      url: "http://127.0.0.1:8989/api.board",
-      type:'post',
-      data:{
-        title:'ttt',
-        content:'ccccccc',
-        writerNo:1,
-      },
+$.ajax({
+  url:"http://127.0.0.1:8989/api/notice/list",
+  method:"get",
+  data:{},
+  success:function (x) {
+    const voList = x;
 
-      success: function(x){
-        console.log(x);
-      },
-      
-      error: function (x) {
-        console.log(error);
-      },
+    const tbody = document.querySelector("tbody");
+    let str = "";
 
+    for (let i = 0; i < voList.length; ++i) {
+      str += "<tr>";
+      str += "<td>"+voList[i].title+"</td>";
+      str += "<td>"+voList[i].content+"</td>";
+      str += "<td>"+voList[i].hit+"</td>";
+      str += "<tr>";
     }
-  }
+
+    tbody.innerHTML = str;
+  },
+
+});
+
+
+
+  
+  
 </script>
-
-
-
-
-
-

@@ -50,4 +50,8 @@ public class AdminEmpService {
     public void adminEmpEnrollData(AdminEmpVo vo) {
         dao.adminEmpEnrollData(vo);
     }
+
+    public Map<String, Object> adminEmpByNoData(AdminEmpVo vo) {
+        return dao.adminEmpByNoData(vo);
+    }
 }

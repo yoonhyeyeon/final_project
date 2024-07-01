@@ -23,6 +23,10 @@ public class AdminDeptService {
         return dao.getTotalCount();
     }
 
+    public int getSearchTotalCount(String empCategory, String searchBox) {
+        return dao.getSearchTotalCount(empCategory, searchBox);
+    }
+
     public List<DivisionVo> adminDeptSearch(String empCategory, String searchBox, int page, int size) {
         int offset = (page - 1) * size;
         return dao.adminDeptSearch(empCategory, searchBox, offset, size);
@@ -41,7 +45,7 @@ public class AdminDeptService {
     }
 
     @Transactional
-    public List<DivisionVo> enrollDivData(DivisionVo divisionVo) {
+    public int enrollDivData(DivisionVo divisionVo) {
         String deptName = dao.getDeptName(divisionVo.getDeptCode());
         divisionVo.setDeptName(deptName);
         return dao.enrollDivData(divisionVo);
@@ -55,6 +59,5 @@ public class AdminDeptService {
     public void updateDivision(DivisionVo divisionVo) {
         dao.updateDivision(divisionVo);
     }
-
 
 }

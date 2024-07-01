@@ -57,7 +57,7 @@ public class AdminDeptController {
             @RequestParam(value = "size", defaultValue = "20") int size) {
 
         List<DivisionVo> voList = service.adminDeptSearchData(empCategory, searchBox, page, size);
-        int totalCount = service.getTotalCount();
+        int totalCount = service.getSearchTotalCount(empCategory, searchBox);
         int totalPages = (int) Math.ceil((double) totalCount / size);
 
         Map<String, Object> result = new HashMap<>();
@@ -72,30 +72,29 @@ public class AdminDeptController {
         return "adminDeptMngr/adminDeptEnrollDiv";
     }//method
 
-    @PostMapping("enrollDiv")
-    public String enrollDiv(
-            @RequestParam("deptCategory") String deptCode,
-            @RequestParam("name") String name,
-            @RequestParam("code") String code,
-            @RequestParam("enrollDate") String enrollDate,
-            @RequestParam("stateCategory") String state) {
-
-        DivisionVo divisionVo = new DivisionVo();
-        divisionVo.setDeptCode(deptCode);
-        divisionVo.setName(name);
-        divisionVo.setCode(code);
-        divisionVo.setEnrollDate(enrollDate);
-        divisionVo.setState(state);
-
-        // 서비스에 데이터 전달
-        service.enrollDiv(divisionVo);
-
-        return "redirect:/adminDeptMngr/list";
-    }//method
+//    @PostMapping("enrollDiv")
+//    public String enrollDiv(
+//            @RequestParam("deptCategory") String deptCode,
+//            @RequestParam("name") String name,
+//            @RequestParam("code") String code,
+//            @RequestParam("enrollDate") String enrollDate,
+//            @RequestParam("stateCategory") String state) {
+//
+//        DivisionVo divisionVo = new DivisionVo();
+//        divisionVo.setDeptCode(deptCode);
+//        divisionVo.setName(name);
+//        divisionVo.setCode(code);
+//        divisionVo.setEnrollDate(enrollDate);
+//        divisionVo.setState(state);
+//
+//        // 서비스에 데이터 전달
+//        service.enrollDiv(divisionVo);
+//
+//        return "redirect:/adminDeptMngr/list";
+//    }//method
 
     @PostMapping("enrollDivData")
-    @ResponseBody
-    public Map<String, Object> enrollDivData(
+    public String enrollDivData(
             @RequestParam("deptCategory") String deptCode,
             @RequestParam("name") String name,
             @RequestParam("code") String code,
@@ -110,11 +109,9 @@ public class AdminDeptController {
         divisionVo.setState(state);
 
         // 서비스에 데이터 전달
-        List<DivisionVo> voList = service.enrollDivData(divisionVo);
-        Map<String, Object> result = new HashMap<>();
-        result.put("voList", voList);
+        service.enrollDivData(divisionVo);
 
-        return result;
+        return "redirect:/adminDeptMngr/list";
     }
 
     @GetMapping("edit")

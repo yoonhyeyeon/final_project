@@ -6,40 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
-    <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.submit-button').click(function(event) {
-                event.preventDefault();
-
-                var formData = {
-                    id: $('input[name="id"]').val(),
-                    nick: $('input[name="nick"]').val(),
-                    pwd: $('input[name="pwd"]').val(),
-                    name: $('input[name="name"]').val(),
-                    phone: $('input[name="phone"]').val(),
-                    address: $('input[name="address"]').val(),
-                    deptCode: $('input[name="deptCode"]').val(),
-                    divCode: $('input[name="divCode"]').val(),
-                    positionCode: $('input[name="positionCode"]').val(),
-                    enrollDate: $('input[name="enrollDate"]').val()
-                };
-
-                $.ajax({
-                    type: 'POST',
-                    url: 'enrollEmpData',
-                    data: formData,
-                    success: function(response) {
-                        window.location.href = '/adminEmpMngr/list';
-                    },
-                    error: function(error) {
-                        console.log('Error:', error);
-                    }
-                });
-            });
-        });
-    </script>
+    <script defer src="/js/adminEmpEnroll.js"></script>
+    <title>Document</title>
 </head>
 <body>
     <div class="form-container">

@@ -66,11 +66,34 @@ public class AdminEmpController {
         return result;
     }
 
+//    @GetMapping("detail")
+//    public String adminEmpByNo(@RequestParam("no") String no, Model model) {
+//        AdminEmpVo vo = service.adminEmpByNo(no);
+//        model.addAttribute("vo", vo);
+//        return "adminEmpMngr/adminEmpDetail";
+//    }
+
     @GetMapping("detail")
-    public String adminEmpByNo(@RequestParam("no") String no, Model model) {
-        AdminEmpVo vo = service.adminEmpByNo(no);
-        model.addAttribute("vo", vo);
+    public String adminEmpByNo() {
         return "adminEmpMngr/adminEmpDetail";
+    }
+
+//    @GetMapping("detailData")
+//    @ResponseBody
+//    public Map<String, Object> adminEmpByNoData(String no){
+//        AdminEmpVo vo = service.adminEmpByNoData(no);
+//        Map<String, Object> result = new HashMap<>();
+//        result.put("vo", vo);
+//        return result;
+//    }
+
+    @GetMapping("detailData")
+    @ResponseBody
+    public Map<String, Object> adminEmpByNoData(@RequestParam("no") String no) {
+        AdminEmpVo vo = service.adminEmpByNo(no);
+        Map<String, Object> result = new HashMap<>();
+        result.put("vo", vo);
+        return result;
     }
 
     @GetMapping("enrollEmp")
@@ -82,6 +105,11 @@ public class AdminEmpController {
     public String adminEmpEnrollData(AdminEmpVo vo) {
         service.adminEmpEnrollData(vo);
         return "redirect:/adminEmpMngr/list";
+    }
+
+    @GetMapping("edit")
+    public String adminEmpEdit(){
+        return "adminEmpMngr/adminEmpEdit";
     }
 
 }

@@ -2,6 +2,8 @@ package com.kh.app.adminEmp.dao;
 
 import com.kh.app.adminEmp.mapper.AdminEmpMapper;
 import com.kh.app.adminEmp.vo.AdminEmpVo;
+import com.kh.app.adminEmp.vo.DivisionVo;
+import com.kh.app.adminEmp.vo.PositionVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -49,5 +51,17 @@ public class AdminEmpDao {
 
     public Map<String, Object> adminEmpByNoData(AdminEmpVo vo) {
         return mapper.adminEmpByNoData(vo);
+    }
+
+    public List<DivisionVo> getDivCode(String no) {
+        return mapper.getDivCode(no);
+    }
+
+    public AdminEmpVo selectEmployeeByNo(String no) {
+        return mapper.selectEmployeeByNo(no);
+    }
+
+    public int updateEmployee(AdminEmpVo vo) {
+        return mapper.updateEmployee(vo);
     }
 }

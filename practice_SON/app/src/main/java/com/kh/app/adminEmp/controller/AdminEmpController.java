@@ -1,6 +1,8 @@
 package com.kh.app.adminEmp.controller;
 
 import com.kh.app.adminEmp.service.AdminEmpService;
+import com.kh.app.adminEmp.vo.DivisionVo;
+import com.kh.app.adminEmp.vo.PositionVo;
 import org.springframework.http.ResponseEntity;
 import com.kh.app.adminEmp.vo.AdminEmpVo;
 import lombok.RequiredArgsConstructor;
@@ -87,13 +89,19 @@ public class AdminEmpController {
 //        return result;
 //    }
 
+//    @GetMapping("detailData")
+//    @ResponseBody
+//    public Map<String, Object> adminEmpByNoData(@RequestParam("no") String no) {
+//        AdminEmpVo vo = service.adminEmpByNo(no);
+//        Map<String, Object> result = new HashMap<>();
+//        result.put("vo", vo);
+//        return result;
+//    }
+
     @GetMapping("detailData")
     @ResponseBody
-    public Map<String, Object> adminEmpByNoData(@RequestParam("no") String no) {
-        AdminEmpVo vo = service.adminEmpByNo(no);
-        Map<String, Object> result = new HashMap<>();
-        result.put("vo", vo);
-        return result;
+    public AdminEmpVo adminEmpByNoData(@RequestParam("no") String no) {
+        return service.adminEmpByNo(no);
     }
 
     @GetMapping("enrollEmp")
@@ -110,6 +118,35 @@ public class AdminEmpController {
     @GetMapping("edit")
     public String adminEmpEdit(){
         return "adminEmpMngr/adminEmpEdit";
+    }
+
+    @GetMapping("editData")
+    @ResponseBody
+    public AdminEmpVo adminEmpEditData(@RequestParam("no") String no){
+        return service.adminEmpByNo(no);
+    }
+
+    @GetMapping("getDivCode")
+    @ResponseBody
+    public Map<String, Object> getDivCode(@RequestParam("deptCode") String deptCode){
+        List<DivisionVo> voList = service.getDivCode(deptCode);
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        return result;
+    }
+
+    @GetMapping("editPostData")
+    public AdminEmpVo editData(@RequestParam("no") String no) {
+        return service.getEmployeeDetail(no);
+    }
+
+    @PostMapping("/updateEmpData")
+    @ResponseBody
+    public String updateEmpData(@RequestBody AdminEmpVo vo) {
+        int result = service.updateEmployee(vo);
+        System.out.println("result" + result);
+        System.out.println("vo = " + vo);
+        return "사원 정보가 성공적으로 수정되었습니다.";
     }
 
 }

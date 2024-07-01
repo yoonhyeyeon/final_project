@@ -2,6 +2,8 @@ package com.kh.app.adminEmp.service;
 
 import com.kh.app.adminEmp.dao.AdminEmpDao;
 import com.kh.app.adminEmp.vo.AdminEmpVo;
+import com.kh.app.adminEmp.vo.DivisionVo;
+import com.kh.app.adminEmp.vo.PositionVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +48,6 @@ public class AdminEmpService {
         return dao.adminEmpSearchData(empCategory, searchBox, offset, size);
     }
 
-
     public void adminEmpEnrollData(AdminEmpVo vo) {
         dao.adminEmpEnrollData(vo);
     }
@@ -54,4 +55,17 @@ public class AdminEmpService {
     public Map<String, Object> adminEmpByNoData(AdminEmpVo vo) {
         return dao.adminEmpByNoData(vo);
     }
+
+    public List<DivisionVo> getDivCode(String no) {
+        return dao.getDivCode(no);
+    }
+
+    public AdminEmpVo getEmployeeDetail(String no) {
+        return dao.selectEmployeeByNo(no);
+    }
+
+    public int updateEmployee(AdminEmpVo vo) {
+        return  dao.updateEmployee(vo);
+    }
+
 }

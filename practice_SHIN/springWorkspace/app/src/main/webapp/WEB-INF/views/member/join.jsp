@@ -38,7 +38,7 @@
 
 
         <label for="position">직책</label>
-        <select id="position" name="position_code">
+        <select id="position" name="positionCode">
           <option value="90">사원</option>
           <option value="80">주임</option>
           <option value="70">대리</option>

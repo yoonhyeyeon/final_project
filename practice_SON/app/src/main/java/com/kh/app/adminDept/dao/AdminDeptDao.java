@@ -21,6 +21,10 @@ public class AdminDeptDao {
         return mapper.getTotalCount();
     }
 
+    public int getSearchTotalCount(String empCategory, String searchBox) {
+        return mapper.getSearchTotalCount(empCategory, searchBox);
+    }
+
     public List<DivisionVo> adminDeptSearch(String empCategory, String searchBox, int offset, int size) {
         return mapper.adminDeptSearch(empCategory, searchBox, offset, size);
     }
@@ -33,7 +37,7 @@ public class AdminDeptDao {
         mapper.enrollDiv(divisionVo);
     }
 
-    public List<DivisionVo> enrollDivData(DivisionVo divisionVo) {
+    public int enrollDivData(DivisionVo divisionVo) {
         return mapper.enrollDivData(divisionVo);
     }
 

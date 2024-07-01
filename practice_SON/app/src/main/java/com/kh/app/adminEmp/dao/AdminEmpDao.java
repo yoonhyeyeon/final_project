@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
@@ -44,5 +45,9 @@ public class AdminEmpDao {
 
     public void adminEmpEnrollData(AdminEmpVo vo) {
         mapper.adminEmpEnrollData(vo);
+    }
+
+    public Map<String, Object> adminEmpByNoData(AdminEmpVo vo) {
+        return mapper.adminEmpByNoData(vo);
     }
 }

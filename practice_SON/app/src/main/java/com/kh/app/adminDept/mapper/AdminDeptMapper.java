@@ -70,13 +70,32 @@ public interface AdminDeptMapper {
     @Select("SELECT COUNT(*) FROM DIVISION")
     int getTotalCount();
 
+    @Select({"<script>",
+            "SELECT COUNT(*)" +
+                    "FROM DIVISION D " +
+                    "JOIN DEPARTMENT DEPT ON D.DEPT_CODE = DEPT.CODE " +
+                    "WHERE ",
+            "<choose>",
+            "<when test='empCategory == \"deptName\"'>",
+            "DEPT.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"name\"'>",
+            "D.NAME LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "<when test='empCategory == \"state\"'>",
+            "D.STATE LIKE '%' || #{searchBox} || '%'",
+            "</when>",
+            "</choose>",
+            "</script>"})
+    int getSearchTotalCount(String empCategory, String searchBox);
+
     @Insert("INSERT INTO DIVISION (CODE, DEPT_CODE, NAME, STATE, ENROLL_DATE, MODIFY_DATE, END_DATE) " +
             "VALUES (#{code}, #{deptCode}, #{name}, #{state}, #{enrollDate}, CURRENT_TIMESTAMP, NULL)")
     void enrollDiv(DivisionVo divisionVo);
 
     @Insert("INSERT INTO DIVISION (CODE, DEPT_CODE, NAME, STATE, ENROLL_DATE, MODIFY_DATE, END_DATE) " +
             "VALUES (#{code}, #{deptCode}, #{name}, #{state}, #{enrollDate}, CURRENT_TIMESTAMP, NULL)")
-    List<DivisionVo> enrollDivData(DivisionVo divisionVo);
+    int enrollDivData(DivisionVo divisionVo);
 
     @Select("SELECT NAME FROM DEPARTMENT WHERE CODE = #{deptCode}")
     String getDeptName(@Param("deptCode") String deptCode);

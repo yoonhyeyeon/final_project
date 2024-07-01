@@ -70,9 +70,10 @@
             <div class="label">퇴사 여부</div>
             <div class="value" id="retireYn">${vo.retireYn}</div>
         </div>
-            <button class="edit-button" id="updateButton" onclick="location.href='/adminEmpMngr/edit?empNo=${vo.no}'">사원 정보 수정</button>
+            <button class="edit-button" id="updateButton">사원 정보 수정</button>
             <button class="getBack-button" id="listButton" onclick="location.href='/adminEmpMngr/list'">목록으로</button>
     </div>
 
 </body>
+
 </html>

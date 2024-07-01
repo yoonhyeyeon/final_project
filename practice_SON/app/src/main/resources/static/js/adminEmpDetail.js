@@ -8,19 +8,20 @@ $(document).ready(function() {
         method: 'GET',
         success: function(employeeDetail) { // employeeDetail 매개변수 추가
             // 필요한 정보들을 각각의 요소에 설정
-            $('#name').text(employeeDetail.vo.name);
-            $('#phone').text(employeeDetail.vo.phone);
-            $('#address').text(employeeDetail.vo.address);
-            $('#deptName').text(employeeDetail.vo.deptName);
-            $('#divName').text(employeeDetail.vo.divName);
-            $('#positionName').text(employeeDetail.vo.positionName);
-            $('#salary').text(employeeDetail.vo.salary);
-            $('#bonus').text(employeeDetail.vo.bonus);
-            $('#id').text(employeeDetail.vo.id);
-            $('#nick').text(employeeDetail.vo.nick);
-            $('#enrollDate').text(employeeDetail.vo.enrollDate);
-            $('#retireDate').text(employeeDetail.vo.retireDate);
-            $('#retireYn').text(employeeDetail.vo.retireYn);
+            $('#no').text(employeeDetail.no);
+            $('#name').text(employeeDetail.name);
+            $('#phone').text(employeeDetail.phone);
+            $('#address').text(employeeDetail.address);
+            $('#deptName').text(employeeDetail.deptName);
+            $('#divName').text(employeeDetail.divName);
+            $('#positionName').text(employeeDetail.positionName);
+            $('#salary').text(employeeDetail.salary);
+            $('#bonus').text(employeeDetail.bonus);
+            $('#id').text(employeeDetail.id);
+            $('#nick').text(employeeDetail.nick);
+            $('#enrollDate').text(employeeDetail.enrollDate);
+            $('#retireDate').text(employeeDetail.retireDate);
+            $('#retireYn').text(employeeDetail.retireYn);
         },
         error: function(xhr, status, error) {
             // 에러 처리 로직
@@ -29,5 +30,11 @@ $(document).ready(function() {
             console.log('상태:', status);
             console.log('응답 내용:', xhr.responseText);
         }
+    });
+
+    // 버튼 클릭 시 사원 번호를 가져와서 URL에 추가
+    $('#updateButton').click(function() {
+        var empNo = $('#no').text();
+        location.href = '/adminEmpMngr/edit?no=' + empNo;
     });
 });

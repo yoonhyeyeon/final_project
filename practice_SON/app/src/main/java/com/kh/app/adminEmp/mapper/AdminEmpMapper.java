@@ -1,9 +1,12 @@
 package com.kh.app.adminEmp.mapper;
 
 import com.kh.app.adminEmp.vo.AdminEmpVo;
+import com.kh.app.adminEmp.vo.DivisionVo;
+import com.kh.app.adminEmp.vo.PositionVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 import java.util.Map;
@@ -140,4 +143,27 @@ public interface AdminEmpMapper {
             "JOIN DIVISION DIV ON E.DIV_CODE = DIV.CODE " +
             "JOIN POSITION P ON E.POSITION_CODE = P.CODE WHERE E.NO = #{no}")
     Map<String, Object> adminEmpByNoData(AdminEmpVo vo);
+
+    @Select("SELECT * FROM DIVISION WHERE DEPT_CODE = #{no}")
+    List<DivisionVo> getDivCode(String no);
+
+    @Insert("INSERT INTO EMPLOYEE (NO, ID, NICK, PWD, NAME, PHONE, ADDRESS, DEPT_CODE, DIV_CODE, POSITION_CODE, ENROLL_DATE) " +
+            "VALUES (SEQ_EMPLOYEE.NEXTVAL, #{id}, #{nick}, #{pwd}, #{name}, #{phone}, #{address}, #{deptCode}, #{divCode}, #{positionCode}, #{enrollDate})")
+    AdminEmpVo adminEmpEditData(String no);
+
+    @Select("SELECT * FROM EMPLOYEE WHERE NO = #{no}")
+    AdminEmpVo selectEmployeeByNo(@Param("no") String empNo);
+
+    @Update("UPDATE EMPLOYEE " +
+            "SET ID = #{id}, " +
+            "NICK = #{nick}, " +
+            "NAME = #{name}, " +
+            "PHONE = #{phone}, " +
+            "ADDRESS = #{address}, " +
+            "ENROLL_DATE = #{enrollDate}, " +
+            "DEPT_CODE = #{deptCode}, " +
+            "DIV_CODE = #{divCode}, " +
+            "POSITION_CODE = #{positionCode} " +
+            "WHERE NO = #{no}")
+    int updateEmployee(AdminEmpVo vo);
 }

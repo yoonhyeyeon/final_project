@@ -26,7 +26,7 @@ public class AdminEmpController {
     @GetMapping("list")
     public String adminEmpList() {
         return "adminEmpMngr/adminEmpList";
-    }
+    }//method
 
     @GetMapping("listData")
     @ResponseBody
@@ -42,12 +42,12 @@ public class AdminEmpController {
         result.put("currentPage", page);
         result.put("totalPages", totalPages);
         return result;
-    }
+    }//method
 
     @PostMapping("search")
     public String adminEmpSearch() {
         return "adminEmpMngr/adminEmpList";
-    }
+    }//method
 
     @PostMapping("searchData")
     @ResponseBody
@@ -66,19 +66,19 @@ public class AdminEmpController {
         result.put("currentPage", page);
         result.put("totalPages", totalPages);
         return result;
-    }
+    }//method
 
 //    @GetMapping("detail")
 //    public String adminEmpByNo(@RequestParam("no") String no, Model model) {
 //        AdminEmpVo vo = service.adminEmpByNo(no);
 //        model.addAttribute("vo", vo);
 //        return "adminEmpMngr/adminEmpDetail";
-//    }
+//    }//method
 
     @GetMapping("detail")
     public String adminEmpByNo() {
         return "adminEmpMngr/adminEmpDetail";
-    }
+    }//method
 
 //    @GetMapping("detailData")
 //    @ResponseBody
@@ -87,7 +87,7 @@ public class AdminEmpController {
 //        Map<String, Object> result = new HashMap<>();
 //        result.put("vo", vo);
 //        return result;
-//    }
+//    }//method
 
 //    @GetMapping("detailData")
 //    @ResponseBody
@@ -96,35 +96,35 @@ public class AdminEmpController {
 //        Map<String, Object> result = new HashMap<>();
 //        result.put("vo", vo);
 //        return result;
-//    }
+//    }//method
 
     @GetMapping("detailData")
     @ResponseBody
     public AdminEmpVo adminEmpByNoData(@RequestParam("no") String no) {
         return service.adminEmpByNo(no);
-    }
+    }//method
 
     @GetMapping("enrollEmp")
     public String adminEmpEnroll(){
         return "adminEmpMngr/adminEmpEnroll";
-    }
+    }//method
 
     @PostMapping("enrollEmpData")
     public String adminEmpEnrollData(AdminEmpVo vo) {
         service.adminEmpEnrollData(vo);
         return "redirect:/adminEmpMngr/list";
-    }
+    }//method
 
     @GetMapping("edit")
     public String adminEmpEdit(){
         return "adminEmpMngr/adminEmpEdit";
-    }
+    }//method
 
     @GetMapping("editData")
     @ResponseBody
     public AdminEmpVo adminEmpEditData(@RequestParam("no") String no){
         return service.adminEmpByNo(no);
-    }
+    }//method
 
     @GetMapping("getDivCode")
     @ResponseBody
@@ -133,20 +133,19 @@ public class AdminEmpController {
         Map<String, Object> result = new HashMap<>();
         result.put("voList", voList);
         return result;
-    }
+    }//method
 
     @GetMapping("editPostData")
     public AdminEmpVo editData(@RequestParam("no") String no) {
         return service.getEmployeeDetail(no);
-    }
+    }//method
 
     @PostMapping("updateEmpData")
     @ResponseBody
     public String updateEmpData(@RequestBody AdminEmpVo vo) {
         int result = service.updateEmployee(vo);
-        System.out.println("result" + result);
-        System.out.println("vo = " + vo);
+
         return "사원 정보가 성공적으로 수정되었습니다.";
-    }
+    }//method
 
 }

@@ -7,6 +7,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="/css/adminDeptEdit.css">
+            <link rel="stylesheet" type="text/css" href="/css/adminPageBtn.css">
             <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script defer src="/js/adminDeptEdit.js"></script>
             <title>팀 수정</title>
@@ -59,7 +60,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="수정하기">
+                            <input type="submit" class="edit-button" value="수정하기">
                             <button class="getBack-button" id="listButton" onclick="location.href='/adminDeptMngr/list'">목록으로</button>
                         </div>
                     </form>

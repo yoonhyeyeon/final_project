@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/adminDeptList.css">
     <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
+    <link rel="stylesheet" type="text/css" href="/css/adminPageBtn.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="/js/adminDeptEnrollDiv.js"></script>
     <script defer src="/js/adminDeptListEnroll.js"></script>
@@ -46,6 +47,7 @@
             </div>
             <div class="form-group">
                 <input class="enroll-button" type="submit" value="작성하기">
+                <button class="getBack-button" id="listButton" onclick="location.href='/adminDeptMngr/list'">목록으로</button>
             </div>
         </div>
         <div id="search-form" class="search-form">

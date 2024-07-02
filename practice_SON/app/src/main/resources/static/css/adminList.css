@@ -6,7 +6,6 @@
   font-style: normal;
 }
 
-/* Global styles */
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +26,6 @@
   }
 }
 
-/* Team container styles */
 .list-container {
   display: flex;
   flex-direction: column;
@@ -46,7 +44,7 @@
   padding: 4px;
   border-bottom: 1px solid #000;
   font-family: 'Do Hyeon', sans-serif;
-  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr; /* Make sure grid template columns are applied */
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr;
 }
 
 .list-header-row > div{
@@ -73,22 +71,22 @@
   align-items: center;
   border-bottom: 1px solid #ccc;
   font-family: 'Do Hyeon', sans-serif;
-  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr; /* Make sure grid template columns are applied */
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr;
 }
 
 .team-row {
-  display: grid; /* Ensure team-row uses grid layout */
-  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr; /* Define grid columns */
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr;
 }
 
 .emp-row {
-  display: grid; /* Ensure emp-row uses grid layout */
-  grid-template-columns: 1fr 2fr 2fr 1fr 1fr 1fr; /* Define grid columns */
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr 1fr;
 }
 
 .dept-detail-row {
-  display: grid; /* Ensure emp-row uses grid layout */
-  grid-template-columns: 1fr 1fr 1fr; /* Define grid columns */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .list-body-row:hover {
@@ -104,11 +102,11 @@
   color: blue;
   text-align: center;
   font-family: 'Do Hyeon', sans-serif;
-  z-index: 10; /* Ensure links are on top */
-  position: relative; /* Needed to ensure z-index works */
+  z-index: 10;
+  position: relative;
 }
 
-/* Pagination styles */
+
 .pagination {
   margin-top: 20px;
   text-align: center;
@@ -131,7 +129,6 @@
   text-decoration: underline;
 }
 
-/* Search form styles */
 .search-form {
   margin-top: 20px;
   display: flex;
@@ -140,43 +137,3 @@
   font-family: 'Do Hyeon', sans-serif;
 }
 
-.search-form select,
-.search-form input[type="text"],
-.search-form button {
-  margin: 0 5px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  font-family: 'Do Hyeon', sans-serif;
-  font-size: 13pt;
-}
-
-.search-form button {
-  background-color: #ddd;
-  color: #4a8fad;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.search-form button:hover {
-  background-color: #93e9ff;
-  box-shadow: 0 0 15px rgba(138, 228, 255, 0.6);
-}
-
-/* "프로젝트등록" button styles */
-.enroll-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #ddd;
-  color: #4a8fad;
-  font-family: 'Do Hyeon', sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.enroll-button:hover {
-  background-color: #93e9ff;
-  box-shadow: 0 0 15px rgba(138, 228, 255, 0.6);
-}

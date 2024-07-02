@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // 검색 폼 제출 시 데이터 로드
     $('#search-form').on('submit', function(event) {
         event.preventDefault();
         var empCategory = $('#empCategory').val();
@@ -36,7 +35,6 @@ $(document).ready(function() {
                     $('#empContainer').append(row);
                 }
 
-                // 페이지네이션 생성
                 createPagination(response.totalPages, 1); // 검색 후 첫 번째 페이지 기준으로 생성
             },
             error: function(xhr, status, error) {

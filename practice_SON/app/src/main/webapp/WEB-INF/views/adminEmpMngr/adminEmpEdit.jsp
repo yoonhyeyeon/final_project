@@ -7,6 +7,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
+            <link rel="stylesheet" type="text/css" href="/css/adminPageBtn.css">
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script defer src="/js/adminEmpEdit.js"></script>
             <script defer src="/js/adminEmpDivSlt.js"></script>
@@ -75,7 +76,7 @@
                             <option value="90">사원</option>
                         </select>
                     </div>
-                    <button class="edit-button" id="updateButton">사원 정보 수정</button>
+                    <button class="edit-button" id="updateButton">수정 완료</button>
                     <button class="getBack-button" id="listButton"
                         onclick="location.href='/adminEmpMngr/list'">목록으로</button>
                 </div>

@@ -134,6 +134,7 @@ public interface AdminDeptMapper {
             " , E.PHONE , P.NAME AS POSITION_NAME " +
             "FROM EMPLOYEE E " +
             "JOIN POSITION P " +
-            "ON E.POSITION_CODE = P.CODE WHERE DIV_CODE = #{no}")
+            "ON E.POSITION_CODE = P.CODE WHERE DIV_CODE = #{no}" +
+            "ORDER BY E.POSITION_CODE ASC")
     List<AdminEmpVo> detailMemData(String no);
 }

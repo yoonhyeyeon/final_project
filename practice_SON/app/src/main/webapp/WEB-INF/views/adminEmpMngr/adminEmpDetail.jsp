@@ -7,6 +7,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
+            <link rel="stylesheet" type="text/css" href="/css/adminPageBtn.css">
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script defer src="/js/adminEmpDetail.js"></script>
             <title>사원 상세 정보</title>

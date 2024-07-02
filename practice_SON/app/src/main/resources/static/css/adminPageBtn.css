@@ -1,0 +1,45 @@
+.xxx {
+  background-color: #93e9ff;
+  box-shadow: 0 0 15px rgba(138, 228, 255, 0.6);
+}
+
+xxx {
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 13pt;
+  cursor: pointer;
+}
+
+.search-form select,
+.search-form input[type="text"],
+.search-form button,
+.submit-button,
+.edit-button,
+.getBack-button,
+.form-group input[type="submit"],
+.enroll-button {
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 13pt;
+}
+
+.search-form button:hover,
+.enroll-button:hover,
+.form-group input[type="submit"]:hover,
+.submit-button:hover,
+.edit-button:hover,
+.getBack-button:hover {
+    background-color: #357594;
+    box-shadow: 0 0 15px rgba(138, 228, 255, 0.6);
+    cursor: pointer;
+}
+
+
+
+

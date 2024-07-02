@@ -47,7 +47,7 @@
 </style>
 </head>
 <body>
-    <h1>공지사항 목록 조회</h1>
+    <h1>기타일정 목록 조회</h1>
     <table>
         <thead>
             <tr>
@@ -56,7 +56,7 @@
                 <th>내용</th>
             </tr>
         </thead>
-        <tbody id="noticeTableBody">
+        <tbody id="personalTableBody">
             <!-- Dynamic rows will be inserted here -->
         </tbody>
     </table>
@@ -70,7 +70,7 @@
                 dataType: "json",
                 success: function(data) {
                     const voList = data;
-                    const tbody = $("#noticeTableBody");
+                    const tbody = $("#personalTableBody");
 
                     let rows = "";
 

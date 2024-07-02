@@ -5,6 +5,8 @@ import com.kh.app.personal.vo.PersonalVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -21,6 +23,8 @@ public class PersonalController {
     public String write(){
         return "personal/write";
     }
+
+
 
     //기타일정 목록조회 화면
     @GetMapping("list")

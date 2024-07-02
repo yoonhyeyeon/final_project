@@ -3,11 +3,11 @@ package com.kh.app.personal.controller;
 import com.kh.app.personal.serviec.PersonalService;
 import com.kh.app.personal.vo.PersonalVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -24,5 +24,14 @@ public class PersonalApiController {
         List<PersonalVo> voList = service.getPersonalList();
         return voList;
     }
+
+    //작성하기
+    @PostMapping  // POST 방식으로 요청을 처리하는 메소드
+    public String getPersonalWrite(PersonalVo vo){
+        System.out.println("vo = " + vo);
+        int result = service.getPersonalWrite(vo);
+        return result == 1 ? "personal/list" : "personal/write_fail";
+    }
+
 
 }

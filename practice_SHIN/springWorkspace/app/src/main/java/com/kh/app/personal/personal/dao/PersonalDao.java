@@ -17,4 +17,9 @@ public class PersonalDao {
     public List<PersonalVo> getPersonalList() {
         return mapper.getPersonalList();
     }
+
+
+    public int getPersonalWrite(PersonalVo vo) {
+        return mapper.getPersonalWrite(vo);
+    }
 }//class

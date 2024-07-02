@@ -5,8 +5,7 @@ $(document).ready(function() {
     $.ajax({
         url: '/adminEmpMngr/detailData?no=' + empNo,
         method: 'GET',
-        success: function(employeeDetail) { // employeeDetail 매개변수 추가
-            // 필요한 정보들을 각각의 요소에 설정
+        success: function(employeeDetail) {
             $('#no').text(employeeDetail.no);
             $('#name').text(employeeDetail.name);
             $('#phone').text(employeeDetail.phone);

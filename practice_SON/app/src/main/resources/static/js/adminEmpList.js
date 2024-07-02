@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // 함수: 사원 목록 데이터 로드 및 페이지네이션 생성
     function populateEmpContainer(page) {
         $.ajax({
             url: '/adminEmpMngr/listData?page=' + page,
@@ -30,7 +29,6 @@ $(document).ready(function() {
                     $('#empContainer').append(row);
                 }
 
-                // 페이지네이션 생성
                 createPagination(response.totalPages, page);
             },
             error: function(xhr, status, error) {
@@ -46,14 +44,12 @@ $(document).ready(function() {
             var link = `<a href="#" class="page-link" data-page="${i}">${i}</a> `;
             $('#pagination').append(link);
         }
-        // 현재 페이지 표시
         $('#pagination').find(`[data-page="${currentPage}"]`).addClass('current-page');
     }
 
     // 초기 로딩 시 첫 번째 페이지 데이터 로드
     populateEmpContainer(1);
 
-    // 페이지네이션 클릭 시 데이터 로드
     $(document).on('click', '#pagination .page-link', function(e) {
         e.preventDefault();
         var page = $(this).data('page');
@@ -62,7 +58,6 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    // 검색 폼 제출 시 데이터 로드
     $('#search-form').on('submit', function(event) {
         event.preventDefault();
         var empCategory = $('#empCategory').val();

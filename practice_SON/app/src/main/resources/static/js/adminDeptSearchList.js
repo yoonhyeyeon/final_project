@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // 검색 폼 제출 시 데이터 로드
     $('#search-form').on('submit', function(event) {
         event.preventDefault();
         var empCategory = $('#empCategory').val();
@@ -53,6 +52,6 @@ $(document).ready(function() {
         });
     });
 
-    // 초기 로딩 시 첫 페이지 데이터 로드
-    $('#searchForm').submit(); // 페이지 로드 시 자동으로 첫 번째 검색 실행
+
+    $('#searchForm').submit();
 });

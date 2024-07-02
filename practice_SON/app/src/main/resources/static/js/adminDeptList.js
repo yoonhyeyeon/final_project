@@ -29,7 +29,6 @@ $(document).ready(function() {
                     $('#teamContainer').append(row);
                 }
 
-                // 페이지네이션 처리
                 $('#pagination').empty();
                 var totalPages = response.totalPages;
                 for (var i = 1; i <= totalPages; i++) {
@@ -46,7 +45,6 @@ $(document).ready(function() {
     // 초기 로딩 시 첫 페이지 데이터 로드
     populateTeamContainer(1);
 
-    // 페이지네이션 클릭 시 데이터 로드
     $(document).on('click', '#pagination a', function(e) {
         e.preventDefault();
         var page = $(this).data('page');

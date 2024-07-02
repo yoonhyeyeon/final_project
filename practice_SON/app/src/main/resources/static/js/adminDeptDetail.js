@@ -17,8 +17,8 @@ $(document).ready(function() {
             let divisionData = response;
             $('#deptName').text(divisionData.deptName);
             $('#name').text(divisionData.name);
-            $('#enrollDate').text(formatDate(divisionData.enrollDate)); // 생성일 설정
-            $('#modifyDate').text(formatDate(divisionData.modifyDate)); // 수정일 설정
+            $('#enrollDate').text(formatDate(divisionData.enrollDate));
+            $('#modifyDate').text(formatDate(divisionData.modifyDate));
             $('#state').text(divisionData.state);
 
             let empList = divisionData.employeeList;
@@ -31,7 +31,6 @@ $(document).ready(function() {
             console.log('응답 내용:', xhr.responseText);
         }
     });
-
 
     $('#updateButton').click(function() {
         let no = new URL(window.location.href).searchParams.get('no');

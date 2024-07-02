@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-/* Global styles */
 * {
     margin: 0;
     padding: 0;
@@ -54,27 +53,6 @@ section {
     font-family: 'Do Hyeon', sans-serif;
 }
 
-.submit-button,
-.edit-button,
-.getBack-button{
-  margin: 0 5px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  font-family: 'Do Hyeon', sans-serif;
-  font-size: 13pt;
-}
-
-.submit-button,
-.edit-button,
-.getBack-button {
-  background-color: #ddd;
-  color: #4a8fad;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-/* Responsive adjustments */
 @media (max-width: 600px) {
     .form-group label {
         font-size: 14px;

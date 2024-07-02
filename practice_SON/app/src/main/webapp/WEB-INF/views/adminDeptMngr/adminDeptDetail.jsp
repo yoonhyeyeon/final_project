@@ -9,6 +9,7 @@
             <link rel="stylesheet" type="text/css" href="/css/adminDeptEdit.css">
             <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
             <link rel="stylesheet" type="text/css" href="/css/adminList.css">
+            <link rel="stylesheet" type="text/css" href="/css/adminPageBtn.css">
             <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script defer src="/js/adminDeptEdit.js"></script>
             <script defer src="/js/adminDeptDetail.js"></script>

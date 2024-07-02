@@ -66,7 +66,7 @@ public class AdminDeptController {
         result.put("currentPage", page);
         result.put("totalPages", totalPages);
         return result;
-    }
+    }//method
 
     @GetMapping("enrollDiv")
     public String enrollDivForm() {
@@ -113,14 +113,14 @@ public class AdminDeptController {
         service.enrollDivData(divisionVo);
 
         return "redirect:/adminDeptMngr/list";
-    }
+    }//method
 
     @GetMapping("edit")
     public String adminDeptEditForm(@RequestParam("code") String code, Model model){
         DivisionVo vo = service.getDivisionByCode(code);
         model.addAttribute("vo", vo);
         return "adminDeptMngr/adminDeptEdit";
-    }
+    }//method
 
     @PostMapping("edit")
     public String adminDeptEdit(
@@ -142,18 +142,18 @@ public class AdminDeptController {
         service.updateDivision(divisionVo);
 
         return "redirect:/adminDeptMngr/list";
-    }
+    }//method
 
     @GetMapping("detail")
     public String detail(){
         return "adminDeptMngr/adminDeptDetail";
-    }
+    }//method
 
     @GetMapping("detailDivData")
     @ResponseBody
     public DivisionVo detailDivData(@RequestParam("no") String no){
         return service.detailDivData(no);
-    }
+    }//method
 
     @GetMapping("detailDivMemData")
     @ResponseBody
@@ -161,9 +161,8 @@ public class AdminDeptController {
         List<AdminEmpVo> empList = service.detailMemData(no);
         HashMap<String, Object> result = new HashMap<>();
         result.put("empList", empList);
-        System.out.println(empList);
         return result;
-    }
+    }//method
 
 }
 

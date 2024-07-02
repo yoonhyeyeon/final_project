@@ -1,5 +1,6 @@
 package com.kh.app.adminDept.mapper;
 
+import com.kh.app.adminDept.vo.AdminEmpVo;
 import com.kh.app.adminDept.vo.DivisionVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -7,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AdminDeptMapper {
 
@@ -119,4 +121,19 @@ public interface AdminDeptMapper {
             "WHERE CODE = #{code}")
     void updateDivision(DivisionVo divisionVo);
 
+    @Select("SELECT DIV.CODE, DIV.DEPT_CODE, DIV.NAME, DIV.STATE, " +
+            "DIV.ENROLL_DATE, DIV.MODIFY_DATE, DIV.END_DATE, " +
+            "DEPT.NAME AS DEPT_NAME " +
+            "FROM DIVISION DIV " +
+            "JOIN DEPARTMENT DEPT ON DIV.DEPT_CODE = DEPT.CODE " +
+            "WHERE DIV.CODE = #{no}")
+    DivisionVo detailDivData(String no);
+
+    @Select("SELECT E.NO , E.POSITION_CODE" +
+            " , E.STATE , E.NAME" +
+            " , E.PHONE , P.NAME AS POSITION_NAME " +
+            "FROM EMPLOYEE E " +
+            "JOIN POSITION P " +
+            "ON E.POSITION_CODE = P.CODE WHERE DIV_CODE = #{no}")
+    List<AdminEmpVo> detailMemData(String no);
 }

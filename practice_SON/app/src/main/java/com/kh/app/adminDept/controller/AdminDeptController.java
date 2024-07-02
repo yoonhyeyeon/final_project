@@ -1,6 +1,7 @@
 package com.kh.app.adminDept.controller;
 
 import com.kh.app.adminDept.service.AdminDeptService;
+import com.kh.app.adminDept.vo.AdminEmpVo;
 import com.kh.app.adminDept.vo.DivisionVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -141,6 +142,27 @@ public class AdminDeptController {
         service.updateDivision(divisionVo);
 
         return "redirect:/adminDeptMngr/list";
+    }
+
+    @GetMapping("detail")
+    public String detail(){
+        return "adminDeptMngr/adminDeptDetail";
+    }
+
+    @GetMapping("detailDivData")
+    @ResponseBody
+    public DivisionVo detailDivData(@RequestParam("no") String no){
+        return service.detailDivData(no);
+    }
+
+    @GetMapping("detailDivMemData")
+    @ResponseBody
+    public Map<String, Object> detailMemData(@RequestParam("no") String no){
+        List<AdminEmpVo> empList = service.detailMemData(no);
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("empList", empList);
+        System.out.println(empList);
+        return result;
     }
 
 }

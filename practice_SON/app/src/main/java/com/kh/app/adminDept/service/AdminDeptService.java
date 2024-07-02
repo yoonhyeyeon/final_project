@@ -1,12 +1,15 @@
 package com.kh.app.adminDept.service;
 
 import com.kh.app.adminDept.dao.AdminDeptDao;
+import com.kh.app.adminDept.vo.AdminEmpVo;
 import com.kh.app.adminDept.vo.DivisionVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -60,4 +63,11 @@ public class AdminDeptService {
         dao.updateDivision(divisionVo);
     }
 
+    public DivisionVo detailDivData(String no) {
+        return dao.detailDivData(no);
+    }
+
+    public List<AdminEmpVo> detailMemData(String no) {
+        return dao.detailMemData(no);
+    }
 }

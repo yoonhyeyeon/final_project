@@ -13,6 +13,7 @@ $(document).ready(function() {
                     '<div>팀명</div>' +
                     '<div>직급</div>' +
                     '<div>이름</div>' +
+                    '<div>정보수정</div>' +
                     '</div>';
                 $('#empContainer').append(headerRow);
                 var voList = response.voList;
@@ -24,6 +25,7 @@ $(document).ready(function() {
                         '<div class="emp-data list-body-low">' + vo.divName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.positionName + '</div>' +
                         `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/detail?no=${vo.no}">${vo.name}</a></div>` +
+                        `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/edit?no=${vo.no}">수정</a></div>` +
                         '</div>';
                     $('#empContainer').append(row);
                 }
@@ -57,7 +59,9 @@ $(document).ready(function() {
         var page = $(this).data('page');
         populateEmpContainer(page);
     });
+});
 
+$(document).ready(function() {
     // 검색 폼 제출 시 데이터 로드
     $('#search-form').on('submit', function(event) {
         event.preventDefault();

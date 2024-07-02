@@ -43,17 +43,29 @@
   align-items: center;
   font-weight: bold;
   background-color: #f0f0f0;
-  padding: 8px;
+  padding: 4px;
   border-bottom: 1px solid #000;
   font-family: 'Do Hyeon', sans-serif;
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr; /* Make sure grid template columns are applied */
+}
+
+.list-header-row > div{
+  padding: 8px;
 }
 
 .team-header {
+  display: grid;
   grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr;
 }
 
 .emp-header {
-  grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr 1fr;
+}
+
+.dept-detail-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .list-body-row {
@@ -61,14 +73,22 @@
   align-items: center;
   border-bottom: 1px solid #ccc;
   font-family: 'Do Hyeon', sans-serif;
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr; /* Make sure grid template columns are applied */
 }
 
 .team-row {
-  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr;
+  display: grid; /* Ensure team-row uses grid layout */
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr; /* Define grid columns */
 }
 
 .emp-row {
-  grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+  display: grid; /* Ensure emp-row uses grid layout */
+  grid-template-columns: 1fr 2fr 2fr 1fr 1fr 1fr; /* Define grid columns */
+}
+
+.dept-detail-row {
+  display: grid; /* Ensure emp-row uses grid layout */
+  grid-template-columns: 1fr 1fr 1fr; /* Define grid columns */
 }
 
 .list-body-row:hover {
@@ -84,6 +104,8 @@
   color: blue;
   text-align: center;
   font-family: 'Do Hyeon', sans-serif;
+  z-index: 10; /* Ensure links are on top */
+  position: relative; /* Needed to ensure z-index works */
 }
 
 /* Pagination styles */
@@ -105,8 +127,8 @@
 }
 
 #pagination a.active {
-    font-weight: bold;
-    text-decoration: underline;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* Search form styles */

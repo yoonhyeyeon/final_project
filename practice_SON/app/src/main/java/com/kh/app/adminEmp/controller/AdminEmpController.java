@@ -140,7 +140,7 @@ public class AdminEmpController {
         return service.getEmployeeDetail(no);
     }
 
-    @PostMapping("/updateEmpData")
+    @PostMapping("updateEmpData")
     @ResponseBody
     public String updateEmpData(@RequestBody AdminEmpVo vo) {
         int result = service.updateEmployee(vo);

@@ -1,4 +1,4 @@
-package com.kh.app.adminEmp.vo;
+package com.kh.app.adminDept.vo;
 
 import lombok.Data;
 

@@ -1,8 +1,7 @@
 $(document).ready(function() {
     // URL에서 쿼리 파라미터 'no'의 값을 가져오기
-    var empNo = new URL(window.location.href).searchParams.get('no');
+    let empNo = new URL(window.location.href).searchParams.get('no');
 
-    // AJAX를 이용하여 사원 상세 정보를 서버에서 가져오는 함수
     $.ajax({
         url: '/adminEmpMngr/detailData?no=' + empNo,
         method: 'GET',
@@ -34,7 +33,7 @@ $(document).ready(function() {
 
     // 버튼 클릭 시 사원 번호를 가져와서 URL에 추가
     $('#updateButton').click(function() {
-        var empNo = $('#no').text();
+        let empNo = $('#no').text();
         location.href = '/adminEmpMngr/edit?no=' + empNo;
     });
 });

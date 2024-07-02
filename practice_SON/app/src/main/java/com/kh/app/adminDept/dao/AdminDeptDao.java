@@ -1,11 +1,13 @@
 package com.kh.app.adminDept.dao;
 
 import com.kh.app.adminDept.mapper.AdminDeptMapper;
+import com.kh.app.adminDept.vo.AdminEmpVo;
 import com.kh.app.adminDept.vo.DivisionVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
@@ -53,4 +55,11 @@ public class AdminDeptDao {
         mapper.updateDivision(divisionVo);
     }
 
+    public DivisionVo detailDivData(String no) {
+        return mapper.detailDivData(no);
+    }
+
+    public List<AdminEmpVo> detailMemData(String no) {
+        return mapper.detailMemData(no);
+    }
 }

@@ -6,7 +6,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 $('#teamContainer').empty();
-                var headerRow = '<div class="team-header">' +
+                var headerRow = '<div class="list-header-row dept-detail-header">' +
                     '<div>부서명</div>' +
                     '<div>팀명</div>' +
                     '<div>팀 코드</div>' +
@@ -15,9 +15,9 @@ $(document).ready(function() {
                 var voList = response.voList;
                 for (var i = 0; i < voList.length; i++) {
                     var vo = voList[i];
-                    var row = '<div class="team-row">' +
-                        '<div class="team-data list-body-low">' + vo.deptName + '</div>' +
-                        '<div class="team-data list-body-low">' + vo.name + '</div>' +
+                    var row = '<div class="list-body-row dept-detail-row">' +
+                        '<div class="team-data">' + vo.deptName + '</div>' +
+                        '<div class="team-data">' + vo.name + '</div>' +
                         '<div class="team-data">' + vo.code + '</div>';
                     $('#teamContainer').append(row);
                 }
@@ -61,7 +61,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 $('#teamContainer').empty();
-                var headerRow = '<div class="team-header list-header-row">' +
+                var headerRow = '<div class="list-header-row dept-detail-header">' +
                     '<div>부서명</div>' +
                     '<div>팀명</div>' +
                     '<div>팀 코드</div>' +
@@ -71,7 +71,7 @@ $(document).ready(function() {
                 var voList = response.voList;
                 for (var i = 0; i < voList.length; i++) {
                     var vo = voList[i];
-                    var row = '<div class="team-row list-body-row">' +
+                    var row = '<div class="list-body-row dept-detail-row">' +
                         '<div class="team-data">' + vo.deptName + '</div>' +
                         '<div class="team-data">' + vo.name + '</div>' +
                         '<div class="team-data">' + vo.code + '</div>';

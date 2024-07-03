@@ -28,9 +28,22 @@ public class PersonalApiController {
     //작성하기
     @PostMapping  // POST 방식으로 요청을 처리하는 메소드
     public String getPersonalWrite(PersonalVo vo){
-        System.out.println("vo = " + vo);
         int result = service.getPersonalWrite(vo);
         return result == 1 ? "personal/list" : "personal/write_fail";
+    }
+
+    //수정하기
+//    @PostMapping("edit")
+//    public String personalEdit(@RequestBody PersonalVo vo){
+//        System.out.println("vo = " + vo);
+//        int result = service.personalEdit(vo);
+//        return result == 1 ? "edit success ~ !" : "edit fail...";
+//    }
+    @PostMapping("edit")
+    public String personalEdit(@RequestBody PersonalVo vo) {
+        System.out.println("vo = " + vo);
+        int result = service.personalEdit(vo);
+        return result == 1 ? "edit success ~ !" : "edit fail...";
     }
 
 

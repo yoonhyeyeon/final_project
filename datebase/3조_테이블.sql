@@ -397,6 +397,7 @@ CREATE TABLE PROJECT(
     CODE        NUMBER          ,
     EMP_NO      NUMBER          ,
     STATE_A_NO  NUMBER          ,
+    TITLE       VARCHAR2(4000)  ,
     CONTENT     VARCHAR2(4000)  NOT NULL,
     START_DATE  TIMESTAMP       DEFAULT SYSDATE,
     END_DATE    TIMESTAMP   ,

@@ -14,7 +14,7 @@
 <body>
 	<h1>기타일정 작성하기</h1>
 
-	<form action="/api/personal" method="post">
+	<form action="/api/personal/edit" method="post">
         <input type="text" name="no2" placeholder="사원번호">
         <br>
         <input type="text" name="title" placeholder="제목">

@@ -23,4 +23,9 @@ public class PersonalService {
     public int getPersonalWrite(PersonalVo vo) {
         return dao.getPersonalWrite(vo);
     }
+
+
+    public int personalEdit(PersonalVo vo) {
+        return dao.personalEdit(vo);
+    }
 }//class

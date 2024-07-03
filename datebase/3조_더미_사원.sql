@@ -117,7 +117,7 @@ VALUES (50, '휴가');
 
 -- 인사 관리 계정
 INSERT INTO HR_ACCOUNT (NO, RANK, ID, PWD, NICK)
-VALUES (SEQ_HR_ACCOUNT_NO.NEXTVAL, 00, 'admin', '1234', '인사관리자');
+VALUES (SEQ_HR_ACCOUNT.NEXTVAL, 00, 'admin', '1234', '인사관리자');
 
 -- 멤버
 -- INSERT 관리자

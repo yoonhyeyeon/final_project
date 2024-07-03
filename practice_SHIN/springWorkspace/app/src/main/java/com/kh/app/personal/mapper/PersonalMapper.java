@@ -4,6 +4,7 @@ import com.kh.app.personal.vo.PersonalVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -17,5 +18,6 @@ public interface PersonalMapper {
             "VALUES (SEQ_PERSONAL_WORK.NEXTVAL, #{no2}, #{stateBNo}, #{typeNo}, SYSDATE, #{title}, #{content})")
     int getPersonalWrite(PersonalVo vo);
 
-
+    @Update("UPDATE PERSONAL_WORK SET STATE_B_NO = #{stateBNo}, TYPE_NO = #{typeNo}, TITLE = #{title} , CONTENT = #{content}, MODIFY_DATE = SYSDATE WHERE NO2 = #{no2}")
+    int personalEdit(PersonalVo vo);
 }//class

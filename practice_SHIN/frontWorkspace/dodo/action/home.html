@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+<script>
+  window.onload = function(){
+
+    loadTodo();
+  };
+</script>
+</head>
+<body>
+
+  <h1>TODO앱</h1>
+
+  <input type="text" name="content" >
+  <button onclick="insertTodo();">할일등록</button>
+
+  <hr>
+
+  <input type="text" name="num">
+  <button onclick="getTodoByNo();">상세조회</button>
+
+
+  
+  <div id="todoArea"></div>
+  <hr>
+  <div id="detailArea"></div>
+
+
+  
+
+</body>
+</html>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script src="/action/delete.js"></script>
+<script src="/action/detail.js"></script>
+<script src="/action/edit.js"></script>
+<script src="/action/insert.js"></script>
+<script src="/action/list.js"></script>
+
+
+

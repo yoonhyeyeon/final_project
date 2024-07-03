@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/adminDeptEdit.css">
-    <link rel="stylesheet" type="text/css" href="/css/adminEnroll.css">
-    <link rel="stylesheet" type="text/css" href="/css/adminList.css">
-    <link rel="stylesheet" type="text/css" href="/css/adminPageBtn.css">
+    <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminDeptEdit.css">
+    <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminEnroll.css">
+    <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminList.css">
+    <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script defer src="/js/adminDeptEdit.js"></script>
-    <script defer src="/js/adminDeptDetail.js"></script>
-    <script defer src="/js/adminDeptDetailMem.js"></script>
+    <script defer src="/js/adminDeptJs/adminDeptEdit.js"></script>
+    <script defer src="/js/adminDeptJs/adminDeptDetail.js"></script>
+    <script defer src="/js/adminDeptJs/adminDeptDetailMem.js"></script>
     <title>팀 정보</title>
 </head>
 <body>

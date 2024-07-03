@@ -25,7 +25,8 @@ section {
     display: block;
 }
 
-.form-group .value {
+.form-group .value,
+.form-group div {
     font-size: 15pt;
     padding: 10px;
     margin: 5px 0;

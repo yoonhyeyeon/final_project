@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../css/index.css">
 </head>
 <body id="container">
   <div id="wrap">
-    <header>
-      <h1>header</h1>
-    </header>
+    <%@ include file="/WEB-INF/views/testUtil/header.jsp" %>
     <section id="section">
       <div id="indexTitle">
         Love Diary

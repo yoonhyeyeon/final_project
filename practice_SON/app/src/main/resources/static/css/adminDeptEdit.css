@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-/* Global styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 section {
     font-family: 'Do Hyeon', sans-serif;
     background-color: #f0f0f0;

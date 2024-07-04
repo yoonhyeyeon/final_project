@@ -30,7 +30,7 @@
 }
 
 .list-box:active {
-  background-color: rgb(251, 251, 255);
+  background-color: rgb(205, 205, 247);
   transform: scale(0.95);
 }
 

@@ -23,8 +23,11 @@
                 <div id="in">
                     <table border=1>
                         <thead>
-                            <tr><td>프로젝트 이름</td>
-                                <td>부서코드</td>
+                            <tr>
+                                <td>프로젝트 이름</td>
+                                <td>PM</td>
+                                <td>담당 부서</td>
+                                <td>상태</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,7 +60,9 @@
             for(let i=0;i<voList.length;i++){
                 str += "<tr class='list-item' data-id='"+voList[i].no + "'>";
                 str += "<td>"+ voList[i].title + "</td>";
-                str += "<td>" + voList[i].code + "</td>";
+                str += "<td>"+ voList[i].pm + "</td>";
+                str += "<td>" + voList[i].dept + "</td>";
+                str += "<td>" + voList[i].state + "</td>";
                 str += "</tr>";
             }
             tbody.innerHTML = str;

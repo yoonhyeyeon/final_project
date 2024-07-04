@@ -15,7 +15,16 @@ public interface ProjectMapper {
     @Update("UPDATE PROJECT SET CONTENT = #{content} ,STATE_A_NO =#{stateANo} WHERE NO =#{no}")
     int modifyPrj(ProjectVo vo);
 
-    @Select("SELECT * FROM PROJECT")
+    @Select("SELECT P.NO as NO,P.CODE as CODE, P.EMP_NO AS EMPNO, P.STATE_A_NO as STATEANO,\n" +
+            "P.START_DATE as STARTDATE, P.END_DATE as END_DATE,P.MODIFY_DATE as MODIFY_DATE,\n" +
+            "P.title as title,E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT\n" +
+            "FROM PROJECT P\n" +
+            "JOIN STATE_A S\n" +
+            "ON P.STATE_A_NO = S.NO\n" +
+            "JOIN EMPLOYEE E\n" +
+            "ON P.EMP_NO = E.NO\n" +
+            "JOIN DEPARTMENT D\n" +
+            "ON P.CODE = D.CODE")
     List<ProjectVo> projectList();
 
 

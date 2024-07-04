@@ -6,9 +6,11 @@ import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -60,26 +62,17 @@ public class ProjectController {
         return "common/result";
     }
 
-    @GetMapping("projectDelete")
-    public String deletePrj(){
-        return "project/deletePrj";
-    }
+    @DeleteMapping("projectDelete")
+    @ResponseBody
+    public String deletePrj(String no,HttpServletRequest req){
+        int result = service.deletePrj(no);
 
-    @PostMapping("projectDelete")
-    public String deletePrj(ProjectVo vo, HttpServletResponse resp, HttpServletRequest req){
+        HashMap<String ,String > map = new HashMap<>();
+        if(result !=1){
+            req.setAttribute("result","삭제실패");
 
-
-        String no = req.getParameter("no");
-
-
-        vo.setNo(no);
-
-        int result = service.deletePrj(vo);
-
-        if(result != 1){
-            req.setAttribute("result","삭제 실패...");
         }
-        req.setAttribute("result","삭제 성공!");
+        req.setAttribute("result","삭제성공");
         return "common/result";
     }
 
@@ -104,6 +97,8 @@ public class ProjectController {
     public String projectDetail(){
         return "project/projectDetail";
     }
+
+
 
 
 

@@ -6,7 +6,6 @@ import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -30,8 +29,8 @@ public class ProjectService {
         return dao.modifyPrj(vo);
     }
 
-    public int deletePrj(ProjectVo vo) {
-        return dao.deletePrj(vo);
+    public int deletePrj(String no) {
+        return dao.deletePrj(no);
     }
 
     public int recordInsert(ProjectRecordVo vo) {

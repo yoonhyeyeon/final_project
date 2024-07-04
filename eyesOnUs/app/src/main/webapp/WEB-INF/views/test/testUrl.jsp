@@ -67,6 +67,19 @@
                 <td>프로젝트 상세조회</td>
                 <td><a href="http://127.0.0.1:8080/detail">링크</a></td>
               </tr>
+            </table>
+
+            <br>
+            <br>
+
+            <table border="1">
+              <tr>
+                <td>이름</td>
+                <td>METHOD</td>
+                <td>URL</td>
+                <td>기능</td>
+                <td>링크</td>
+              </tr>
               <tr>
                 <td rowspan="4">윤혜연</td>
                 <td>GET, POST</td>
@@ -91,27 +104,6 @@
                 <td>http://127.0.0.1:8080/detail</td>
                 <td>프로젝트 상세조회</td>
                 <td><a href="http://127.0.0.1:8080/detail">링크</a></td>
-              </tr>
-              <tr>
-                <td>손지욱</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>손지욱</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>신은지</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
               </tr>
             </table>
 

@@ -1,0 +1,68 @@
+
+
+#out{
+  width: vw;
+  height: vh;
+  display: flex;
+  justify-content: center;
+}
+
+#in{
+  width: 700px;
+  height: 900px;
+  border: 1px solid black;
+
+}
+
+#div-title{
+  text-align: center;
+}
+
+#code,
+#emp{
+  border: none;
+  width: 200px;
+  height: 30px;
+  font-size: 1.5em;
+}
+
+p{
+  font-size: 1.2em;
+  display: inline;
+}
+
+input{
+  border: none;
+}
+
+#emp{
+  font-size: 1.1rem;
+  width: 500px;
+}
+
+h2{
+  text-align: center;
+}
+#projectContent{
+  margin-left: 15px;
+  width: 95%;
+  height: 500px;
+  resize: none;
+}
+
+#div-submit{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#submitButton{
+  width: 100px;
+  height: 30px;
+  background-color: rgb(211, 211, 255);
+  border: 1px solid black;
+}
+.list-item{
+    width: 100px;
+    height: 35px;
+}

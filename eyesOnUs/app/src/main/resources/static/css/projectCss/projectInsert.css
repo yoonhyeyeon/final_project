@@ -1,0 +1,79 @@
+#out{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    j
+
+}
+
+
+#in{
+    width: 700px;
+    height: 850px;
+    border: 1px solid black;
+
+}
+
+
+#div-title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#title{
+    border: none;
+    width: 200px;
+    height: 30px;
+    font-size: 1.5em;
+    background-color: lightgray;
+}
+
+#code{
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-size: 1.2em;
+    background-color: lightgray;
+}
+p{
+    font-size: 1.2em;
+    display:   inline;
+}
+
+input{
+    border: none;
+}
+
+#emp{
+    font-size: 1.1rem;
+    width: 200px;
+    background-color: lightgray;
+}
+#state{
+    background-color: lightgray;
+}
+
+h2{
+    text-align: center;
+}
+#projectContent{
+    margin-left: 15px;
+    width: 95%;
+    height: 500px;
+    resize: none;
+}
+
+#div-submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#submitButton{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(211, 211, 255);
+    border: 1px solid black;
+}

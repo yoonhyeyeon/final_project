@@ -1,0 +1,16 @@
+#out{
+  display: flex;
+  justify-content: center;
+}
+
+#in{
+  width: 700px;
+  height: 850px;
+  border: 1px solid black;
+
+}
+
+tbody>tr>td:active{
+    background-color: lightblue;
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+}

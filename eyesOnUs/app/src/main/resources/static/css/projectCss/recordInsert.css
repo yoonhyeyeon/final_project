@@ -1,0 +1,47 @@
+#out{
+  border: 1px solid black;
+  width: 700px;
+  height: 700px;
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+}
+
+#in{
+
+  width: 650px;
+  height: 600px;
+}
+
+#div-submit{
+  margin-top: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content{
+  width: 650px;
+  height: 480px;
+  resize: none;
+  font-size: 1.2em;
+  margin-left: 18px;
+
+}
+
+#title, #prjNo{
+  border: none;
+
+}
+
+#text-content{
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+#title{
+  width: 250px;
+}

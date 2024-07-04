@@ -1,6 +1,6 @@
-package com.kh.eyes.file.controller;
+package com.kh.app.file.controller;
 
-import com.kh.eyes.file.service.FileStorageService;
+import com.kh.app.file.service.FileStorageService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;

@@ -1,7 +1,7 @@
-package com.kh.eyes.businessTrip.controller;
+package com.kh.app.businessTrip.controller;
 
-import com.kh.eyes.businessTrip.service.BusinessTripService;
-import com.kh.eyes.businessTrip.vo.BusinessTripVo;
+import com.kh.app.businessTrip.service.BusinessTripService;
+import com.kh.app.businessTrip.vo.BusinessTripVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

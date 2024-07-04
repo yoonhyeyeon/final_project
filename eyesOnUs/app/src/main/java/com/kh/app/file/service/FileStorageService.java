@@ -1,4 +1,4 @@
-package com.kh.eyes.file.service;
+package com.kh.app.file.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

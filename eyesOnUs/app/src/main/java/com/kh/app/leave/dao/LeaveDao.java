@@ -1,7 +1,7 @@
-package com.kh.eyes.leave.dao;
+package com.kh.app.leave.dao;
 
-import com.kh.eyes.leave.mapper.LeaveMapper;
-import com.kh.eyes.leave.vo.LeaveVo;
+import com.kh.app.leave.mapper.LeaveMapper;
+import com.kh.app.leave.vo.LeaveVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

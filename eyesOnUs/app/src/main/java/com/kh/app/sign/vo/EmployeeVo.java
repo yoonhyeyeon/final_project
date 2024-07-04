@@ -1,4 +1,4 @@
-package com.kh.eyes.sign.vo;
+package com.kh.app.sign.vo;
 
 import lombok.Data;
 

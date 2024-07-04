@@ -1,8 +1,8 @@
-package com.kh.eyes.sign.dao;
+package com.kh.app.sign.dao;
 
-import com.kh.eyes.sign.mapper.SignMapper;
-import com.kh.eyes.sign.vo.EmployeeVo;
-import com.kh.eyes.sign.vo.SignVo;
+import com.kh.app.sign.mapper.SignMapper;
+import com.kh.app.sign.vo.EmployeeVo;
+import com.kh.app.sign.vo.SignVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

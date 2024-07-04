@@ -1,7 +1,7 @@
-package com.kh.eyes.leave.controller;
+package com.kh.app.leave.controller;
 
-import com.kh.eyes.leave.service.LeaveService;
-import com.kh.eyes.leave.vo.LeaveVo;
+import com.kh.app.leave.service.LeaveService;
+import com.kh.app.leave.vo.LeaveVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;

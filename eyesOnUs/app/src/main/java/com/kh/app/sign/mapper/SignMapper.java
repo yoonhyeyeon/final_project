@@ -1,7 +1,7 @@
-package com.kh.eyes.sign.mapper;
+package com.kh.app.sign.mapper;
 
-import com.kh.eyes.sign.vo.EmployeeVo;
-import com.kh.eyes.sign.vo.SignVo;
+import com.kh.app.sign.vo.EmployeeVo;
+import com.kh.app.sign.vo.SignVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

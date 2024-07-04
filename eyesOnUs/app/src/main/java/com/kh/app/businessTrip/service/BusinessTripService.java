@@ -1,8 +1,8 @@
-package com.kh.eyes.businessTrip.service;
+package com.kh.app.businessTrip.service;
 
-import com.kh.eyes.businessTrip.dao.BusinessTripDao;
-import com.kh.eyes.businessTrip.vo.BusinessTripVo;
-import com.kh.eyes.businessTrip.vo.ProjectVo;
+import com.kh.app.businessTrip.dao.BusinessTripDao;
+import com.kh.app.businessTrip.vo.BusinessTripVo;
+import com.kh.app.businessTrip.vo.ProjectVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

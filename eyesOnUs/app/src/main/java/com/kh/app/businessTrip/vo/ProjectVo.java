@@ -1,4 +1,4 @@
-package com.kh.eyes.businessTrip.vo;
+package com.kh.app.businessTrip.vo;
 
 import lombok.Data;
 

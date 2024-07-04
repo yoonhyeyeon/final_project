@@ -1,8 +1,8 @@
-package com.kh.eyes.sign.service;
+package com.kh.app.sign.service;
 
-import com.kh.eyes.sign.dao.SignDao;
-import com.kh.eyes.sign.vo.EmployeeVo;
-import com.kh.eyes.sign.vo.SignVo;
+import com.kh.app.sign.dao.SignDao;
+import com.kh.app.sign.vo.EmployeeVo;
+import com.kh.app.sign.vo.SignVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

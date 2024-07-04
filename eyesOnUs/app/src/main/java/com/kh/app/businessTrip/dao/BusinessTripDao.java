@@ -1,8 +1,8 @@
-package com.kh.eyes.businessTrip.dao;
+package com.kh.app.businessTrip.dao;
 
-import com.kh.eyes.businessTrip.mapper.BusinessTripMapper;
-import com.kh.eyes.businessTrip.vo.BusinessTripVo;
-import com.kh.eyes.businessTrip.vo.ProjectVo;
+import com.kh.app.businessTrip.mapper.BusinessTripMapper;
+import com.kh.app.businessTrip.vo.BusinessTripVo;
+import com.kh.app.businessTrip.vo.ProjectVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

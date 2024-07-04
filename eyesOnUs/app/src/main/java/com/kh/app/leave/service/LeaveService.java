@@ -1,7 +1,7 @@
-package com.kh.eyes.leave.service;
+package com.kh.app.leave.service;
 
-import com.kh.eyes.leave.dao.LeaveDao;
-import com.kh.eyes.leave.vo.LeaveVo;
+import com.kh.app.leave.dao.LeaveDao;
+import com.kh.app.leave.vo.LeaveVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

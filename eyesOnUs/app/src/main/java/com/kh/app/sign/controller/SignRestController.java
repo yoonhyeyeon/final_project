@@ -1,8 +1,8 @@
-package com.kh.eyes.sign.controller;
+package com.kh.app.sign.controller;
 
-import com.kh.eyes.sign.service.SignService;
-import com.kh.eyes.sign.vo.EmployeeVo;
-import com.kh.eyes.sign.vo.SignVo;
+import com.kh.app.sign.service.SignService;
+import com.kh.app.sign.vo.EmployeeVo;
+import com.kh.app.sign.vo.SignVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;

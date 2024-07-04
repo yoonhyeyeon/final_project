@@ -1,6 +1,6 @@
-package com.kh.eyes.leave.mapper;
+package com.kh.app.leave.mapper;
 
-import com.kh.eyes.leave.vo.LeaveVo;
+import com.kh.app.leave.vo.LeaveVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

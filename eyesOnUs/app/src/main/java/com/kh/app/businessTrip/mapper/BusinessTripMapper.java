@@ -1,7 +1,7 @@
-package com.kh.eyes.businessTrip.mapper;
+package com.kh.app.businessTrip.mapper;
 
-import com.kh.eyes.businessTrip.vo.BusinessTripVo;
-import com.kh.eyes.businessTrip.vo.ProjectVo;
+import com.kh.app.businessTrip.vo.BusinessTripVo;
+import com.kh.app.businessTrip.vo.ProjectVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

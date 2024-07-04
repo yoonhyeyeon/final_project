@@ -1,4 +1,4 @@
-package com.kh.eyes.leave.vo;
+package com.kh.app.leave.vo;
 
 import lombok.Data;
 

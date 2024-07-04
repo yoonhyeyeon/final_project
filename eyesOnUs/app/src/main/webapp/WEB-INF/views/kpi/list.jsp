@@ -32,7 +32,7 @@
         <section>
 
               <div id="out">
-                <h2 id="header-name">KPI 목록</h2>
+                <h2>KPI 목록</h2>
                 <hr>
                 <div class="list-box">
 

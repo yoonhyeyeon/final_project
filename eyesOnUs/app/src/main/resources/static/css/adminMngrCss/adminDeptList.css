@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+.do-hyeon-regular {
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr;
+  align-items: center;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-bottom: 1px solid #000;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.team-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr 2fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.team-row:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.team-data {
+  padding: 8px;
+}
+
+.team-link {
+  text-decoration: none;
+  color: blue;
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.pagination a,
+.pagination strong {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #000;
+}
+
+.pagination strong {
+  font-weight: bold;
+}
+
+.search-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Do Hyeon', sans-serif;
+}
+

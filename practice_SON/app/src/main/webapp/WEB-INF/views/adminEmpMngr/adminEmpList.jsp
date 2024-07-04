@@ -11,7 +11,7 @@
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script defer src="/js/adminEmpJs/adminEmpList.js"></script>
             <script defer src="/js/adminEmpJs/adminSearchEmpList.js"></script>
-            <title>관리자 직원 목록</title>
+            <title>관리자 사원 목록</title>
         </head>
 
         <body>

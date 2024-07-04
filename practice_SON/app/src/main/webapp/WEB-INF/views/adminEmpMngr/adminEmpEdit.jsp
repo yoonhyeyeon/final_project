@@ -12,7 +12,7 @@
             <script defer src="/js/adminEmpJs/adminEmpEdit.js"></script>
             <script defer src="/js/adminEmpJs/adminEmpDivSlt.js"></script>
             <script defer src="/js/adminEmpJs/adminEmpEditSubmit.js"></script>
-            <title>Document</title>
+            <title>사원정보수정</title>
         </head>
 
         <body>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="/js/adminEmpJs/adminEmpEnroll.js"></script>
-    <title>Document</title>
+    <title>사원등록</title>
 </head>
 <body>
     <section>

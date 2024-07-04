@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/list.css">
+</head>
+<body>
+
+  <div id="out">
+    <h2 id="header-name">KPI 목록</h2>
+    <hr>
+    <div class="list-box">
+      <div class="list-item" data-id='" + data[i].no + "'>
+      <p id='no'> Number : 2</p>
+      <p id='projectNo'> 프로젝트 번호  : 2</p>
+      <p id="projectName">안녕</p>
+      <span id="focus-name"> 집중도 : 22 %</span>
+      <progress value= "22" max='100' id='focus'></progress>
+      <p id="date"> 시작일 : 2024-07-04</p>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
+<!-- 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="http://192.168.40.32:5500/detail.js"></script>
+
+<script>
+   
+
+   $.ajax({
+    url: "http://127.0.0.1:8080/kpi/listData",
+    type: "GET",
+    success: (data) => {
+      console.log("통신 성공");
+      console.log(data);
+
+      const x = document.querySelector(".list-box");
+      console.log(x);
+      
+      let str = "";
+    
+      for (let i = 0; i < data.length; i++) {
+        str += "<div class='list-item' data-id='" + data[i].no + "'>";
+        str += "<span>" + data[i].no + "</span>";
+        str += "<br />";
+        str += "<span> 프로젝트 번호 : " + data[i].projectNo + "</span>";
+        str += "<br />";
+        str += "<span> 집중도 : " + data[i].focus + "</span>";
+        str += "<br />";
+        str += "<span> 시작 날짜 : " + data[i].startDate + "</span>";
+        str += "<br />";
+        str += "<span> 종료 날짜 : " + data[i].endDate + "</span>";
+        str += "</div>";
+      }
+
+      x.innerHTML = str;
+
+
+
+
+
+
+
+      
+
+
+
+
+
+      const prj = document.querySelectorAll(".list-item");
+      prj.addEventListener("click", getkpiByNo);
+
+      function getkpiByNo(){
+        const id = document.querySelector("data-id");
+
+        $.ajax({
+          url : "http://127.0.0.1:8080/kpi/detail?no=" + id,
+          type : "get",
+          success : (datailDate)=>{
+            console.log("상세 정보 통신 성공");
+            console.log(detailDate);
+
+            let str = "";
+            str += "<div class='detail-box'>";
+            str += "<h3>KPI 상세 정보 </h3>";
+            str += "<span> 프로젝트 번호 : " + detailData.projectNo + "</span>";
+            str += "<span> 목표 : " + detailData.goal + "</span>";
+            str += "<span> 개인 일정 : " + detailData.personalSchedule + "</span>";
+            str += "<span> 집중도 : " + detailData.focus + "</span>";
+            str += "<span> 시작날짜" + detailData.startDate + "</span>";
+            str += "<span> 종료날짜" + detailData.endDate + "</span>";
+            str += "</div>"
+
+            // x.style.display = "none";
+            document.body.innerHTML += str;
+          },
+          fail : (x)=>{
+            console.log("상세 조회 실패");
+          },
+        });
+      };
+    },
+    fail: () => {
+      console.log("통신 실패");
+    },
+  });
+
+
+
+
+
+</script> -->

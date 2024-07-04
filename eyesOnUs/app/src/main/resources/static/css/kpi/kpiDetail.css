@@ -1,0 +1,103 @@
+.out{
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#no{
+  font-size: 0.7rem;
+}
+
+.detail-item{
+  border: 1px solid black;
+  width: 60%;
+}
+
+.detail-item > h3 {
+  text-align: center;
+
+}
+
+.detail-box > p{
+  margin: 1.5%;
+}
+
+#goal , #personalSchedule{
+  border: 1px solid black;
+  padding: 1%;
+}
+
+#focus {
+  margin-left: 1.5%;
+  width: 40%;
+  height: 20px;
+  appearance: none;
+}
+
+.detail-box progress::-webkit-progress-bar {
+  border-radius: 10px;
+  background-color: #a9d5e2;
+}
+
+.detail-box progress::-webkit-progress-value{
+  border-radius: 10px;
+  background-color: #4c58c7;
+}
+
+.btn-box{
+  width: 80%;
+  margin-top: 1%;
+  display: flex;
+  justify-content: end;
+}
+
+#btn01{
+  margin-right: 1%;
+  width: 70px;
+  height: 30px;
+  background-color: rgb(202, 216, 255);
+  border: 1px solid #002e85;
+  border-radius: 3%;
+  cursor: pointer;
+}
+
+#btn02{
+  width: 70px;
+  height: 30px;
+  background-color: rgb(202, 216, 255);
+  border: 1px solid #002e85;
+  border-radius: 3%;
+  cursor: pointer;
+}
+
+#btn01:hover, #btn02:hover{
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#btn01:active , #btn02:active{
+  background-color: #004080;
+  transform: scale(0.95);
+}
+
+.kpi-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#list-btn{
+  width: 70px;
+  height: 30px;
+  background-color: rgb(202, 216, 255);
+  border: 1px solid #002e85;
+  border-radius: 3%;
+  cursor: pointer;
+}
+
+#list-btn:active{
+  background-color: #004080;
+  transform: scale(0.95);
+}

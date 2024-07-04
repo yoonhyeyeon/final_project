@@ -19,8 +19,8 @@ public interface ProjectMapper {
     List<ProjectVo> projectList();
 
 
-    @Update("UPDATE PROJECT SET STATE_A_NO= 3 WHERE NO = #{no}")
-    int deletePrj(ProjectVo vo);
+    @Delete("DELETE PROJECT WHERE NO = #{no}")
+    int deletePrj(String no);
 
     ////////////////////////PROJECT RECORD CRUD ///////////////////////////////////////
 

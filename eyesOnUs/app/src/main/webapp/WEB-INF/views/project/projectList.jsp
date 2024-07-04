@@ -21,7 +21,7 @@
         <section>
             <div id="out">
                 <div id="in">
-                    <table>
+                    <table border=1>
                         <thead>
                             <tr><td>프로젝트 이름</td>
                                 <td>부서코드</td>

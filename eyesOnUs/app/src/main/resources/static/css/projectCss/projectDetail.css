@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 #out{
   width: vw;
@@ -11,7 +11,7 @@
   width: 700px;
   height: 900px;
   border: 1px solid black;
-
+  font-family: 'Do Hyeon', sans-serif;
 }
 
 #div-title{
@@ -50,7 +50,7 @@ h2{
   resize: none;
 }
 
-#div-submit{
+#divSubmit{
   display: flex;
   justify-content: center;
   margin-top: 10px;

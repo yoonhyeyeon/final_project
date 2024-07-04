@@ -27,8 +27,8 @@ public class ProjectDao {
         return mapper.modifyPrj(vo);
     }
 
-    public int deletePrj(ProjectVo vo) {
-        return mapper.deletePrj(vo);
+    public int deletePrj(String no) {
+        return mapper.deletePrj(no);
     }
 
     public int recordInsert(ProjectRecordVo vo) {

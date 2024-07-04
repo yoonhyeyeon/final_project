@@ -15,5 +15,10 @@ public class TestController {
         return "test/testIndex";
     }
 
+    @GetMapping("url")
+    public String testurl(){
+        return "test/testUrl";
+    }
+
 
 }

@@ -90,6 +90,7 @@ public class KpiController {
 
     // 게시글 삭제
     @DeleteMapping("delete")
+    @ResponseBody
     public HashMap<String, String> kpiDelete(String no){
         int result = service.kpiDelete(no);
 

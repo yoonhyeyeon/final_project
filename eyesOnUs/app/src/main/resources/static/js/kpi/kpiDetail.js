@@ -34,8 +34,6 @@ $(document).ready(() => {
         str += "<progress value='" + detailData.focus + "' max='100' id='focus'></progress>";
         str += "<p>시작 날짜</p>";
         str += "<p>"+ detailData.startDate + "</p>";
-        str += "<p>종료 날짜</p>";
-        str += "<p>"+ detailData.endDate + "</p>";
         str += "</div>";
         str += "</div>";
         str += "</div>";

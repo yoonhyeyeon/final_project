@@ -15,7 +15,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
-
 }
 
 .list-item {

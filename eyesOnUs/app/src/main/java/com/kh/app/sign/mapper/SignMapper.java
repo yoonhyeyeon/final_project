@@ -130,218 +130,439 @@ public interface SignMapper {
 
     // 결재 목록 조회 (신청자 입장) (동적 쿼리) (API)
     @Select({
-            "<script>",
-                "SELECT",
-                    "ROWNUM",
-                    ", Y.NO",
-                    ", Y.EMP_NO",
-                    ", Y.RESULT",
-                    ", Y.STEP",
-                    ", Y.TITLE",
-                    ", Y.CONTENT",
-                    ", Y.ENROLL_DATE",
-                    ", Y.CHANGE_NAME",
-                    ", Y.ORIGIN_NAME",
-                    ", Y.\"SIZE\"",
-                    ", Y.MODIFY_DATE",
-                    ", Y.EMP_NAME",
-                    ", Y.NICK",
-                    ", Y.POSITION_CODE",
-                    ", Y.POSITION_NAME",
-                    ", Y.DIV_CODE",
-                    ", Y.DIV_NAME",
-                    ", Y.DEPT_CODE",
-                    ", Y.DEPT_NAME",
-                "FROM",
-                "(",
-                    "SELECT",
-                        "S.NO",
-                        ", S.EMP_NO",
-                        ", S.RESULT",
-                        ", S.STEP",
-                        ", S.TITLE",
-                        ", S.CONTENT",
-                        ", S.ENROLL_DATE",
-                        ", F.CHANGE_NAME",
-                        ", F.ORIGIN_NAME",
-                        ", F.\"SIZE\"",
-                        ", F.MODIFY_DATE",
-                        ", E.NAME EMP_NAME",
-                        ", E.NICK",
-                        ", P.CODE POSITION_CODE",
-                        ", P.NAME POSITION_NAME",
-                        ", D.CODE DIV_CODE",
-                        ", D.NAME DIV_NAME",
-                        ", T.CODE DEPT_CODE",
-                        ", T.NAME DEPT_NAME",
-                    "FROM SIGN S",
-                    "JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)",
-                    "JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)",
-                    "JOIN POSITION P ON (E.POSITION_CODE = P.CODE)",
-                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
-                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
-                    "WHERE S.EMP_NO = #{empNo}",
-
-                    "<if test='result != null'>",
-                        "AND S.RESULT = #{result}",
-                    "</if>",
-
-                    "<if test='step != null'>",
-                        "AND S.STEP = #{step}",
-                    "</if>",
-
-                    "ORDER BY S.NO DESC",
-                ") Y",
-            "</script>"
+            """
+            <script>
+                SELECT
+                    ROWNUM
+                    , Y.NO
+                    , Y.EMP_NO
+                    , Y.RESULT
+                    , Y.STEP
+                    , Y.TITLE
+                    , Y.CONTENT
+                    , Y.ENROLL_DATE
+                    , Y.CHANGE_NAME
+                    , Y.ORIGIN_NAME
+                    , Y.\"SIZE\"
+                    , Y.MODIFY_DATE
+                    , Y.EMP_NAME
+                    , Y.NICK
+                    , Y.POSITION_CODE
+                    , Y.POSITION_NAME
+                    , Y.DIV_CODE
+                    , Y.DIV_NAME
+                    , Y.DEPT_CODE
+                    , Y.DEPT_NAME
+                FROM
+                (
+                    SELECT
+                        S.NO
+                        , S.EMP_NO
+                        , S.RESULT
+                        , S.STEP
+                        , S.TITLE
+                        , S.CONTENT
+                        , S.ENROLL_DATE
+                        , F.CHANGE_NAME
+                        , F.ORIGIN_NAME
+                        , F.\"SIZE\"
+                        , F.MODIFY_DATE
+                        , E.NAME EMP_NAME
+                        , E.NICK
+                        , P.CODE POSITION_CODE
+                        , P.NAME POSITION_NAME
+                        , D.CODE DIV_CODE
+                        , D.NAME DIV_NAME
+                        , T.CODE DEPT_CODE
+                        , T.NAME DEPT_NAME
+                    FROM SIGN S
+                    JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)
+                    JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)
+                    JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+                    JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+                    JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+                    WHERE S.EMP_NO = #{empNo}
+                    
+                    <if test='result != null'>
+                        AND S.RESULT = #{result}
+                    </if>
+                    
+                    <if test='step != null'>
+                        AND S.STEP = #{step}
+                    </if>
+                    
+                    ORDER BY S.NO DESC
+                ) Y
+            </script>
+            """
     })
     List<SignVo> getVoListDynamic(SignVo signVo);
 
     // 결재 목록 조회 (결재자 입장) (동적 쿼리) (API)
     @Select({
-            "<script>",
-                "SELECT",
-                    "ROWNUM",
-                    ", Y.NO",
-                    ", Y.SIGN_NO",
-                    ", Y.APPROVER_NO",
-                    ", Y.SIGN_SEQ",
-                    ", Y.EMP_NO",
-                    ", Y.RESULT",
-                    ", Y.STEP",
-                    ", Y.TITLE",
-                    ", Y.CONTENT",
-                    ", Y.ENROLL_DATE",
-                    ", Y.CHANGE_NAME",
-                    ", Y.ORIGIN_NAME",
-                    ", Y.\"SIZE\"",
-                    ", Y.MODIFY_DATE",
-                    ", Y.EMP_NAME",
-                    ", Y.NICK",
-                    ", Y.POSITION_CODE",
-                    ", Y.POSITION_NAME",
-                    ", Y.DIV_CODE",
-                    ", Y.DIV_NAME",
-                    ", Y.DEPT_CODE",
-                    ", Y.DEPT_NAME",
-                "FROM",
-                "(",
-                    "SELECT",
-                        "P.NO",
-                        ", P.SIGN_NO",
-                        ", P.APPROVER_NO",
-                        ", P.SIGN_SEQ",
-                        ", S.EMP_NO",
-                        ", S.RESULT",
-                        ", S.STEP",
-                        ", S.TITLE",
-                        ", S.CONTENT",
-                        ", S.ENROLL_DATE",
-                        ", F.CHANGE_NAME",
-                        ", F.ORIGIN_NAME",
-                        ", F.\"SIZE\"",
-                        ", F.MODIFY_DATE",
-                        ", E.NAME EMP_NAME",
-                        ", E.NICK",
-                        ", O.CODE POSITION_CODE",
-                        ", O.NAME POSITION_NAME",
-                        ", D.CODE DIV_CODE",
-                        ", D.NAME DIV_NAME",
-                        ", T.CODE DEPT_CODE",
-                        ", T.NAME DEPT_NAME",
-                    "FROM SIGN_PATH P",
-                    "JOIN SIGN S ON (P.SIGN_NO = S.NO)",
-                    "JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)",
-                    "JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)",
-                    "JOIN POSITION O ON (E.POSITION_CODE = O.CODE)",
-                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
-                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
-                    "WHERE P.APPROVER_NO = #{approverNo[0]}",
-
-                    "<if test='result != null'>",
-                        "AND S.RESULT = #{result}",
-                    "</if>",
-
-                    "<if test='step != null'>",
-                        "AND S.STEP = #{step}",
-                    "</if>",
-
-                    "ORDER BY S.NO DESC",
-                ") Y",
-            "</script>"
+            """
+                <script>
+                    SELECT
+                        ROWNUM
+                        , Y.NO
+                        , Y.SIGN_NO
+                        , Y.APPROVER_NO
+                        , Y.SIGN_SEQ
+                        , Y.EMP_NO
+                        , Y.RESULT
+                        , Y.STEP
+                        , Y.TITLE
+                        , Y.CONTENT
+                        , Y.ENROLL_DATE
+                        , Y.CHANGE_NAME
+                        , Y.ORIGIN_NAME
+                        , Y.\"SIZE\"
+                        , Y.MODIFY_DATE
+                        , Y.EMP_NAME
+                        , Y.NICK
+                        , Y.POSITION_CODE
+                        , Y.POSITION_NAME
+                        , Y.DIV_CODE
+                        , Y.DIV_NAME
+                        , Y.DEPT_CODE
+                        , Y.DEPT_NAME
+                    FROM
+                    (
+                        SELECT
+                            P.NO
+                            , P.SIGN_NO
+                            , P.APPROVER_NO
+                            , P.SIGN_SEQ
+                            , S.EMP_NO
+                            , S.RESULT
+                            , S.STEP
+                            , S.TITLE
+                            , S.CONTENT
+                            , S.ENROLL_DATE
+                            , F.CHANGE_NAME
+                            , F.ORIGIN_NAME
+                            , F.\"SIZE\"
+                            , F.MODIFY_DATE
+                            , E.NAME EMP_NAME
+                            , E.NICK
+                            , O.CODE POSITION_CODE
+                            , O.NAME POSITION_NAME
+                            , D.CODE DIV_CODE
+                            , D.NAME DIV_NAME
+                            , T.CODE DEPT_CODE
+                            , T.NAME DEPT_NAME
+                        FROM SIGN_PATH P
+                        JOIN SIGN S ON (P.SIGN_NO = S.NO)
+                        JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)
+                        JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)
+                        JOIN POSITION O ON (E.POSITION_CODE = O.CODE)
+                        JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+                        JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+                        WHERE P.APPROVER_NO = #{approverNo[0]}
+                        
+                        <if test='result != null'>
+                            AND S.RESULT = #{result}
+                        </if>
+                        
+                        <if test='step != null'>
+                            AND S.STEP = #{step}
+                        </if>
+                        
+                        ORDER BY S.NO DESC
+                    ) Y
+                </script>
+            """
     })
     List<SignVo> getVoListDynamicForApprover(SignVo signVo);
 
     // 결재 목록 조회 (참조자 입장) (동적 쿼리) (API)
     @Select({
-            "<script>",
-                "SELECT",
-                    "ROWNUM",
-                    ", Y.NO",
-                    ", Y.SIGN_NO",
-                    ", Y.EMP_NO",
-                    ", Y.RESULT",
-                    ", Y.STEP",
-                    ", Y.TITLE",
-                    ", Y.CONTENT",
-                    ", Y.ENROLL_DATE",
-                    ", Y.CHANGE_NAME",
-                    ", Y.ORIGIN_NAME",
-                    ", Y.\"SIZE\"",
-                    ", Y.MODIFY_DATE",
-                    ", Y.EMP_NAME",
-                    ", Y.NICK",
-                    ", Y.POSITION_CODE",
-                    ", Y.POSITION_NAME",
-                    ", Y.DIV_CODE",
-                    ", Y.DIV_NAME",
-                    ", Y.DEPT_CODE",
-                    ", Y.DEPT_NAME",
-                "FROM",
-                "(",
-                    "SELECT",
-                        "R.NO",
-                        ", R.SIGN_NO",
-                        ", R.REF_NO",
-                        ", S.EMP_NO",
-                        ", S.RESULT",
-                        ", S.STEP",
-                        ", S.TITLE",
-                        ", S.CONTENT",
-                        ", S.ENROLL_DATE",
-                        ", F.CHANGE_NAME",
-                        ", F.ORIGIN_NAME",
-                        ", F.\"SIZE\"",
-                        ", F.MODIFY_DATE",
-                        ", E.NAME EMP_NAME",
-                        ", E.NICK",
-                        ", O.CODE POSITION_CODE",
-                        ", O.NAME POSITION_NAME",
-                        ", D.CODE DIV_CODE",
-                        ", D.NAME DIV_NAME",
-                        ", T.CODE DEPT_CODE",
-                        ", T.NAME DEPT_NAME",
-                    "FROM SIGN_REF R",
-                    "JOIN SIGN S ON (R.SIGN_NO = S.NO)",
-                    "JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)",
-                    "JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)",
-                    "JOIN POSITION O ON (E.POSITION_CODE = O.CODE)",
-                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
-                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
-                    "WHERE R.REF_NO = #{refNo[0]}",
-
-                    "<if test='result != null'>",
-                        "AND S.RESULT = #{result}",
-                    "</if>",
-
-                    "<if test='step != null'>",
-                        "AND S.STEP = #{step}",
-                    "</if>",
-
-                    "ORDER BY S.NO DESC",
-                ") Y",
-            "</script>"
+            """
+                <script>
+                    SELECT
+                        ROWNUM
+                        , Y.NO
+                        , Y.SIGN_NO
+                        , Y.EMP_NO
+                        , Y.RESULT
+                        , Y.STEP
+                        , Y.TITLE
+                        , Y.CONTENT
+                        , Y.ENROLL_DATE
+                        , Y.CHANGE_NAME
+                        , Y.ORIGIN_NAME
+                        , Y.\"SIZE\"
+                        , Y.MODIFY_DATE
+                        , Y.EMP_NAME
+                        , Y.NICK
+                        , Y.POSITION_CODE
+                        , Y.POSITION_NAME
+                        , Y.DIV_CODE
+                        , Y.DIV_NAME
+                        , Y.DEPT_CODE
+                        , Y.DEPT_NAME
+                    FROM
+                    (
+                        SELECT
+                            R.NO
+                            , R.SIGN_NO
+                            , R.REF_NO
+                            , S.EMP_NO
+                            , S.RESULT
+                            , S.STEP
+                            , S.TITLE
+                            , S.CONTENT
+                            , S.ENROLL_DATE
+                            , F.CHANGE_NAME
+                            , F.ORIGIN_NAME
+                            , F.\"SIZE\"
+                            , F.MODIFY_DATE
+                            , E.NAME EMP_NAME
+                            , E.NICK
+                            , O.CODE POSITION_CODE
+                            , O.NAME POSITION_NAME
+                            , D.CODE DIV_CODE
+                            , D.NAME DIV_NAME
+                            , T.CODE DEPT_CODE
+                            , T.NAME DEPT_NAME
+                        FROM SIGN_REF R
+                        JOIN SIGN S ON (R.SIGN_NO = S.NO)
+                        JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)
+                        JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)
+                        JOIN POSITION O ON (E.POSITION_CODE = O.CODE)
+                        JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+                        JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+                        WHERE R.REF_NO = #{refNo[0]}
+                        
+                        <if test='result != null'>
+                            AND S.RESULT = #{result}
+                        </if>
+                        
+                        <if test='step != null'>
+                            AND S.STEP = #{step}
+                        </if>
+                        
+                        ORDER BY S.NO DESC
+                    ) Y
+                </script>
+            """
     })
     List<SignVo> getVoListDynamicForReference(SignVo signVo);
+
+//    // 결재 목록 조회 (신청자 입장) (동적 쿼리) (API)
+//    @Select({
+//            "<script>",
+//                "SELECT",
+//                    "ROWNUM",
+//                    ", Y.NO",
+//                    ", Y.EMP_NO",
+//                    ", Y.RESULT",
+//                    ", Y.STEP",
+//                    ", Y.TITLE",
+//                    ", Y.CONTENT",
+//                    ", Y.ENROLL_DATE",
+//                    ", Y.CHANGE_NAME",
+//                    ", Y.ORIGIN_NAME",
+//                    ", Y.\"SIZE\"",
+//                    ", Y.MODIFY_DATE",
+//                    ", Y.EMP_NAME",
+//                    ", Y.NICK",
+//                    ", Y.POSITION_CODE",
+//                    ", Y.POSITION_NAME",
+//                    ", Y.DIV_CODE",
+//                    ", Y.DIV_NAME",
+//                    ", Y.DEPT_CODE",
+//                    ", Y.DEPT_NAME",
+//                "FROM",
+//                "(",
+//                    "SELECT",
+//                        "S.NO",
+//                        ", S.EMP_NO",
+//                        ", S.RESULT",
+//                        ", S.STEP",
+//                        ", S.TITLE",
+//                        ", S.CONTENT",
+//                        ", S.ENROLL_DATE",
+//                        ", F.CHANGE_NAME",
+//                        ", F.ORIGIN_NAME",
+//                        ", F.\"SIZE\"",
+//                        ", F.MODIFY_DATE",
+//                        ", E.NAME EMP_NAME",
+//                        ", E.NICK",
+//                        ", P.CODE POSITION_CODE",
+//                        ", P.NAME POSITION_NAME",
+//                        ", D.CODE DIV_CODE",
+//                        ", D.NAME DIV_NAME",
+//                        ", T.CODE DEPT_CODE",
+//                        ", T.NAME DEPT_NAME",
+//                    "FROM SIGN S",
+//                    "JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)",
+//                    "JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)",
+//                    "JOIN POSITION P ON (E.POSITION_CODE = P.CODE)",
+//                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
+//                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
+//                    "WHERE S.EMP_NO = #{empNo}",
+//
+//                    "<if test='result != null'>",
+//                        "AND S.RESULT = #{result}",
+//                    "</if>",
+//
+//                    "<if test='step != null'>",
+//                        "AND S.STEP = #{step}",
+//                    "</if>",
+//
+//                    "ORDER BY S.NO DESC",
+//                ") Y",
+//            "</script>"
+//    })
+//    List<SignVo> getVoListDynamic(SignVo signVo);
+//
+//    // 결재 목록 조회 (결재자 입장) (동적 쿼리) (API)
+//    @Select({
+//            "<script>",
+//                "SELECT",
+//                    "ROWNUM",
+//                    ", Y.NO",
+//                    ", Y.SIGN_NO",
+//                    ", Y.APPROVER_NO",
+//                    ", Y.SIGN_SEQ",
+//                    ", Y.EMP_NO",
+//                    ", Y.RESULT",
+//                    ", Y.STEP",
+//                    ", Y.TITLE",
+//                    ", Y.CONTENT",
+//                    ", Y.ENROLL_DATE",
+//                    ", Y.CHANGE_NAME",
+//                    ", Y.ORIGIN_NAME",
+//                    ", Y.\"SIZE\"",
+//                    ", Y.MODIFY_DATE",
+//                    ", Y.EMP_NAME",
+//                    ", Y.NICK",
+//                    ", Y.POSITION_CODE",
+//                    ", Y.POSITION_NAME",
+//                    ", Y.DIV_CODE",
+//                    ", Y.DIV_NAME",
+//                    ", Y.DEPT_CODE",
+//                    ", Y.DEPT_NAME",
+//                "FROM",
+//                "(",
+//                    "SELECT",
+//                        "P.NO",
+//                        ", P.SIGN_NO",
+//                        ", P.APPROVER_NO",
+//                        ", P.SIGN_SEQ",
+//                        ", S.EMP_NO",
+//                        ", S.RESULT",
+//                        ", S.STEP",
+//                        ", S.TITLE",
+//                        ", S.CONTENT",
+//                        ", S.ENROLL_DATE",
+//                        ", F.CHANGE_NAME",
+//                        ", F.ORIGIN_NAME",
+//                        ", F.\"SIZE\"",
+//                        ", F.MODIFY_DATE",
+//                        ", E.NAME EMP_NAME",
+//                        ", E.NICK",
+//                        ", O.CODE POSITION_CODE",
+//                        ", O.NAME POSITION_NAME",
+//                        ", D.CODE DIV_CODE",
+//                        ", D.NAME DIV_NAME",
+//                        ", T.CODE DEPT_CODE",
+//                        ", T.NAME DEPT_NAME",
+//                    "FROM SIGN_PATH P",
+//                    "JOIN SIGN S ON (P.SIGN_NO = S.NO)",
+//                    "JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)",
+//                    "JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)",
+//                    "JOIN POSITION O ON (E.POSITION_CODE = O.CODE)",
+//                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
+//                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
+//                    "WHERE P.APPROVER_NO = #{approverNo[0]}",
+//
+//                    "<if test='result != null'>",
+//                        "AND S.RESULT = #{result}",
+//                    "</if>",
+//
+//                    "<if test='step != null'>",
+//                        "AND S.STEP = #{step}",
+//                    "</if>",
+//
+//                    "ORDER BY S.NO DESC",
+//                ") Y",
+//            "</script>"
+//    })
+//    List<SignVo> getVoListDynamicForApprover(SignVo signVo);
+//
+//    // 결재 목록 조회 (참조자 입장) (동적 쿼리) (API)
+//    @Select({
+//            "<script>",
+//                "SELECT",
+//                    "ROWNUM",
+//                    ", Y.NO",
+//                    ", Y.SIGN_NO",
+//                    ", Y.EMP_NO",
+//                    ", Y.RESULT",
+//                    ", Y.STEP",
+//                    ", Y.TITLE",
+//                    ", Y.CONTENT",
+//                    ", Y.ENROLL_DATE",
+//                    ", Y.CHANGE_NAME",
+//                    ", Y.ORIGIN_NAME",
+//                    ", Y.\"SIZE\"",
+//                    ", Y.MODIFY_DATE",
+//                    ", Y.EMP_NAME",
+//                    ", Y.NICK",
+//                    ", Y.POSITION_CODE",
+//                    ", Y.POSITION_NAME",
+//                    ", Y.DIV_CODE",
+//                    ", Y.DIV_NAME",
+//                    ", Y.DEPT_CODE",
+//                    ", Y.DEPT_NAME",
+//                "FROM",
+//                "(",
+//                    "SELECT",
+//                        "R.NO",
+//                        ", R.SIGN_NO",
+//                        ", R.REF_NO",
+//                        ", S.EMP_NO",
+//                        ", S.RESULT",
+//                        ", S.STEP",
+//                        ", S.TITLE",
+//                        ", S.CONTENT",
+//                        ", S.ENROLL_DATE",
+//                        ", F.CHANGE_NAME",
+//                        ", F.ORIGIN_NAME",
+//                        ", F.\"SIZE\"",
+//                        ", F.MODIFY_DATE",
+//                        ", E.NAME EMP_NAME",
+//                        ", E.NICK",
+//                        ", O.CODE POSITION_CODE",
+//                        ", O.NAME POSITION_NAME",
+//                        ", D.CODE DIV_CODE",
+//                        ", D.NAME DIV_NAME",
+//                        ", T.CODE DEPT_CODE",
+//                        ", T.NAME DEPT_NAME",
+//                    "FROM SIGN_REF R",
+//                    "JOIN SIGN S ON (R.SIGN_NO = S.NO)",
+//                    "JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)",
+//                    "JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)",
+//                    "JOIN POSITION O ON (E.POSITION_CODE = O.CODE)",
+//                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
+//                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
+//                    "WHERE R.REF_NO = #{refNo[0]}",
+//
+//                    "<if test='result != null'>",
+//                        "AND S.RESULT = #{result}",
+//                    "</if>",
+//
+//                    "<if test='step != null'>",
+//                        "AND S.STEP = #{step}",
+//                    "</if>",
+//
+//                    "ORDER BY S.NO DESC",
+//                ") Y",
+//            "</script>"
+//    })
+//    List<SignVo> getVoListDynamicForReference(SignVo signVo);
 
 //    // 결재 진행 목록 조회 (신청자 입장) (API)
 //    @Select("SELECT\n" +

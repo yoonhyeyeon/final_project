@@ -118,70 +118,139 @@ public interface LeaveMapper {
 
     // 휴가 목록 조회 (동적 쿼리) (API)
     @Select({
-            "<script>",
-                "SELECT",
-                    "ROWNUM",
-                    ", Y.NO",
-                    ", Y.LEAVE_TYPE",
-                    ", Y.LEAVE_NAME",
-                    ", Y.EMP_NO",
-                    ", Y.APPROVER_NO",
-                    ", Y.START_DATE",
-                    ", Y.END_DATE",
-                    ", Y.REASON",
-                    ", Y.STATE",
-                    ", Y.EMP_NAME",
-                    ", Y.NICK",
-                    ", Y.DIV_CODE",
-                    ", Y.DIV_NAME",
-                    ", Y.POSITION_CODE",
-                    ", Y.POSITION_NAME",
-                    ", Y.DEPT_CODE",
-                    ", Y.DEPT_NAME",
-                "FROM",
-                "(",
-                    "SELECT",
-                        "L.NO",
-                        ", L.TYPE_NO LEAVE_TYPE",
-                        ", A.NAME LEAVE_NAME",
-                        ", L.EMP_NO",
-                        ", L.APPROVER_NO",
-                        ", L.START_DATE",
-                        ", L.END_DATE",
-                        ", L.REASON",
-                        ", L.STATE",
-                        ", E.NAME EMP_NAME",
-                        ", E.NICK",
-                        ", D.CODE DIV_CODE",
-                        ", D.NAME DIV_NAME",
-                        ", P.CODE POSITION_CODE",
-                        ", P.NAME POSITION_NAME",
-                        ", T.CODE DEPT_CODE",
-                        ", T.NAME DEPT_NAME",
-                    "FROM LEAVE L",
-                    "JOIN EMPLOYEE E ON (L.EMP_NO = E.NO)",
-                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
-                    "JOIN POSITION P ON (E.POSITION_CODE = P.CODE)",
-                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
-                    "JOIN LEAVE_TYPE A ON (L.TYPE_NO = A.NO)",
-
-                    "<if test='empNo != null'>",
-                        "WHERE L.EMP_NO = #{empNo}",
-                    "</if>",
-
-                    "<if test='approverNo != null'>",
-                        "WHERE L.APPROVER_NO = #{approverNo}",
-                    "</if>",
-
-                    "<if test='state != null'>",
-                        "AND L.STATE = #{state}",
-                    "</if>",
-
-                    "ORDER BY L.NO DESC",
-                ") Y",
-            "</script>"
+            """
+            <script>
+                SELECT
+                    ROWNUM
+                    , Y.NO
+                    , Y.LEAVE_TYPE
+                    , Y.LEAVE_NAME
+                    , Y.EMP_NO
+                    , Y.APPROVER_NO
+                    , Y.START_DATE
+                    , Y.END_DATE
+                    , Y.REASON
+                    , Y.STATE
+                    , Y.EMP_NAME
+                    , Y.NICK
+                    , Y.DIV_CODE
+                    , Y.DIV_NAME
+                    , Y.POSITION_CODE
+                    , Y.POSITION_NAME
+                    , Y.DEPT_CODE
+                    , Y.DEPT_NAME
+                FROM
+                (
+                    SELECT
+                        L.NO
+                        , L.TYPE_NO LEAVE_TYPE
+                        , A.NAME LEAVE_NAME
+                        , L.EMP_NO
+                        , L.APPROVER_NO
+                        , L.START_DATE
+                        , L.END_DATE
+                        , L.REASON
+                        , L.STATE
+                        , E.NAME EMP_NAME
+                        , E.NICK
+                        , D.CODE DIV_CODE
+                        , D.NAME DIV_NAME
+                        , P.CODE POSITION_CODE
+                        , P.NAME POSITION_NAME
+                        , T.CODE DEPT_CODE
+                        , T.NAME DEPT_NAME
+                    FROM LEAVE L
+                    JOIN EMPLOYEE E ON (L.EMP_NO = E.NO)
+                    JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+                    JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+                    JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+                    JOIN LEAVE_TYPE A ON (L.TYPE_NO = A.NO)
+                    
+                    <if test='empNo != null'>
+                        WHERE L.EMP_NO = #{empNo}
+                    </if>
+                    
+                    <if test='approverNo != null'>
+                        WHERE L.APPROVER_NO = #{approverNo}
+                    </if>
+                    
+                    <if test='state != null'>
+                        AND L.STATE = #{state}
+                    </if>
+                    
+                    ORDER BY L.NO DESC
+                ) Y
+            </script>
+            """
     })
     List<LeaveVo> getLeaveListForAll(LeaveVo vo);
+
+//    // 휴가 목록 조회 (동적 쿼리) (API)
+//    @Select({
+//            "<script>",
+//                "SELECT",
+//                    "ROWNUM",
+//                    ", Y.NO",
+//                    ", Y.LEAVE_TYPE",
+//                    ", Y.LEAVE_NAME",
+//                    ", Y.EMP_NO",
+//                    ", Y.APPROVER_NO",
+//                    ", Y.START_DATE",
+//                    ", Y.END_DATE",
+//                    ", Y.REASON",
+//                    ", Y.STATE",
+//                    ", Y.EMP_NAME",
+//                    ", Y.NICK",
+//                    ", Y.DIV_CODE",
+//                    ", Y.DIV_NAME",
+//                    ", Y.POSITION_CODE",
+//                    ", Y.POSITION_NAME",
+//                    ", Y.DEPT_CODE",
+//                    ", Y.DEPT_NAME",
+//                "FROM",
+//                "(",
+//                    "SELECT",
+//                        "L.NO",
+//                        ", L.TYPE_NO LEAVE_TYPE",
+//                        ", A.NAME LEAVE_NAME",
+//                        ", L.EMP_NO",
+//                        ", L.APPROVER_NO",
+//                        ", L.START_DATE",
+//                        ", L.END_DATE",
+//                        ", L.REASON",
+//                        ", L.STATE",
+//                        ", E.NAME EMP_NAME",
+//                        ", E.NICK",
+//                        ", D.CODE DIV_CODE",
+//                        ", D.NAME DIV_NAME",
+//                        ", P.CODE POSITION_CODE",
+//                        ", P.NAME POSITION_NAME",
+//                        ", T.CODE DEPT_CODE",
+//                        ", T.NAME DEPT_NAME",
+//                    "FROM LEAVE L",
+//                    "JOIN EMPLOYEE E ON (L.EMP_NO = E.NO)",
+//                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
+//                    "JOIN POSITION P ON (E.POSITION_CODE = P.CODE)",
+//                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
+//                    "JOIN LEAVE_TYPE A ON (L.TYPE_NO = A.NO)",
+//
+//                    "<if test='empNo != null'>",
+//                        "WHERE L.EMP_NO = #{empNo}",
+//                    "</if>",
+//
+//                    "<if test='approverNo != null'>",
+//                        "WHERE L.APPROVER_NO = #{approverNo}",
+//                    "</if>",
+//
+//                    "<if test='state != null'>",
+//                        "AND L.STATE = #{state}",
+//                    "</if>",
+//
+//                    "ORDER BY L.NO DESC",
+//                ") Y",
+//            "</script>"
+//    })
+//    List<LeaveVo> getLeaveListForAll(LeaveVo vo);
 
 //    // 휴가 승인 대기 목록 조회 (신청자 입장) (API)
 //    @Select("SELECT\n" +

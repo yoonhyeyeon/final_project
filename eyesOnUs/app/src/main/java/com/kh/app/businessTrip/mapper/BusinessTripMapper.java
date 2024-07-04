@@ -131,69 +131,137 @@ public interface BusinessTripMapper {
 
     // 출장 목록 조회 (동적 쿼리) (API)
     @Select({
-            "<script>",
-                "SELECT",
-                    "ROWNUM",
-                    ", Y.NO",
-                    ", Y.PRO_NO",
-                    ", Y.EMP_NO",
-                    ", Y.APPROVER_NO",
-                    ", Y.START_DATE",
-                    ", Y.END_DATE",
-                    ", Y.REASON",
-                    ", Y.DESTINATION",
-                    ", Y.STATE",
-                    ", Y.EMP_NAME",
-                    ", Y.NICK",
-                    ", Y.DIV_CODE",
-                    ", Y.DIV_NAME",
-                    ", Y.POSITION_CODE",
-                    ", Y.POSITION_NAME",
-                    ", Y.DEPT_CODE",
-                    ", Y.DEPT_NAME",
-                "FROM",
-                "(",
-                    "SELECT",
-                        "B.NO",
-                        ", B.PRO_NO",
-                        ", B.EMP_NO",
-                        ", B.APPROVER_NO",
-                        ", B.START_DATE",
-                        ", B.END_DATE",
-                        ", B.REASON",
-                        ", B.DESTINATION",
-                        ", B.STATE",
-                        ", E.NAME EMP_NAME",
-                        ", E.NICK",
-                        ", D.CODE DIV_CODE",
-                        ", D.NAME DIV_NAME",
-                        ", P.CODE POSITION_CODE",
-                        ", P.NAME POSITION_NAME",
-                        ", T.CODE DEPT_CODE",
-                        ", T.NAME DEPT_NAME",
-                    "FROM BUSINESS_TRIP B",
-                    "JOIN EMPLOYEE E ON (B.EMP_NO = E.NO)",
-                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
-                    "JOIN POSITION P ON (E.POSITION_CODE = P.CODE)",
-                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
+            """
+            <script>
+                SELECT
+                    ROWNUM
+                    , Y.NO
+                    , Y.PRO_NO
+                    , Y.EMP_NO
+                    , Y.APPROVER_NO
+                    , Y.START_DATE
+                    , Y.END_DATE
+                    , Y.REASON
+                    , Y.DESTINATION
+                    , Y.STATE
+                    , Y.EMP_NAME
+                    , Y.NICK
+                    , Y.DIV_CODE
+                    , Y.DIV_NAME
+                    , Y.POSITION_CODE
+                    , Y.POSITION_NAME
+                    , Y.DEPT_CODE
+                    , Y.DEPT_NAME
+                FROM
+                (
+                    SELECT
+                        B.NO
+                        , B.PRO_NO
+                        , B.EMP_NO
+                        , B.APPROVER_NO
+                        , B.START_DATE
+                        , B.END_DATE
+                        , B.REASON
+                        , B.DESTINATION
+                        , B.STATE
+                        , E.NAME EMP_NAME
+                        , E.NICK
+                        , D.CODE DIV_CODE
+                        , D.NAME DIV_NAME
+                        , P.CODE POSITION_CODE
+                        , P.NAME POSITION_NAME
+                        , T.CODE DEPT_CODE
+                        , T.NAME DEPT_NAME
+                    FROM BUSINESS_TRIP B
+                    JOIN EMPLOYEE E ON (B.EMP_NO = E.NO)
+                    JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+                    JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+                    JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+                    
+                    <if test='empNo != null'>
+                        WHERE B.EMP_NO = #{empNo}
+                    </if>
+                    
+                    <if test='approverNo != null'>
+                        WHERE B.APPROVER_NO = #{approverNo}
+                    </if>
 
-                    "<if test='empNo != null'>",
-                        "WHERE B.EMP_NO = #{empNo}",
-                    "</if>",
-
-                    "<if test='approverNo != null'>",
-                        "WHERE B.APPROVER_NO = #{approverNo}",
-                    "</if>",
-
-                    "<if test='state != null'>",
-                        "AND B.STATE = #{state}",
-                    "</if>",
-
-                    "ORDER BY B.NO DESC",
-                ") Y",
-            "</script>"
+                    <if test='state != null'>
+                        AND B.STATE = #{state}
+                    </if>
+                    
+                    ORDER BY B.NO DESC
+                ) Y
+            </script>
+            """
     })
     List<BusinessTripVo> getBusinessTripListForAll(BusinessTripVo businessTripVo);
+
+//    // 출장 목록 조회 (동적 쿼리) (API)
+//    @Select({
+//            "<script>",
+//                "SELECT",
+//                    "ROWNUM",
+//                    ", Y.NO",
+//                    ", Y.PRO_NO",
+//                    ", Y.EMP_NO",
+//                    ", Y.APPROVER_NO",
+//                    ", Y.START_DATE",
+//                    ", Y.END_DATE",
+//                    ", Y.REASON",
+//                    ", Y.DESTINATION",
+//                    ", Y.STATE",
+//                    ", Y.EMP_NAME",
+//                    ", Y.NICK",
+//                    ", Y.DIV_CODE",
+//                    ", Y.DIV_NAME",
+//                    ", Y.POSITION_CODE",
+//                    ", Y.POSITION_NAME",
+//                    ", Y.DEPT_CODE",
+//                    ", Y.DEPT_NAME",
+//                "FROM",
+//                "(",
+//                    "SELECT",
+//                        "B.NO",
+//                        ", B.PRO_NO",
+//                        ", B.EMP_NO",
+//                        ", B.APPROVER_NO",
+//                        ", B.START_DATE",
+//                        ", B.END_DATE",
+//                        ", B.REASON",
+//                        ", B.DESTINATION",
+//                        ", B.STATE",
+//                        ", E.NAME EMP_NAME",
+//                        ", E.NICK",
+//                        ", D.CODE DIV_CODE",
+//                        ", D.NAME DIV_NAME",
+//                        ", P.CODE POSITION_CODE",
+//                        ", P.NAME POSITION_NAME",
+//                        ", T.CODE DEPT_CODE",
+//                        ", T.NAME DEPT_NAME",
+//                    "FROM BUSINESS_TRIP B",
+//                    "JOIN EMPLOYEE E ON (B.EMP_NO = E.NO)",
+//                    "JOIN DIVISION D ON (E.DIV_CODE = D.CODE)",
+//                    "JOIN POSITION P ON (E.POSITION_CODE = P.CODE)",
+//                    "JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)",
+//
+//                    "<if test='empNo != null'>",
+//                        "WHERE B.EMP_NO = #{empNo}",
+//                    "</if>",
+//
+//                    "<if test='approverNo != null'>",
+//                        "WHERE B.APPROVER_NO = #{approverNo}",
+//                    "</if>",
+//
+//                    "<if test='state != null'>",
+//                        "AND B.STATE = #{state}",
+//                    "</if>",
+//
+//                    "ORDER BY B.NO DESC",
+//                ") Y",
+//            "</script>"
+//    })
+//    List<BusinessTripVo> getBusinessTripListForAll(BusinessTripVo businessTripVo);
 
 //    // 출장 승인 진행 목록 조회 (신청자 입장) (API)
 //    @Select("SELECT\n" +

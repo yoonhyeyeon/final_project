@@ -15,19 +15,22 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
+      <link rel="stylesheet" type="text/css" href="/css/testMain/testPersonalPage.css">
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/testMain/sidebar.js"></script>
       <script defer src="../js/testMain/calender.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
-
-      <title>메인</title>
+      <title>개인페이지</title>
     </head>
 
     <body id="container">
       <div id="warp">
         <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
-        <%@ include file="/WEB-INF/views/mainUtil/testMainSection.jsp" %>
+        <section>
+          <%@ include file="/WEB-INF/views/mainUtil/testPersonalPageHeadMenu.jsp" %>
+          <%@ include file="/WEB-INF/views/mainUtil/testPersonalPageBody.jsp" %>
+        </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>
       <%@ include file="/WEB-INF/views/mainUtil/sidebar.jsp" %>

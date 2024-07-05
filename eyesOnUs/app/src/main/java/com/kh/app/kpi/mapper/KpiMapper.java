@@ -13,7 +13,7 @@ public interface KpiMapper {
     int kpiWrite(KpiVo vo);
 
     // 게시글 목록
-    @Select("SELECT K.NO, K.PROJECT_NO , K.FOCUS , P.START_DATE , P.END_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO")
+    @Select("SELECT K.NO , K.PROJECT_NO , P.TITLE , K.FOCUS , P.START_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO ORDER BY K.NO ASC")
     List<KpiVo> KpiList();
 
 
@@ -21,7 +21,7 @@ public interface KpiMapper {
 //    List<KpiVo> kpiList(String empNo);
 
     // 게시글 상세조회
-    @Select("SELECT K.NO , K.PROJECT_NO , K.GOAL , K.PERSONAL_SCHEDULE , K.FOCUS , P.START_DATE , P.END_DATE , K.ENROLL_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO WHERE K.NO = #{no}")
+    @Select("SELECT K.NO , K.PROJECT_NO , P.TITLE , K.GOAL , K.PERSONAL_SCHEDULE , K.FOCUS , P.START_DATE , K.ENROLL_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO WHERE K.NO = #{no}")
     KpiVo kpiByNo(String no);
 
     // 게시글 수정
@@ -32,7 +32,5 @@ public interface KpiMapper {
     // 게시글 삭제
     @Delete("DELETE FROM KPI WHERE NO = #{no}")
     int kpiDelete(String no);
-//    String kpiDelete(String no);
-
 
 }

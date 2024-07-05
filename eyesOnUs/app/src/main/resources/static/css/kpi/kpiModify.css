@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
 #out{
   margin: 2%;
   display: flex;
   justify-content: center;
+  font-family: 'Do Hyeon', sans-serif;
 }
 
 #title {

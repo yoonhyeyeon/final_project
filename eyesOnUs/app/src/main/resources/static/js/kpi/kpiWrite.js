@@ -13,12 +13,12 @@ function write01() {
             personalSchedule: personalScheduleValue,
             focus: focusValue,
         },
-        success: (response) => {
-            console.log("성공");
-            console.log(response);
+        success: (x) => {
+            console.log("작성 성공");
+            alert("등록 성공");
             location.href = "http://127.0.0.1:8080/kpi/list";
         },
-        error: (error) => {
+        error: (x) => {
             console.log("통신 실패");
         },
     });

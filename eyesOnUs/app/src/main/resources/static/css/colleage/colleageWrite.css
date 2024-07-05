@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+.myform fieldset{
+  display: inline-block;
+  direction: rtl;
+  border: none;
+}
+.myform input[type=radio]{
+  display: none;
+}
+.myform label{
+  font-size: 1.5em;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+.myform label:hover{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform label:hover ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform input[type=radio]:checked ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+.myform2 fieldset{
+  display: inline-block;
+  direction: rtl;
+  border: none;
+}
+.myform2 input[type=radio]{
+  display: none;
+}
+.myform2 label{
+  font-size: 1.5em;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+.myform2 label:hover{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform2 label:hover ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform2 input[type=radio]:checked ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+.myform3 fieldset{
+  display: inline-block;
+  direction: rtl;
+  border: none;
+}
+.myform3 input[type=radio]{
+  display: none;
+}
+.myform3 label{
+  font-size: 1.5em;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+.myform3 label:hover{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform3 label:hover ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform3 input[type=radio]:checked ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+.myform4 fieldset{
+  display: inline-block;
+  direction: rtl;
+  border: none;
+}
+.myform4 input[type=radio]{
+  display: none;
+}
+.myform4 label{
+  font-size: 1.5em;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+.myform4 label:hover{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform4 label:hover ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+.myform4 input[type=radio]:checked ~ label{
+  text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+.out{
+  margin: 5%;
+  font-family: 'Do Hyeon', sans-serif;
+  text-align: center;
+  border: 1px solid rgb(184, 184, 184);
+}
+
+#say > textarea {
+  width: 30%;
+  height: 100px;
+  resize: none;
+}
+
+#sub{
+  width: 80px;
+  height: 40px;
+  border: 1px solid  rgb(118, 147, 174);
+  background-color: rgb(175, 227, 255);
+  border-radius: 5%;
+}
+
+#date{
+  display: flex;
+  justify-content: end;
+  margin-right: 2%;
+}

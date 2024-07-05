@@ -24,7 +24,7 @@ $(document).ready(() => {
         str += "<hr>";
         str += "<div class='detail-box'>";
         str += "<p id='no'> Number  : "+ detailData.no + "</p>";
-        str += "<p id='projectNo'> 프로젝트 번호 : " + detailData.projectNo + "</p>";
+        str += "<p id='projectNo'> 프로젝트 : " + detailData.title + "</p>";
         str += "<hr>";
         str += "<p>목표</p>";
         str += "<p id='goal'>" + detailData.goal + "</p>";

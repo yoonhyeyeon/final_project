@@ -19,12 +19,9 @@ public class PersonalDao {
     }
 
 
+
     public int getPersonalWrite(PersonalVo vo) {
         return mapper.getPersonalWrite(vo);
     }
 
-
-    public int personalEdit(PersonalVo vo) {
-        return mapper.personalEdit(vo);
-    }
 }

@@ -18,7 +18,7 @@
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/sidebar.js"></script>
       <script defer src="../js/calender.js"></script>
-      <title>SHIN</title>
+      <title>사이트맵</title>
     </head>
 
     <body id="container">
@@ -26,6 +26,8 @@
         <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
           <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
             <section>
+
+            <a href="http://127.0.0.1:8080/test/main">할일 페이지</a>
 
             <h1>URL 모음</h1>
             <table border="1">

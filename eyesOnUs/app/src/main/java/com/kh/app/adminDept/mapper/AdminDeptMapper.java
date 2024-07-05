@@ -18,8 +18,8 @@ public interface AdminDeptMapper {
             "FROM DIVISION D " +
             "JOIN DEPARTMENT DEPT ON D.DEPT_CODE = DEPT.CODE " +
             "ORDER BY D.CODE " +
-            "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY")
-    List<DivisionVo> adminDeptList(@Param("offset") int offset, @Param("limit") int limit);
+            "OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY")
+    List<DivisionVo> adminDeptList(@Param("offset") int offset, @Param("size") int size);
 
     @Select({"<script>",
             "SELECT D.CODE, D.DEPT_CODE, D.NAME, D.STATE, " +
@@ -41,9 +41,9 @@ public interface AdminDeptMapper {
             "</when>",
             "</choose>",
             "ORDER BY D.CODE " +
-                    "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY",
+            "OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY",
             "</script>"})
-    List<DivisionVo> adminDeptSearch(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox, @Param("offset") int offset, @Param("limit") int limit);
+    List<DivisionVo> adminDeptSearch(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox, @Param("offset") int offset, @Param("size") int size);
 
     @Select({"<script>",
             "SELECT D.CODE, D.DEPT_CODE, D.NAME, D.STATE, " +
@@ -65,7 +65,6 @@ public interface AdminDeptMapper {
             "</when>",
             "</choose>",
             "ORDER BY D.CODE " +
-                    "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY",
             "</script>"})
     List<DivisionVo> adminDeptSearchData(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox, @Param("offset") int offset, @Param("limit") int limit);
 

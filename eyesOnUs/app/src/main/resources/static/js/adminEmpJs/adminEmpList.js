@@ -94,7 +94,16 @@ $(document).ready(function() {
                     $('#empContainer').append(row);
                 }
 
-                // 페이지네이션 생성
+                    // 페이지네이션 생성 함수
+                    function createPagination(totalPages, currentPage) {
+                        $('#pagination').empty();
+                        for (var i = 1; i <= totalPages; i++) {
+                            var link = `<a href="#" class="page-link" data-page="${i}">${i}</a> `;
+                            $('#pagination').append(link);
+                        }
+                        $('#pagination').find(`[data-page="${currentPage}"]`).addClass('current-page');
+                    }
+
                 createPagination(response.totalPages, 1); // 검색 후 첫 번째 페이지 기준으로 생성
             },
             error: function(xhr, status, error) {

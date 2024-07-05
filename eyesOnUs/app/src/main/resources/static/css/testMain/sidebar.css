@@ -41,12 +41,12 @@
 
 #sidebar{
   width: 150px;
-  height: 300px;
+  height: 100vh;
   background-color: white;
   border-radius: 10px;
   position: fixed;
   right: 10px;
-  bottom: -800px;
+  right: -200px;
   transition: 0.7s;
 
   display: grid;
@@ -54,7 +54,7 @@
 }
 
 #sidebar.active {
-  bottom: 100px;
+  right: 0px;
 }
 
 .sideList {
@@ -70,9 +70,9 @@
   border: none;
   margin: 3%;
   width: 100px;
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
   box-shadow: 3px 3px 5px #aaa;
-  transition: box-shadow 0.3s ease; 
+  transition: box-shadow 0.3s ease;
 }
 
 .sideList button:hover {

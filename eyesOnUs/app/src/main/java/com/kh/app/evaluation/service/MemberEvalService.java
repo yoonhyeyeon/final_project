@@ -1,6 +1,6 @@
 package com.kh.app.evaluation.service;
 
-import com.kh.app.evaluation.dao.LeaderDao;
+import com.kh.app.evaluation.dao.MemberEvalDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class LeaderService {
+public class MemberEvalService {
 
-    private final LeaderDao dao;
+    private final MemberEvalDao dao;
 
 }

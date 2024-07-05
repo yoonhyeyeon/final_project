@@ -1,13 +1,13 @@
 package com.kh.app.evaluation.dao;
 
-import com.kh.app.evaluation.mapper.LeaderMapper;
+import com.kh.app.evaluation.mapper.LeaderEvalMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class LeaderDao {
+public class LeaderEvalDao {
 
-    private final LeaderMapper mapper;
+    private final LeaderEvalMapper mapper;
 
 }

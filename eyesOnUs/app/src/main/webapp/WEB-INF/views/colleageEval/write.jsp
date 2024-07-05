@@ -15,11 +15,12 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
-      <link rel="stylesheet" type="text/css" href="/css/colleage/colleageWrite.css">
+      <link rel="stylesheet" type="text/css" href="/css/colleageEval/colleageWrite.css">
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/sidebar.js"></script>
       <script defer src="../js/calender.js"></script>
-      <script defer src="../js/colleage/colleageWrite.js"></script>
+      <script defer src="../js/colleageEval/colleageWrite.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <title>YOON</title>
     </head>
 

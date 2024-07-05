@@ -1,13 +1,13 @@
 package com.kh.app.evaluation.dao;
 
-import com.kh.app.evaluation.mapper.MemberMapper;
+import com.kh.app.evaluation.mapper.MemberEvalMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class MemberDao {
+public class MemberEvalDao {
 
-    private final MemberMapper mapper;
+    private final MemberEvalMapper mapper;
 
 }

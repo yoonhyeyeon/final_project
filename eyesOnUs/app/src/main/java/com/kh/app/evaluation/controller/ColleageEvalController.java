@@ -1,7 +1,7 @@
 package com.kh.app.evaluation.controller;
 
-import com.kh.app.evaluation.service.ColleageService;
-import com.kh.app.evaluation.vo.ColleageVo;
+import com.kh.app.evaluation.service.ColleageEvalService;
+import com.kh.app.evaluation.vo.ColleageEvalVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,19 +14,19 @@ import java.util.HashMap;
 @CrossOrigin
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("colleage")
-public class ColleageController {
+@RequestMapping("colleageEval")
+public class ColleageEvalController {
 
-    private final ColleageService service;
+    private final ColleageEvalService service;
 
     // 작성하기
     @GetMapping("write")
     public String write(){
-        return " write";
+        return "colleageEval/write";
     }
 
     @PostMapping("write")
-    public HashMap<String, String> write(ColleageVo vo){
+    public HashMap<String, String> write(ColleageEvalVo vo){
         int result = service.write(vo);
 
         HashMap<String, String> map = new HashMap<>();

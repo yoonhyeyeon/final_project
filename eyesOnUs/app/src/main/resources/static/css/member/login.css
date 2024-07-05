@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+.do-hyeon-regular {
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eae9f0;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  height: 100vh;
+  margin: 0;
+  font-family: 'DM Serif Display', serif;
+  overflow: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(-45deg, #4550e9, #4d8df4, #34fff8, #1ba8df);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*----------------------*/
+
+
+
+.container {
+  text-align: center;
+  margin-top: 30%;
+}
+.animation {
+  opacity: 0; /* 초기에는 숨김 */
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: normal;
+  font-size: 65px;
+  color: aliceblue;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+/* 애니메이션 효과 정의 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/*----------------------*/
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10%;
+  background-color: rgb(254, 254, 254);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.login:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(115, 162, 250, 0.3);
+}
+
+.login h1 {
+  color: rgb(74, 143, 173);
+  margin-bottom: 25px;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: normal;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+}
+
+#username, #password{
+  background-color:  rgb(176, 231, 255);
+}
+
+.login label {
+  color: rgb(74, 143, 173);
+  margin-bottom: 5px;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: normal;
+}
+
+.login input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+#joinButton{
+  margin-top: 80px;
+  width: 80%;
+}
+
+.login button {
+  padding: 10px;
+  margin-top: 5%;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(222, 222, 222);
+  border-color:  rgb(176, 231, 255);
+  color: rgb(74, 143, 173);
+  font-size: 16px;
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.login button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  transition: opacity 0.5s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.login button:hover {
+  background-color:rgb(147, 233, 255);
+  box-shadow: 0 0 15px rgba(138, 228, 255, 0.6);
+}
+
+.login button:active::before {
+  opacity: 1;
+  transition: opacity 0s;
+}
+
+.login button:active {
+  box-shadow: 0 0 20px rgb(74, 143, 173);
+}

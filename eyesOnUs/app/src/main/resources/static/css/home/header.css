@@ -1,0 +1,99 @@
+#headerContainer {
+	background:linear-gradient(90deg,#4A6FB9, #37538A, #3B30B8, #1B0063);
+	border-radius: 15px;
+	margin: 15%;
+	margin-bottom: 0;
+	margin-top: 5%;
+}
+
+#header{
+	display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+#headerContainer button{
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: white;
+}
+
+.btn{
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	margin: 10%;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+}
+
+#goto, #leave{
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#goto:hover, #leave:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+#headerContainer div:last-child {
+	text-align: center;
+	font-size: 16pt;
+}
+
+
+
+
+
+#profile{
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	text-align: center;
+	color: white;
+}
+
+#profile pre{
+  font-family: "Jua";
+  height: 30px;
+  font-size: larger;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+#btn2{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 50px;
+}
+
+.upload-container {
+	color: white;
+	text-align: center;
+	background: transparent;
+	padding: 20px;
+	border-radius: 15%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.upload-container img {
+	max-width: 50%;
+	height: auto;
+	display: none;
+	margin-top: 20px;
+}
+.upload-container input {
+	margin-top: 20px;
+}

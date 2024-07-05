@@ -683,6 +683,65 @@
               </tbody>
             </table>
 
+              <table border="5">
+                <tr>
+                  <td>이름</td>
+                  <td>METHOD</td>
+                  <td>URL</td>
+                  <td>기능</td>
+                  <td>링크</td>
+                </tr>
+                <tr>
+                  <td rowspan="4">신은지</td>
+                  <td>POST</td>
+                  <td>http://127.0.0.1:8383/member/login</td>
+                  <td>로그인</td>
+                  <td><a href="http://127.0.0.1:8383/member/login">링크</a></td>
+                </tr>
+                <tr>
+                  <td>POST</td>
+                  <td>http://127.0.0.1:8383/member/join</td>
+                  <td>회원가입</td>
+                  <td><a href="http://127.0.0.1:8383/member/join">링크</a></td>
+                </tr>
+                <tr>
+                  <td>GET</td>
+                  <td>http://127.0.0.1:8383/personal/list</td>
+                  <td>기타일정 조회</td>
+                  <td><a href="http://127.0.0.1:8383/personal/list">링크</a></td>
+                </tr>
+                <tr>
+                  <td>POST</td>
+                  <td>http://127.0.0.1:8383/personal/write</td>
+                  <td>기타일정 작성하기</td>
+                  <td><a href="http://127.0.0.1:8383/personal/write">링크</a></td>
+                </tr>
+                <tr>
+                  <td>POST</td>
+                  <td>http://127.0.0.1:8383/personal/edit</td>
+                  <td>기타일정 수정하기</td>
+                  <td><a href="http://127.0.0.1:8383/personal/edit">링크</a></td>
+                </tr>
+                <tr>
+                  <td>DELETE</td>
+                  <td>http://127.0.0.1:8383/personal/delete</td>
+                  <td>기타일정 삭제하기</td>
+                  <td><a href="http://127.0.0.1:8383/personal/delete">링크</a></td>
+                </tr>
+                <tr>
+                  <td>GET</td>
+                  <td>http://127.0.0.1:8383/personal/detail</td>
+                  <td>기타일정 상세조회</td>
+                  <td><a href="http://127.0.0.1:8383/personal/detail">링크</a></td>
+                </tr>
+                <tr>
+                  <td>GET</td>
+                  <td>http://127.0.0.1:8383/home</td>
+                  <td>홈</td>
+                  <td><a href="http://127.0.0.1:8383/home">링크</a></td>
+                </tr>
+              </table>
+
 
             </section>
             <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>

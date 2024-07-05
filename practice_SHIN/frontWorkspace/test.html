@@ -1,73 +1,29 @@
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>파이널</title>
-
-</head>
-<body>
-	<h1>기타일정 작성하기</h1>
-
-	<form action="/notice/write" method="post">
-        <input type="text" name="no2" placeholder="사원번호">
-        <br>
-        <input type="text" name="title" placeholder="제목">
-        <br>
-        <textarea name="content" placeholder="내용"></textarea>
-        <br>
-        <select id="status">
-          <option value="1">플젝일정</option>
-          <option value="2">팀일정</option>
-          <option value="3">개인일정</option>
-        </select>
-        
-        <select id="status">
-          <option value="1">진행</option>
-          <option value="2">중단</option>
-          <option value="3">완료</option>
-        </select>
-        <br>
-        <input type="submit" value="작성하기">
-    </form>
-
-</body>
-</html>
-
 <script>
   function insertNotice() {
-
-    const titleValue=document.querySelector("input[name=title]").value;
-    const contentValue=document.querySelector("textarea[name=content]").value;
+    
+    const no2Value = document.querySelector("input[name=no2]").value;
+    const titleValue = document.querySelector("input[name=title]").value;
+    const contentValue = document.querySelector("input[name=content]").value;
+    const typeNoValue = document.querySelector("select[name=typeNo]").value;
+    const stateBNoValue = document.querySelector("select[name=stateBNo]").value;
 
     $.ajax({
-      url:"/api/notice",
+      url:"/api/personal",
       method:"post",
       data:{
-        "title":titleValue,
-        "content":contentValue,
+        "no2": no2Value,
+        "title": titleValue,
+        "content": contentValue,
+        "typeNo": typeNoValue,
+        "stateBNo": stateBNoValue,
       },
-      success:function(x){
-        console.log(x);
-
-        if(x.status === "1"){
-          location.href="/notice/list"
-        }else{
-          location.href="/error-page"
-        }
-        
+      success: function (x) {
+        alert(x);
+        location.href="/personal/list"
       },
-      error:function(){
+      error: function () {
         location.href="/error-page"
       },
     })
-
   }
 </script>
-
-
-
-
-
-

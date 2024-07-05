@@ -62,6 +62,8 @@ public class AdminDeptController {
         int totalCount = service.getSearchTotalCount(empCategory, searchBox);
         int totalPages = (int) Math.ceil((double) totalCount / size);
 
+        System.out.println("totalCount : " + totalCount);
+
         Map<String, Object> result = new HashMap<>();
         result.put("voList", voList);
         result.put("currentPage", page);

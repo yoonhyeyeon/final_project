@@ -6,7 +6,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 $('#teamContainer').empty();
-                var headerRow = '<div class="team-header">' +
+                let headerRow = '<div class="team-header">' +
                     '<div>부서명</div>' +
                     '<div>팀명</div>' +
                     '<div>팀 상태</div>' +
@@ -15,10 +15,10 @@ $(document).ready(function() {
                     '<div>팀 수정</div>' +
                     '</div>';
                 $('#teamContainer').append(headerRow);
-                var voList = response.voList;
-                for (var i = 0; i < voList.length; i++) {
-                    var vo = voList[i];
-                    var row = '<div class="team-row">' +
+                let voList = response.voList;
+                for (let i = 0; i < voList.length; i++) {
+                    let vo = voList[i];
+                    let row = '<div class="team-row">' +
                         '<div class="team-data list-body-low">' + vo.deptName + '</div>' +
                         '<div class="team-data list-body-low"><a href="/adminDeptMngr/detail?no=' + vo.code + '" class="team-link">' + vo.name + '</a></div>' +
                         '<div class="team-data list-body-low">' + vo.state + '</div>' +
@@ -30,9 +30,9 @@ $(document).ready(function() {
                 }
 
                 $('#pagination').empty();
-                var totalPages = response.totalPages;
-                for (var i = 1; i <= totalPages; i++) {
-                    var link = '<a href="#" data-page="' + i + '">' + i + '</a> ';
+                let totalPages = response.totalPages;
+                for (let i = 1; i <= totalPages; i++) {
+                    let link = '<a href="#" data-page="' + i + '">' + i + '</a> ';
                     $('#pagination').append(link);
                 }
             },
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
     $(document).on('click', '#pagination a', function(e) {
         e.preventDefault();
-        var page = $(this).data('page');
+        let page = $(this).data('page');
         populateTeamContainer(page);
     });
 });

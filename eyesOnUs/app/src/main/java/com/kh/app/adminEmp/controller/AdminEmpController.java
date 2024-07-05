@@ -23,11 +23,13 @@ public class AdminEmpController {
 
     private final AdminEmpService service;
 
+    // 사원 목록 페이지
     @GetMapping("list")
     public String adminEmpList() {
         return "adminEmpMngr/adminEmpList";
     }//method
-
+    
+    // 사원 목록 데이터
     @GetMapping("listData")
     @ResponseBody
     public Map<String, Object> adminEmpListData(
@@ -44,11 +46,13 @@ public class AdminEmpController {
         return result;
     }//method
 
+    // 사원 검색 목록 페이지 
     @PostMapping("search")
     public String adminEmpSearch() {
         return "adminEmpMngr/adminEmpList";
     }//method
 
+    // 사원 검색 목록 데이터
     @PostMapping("searchData")
     @ResponseBody
     public Map<String, Object> adminEmpSearchData(
@@ -75,6 +79,7 @@ public class AdminEmpController {
 //        return "adminEmpMngr/adminEmpDetail";
 //    }//method
 
+    // 사원 상세 정보 페이지
     @GetMapping("detail")
     public String adminEmpByNo() {
         return "adminEmpMngr/adminEmpDetail";
@@ -98,34 +103,40 @@ public class AdminEmpController {
 //        return result;
 //    }//method
 
+    // 사원 상세 정보 데이터
     @GetMapping("detailData")
     @ResponseBody
     public AdminEmpVo adminEmpByNoData(@RequestParam("no") String no) {
         return service.adminEmpByNo(no);
     }//method
 
+    // 사원 등록 페이지
     @GetMapping("enrollEmp")
     public String adminEmpEnroll(){
         return "adminEmpMngr/adminEmpEnroll";
     }//method
 
+    // 사원 등록 데이터
     @PostMapping("enrollEmpData")
     public String adminEmpEnrollData(AdminEmpVo vo) {
         service.adminEmpEnrollData(vo);
         return "redirect:/adminEmpMngr/list";
     }//method
 
+    // 사원 정보 수정 페이지
     @GetMapping("edit")
     public String adminEmpEdit(){
         return "adminEmpMngr/adminEmpEdit";
     }//method
 
+    // 사원 정보 수정 데이터
     @GetMapping("editData")
     @ResponseBody
     public AdminEmpVo adminEmpEditData(@RequestParam("no") String no){
         return service.adminEmpByNo(no);
     }//method
 
+    // 부서코드 가져오기
     @GetMapping("getDivCode")
     @ResponseBody
     public Map<String, Object> getDivCode(@RequestParam("deptCode") String deptCode){
@@ -135,11 +146,13 @@ public class AdminEmpController {
         return result;
     }//method
 
+    // 상세 조회 데이터 수정 페이지로 전달
     @GetMapping("editPostData")
     public AdminEmpVo editData(@RequestParam("no") String no) {
         return service.getEmployeeDetail(no);
     }//method
 
+    // 사원정보 수정
     @PostMapping("updateEmpData")
     @ResponseBody
     public String updateEmpData(@RequestBody AdminEmpVo vo) {

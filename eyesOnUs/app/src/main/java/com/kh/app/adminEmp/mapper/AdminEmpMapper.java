@@ -20,8 +20,8 @@ public interface AdminEmpMapper {
             "JOIN DIVISION DIV ON E.DIV_CODE = DIV.CODE " +
             "JOIN POSITION P ON E.POSITION_CODE = P.CODE " +
             "ORDER BY E.NO " +
-            "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY")
-    List<AdminEmpVo> adminEmpList(@Param("offset") int offset, @Param("limit") int limit);
+            "OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY")
+    List<AdminEmpVo> adminEmpList(@Param("offset") int offset, @Param("size") int size);
 
     @Select("SELECT E.NO, D.NAME AS DEPT_NAME, DIV.NAME AS DIV_NAME, P.NAME AS POSITION_NAME, E.NAME " +
             "FROM EMPLOYEE E " +
@@ -29,8 +29,8 @@ public interface AdminEmpMapper {
             "JOIN DIVISION DIV ON E.DIV_CODE = DIV.CODE " +
             "JOIN POSITION P ON E.POSITION_CODE = P.CODE " +
             "ORDER BY E.NO " +
-            "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY")
-    List<AdminEmpVo> adminEmpListData(@Param("offset") int offset, @Param("limit") int limit);
+            "OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY")
+    List<AdminEmpVo> adminEmpListData(@Param("offset") int offset, @Param("size") int size);
 
     @Select("SELECT COUNT(*) FROM EMPLOYEE")
     int getTotalCount();
@@ -94,11 +94,11 @@ public interface AdminEmpMapper {
             "</when>",
             "</choose>",
             "ORDER BY E.NO ",
-            "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY",
+            "OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY",
             "</script>"
     })
     List<AdminEmpVo> adminEmpSearch(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox,
-                                    @Param("offset") int offset, @Param("limit") int limit);
+                                    @Param("offset") int offset, @Param("size") int size);
 
     @Select({
             "<script>",
@@ -123,11 +123,11 @@ public interface AdminEmpMapper {
             "</when>",
             "</choose>",
             "ORDER BY E.NO ",
-            "OFFSET #{offset} ROWS FETCH NEXT #{limit} ROWS ONLY",
+            "OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY",
             "</script>"
     })
     List<AdminEmpVo> adminEmpSearchData(@Param("empCategory") String empCategory, @Param("searchBox") String searchBox,
-                                        @Param("offset") int offset, @Param("limit") int limit);
+                                        @Param("offset") int offset, @Param("size") int size);
 
 
     @Insert("INSERT INTO EMPLOYEE (NO, ID, NICK, PWD, NAME, PHONE, ADDRESS, DEPT_CODE, DIV_CODE, POSITION_CODE, ENROLL_DATE) " +

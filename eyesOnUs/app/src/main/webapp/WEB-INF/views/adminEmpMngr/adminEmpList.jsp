@@ -19,7 +19,7 @@
       <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script defer src="/js/adminEmpJs/adminEmpList.js"></script>
-      <script defer src="/js/adminEmpJs/adminSearchEmpList.js"></script>
+
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/sidebar.js"></script>
       <script defer src="../js/calender.js"></script>

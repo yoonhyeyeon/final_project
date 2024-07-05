@@ -17,15 +17,27 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/testMain/sidebar.js"></script>
-      <script defer src="../js/calender.js"></script>
-      <title>SHIN</title>
+      <script defer src="../js/testMain/calender.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+      <script defer>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth'
+          });
+          calendar.render();
+        });
+
+      </script>
+      <title>메인</title>
     </head>
 
     <body id="container">
       <div id="warp">
         <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
-        <section></section>
+        <%@ include file="/WEB-INF/views/mainUtil/testMainSection.jsp" %>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>
       <%@ include file="/WEB-INF/views/mainUtil/sidebar.jsp" %>

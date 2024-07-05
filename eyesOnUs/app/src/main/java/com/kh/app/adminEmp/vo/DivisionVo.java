@@ -13,4 +13,6 @@ public class DivisionVo {
     private String modifyDate;
     private String endDate;
 
+    private String deptName;
+
 }

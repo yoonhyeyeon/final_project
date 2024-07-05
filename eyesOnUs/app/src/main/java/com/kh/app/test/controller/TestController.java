@@ -25,5 +25,10 @@ public class TestController {
         return "test/testMain";
     }
 
+    @GetMapping("person")
+    public String testPerson(){
+        return "test/testPersonalPage";
+    }
+
 
 }

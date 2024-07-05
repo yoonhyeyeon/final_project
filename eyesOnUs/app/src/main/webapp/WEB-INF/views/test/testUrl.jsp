@@ -16,7 +16,7 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
       <script defer src="../js/adminUtil.js"></script>
-      <script defer src="../js/sidebar.js"></script>
+      <script defer src="../js/testMain/sidebar.js"></script>
       <script defer src="../js/calender.js"></script>
       <title>사이트맵</title>
     </head>
@@ -28,6 +28,8 @@
             <section>
 
             <a href="http://127.0.0.1:8080/test/main">할일 페이지</a>
+            <br>
+            <a href="http://127.0.0.1:8080/test/person">개인 페이지</a>
 
             <h1>URL 모음</h1>
             <table border="1">

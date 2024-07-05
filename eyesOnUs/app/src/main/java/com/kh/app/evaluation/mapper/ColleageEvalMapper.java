@@ -1,11 +1,11 @@
 package com.kh.app.evaluation.mapper;
 
-import com.kh.app.evaluation.vo.ColleageVo;
+import com.kh.app.evaluation.vo.ColleageEvalVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface ColleageMapper {
+public interface ColleageEvalMapper {
 
     @Insert("INSERT INTO COLLEAGE_EVAL (\n" +
             "    NO\n" +
@@ -35,7 +35,7 @@ public interface ColleageMapper {
             "    , #{DISAPPOINTMENT}\n" +
             "    , #{SUGGESTION}\n" +
             ")")
-    int write(ColleageVo vo);
+    int write(ColleageEvalVo vo);
 
 
 }

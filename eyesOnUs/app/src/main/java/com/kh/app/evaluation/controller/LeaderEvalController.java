@@ -1,13 +1,13 @@
 package com.kh.app.evaluation.controller;
 
-import com.kh.app.evaluation.service.MemberService;
+import com.kh.app.evaluation.service.LeaderEvalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 
 @Controller
 @RequiredArgsConstructor
-public class MemberController {
+public class LeaderEvalController {
 
-    private final MemberService service;
+    private final LeaderEvalService service;
 
 }

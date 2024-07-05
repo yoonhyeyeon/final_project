@@ -3,7 +3,7 @@ package com.kh.app.evaluation.vo;
 import lombok.Data;
 
 @Data
-public class ColleageVo {
+public class MemberEvalVo {
 
     private String no;
     private String evaluatorNo;

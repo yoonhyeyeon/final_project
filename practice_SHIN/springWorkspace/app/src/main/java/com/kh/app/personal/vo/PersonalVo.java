@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class PersonalVo {
-    private String no;
+    private int no;
     private String no2;
     private String stateBNo;
     private String typeNo;

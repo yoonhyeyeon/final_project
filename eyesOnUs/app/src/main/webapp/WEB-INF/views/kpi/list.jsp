@@ -22,7 +22,7 @@
       <script defer src="../js/kpi/kpiList.js"></script>
       <script defer src="../js/kpi/kpiDetail.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <title>SHIN</title>
+      <title>YOON</title>
     </head>
 
     <body id="container">

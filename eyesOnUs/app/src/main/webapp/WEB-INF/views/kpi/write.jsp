@@ -21,7 +21,7 @@
       <script defer src="../js/calender.js"></script>
       <script defer src="../js/kpi/kpiWrite.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <title>SHIN</title>
+      <title>YOON</title>
     </head>
 
     <body id="container">

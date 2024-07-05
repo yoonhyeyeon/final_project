@@ -14,7 +14,7 @@
         str += "<div class='list-item' data-id='" + data[i].no + "'>";
         str += "<p id='no'> Number : " + data[i].no + "</p>";
         str += "<p id='projectNo'> 프로젝트 번호 : " + data[i].projectNo + "</p>";
-        str += "<p id='projectName'> 들어갈 프로젝트 이름 </p>";
+        str += "<p id='projectName'> " + data[i].title + "</p>";
         str += "<span id='focus-name'> 집중도 : " + data[i].focus + " % </span>";
         str += "<progress value ='"+ data[i].focus +"' max='100' id='focus'></progress>";
         str += "<p id='data'> 시작일 : " + data[i].startDate + "</p>";

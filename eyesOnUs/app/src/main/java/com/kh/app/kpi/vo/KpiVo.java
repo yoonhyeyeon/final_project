@@ -16,5 +16,6 @@ public class KpiVo {
 
     private String startDate;
     private String endDate;
+    private String title;
 
 }

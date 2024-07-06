@@ -21,7 +21,7 @@
         <section>
             <div id="out">
                 <div id="in">
-                    <table border=1>
+                    <table>
                         <thead>
                             <tr>
                                 <td>프로젝트 이름</td>
@@ -37,6 +37,13 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div id="divSearch">
+                <select name="search" id="search">
+                    <option value="1">제목</option>
+                </select>
+                <input type="text" name="title" id="title">
+                <button id="searchBtn" onclick="saerchName();">검색</button>
             </div>
         </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
@@ -82,5 +89,43 @@
             console.log("에러입니다.");
         },
     });
+
+    function saerchName(){
+        const titleVal = document.querySelector("input[name=title]").value;
+        $.ajax({
+            url : "http://127.0.0.1:8383/project/searchByName",
+            method : "get",
+            data :{
+                title : titleVal
+            },
+            success : function(x){
+                const tbody = document.querySelector("tbody");
+                let str="";
+                for(let i=0;i<x.length;i++){
+                str += "<tr class='list-item' data-id='"+x[i].title + "'>";
+                str += "<td>"+ x[i].title + "</td>";
+                str += "<td>"+ x[i].pm + "</td>";
+                str += "<td>" + x[i].dept + "</td>";
+                str += "<td>" + x[i].state + "</td>";
+                str += "<td>" + x[i].startDate + "</td>";
+                str += "<td>" + x[i].modifyDate + "</td>";
+                str += "</tr>";
+            }
+            tbody.innerHTML = str;
+
+            document.querySelectorAll(".list-item").forEach((tbody)=>{
+                tbody.addEventListener("click", ()=>{
+                const title = tbody.getAttribute("data-id");
+                window.location.href="http://127.0.0.1:8383/project/projectList?title="+title;
+                });
+            });       
+            },
+            error : function(x){
+                console.log("에러");
+            },
+        });
+    }
 </script>
+
+
 

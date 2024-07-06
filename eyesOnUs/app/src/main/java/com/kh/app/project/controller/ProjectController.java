@@ -98,6 +98,14 @@ public class ProjectController {
         return "project/projectDetail";
     }
 
+    @GetMapping("searchByName")
+    @ResponseBody
+    public List<ProjectVo>  projectSearchByName(ProjectVo vo){
+       List<ProjectVo> voList = service.projectSearchByName(vo.getTitle());
+       return voList;
+    }
+
+
 
 
 

@@ -2,6 +2,7 @@ package com.kh.app.project.mapper;
 
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -52,4 +53,19 @@ public interface ProjectMapper {
             "ON P.DEPT_CODE = D.CODE\n" +
             "WHERE P.NO = #{no}")
     ProjectVo getProjectByNo(String no);
+
+
+
+    @Select("SELECT P.NO as NO,P.title as title, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
+            ",TO_CHAR(P.MODIFY_DATE,'YYYY.MM.DD')  as modifyDate , P.START_DATE as startDate\n" +
+            "FROM PROJECT P\n" +
+            "JOIN STATE_A S\n" +
+            "ON P.STATE_A_NO = S.NO\n" +
+            "JOIN EMPLOYEE E\n" +
+            "ON P.EMP_NO = E.NO\n" +
+            "JOIN DEPARTMENT D\n" +
+            "ON P.DEPT_CODE = D.CODE\n" +
+            "WHERE P.TITLE LIKE '%' || #{title} || '%'")
+    List<ProjectVo> projectSearchByName(String title);
+
 }

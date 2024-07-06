@@ -4,6 +4,7 @@ package com.kh.app.project.service;
 import com.kh.app.project.dao.ProjectDao;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +44,10 @@ public class ProjectService {
 
     public ProjectVo getProjectByNo(String no) {
         return dao.getProjectByNo(no);
+    }
+
+
+    public List<ProjectVo> projectSearchByName(String title) {
+        return dao.projectSearchByName(title);
     }
 }

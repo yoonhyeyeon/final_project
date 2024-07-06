@@ -4,6 +4,7 @@ package com.kh.app.project.dao;
 import com.kh.app.project.mapper.ProjectMapper;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -41,6 +42,10 @@ public class ProjectDao {
 
     public ProjectVo getProjectByNo(String no) {
         return mapper.getProjectByNo(no);
+    }
+
+    public List<ProjectVo> projectSearchByName(String title) {
+        return mapper.projectSearchByName(title);
     }
 }
 

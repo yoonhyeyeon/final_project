@@ -7,7 +7,7 @@ $(document).ready(() => {
   const no = getParam("no");
   if (no) {
     $.ajax({
-      url: "http://127.0.0.1:8080/kpi/detailData",
+      url: "http://127.0.0.1:8383/kpi/detailData",
       type: "get",
       data: { no: no },
       success: (detailData) => {
@@ -47,7 +47,7 @@ $(document).ready(() => {
         document.querySelectorAll("#btn01").forEach((sub)=>{
           sub.addEventListener("click", ()=>{
             const no = sub.getAttribute("data-id");
-           window.location.href="http://127.0.0.1:8080/kpi/modify?no="+no;
+           window.location.href="http://127.0.0.1:8383/kpi/modify?no="+no;
           });
         });
 

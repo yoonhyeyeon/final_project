@@ -5,7 +5,7 @@ function write01() {
     const focusValue = document.querySelector("#focus").value;
 
     $.ajax({
-        url: "http://127.0.0.1:8080/kpi/write",
+        url: "http://127.0.0.1:8383/kpi/write",
         type: "POST",
         data: {
             projectNo: projectNoValue,
@@ -16,7 +16,7 @@ function write01() {
         success: (x) => {
             console.log("작성 성공");
             alert("등록 성공");
-            location.href = "http://127.0.0.1:8080/kpi/list";
+            location.href = "http://127.0.0.1:8383/kpi/list";
         },
         error: (x) => {
             console.log("통신 실패");

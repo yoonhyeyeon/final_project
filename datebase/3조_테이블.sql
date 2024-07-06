@@ -394,14 +394,14 @@ CREATE TABLE NOTICE_BOARD(
 -- 프로젝트 정보
 CREATE TABLE PROJECT(
     NO          NUMBER          PRIMARY KEY,
-    CODE        NUMBER          ,
+    DEPT_CODE        NUMBER          ,
     EMP_NO      NUMBER          ,
     STATE_A_NO  NUMBER          ,
     TITLE       VARCHAR2(4000)  ,
     CONTENT     VARCHAR2(4000)  NOT NULL,
     START_DATE  TIMESTAMP       DEFAULT SYSDATE,
     END_DATE    TIMESTAMP   ,
-    MODIFY_DATE TIMESTAMP
+    MODIFY_DATE TIMESTAMP	DEFAULT SYSDATE
 );
 
 -- 프로젝트 담당자

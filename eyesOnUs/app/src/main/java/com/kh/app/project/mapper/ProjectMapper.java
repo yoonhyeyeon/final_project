@@ -38,7 +38,7 @@ public interface ProjectMapper {
     @Insert("INSERT INTO CONFERENCE_RECORD(NO,PRJ_NO,TITLE,CONTENT) VALUES(SEQ_CONFERENCE_RECORD.NEXTVAL,#{prjNo},#{title},#{content})")
     int recordInsert(ProjectRecordVo vo);
 
-    @Select("SELECT * FROM CONFERENCE_RECORD WHERE DEL_YN ='N'")
+    @Select("SELECT * FROM CONFERENCE_RECORD WHERE DEL_YN ='N' ORDER BY PRJ_NO ASC")
     List<ProjectRecordVo> recordList();
 
 

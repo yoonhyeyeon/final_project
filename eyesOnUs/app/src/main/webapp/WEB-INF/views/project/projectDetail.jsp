@@ -59,7 +59,7 @@
         if(no){
             $.ajax({
             url : 'http://127.0.0.1:8383/project/detailData',
-            type : 'get',
+            method : 'get',
             data : { no : no },
             success : (detailData)=> {
               console.log("상세 정보 통신 성공");

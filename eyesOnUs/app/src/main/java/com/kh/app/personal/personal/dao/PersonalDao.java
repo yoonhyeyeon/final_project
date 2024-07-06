@@ -24,4 +24,7 @@ public class PersonalDao {
         return mapper.getPersonalWrite(vo);
     }
 
+    public int personalEdit(PersonalVo vo) {
+        return mapper.personalEdit(vo);
+    }
 }

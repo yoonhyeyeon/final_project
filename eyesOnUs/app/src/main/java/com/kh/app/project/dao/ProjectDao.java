@@ -2,6 +2,7 @@ package com.kh.app.project.dao;
 
 
 import com.kh.app.project.mapper.ProjectMapper;
+import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpServletRequest;
@@ -46,6 +47,10 @@ public class ProjectDao {
 
     public List<ProjectVo> projectSearchByName(String title) {
         return mapper.projectSearchByName(title);
+    }
+
+    public int managerInsert(ProjectManagerVo vo) {
+        return mapper.managerInsert(vo);
     }
 }
 

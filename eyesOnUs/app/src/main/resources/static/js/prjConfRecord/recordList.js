@@ -17,7 +17,7 @@ $.ajax({
         document.querySelectorAll(".list-item").forEach((tbody)=>{
             tbody.addEventListener("click", ()=>{
             const no = tbody.getAttribute("data-id");
-            window.location.href="http://127.0.0.1:8383/project/detail?no="+no;
+            window.location.href="http://127.0.0.1:8383/project/record/detail?no="+no;
             });
         });
     },

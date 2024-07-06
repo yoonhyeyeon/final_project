@@ -1,5 +1,6 @@
 package com.kh.app.project.mapper;
 
+import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpServletRequest;
@@ -68,4 +69,6 @@ public interface ProjectMapper {
             "WHERE P.TITLE LIKE '%' || #{title} || '%'")
     List<ProjectVo> projectSearchByName(String title);
 
+    @Insert("INSERT INTO PROJECT_MANAGER(NO,PRO_NO,EMP_NO) VALUES(SEQ_PROJECT_MANAGER.NEXTVAL,#{proNo},{empNo})")
+    int managerInsert(ProjectManagerVo vo);
 }

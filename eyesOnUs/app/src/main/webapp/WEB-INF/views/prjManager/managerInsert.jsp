@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
-    
+
     <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/css/prjConfRecord/recordInsert.css">
         <link rel="stylesheet" type="text/css" href="/css/testMain/footer.css">
         <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
         <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
         <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
-      <script defer src="/js/adminUtil.js"></script>
-      <script defer src="/js/sidebar.js"></script>
-      <script defer src="/js/calender.js"></script>
-      <script defer src="/js/prjConfRecord/recordInsert.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/prjManager/managerInsert.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script defer src="../js/adminUtil.js"></script>
+      <script defer src="../js/sidebar.js"></script>
+      <script defer src="../js/calender.js"></script>
 
     <title>KIM</title>
 </head>
@@ -28,13 +27,13 @@
          <div id="out">
                 <div id="in">
                     <div id="div-title">
-                        <h1>회의록</h1>
+                        <h1>프로젝트 담당자</h1>
                     </div>
-                    &nbsp;&nbsp;<p>회의 주제 :</p> <input type="text" name="title" id="title"><hr>
-                    &nbsp;&nbsp;<p>프로젝트 번호</p> : <input type="text" name="prjNo" id="prjNo"><br><hr>
-                    <textarea name="content" id="recordContent" placeholder="내용"></textarea><br>
+                    &nbsp;&nbsp;<p>프로젝트 번호 :</p> <input type="text" name="proNo" id="proNo" ><hr>
+                    &nbsp;&nbsp;<p>담당자 코드</p>&nbsp;&nbsp;&nbsp;&nbsp; :
+                    <input type="text" name="empNo" id="empNo"><br><hr>
                     <div id="div-submit">
-                        <button id="submitButton" onclick="smtRecord();">등록</button>
+                        <button id="submitButton" onclick="smt();">등록</button>
                     </div>
                 </div>
             </div>

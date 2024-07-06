@@ -2,6 +2,7 @@ package com.kh.app.project.service;
 
 
 import com.kh.app.project.dao.ProjectDao;
+import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpServletRequest;
@@ -49,5 +50,9 @@ public class ProjectService {
 
     public List<ProjectVo> projectSearchByName(String title) {
         return dao.projectSearchByName(title);
+    }
+
+    public int managerInsert(ProjectManagerVo vo) {
+        return dao.managerInsert(vo);
     }
 }

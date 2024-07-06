@@ -16,7 +16,7 @@ function write01(){
   const responsibilityValue = document.querySelector("input[name=responsibility]:checked").value;
 
   $.ajax({
-    url : "http://127.0.0.1:8383/colleage/write",
+    url : "http://127.0.0.1:8383/colleageEval/write",
     type : "post",
     data : {
       evaluatorNo : evaluatorNoValue,

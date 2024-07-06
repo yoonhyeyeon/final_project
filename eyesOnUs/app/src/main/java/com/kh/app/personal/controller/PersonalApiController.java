@@ -37,13 +37,16 @@ public class PersonalApiController {
         }
     }
 
-    //수정하기
-//    @PostMapping("edit")
-//    public String personalEdit(@RequestBody PersonalVo vo){
-//        System.out.println("vo = " + vo);
-//        int result = service.personalEdit(vo);
-//        return result == 1 ? "edit success ~ !" : "edit fail...";
-//    }
+    // 수정하기 //gpt_수정(추가)
+    @PostMapping("edit")
+    public ResponseEntity<String> personalEdit(@RequestBody PersonalVo vo){
+        int result = service.personalEdit(vo);
+        if(result == 1){
+            return ResponseEntity.ok("수정 성공");
+        } else {
+            return ResponseEntity.internalServerError().body("수정 실패");
+        }
+    }
 
 
 }

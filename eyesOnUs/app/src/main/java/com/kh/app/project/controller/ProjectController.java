@@ -67,7 +67,6 @@ public class ProjectController {
     public String deletePrj(String no,HttpServletRequest req){
         int result = service.deletePrj(no);
 
-        HashMap<String ,String > map = new HashMap<>();
         if(result !=1){
             req.setAttribute("result","삭제실패");
 

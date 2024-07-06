@@ -15,11 +15,11 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
-      <link rel="stylesheet" type="text/css" href="/css/kpi/kpiWrite.css">
+      <link rel="stylesheet" type="text/css" href="/css/memberEval/memberList.css">
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/sidebar.js"></script>
       <script defer src="../js/calender.js"></script>
-      <script defer src="../js/kpi/kpiWrite.js"></script>
+      <script defer src="../js/memberEval/memberList.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <title>YOON</title>
     </head>
@@ -30,39 +30,33 @@
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
         <section>
 
-             <div id="out">
-                 <div class="write-form">
-                         <div id="title">
-                             <h2>KPI 일정 등록</h2>
-                         </div>
-                         <hr>
-                     <div id="form">
-                         프로젝트 번호 : <select name="projectNo" id="projectNo" style="width:100px">
-                           <option value="">------선택------</option>
-                           <c:forEach var="vo" items="${voList}">
-                               <option value="${vo.projectNo}">${vo.projectNo}</option>
-                           </c:forEach>
-                         </select>
-                         <br />
-                         목표
-                         <br>
-                         <textarea name="goal" id="goal"></textarea>
-                         <br />
-                         <hr>
-                         개인 일정
-                         <br>
-                         <textarea name="personalSchedule" id="personalSchedule"></textarea>
-                         <br />
-                         집중도 : <input type="text" name="focus" id="focus">
-                         <br />
-                         <br />
-                         <div class="submit-bar">
-                             <button onclick="write01();" id="submit">등록하기</button>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+            <div id="out">
+                <h1>팀원 평가</h1>
+                <div id="list">
+                    <span id="date">평가 기간 : 2024-07-08 ~ 2024-07-30</span>
+                    <br><hr><br>
+                    <div id="evaluatorNo">
+                        <p>평가자 : 윤혜연</p>
+                    </div>
+                        <div class="listBox">
+                            <div id="listItemBox">
+                                <span>번호</span>
+                                <span>이름</span>
+                                <span>잠재력</span>
+                                <span>소통력</span>
+                                <span>문제해결력</span>
+                                <span>책임감</span>
+                                <span>칭찬할 점</span>
+                                <span>아쉬운 점</span>
+                                <span>하고 싶은 말</span>
+                                <span>평가일</span>
+                            </div>
+                            <div id="Item">
 
+                            </div>
+                        </div>
+                </div>
+            </div>
         </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>

@@ -18,6 +18,10 @@ public class KpiDao {
         return mapper.kpiWrite(vo);
     }
 
+    public List<KpiVo> writeList(KpiVo vo) {
+        return mapper.writeList(vo);
+    }
+
     // 게시글 목록
     public List<KpiVo> kpiList() {
         return mapper.KpiList();
@@ -43,6 +47,7 @@ public class KpiDao {
     public int kpiDelete(String no) {
         return mapper.kpiDelete(no);
     }
+
 //    public String kpiDelete(String no) {
 //        return mapper.kpiDelete(no);
 //    }

@@ -116,7 +116,8 @@ public class ProjectController {
     }
 
     @PostMapping("record/insert")
-    public String recordInsert(ProjectRecordVo vo, HttpServletResponse resp, HttpServletRequest req){
+    @ResponseBody
+    public String recordInsert(ProjectRecordVo vo, HttpServletRequest req){
 
         int result = service.recordInsert(vo);
 

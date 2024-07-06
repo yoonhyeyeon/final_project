@@ -1,14 +1,13 @@
 #out{
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
-    j
 
 }
 
 
 #in{
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     width: 700px;
     height: 850px;
     border: 1px solid black;

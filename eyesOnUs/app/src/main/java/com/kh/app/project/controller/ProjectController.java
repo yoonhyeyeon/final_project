@@ -1,6 +1,7 @@
 package com.kh.app.project.controller;
 
 import com.kh.app.project.service.ProjectService;
+import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpServletRequest;
@@ -139,9 +140,26 @@ public class ProjectController {
         return voList;
     }
     @GetMapping("record/list")
-    public  String recordList(){
+    public  String recordList() {
         return "prjConfRecord/recordList";
     }
+
+    ///////////////////////////////////////////// PROJECT_MANAGER //////////////////////////////////////////////////////////////////
+
+    @GetMapping("manager/list")
+    public String managerList(){
+        return "prjManager/managerInsert";
+    }
+
+    @PostMapping("manager/list")
+    @ResponseBody
+    public int managerInsert(ProjectManagerVo vo){
+        int result = service.managerInsert(vo);
+
+        return result;
+
+    }
+
 
 
 }

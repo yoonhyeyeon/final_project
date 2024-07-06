@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -18,4 +20,8 @@ public class LeaderEvalService {
         return dao.write(vo);
     }
 
+    // 목록조회
+    public List<LeaderEvalVo> list() {
+        return dao.list();
+    }
 }

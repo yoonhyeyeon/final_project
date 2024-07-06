@@ -13,6 +13,8 @@
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/sidebar.js"></script>
       <script defer src="../js/calender.js"></script>
+      <script defer src="/js/projectJs/projectSearch.js"></script>
+      <script defer src="/js/projectJs/projectList.js"></script>
 </head>
     <body id="container">
       <div id="warp">
@@ -57,68 +59,6 @@
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-    $.ajax({
-        url : "http://127.0.0.1:8383/project/listData",
-        method : "get",
-        data : {},
-        success : function(x){
-            const voList = x;
-            const tbody = document.querySelector("tbody");
-            let str="";
-            for(let i=0;i<voList.length;i++){
-                str += "<tr class='list-item' data-id='"+voList[i].no + "'>";
-                str += "<td>"+ voList[i].title + "</td>";
-                str += "<td>"+ voList[i].pm + "</td>";
-                str += "<td>" + voList[i].dept + "</td>";
-                str += "<td>" + voList[i].state + "</td>";
-                str += "<td>" + voList[i].startDate + "</td>";
-                str += "<td>" + voList[i].modifyDate + "</td>";
-                str += "</tr>";
-            }
-            tbody.innerHTML = str;
-
-            document.querySelectorAll(".list-item").forEach((tbody)=>{
-                tbody.addEventListener("click", ()=>{
-                const no = tbody.getAttribute("data-id");
-                window.location.href="http://127.0.0.1:8383/project/detail?no="+no;
-                });
-            });
-        },
-        error : function(x){
-            console.log("에러입니다.");
-        },
-    });
-
-    function saerchName(){
-        const titleVal = document.querySelector("input[name=title]").value;
-        $.ajax({
-            url : "http://127.0.0.1:8383/project/searchByName",
-            method : "get",
-            data :{
-                title : titleVal
-            },
-            success : function(x){
-                const tbody = document.querySelector("tbody");
-                let str="";
-                for(let i=0;i<x.length;i++){
-                str += "<tr>";
-                str += "<td>"+ x[i].title + "</td>";
-                str += "<td>"+ x[i].pm + "</td>";
-                str += "<td>" + x[i].dept + "</td>";
-                str += "<td>" + x[i].state + "</td>";
-                str += "<td>" + x[i].startDate + "</td>";
-                str += "<td>" + x[i].modifyDate + "</td>";
-                str += "</tr>";
-            }
-            tbody.innerHTML = str;
-            },
-            error : function(x){
-                console.log("에러");
-            },
-        });
-    }
-</script>
 
 
 

@@ -394,7 +394,7 @@ CREATE TABLE NOTICE_BOARD(
 -- 프로젝트 정보
 CREATE TABLE PROJECT(
     NO          NUMBER          PRIMARY KEY,
-    DEPT_CODE        NUMBER          ,
+    CODE        NUMBER          ,
     EMP_NO      NUMBER          ,
     STATE_A_NO  NUMBER          ,
     TITLE       VARCHAR2(4000)  ,

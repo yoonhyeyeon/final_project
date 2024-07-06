@@ -112,7 +112,7 @@ public class ProjectController {
     /////////////////////////////////// PROJECT RECORD 컨트롤러////////////////////////////////////////////////////////////////////
     @GetMapping("record/insert")
     public String recordInsert(){
-        return "project/recordInsert";
+        return "prjConfRecord/recordInsert";
     }
 
     @PostMapping("record/insert")
@@ -130,15 +130,17 @@ public class ProjectController {
     }
 
     @ResponseBody
-    @GetMapping("record/list")
+    @GetMapping("record/listData")
     public List<ProjectRecordVo> recordList(HttpServletRequest req){
 
         List<ProjectRecordVo> voList = service.recordList();
 
-        //아직 잘 모름 이렇게 내리면 될거같은데?
-        //req.setAttribute("voList",voList);
 
         return voList;
+    }
+    @GetMapping("record/list")
+    public  String recordList(){
+        return "prjConfRecord/recordList";
     }
 
 

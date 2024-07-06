@@ -62,7 +62,7 @@
         const no = getParam("no");
         if(no){
             $.ajax({
-            url : 'http://127.0.0.1:8080/project/detailData',
+            url : 'http://127.0.0.1:8383/project/detailData',
             type : 'get',
             data : { no : no },
             success : (detailData)=> {
@@ -106,7 +106,7 @@
             const no = getParam("no");
             if(no){
                 $.ajax({
-                    url : 'http://127.0.0.1:8080/project/projectModify',
+                    url : 'http://127.0.0.1:8383/project/projectModify',
                     type : 'post',
                     data : {
                         no : no,
@@ -115,7 +115,7 @@
                     },
                     success : function(data){
                             alert("수정 완료!");
-                            location.href='http://127.0.0.1:8080/project/projectMain';
+                            location.href='http://127.0.0.1:8383/project/projectMain';
 
                     },
                     error : function(data){

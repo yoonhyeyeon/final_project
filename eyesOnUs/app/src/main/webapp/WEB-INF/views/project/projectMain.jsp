@@ -19,8 +19,8 @@
         <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
         <section>
-            <a href="http://127.0.0.1:8080/project/projectInsert">프로젝트 등록하기</a> <br>
-            <a href="http://127.0.0.1:8080/project/projectList">프로젝트 목록</a>
+            <a href="http://127.0.0.1:8383/project/projectInsert">프로젝트 등록하기</a> <br>
+            <a href="http://127.0.0.1:8383/project/projectList">프로젝트 목록</a>
         </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>

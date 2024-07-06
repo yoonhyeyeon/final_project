@@ -50,7 +50,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $.ajax({
-        url : "http://127.0.0.1:8080/project/listData",
+        url : "http://127.0.0.1:8383/project/listData",
         method : "get",
         data : {},
         success : function(x){
@@ -70,7 +70,7 @@
             document.querySelectorAll(".list-item").forEach((tbody)=>{
                 tbody.addEventListener("click", ()=>{
                 const no = tbody.getAttribute("data-id");
-                window.location.href="http://127.0.0.1:8080/project/detail?no="+no;
+                window.location.href="http://127.0.0.1:8383/project/detail?no="+no;
                 });
             });
         },

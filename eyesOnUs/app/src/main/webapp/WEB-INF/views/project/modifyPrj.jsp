@@ -32,6 +32,8 @@
                     &nbsp;&nbsp;<p class="dept"></p><hr>
                     &nbsp;&nbsp;<p class="employee"></p><br><hr>
                     &nbsp;&nbsp;상태 : <input type="text" name="stateANo" id="stateANo"  placeholder="1:등록, 2:중지, 3:해산">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p id="pModify">수정일 : </p>
                     <hr>
                     <h2>내용</h2>
                     <textarea name="content" id="projectContent" ></textarea><br>
@@ -74,23 +76,27 @@
                 const prjContent = document.querySelector("#projectContent");
                 const state = document.querySelector("#stateANo");
                 const title = document.querySelector(".title");
+                const pModif = document.querySelector("#pModify");
 
                 let str1 = "";
                 let str2 = "";
                 let str3 = "";
                 let str4 = "";
                 let str5 = "";
-                str5 += "주제 :" + detailData.title
+                let str6 = "";
                 str1 += "부서코드 : " + detailData.dept
                 str2 += "담당자 : " +  detailData.pm
                 str3 += detailData.content
                 str4 += detailData.state
+                str5 += "주제 :" + detailData.title
+                str6 += detailData.modifyDate
 
                 dept.innerHTML = str1;
                 pm.innerHTML = str2;
                 prjContent.innerHTML = str3;
                 state.innerHTML = str4;
                 title.innerHTML = str5;
+                pModif.innerHTML = str6;
             },
             error : function(x){
                 console.log("에러")

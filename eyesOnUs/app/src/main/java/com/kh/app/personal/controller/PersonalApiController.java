@@ -26,11 +26,6 @@ public class PersonalApiController {
     }
 
 //    //작성하기
-//    @PostMapping  // POST 방식으로 요청을 처리하는 메소드
-//    public String getPersonalWrite(PersonalVo vo){
-//        int result = service.getPersonalWrite(vo);
-//        return result == 1 ? "personal/list" : "personal/write_fail";
-//    }
     @PostMapping("write")
     public ResponseEntity<String> getPersonalWrite(PersonalVo vo) {
         System.out.println("vo = " + vo);

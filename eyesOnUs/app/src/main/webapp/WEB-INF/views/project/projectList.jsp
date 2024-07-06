@@ -28,6 +28,8 @@
                                 <td>PM</td>
                                 <td>담당 부서</td>
                                 <td>상태</td>
+                                <td>시작일</td>
+                                <td>수정일</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,6 +65,8 @@
                 str += "<td>"+ voList[i].pm + "</td>";
                 str += "<td>" + voList[i].dept + "</td>";
                 str += "<td>" + voList[i].state + "</td>";
+                str += "<td>" + voList[i].startDate + "</td>";
+                str += "<td>" + voList[i].modifyDate + "</td>";
                 str += "</tr>";
             }
             tbody.innerHTML = str;

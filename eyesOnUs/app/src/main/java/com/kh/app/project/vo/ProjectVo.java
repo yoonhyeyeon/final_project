@@ -12,8 +12,8 @@ public class ProjectVo {
     private String title;
     private String content;
     private String startDate;
-    private String end_date;
-    private String modify_date;
+    private String endDate;
+    private String modifyDate;
 
     private String pm;
     private String dept;

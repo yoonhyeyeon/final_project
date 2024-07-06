@@ -33,6 +33,7 @@ function write01(){
       console.log("작성 성공");
       console.log(x);
       alert("평가 완료");
+      location.href="http://127.0.0.1:8383/colleageEval/list";
     },
     fail : (x)=>{
       console.log("작성 실패");

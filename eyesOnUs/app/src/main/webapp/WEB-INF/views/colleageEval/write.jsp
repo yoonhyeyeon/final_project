@@ -56,100 +56,100 @@
               <p>잠재력</p>
               <div class="myform">
                 <fieldset>
-                  <input type="radio" name="potential" value="10" id="rate1" class="potential">
+                  <input type="radio" name="potential" value="100" id="rate1" class="potential">
                   <label for="rate1">★</label>
-                  <input type="radio" name="potential" value="9" id="rate2" class="potential">
+                  <input type="radio" name="potential" value="90" id="rate2" class="potential">
                   <label for="rate2">★</label>
-                  <input type="radio" name="potential" value="8" id="rate3" class="potential">
+                  <input type="radio" name="potential" value="80" id="rate3" class="potential">
                   <label for="rate3">★</label>
-                  <input type="radio" name="potential" value="7" id="rate4" class="potential">
+                  <input type="radio" name="potential" value="70" id="rate4" class="potential">
                   <label for="rate4">★</label>
-                  <input type="radio" name="potential" value="6" id="rate5" class="potential">
+                  <input type="radio" name="potential" value="60" id="rate5" class="potential">
                   <label for="rate5">★</label>
-                  <input type="radio" name="potential" value="5" id="rate6" class="potential">
+                  <input type="radio" name="potential" value="50" id="rate6" class="potential">
                   <label for="rate6">★</label>
-                  <input type="radio" name="potential" value="4" id="rate7" class="potential">
+                  <input type="radio" name="potential" value="40" id="rate7" class="potential">
                   <label for="rate7">★</label>
-                  <input type="radio" name="potential" value="3" id="rate8" class="potential">
+                  <input type="radio" name="potential" value="30" id="rate8" class="potential">
                   <label for="rate8">★</label>
-                  <input type="radio" name="potential" value="2" id="rate9">
+                  <input type="radio" name="potential" value="20" id="rate9">
                   <label for="rate9">★</label>
-                  <input type="radio" name="potential" value="1" id="rate10">
+                  <input type="radio" name="potential" value="10" id="rate10">
                   <label for="rate10">★</label>
                 </fieldset>
               </div>
               <p id="communication">소통력</p>
               <div class="myform2">
                 <fieldset>
-                  <input type="radio" name="communication" value="10" id="rate11">
+                  <input type="radio" name="communication" value="100" id="rate11">
                   <label for="rate11">★</label>
-                  <input type="radio" name="communication" value="9" id="rate12">
+                  <input type="radio" name="communication" value="90" id="rate12">
                   <label for="rate12">★</label>
-                  <input type="radio" name="communication" value="8" id="rate13">
+                  <input type="radio" name="communication" value="80" id="rate13">
                   <label for="rate13">★</label>
-                  <input type="radio" name="communication" value="7" id="rate14">
+                  <input type="radio" name="communication" value="70" id="rate14">
                   <label for="rate14">★</label>
-                  <input type="radio" name="communication" value="6" id="rate15">
+                  <input type="radio" name="communication" value="60" id="rate15">
                   <label for="rate15">★</label>
-                  <input type="radio" name="communication" value="5" id="rate16">
+                  <input type="radio" name="communication" value="50" id="rate16">
                   <label for="rate16">★</label>
-                  <input type="radio" name="communication" value="4" id="rate17">
+                  <input type="radio" name="communication" value="40" id="rate17">
                   <label for="rate17">★</label>
-                  <input type="radio" name="communication" value="3" id="rate18">
+                  <input type="radio" name="communication" value="30" id="rate18">
                   <label for="rate18">★</label>
-                  <input type="radio" name="communication" value="2" id="rate19">
+                  <input type="radio" name="communication" value="20" id="rate19">
                   <label for="rate19">★</label>
-                  <input type="radio" name="communication" value="1" id="rate20">
+                  <input type="radio" name="communication" value="10" id="rate20">
                   <label for="rate20">★</label>
                 </fieldset>
               </div>
               <p id="problemSolve">문제해결력</p>
               <div class="myform3">
                 <fieldset>
-                  <input type="radio" name="problemSolve" value="10" id="rate21">
+                  <input type="radio" name="problemSolve" value="100" id="rate21">
                   <label for="rate21">★</label>
-                  <input type="radio" name="problemSolve" value="9" id="rate22">
+                  <input type="radio" name="problemSolve" value="90" id="rate22">
                   <label for="rate22">★</label>
-                  <input type="radio" name="problemSolve" value="8" id="rate23">
+                  <input type="radio" name="problemSolve" value="80" id="rate23">
                   <label for="rate23">★</label>
-                  <input type="radio" name="problemSolve" value="7" id="rate24">
+                  <input type="radio" name="problemSolve" value="70" id="rate24">
                   <label for="rate24">★</label>
-                  <input type="radio" name="problemSolve" value="6" id="rate25">
+                  <input type="radio" name="problemSolve" value="60" id="rate25">
                   <label for="rate25">★</label>
-                  <input type="radio" name="problemSolve" value="5" id="rate26">
+                  <input type="radio" name="problemSolve" value="50" id="rate26">
                   <label for="rate26">★</label>
-                  <input type="radio" name="problemSolve" value="4" id="rate27">
+                  <input type="radio" name="problemSolve" value="40" id="rate27">
                   <label for="rate27">★</label>
-                  <input type="radio" name="problemSolve" value="3" id="rate28">
+                  <input type="radio" name="problemSolve" value="30" id="rate28">
                   <label for="rate28">★</label>
-                  <input type="radio" name="problemSolve" value="2" id="rate29">
+                  <input type="radio" name="problemSolve" value="20" id="rate29">
                   <label for="rate29">★</label>
-                  <input type="radio" name="problemSolve" value="1" id="rate30">
+                  <input type="radio" name="problemSolve" value="10" id="rate30">
                   <label for="rate30">★</label>
                 </fieldset>
               </div>
               <p id="responsibility">책임감</p>
               <div class="myform4">
                 <fieldset>
-                  <input type="radio" name="responsibility" value="10" id="rate31">
+                  <input type="radio" name="responsibility" value="100" id="rate31">
                   <label for="rate31">★</label>
-                  <input type="radio" name="responsibility" value="9" id="rate32">
+                  <input type="radio" name="responsibility" value="90" id="rate32">
                   <label for="rate32">★</label>
-                  <input type="radio" name="responsibility" value="8" id="rate33">
+                  <input type="radio" name="responsibility" value="80" id="rate33">
                   <label for="rate33">★</label>
-                  <input type="radio" name="responsibility" value="7" id="rate34">
+                  <input type="radio" name="responsibility" value="70" id="rate34">
                   <label for="rate34">★</label>
-                  <input type="radio" name="responsibility" value="6" id="rate35">
+                  <input type="radio" name="responsibility" value="60" id="rate35">
                   <label for="rate35">★</label>
-                  <input type="radio" name="responsibility" value="5" id="rate36">
+                  <input type="radio" name="responsibility" value="50" id="rate36">
                   <label for="rate36">★</label>
-                  <input type="radio" name="responsibility" value="4" id="rate37">
+                  <input type="radio" name="responsibility" value="40" id="rate37">
                   <label for="rate37">★</label>
-                  <input type="radio" name="responsibility" value="3" id="rate38">
+                  <input type="radio" name="responsibility" value="30" id="rate38">
                   <label for="rate38">★</label>
-                  <input type="radio" name="responsibility" value="2" id="rate39">
+                  <input type="radio" name="responsibility" value="20" id="rate39">
                   <label for="rate39">★</label>
-                  <input type="radio" name="responsibility" value="1" id="rate40">
+                  <input type="radio" name="responsibility" value="10" id="rate40">
                   <label for="rate40">★</label>
                 </fieldset>
               </div>
@@ -162,7 +162,7 @@
                 <textarea name="suggestion" id="suggestion"></textarea>
               </div>
               <br>
-              <button onclick="write01();" id="sub">등록</button>
+              <button onclick="write01();" id="sub">평가완료</button>
             </div>
             <br>
           </div>

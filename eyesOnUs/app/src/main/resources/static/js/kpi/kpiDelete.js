@@ -9,7 +9,7 @@ function del(no){
       window.location.href = "http://127.0.0.1:8383/kpi/list";
     },
     error : function(error){
-        console.error("통신 실패:", error);
+        console.log("통신 실패");
         alert("삭제 실패");
     },
   });

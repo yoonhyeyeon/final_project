@@ -111,6 +111,7 @@
   border: 1px solid  rgb(118, 147, 174);
   background-color: rgb(175, 227, 255);
   border-radius: 5%;
+  cursor: pointer;
 }
 
 #date{

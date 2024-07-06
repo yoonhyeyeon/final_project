@@ -12,7 +12,7 @@ function write01(){
   const responsibilityValue = document.querySelector("input[name=responsibility]:checked").value;
 
   $.ajax({
-    url : "http://127.0.0.1:8383/colleageEval/write",
+    url : "http://127.0.0.1:8383/memberEval/write",
     type : "post",
     data : {
       evaluatorNo : evaluatorNoValue,
@@ -28,11 +28,10 @@ function write01(){
     success : (x)=>{
       console.log("작성 성공");
       alert("평가 완료");
-      location.href="http://127.0.0.1:8383/colleageEval/list";
+      location.href="http://127.0.0.1:8383/memberEval/list";
     },
     fail : (x)=>{
       console.log("작성 실패");
-      alert("평가 등록 실패");
     },
   });
 }

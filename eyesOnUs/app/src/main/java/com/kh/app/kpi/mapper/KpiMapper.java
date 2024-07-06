@@ -12,6 +12,10 @@ public interface KpiMapper {
     @Insert("INSERT INTO KPI (NO, EMP_NO, PROJECT_NO, GOAL, PERSONAL_SCHEDULE, FOCUS) VALUES (SEQ_KPI.NEXTVAL, #{empNo}, #{projectNo}, #{goal}, #{personalSchedule}, #{focus})")
     int kpiWrite(KpiVo vo);
 
+    // vo 값 가져오기
+    @Select("SELECT DISTINCT NO , EMP_NO , PROJECT_NO , GOAL , PERSONAL_SCHEDULE , ENROLL_DATE , MODIFY_DATE , FOCUS FROM KPI ORDER BY PROJECT_NO ASC")
+    List<KpiVo> writeList(KpiVo vo);
+
     // 게시글 목록
     @Select("SELECT K.NO , K.PROJECT_NO , P.TITLE , K.FOCUS , P.START_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO ORDER BY K.NO ASC")
     List<KpiVo> KpiList();

@@ -19,6 +19,10 @@ public class KpiService {
         return dao.kpiWrite(vo);
     }
 
+    public List<KpiVo> writeList(KpiVo vo) {
+        return dao.writeList(vo);
+    }
+
     // 게시글 목록
     public List<KpiVo> kpiList() {
         return dao.kpiList();
@@ -45,6 +49,7 @@ public class KpiService {
     public int kpiDelete(String no) {
         return dao.kpiDelete(no);
     }
+
 //    public String kpiDelete(String no) {
 //        return  dao.kpiDelete(no);
 //    }

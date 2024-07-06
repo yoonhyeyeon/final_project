@@ -3,6 +3,9 @@ package com.kh.app.evaluation.mapper;
 import com.kh.app.evaluation.vo.LeaderEvalVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface LeaderEvalMapper {
@@ -38,5 +41,24 @@ public interface LeaderEvalMapper {
             ")")
     int write(LeaderEvalVo vo);
 
-
+    // 목록조회
+    @Select("SELECT \n" +
+            "    L.NO\n" +
+            "    , E.NAME AS EVALUATOR_NO\n" +
+            "    , M.NAME AS EVALUATEE_NO\n" +
+            "    , L.COMMUNICATION\n" +
+            "    , L.RESPONSIBILITY\n" +
+            "    , L.JUDGEMENT\n" +
+            "    , L.PROFESSIONALISM\n" +
+            "    , L.COMPLIMENT\n" +
+            "    , L.DISAPPOINTMENT\n" +
+            "    , L.SUGGESTION\n" +
+            "    , TO_CHAR(L.WRITE_DATE, 'YYYY-MM-DD') AS WRITE_DATE\n" +
+            "FROM LEADER_EVAL L\n" +
+            "JOIN EMPLOYEE E\n" +
+            "ON L.EVALUATOR_NO = E.NO\n" +
+            "JOIN EMPLOYEE M\n" +
+            "ON L.EVALUATEE_NO = M.NO\n" +
+            "ORDER BY L.NO ASC")
+    List<LeaderEvalVo> list();
 }

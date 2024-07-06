@@ -5,6 +5,8 @@ import com.kh.app.evaluation.vo.LeaderEvalVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class LeaderEvalDao {
@@ -16,4 +18,8 @@ public class LeaderEvalDao {
         return mapper.write(vo);
     }
 
+    // 목록조회
+    public List<LeaderEvalVo> list() {
+        return mapper.list();
+    }
 }

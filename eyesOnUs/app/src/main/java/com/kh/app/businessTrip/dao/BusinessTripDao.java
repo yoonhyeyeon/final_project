@@ -34,11 +34,11 @@ public class BusinessTripDao {
 
     // 출장 승인자 상세 조회 (API)
     public BusinessTripVo getBusinessTripApproverDetail(String businessTripNo) {
-        BusinessTripVo businessTripApproverVo = mapper.getBusinessTripApproverDetail(businessTripNo);
-        if(businessTripApproverVo == null){
+        BusinessTripVo businessTripApproverDetailVo = mapper.getBusinessTripApproverDetail(businessTripNo);
+        if(businessTripApproverDetailVo == null){
             throw new RuntimeException("[B-006] BUSINESS_TRIP APPROVER DETAIL SELECT ERROR");
         }
-        return businessTripApproverVo;
+        return businessTripApproverDetailVo;
     } // getBusinessTripApproverDetail
 
     // 출장 승인자 목록 조회 (API)

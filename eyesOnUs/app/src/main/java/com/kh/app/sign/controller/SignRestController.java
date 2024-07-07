@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,58 +22,90 @@ public class SignRestController {
     
     // 직원 전체 목록 조회 (API)
     @GetMapping("employeeList")
-    public List<EmployeeVo> getEmployeeList(){
+    public Map<String, List> getEmployeeList(){
         List<EmployeeVo> employeeVoList = service.getEmployeeList();
-        return employeeVoList;
+
+        Map<String, List> employeeListMap = new HashMap<>();
+        employeeListMap.put("employeeVoList", employeeVoList);
+
+        return employeeListMap;
     } // getEmployeeList
 
     // 결재 (API)
     @PutMapping("approve")
-    public int updateSignApprove(SignVo signVo){
+    public Map<String, Integer> updateSignApprove(SignVo signVo){
         int signApproveResult = service.updateSignApprove(signVo);
-        return signApproveResult;
+
+        Map<String, Integer> signApproveResultMap = new HashMap<>();
+        signApproveResultMap.put("signApproveResult", signApproveResult);
+
+        return signApproveResultMap;
     } // updateSignApprove
 
     // 결재 상세 조회 (API)
     @GetMapping("detail")
-    public SignVo getSignDetail(String signNo){
+    public Map<String, SignVo> getSignDetail(String signNo){
         SignVo signDetailVo = service.getSignDetail(signNo);
-        return signDetailVo;
+
+        Map<String, SignVo> signDetailMap = new HashMap<>();
+        signDetailMap.put("signDetailVo", signDetailVo);
+
+        return signDetailMap;
     } // getSignDetail
 
     // 결재자 상세 조회 (API)
     @GetMapping("approverDetail")
-    public SignVo getSignApproverDetail(String signNo){
-        SignVo signApproverVo = service.getSignApproverDetail(signNo);
-        return signApproverVo;
+    public Map<String, SignVo> getSignApproverDetail(String signNo){
+        SignVo signApproverDetailVo = service.getSignApproverDetail(signNo);
+
+        Map<String, SignVo> signApproverDetailMap = new HashMap<>();
+        signApproverDetailMap.put("signApproverDetailVo", signApproverDetailVo);
+
+        return signApproverDetailMap;
     } // getSignApproverDetail
 
     // 결재자 목록 조회 (API)
     @GetMapping("approverList")
-    public List<SignVo> getSignApproverList(String empNo){
+    public Map<String, List> getSignApproverList(String empNo){
         List<SignVo> signApproverVoList = service.getSignApproverList(empNo);
-        return signApproverVoList;
+
+        Map<String, List> signApproverListMap = new HashMap<>();
+        signApproverListMap.put("signApproverVoList", signApproverVoList);
+
+        return signApproverListMap;
     } // getSignApproverList
 
     // 결재 목록 조회 (신청자 입장) (동적 쿼리) (API)
     @GetMapping("employee")
-    public List<SignVo> getVoListDynamic(SignVo signVo){
+    public Map<String, List> getVoListDynamic(SignVo signVo){
         List<SignVo> signVoListDynamic = service.getVoListDynamic(signVo);
-        return signVoListDynamic;
+
+        Map<String, List> signListDynamicMap = new HashMap<>();
+        signListDynamicMap.put("signVoListDynamic", signVoListDynamic);
+
+        return signListDynamicMap;
     } // getVoListDynamic
 
     // 결재 목록 조회 (결재자 입장) (동적 쿼리) (API)
     @GetMapping("approver")
-    public List<SignVo> getVoListDynamicForApprover(SignVo signVo){
+    public Map<String, List> getVoListDynamicForApprover(SignVo signVo){
         List<SignVo> signVoListDynamicForApprover = service.getVoListDynamicForApprover(signVo);
-        return signVoListDynamicForApprover;
+
+        Map<String, List> signListDynamicMapForApprover = new HashMap<>();
+        signListDynamicMapForApprover.put("signVoListDynamicForApprover", signVoListDynamicForApprover);
+
+        return signListDynamicMapForApprover;
     } // getVoListDynamicForApprover
 
     // 결재 목록 조회 (참조자 입장) (동적 쿼리) (API)
     @GetMapping("reference")
-    public List<SignVo> getVoListDynamicForReference(SignVo signVo){
+    public Map<String, List> getVoListDynamicForReference(SignVo signVo){
         List<SignVo> signVoListDynamicForReference = service.getVoListDynamicForReference(signVo);
-        return signVoListDynamicForReference;
+
+        Map<String, List> signListDynamicMapForReference = new HashMap<>();
+        signListDynamicMapForReference.put("signVoListDynamicForReference", signVoListDynamicForReference);
+
+        return signListDynamicMapForReference;
     } // getVoListDynamicForReference
 
 //    // 결재 진행 목록 조회 (신청자 입장) (API)

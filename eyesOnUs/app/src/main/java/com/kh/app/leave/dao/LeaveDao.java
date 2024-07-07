@@ -33,11 +33,11 @@ public class LeaveDao {
 
     // 휴가 승인자 상세 조회 (API)
     public LeaveVo getLeaveApproverDetail(String leaveNo) {
-        LeaveVo leaveApproverVo = mapper.getLeaveApproverDetail(leaveNo);
-        if(leaveApproverVo == null){
+        LeaveVo leaveApproverDetailVo = mapper.getLeaveApproverDetail(leaveNo);
+        if(leaveApproverDetailVo == null){
             throw new RuntimeException("[L-006] LEAVE APPROVER DETAIL SELECT ERROR");
         }
-        return leaveApproverVo;
+        return leaveApproverDetailVo;
     } // getLeaveApproverDetail
 
     // 휴가 승인자 목록 조회 (API)

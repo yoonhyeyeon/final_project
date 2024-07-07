@@ -57,18 +57,14 @@ public class AdminDeptController {
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "size", defaultValue = "20") int size) {
 
-        System.out.println("searchBox : " + searchBox);
         List<DivisionVo> voList = service.adminDeptSearchData(empCategory, searchBox, page, size);
         int totalCount = service.getSearchTotalCount(empCategory, searchBox);
         int totalPages = (int) Math.ceil((double) totalCount / size);
-
-        System.out.println("totalCount : " + totalCount);
 
         Map<String, Object> result = new HashMap<>();
         result.put("voList", voList);
         result.put("currentPage", page);
         result.put("totalPages", totalPages);
-        System.out.println("voList : " + voList);
         return result;
     }//method
 

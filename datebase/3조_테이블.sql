@@ -424,7 +424,7 @@ CREATE TABLE CONFERENCE_RECORD(
 -- 프로젝트 일정
 CREATE TABLE PROJECT_WORK(
     NO              NUMBER          PRIMARY KEY,
-    NO2             NUMBER          UNIQUE NOT NULL,
+    NO2             NUMBER          NOT NULL,
     STATE_B_NO      NUMBER          ,
     TYPE_NO         NUMBER          ,
     START_DATE      TIMESTAMP       DEFAULT SYSDATE,

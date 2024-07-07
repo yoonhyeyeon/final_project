@@ -10,4 +10,8 @@ public class ProjectRecordVo {
     private String delYn;
     private String title;
     private String content;
+
+
+    private String empNo;
+    private String name;
 }

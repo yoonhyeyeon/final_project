@@ -144,6 +144,19 @@ public class ProjectController {
         return "prjConfRecord/recordList";
     }
 
+
+
+    @GetMapping("record/detailData")
+    @ResponseBody
+    public ProjectRecordVo recordDetail(ProjectRecordVo vo){
+        return service.recordDetail(vo.getNo());
+    }
+
+    @GetMapping("record/detail")
+    public String recordDetail(){
+        return "prjConfRecord/recordDetail";
+    }
+
     ///////////////////////////////////////////// PROJECT_MANAGER //////////////////////////////////////////////////////////////////
 
     @GetMapping("manager/insert")

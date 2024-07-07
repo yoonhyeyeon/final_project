@@ -2,8 +2,10 @@ package com.kh.app.evaluation.controller;
 
 import com.kh.app.evaluation.service.ColleageEvalService;
 import com.kh.app.evaluation.vo.ColleageEvalVo;
+import com.kh.app.sign.vo.EmployeeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -19,7 +21,11 @@ public class ColleageEvalController {
 
     // 작성하기
     @GetMapping("write")
-    public String write(){
+    public String write(EmployeeVo vo, Model model){
+
+        List<EmployeeVo> voList = service.writeList(vo);
+        model.addAttribute("voList", voList);
+
         return "colleageEval/write";
     }
 

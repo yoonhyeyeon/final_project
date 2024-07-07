@@ -2,6 +2,7 @@ package com.kh.app.evaluation.dao;
 
 import com.kh.app.evaluation.mapper.LeaderEvalMapper;
 import com.kh.app.evaluation.vo.LeaderEvalVo;
+import com.kh.app.sign.vo.EmployeeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -18,8 +19,12 @@ public class LeaderEvalDao {
         return mapper.write(vo);
     }
 
+    public List<EmployeeVo> writeList(EmployeeVo vo) {
+        return mapper.writeList(vo);
+    }
     // 목록조회
     public List<LeaderEvalVo> list() {
         return mapper.list();
     }
+
 }

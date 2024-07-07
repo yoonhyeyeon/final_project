@@ -16,4 +16,8 @@ public class TeamRoomDao {
     public List<TeamRoomVo> getTodoList() {
         return mapper.getTodoList();
     }
+
+    public List<TeamRoomVo> getTodoPrjList() {
+        return mapper.getTodoPrjList();
+    }
 }//class

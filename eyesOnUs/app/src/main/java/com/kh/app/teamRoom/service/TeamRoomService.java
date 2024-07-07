@@ -16,4 +16,8 @@ public class TeamRoomService {
     public List<TeamRoomVo> getTodoList() {
         return dao.getTodoList();
     }
+
+    public List<TeamRoomVo> getTodoPrjList() {
+        return dao.getTodoPrjList();
+    }
 }

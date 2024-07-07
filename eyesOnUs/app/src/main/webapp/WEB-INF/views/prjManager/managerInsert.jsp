@@ -12,9 +12,10 @@
         <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
         <link rel="stylesheet" type="text/css" href="/css/prjManager/managerInsert.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <script defer src="../js/adminUtil.js"></script>
-      <script defer src="../js/sidebar.js"></script>
-      <script defer src="../js/calender.js"></script>
+      <script defer src="/js/adminUtil.js"></script>
+      <script defer src="/js/sidebar.js"></script>
+      <script defer src="/js/calender.js"></script>
+      <script defer src="/js/prjManager/managerInsert.js"></script>
 
     <title>KIM</title>
 </head>

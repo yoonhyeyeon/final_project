@@ -8,4 +8,6 @@ public class ProjectManagerVo {
     private String no;
     private String proNo;
     private String empNo;
+
+    private String name;
 }

@@ -55,4 +55,12 @@ public class ProjectService {
     public int managerInsert(ProjectManagerVo vo) {
         return dao.managerInsert(vo);
     }
+
+    public List<ProjectManagerVo> managerList() {
+        return  dao.managerList();
+    }
+
+    public int managerDelete(String no) {
+        return dao.managerDelete(no);
+    }
 }

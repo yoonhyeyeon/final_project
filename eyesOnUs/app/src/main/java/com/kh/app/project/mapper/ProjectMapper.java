@@ -27,8 +27,8 @@ public interface ProjectMapper {
             "ON P.EMP_NO = E.NO\n" +
             "JOIN DEPARTMENT D\n" +
             "ON P.CODE = D.CODE\n" +
-    "ORDER BY P.NO ASC")
-    List<ProjectVo> projectList();
+            "ORDER BY P.NO ASC")
+            List<ProjectVo> projectList();
 
 
     @Delete("DELETE PROJECT WHERE NO = #{no}")
@@ -69,6 +69,17 @@ public interface ProjectMapper {
             "WHERE P.TITLE LIKE '%' || #{title} || '%'")
     List<ProjectVo> projectSearchByName(String title);
 
-    @Insert("INSERT INTO PROJECT_MANAGER(NO,PRO_NO,EMP_NO) VALUES(SEQ_PROJECT_MANAGER.NEXTVAL,#{proNo},{empNo})")
+    @Insert("INSERT INTO PROJECT_MANAGER(NO,PRO_NO,EMP_NO) VALUES(SEQ_PROJECT_MANAGER.NEXTVAL,#{proNo},#{empNo})")
     int managerInsert(ProjectManagerVo vo);
+
+
+    @Select("SELECT M.NO as NO, M.PRO_NO as PRONO, M.EMP_NO as EMPNO, E.NAME as NAME  FROM\n" +
+            "PROJECT_MANAGER M\n" +
+            "JOIN EMPLOYEE E\n" +
+            "ON M.EMP_NO = E.NO\n" +
+    "ORDER BY M.PRO_NO ASC")
+    List<ProjectManagerVo> managerList();
+
+    @Delete("DELETE PROJECT_MANAGER WHERE NO = #{no}")
+    int managerDelete(String no);
 }

@@ -19,9 +19,16 @@ public class TeamRoomApiController {
     private final TeamRoomService service;
 
     //다가오는 일정 조회(todo)
-    @GetMapping
+    @GetMapping("todo")
     public List<TeamRoomVo> getTodoList(){
         List<TeamRoomVo> voList = service.getTodoList();
+        return voList;
+    }
+
+    //다가오는 일정 조회(todo)
+    @GetMapping("todo-prj")
+    public List<TeamRoomVo> getTodoPrjList(){
+        List<TeamRoomVo> voList = service.getTodoPrjList();
         return voList;
     }
 

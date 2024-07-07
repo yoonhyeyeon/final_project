@@ -9,8 +9,13 @@ import java.util.List;
 @Mapper
 public interface TeamRoomMapper {
 
-    @Select("SELECT * FROM PERSONAL_WORK ORDER BY NO DESC")
+    //진행 상태 && 최신작성 순
+    @Select("SELECT * FROM PERSONAL_WORK WHERE STATE_B_NO = 1 ORDER BY NO ASC")
     public List<TeamRoomVo> getTodoList();
+
+    @Select("SELECT * FROM PROJECT_WORK WHERE STATE_B_NO = 1 ORDER BY NO ASC")
+    List<TeamRoomVo> getTodoPrjList();
+
 
 
 }//class

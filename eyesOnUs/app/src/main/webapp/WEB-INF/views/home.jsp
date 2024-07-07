@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="/css/util/footer.css">
     <link rel="stylesheet" href="/css/home/header.css">
     <script defer src="/js/sidebar.js"></script>
+    <script defer src="../js/commute/write.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>SHIN</title>
 </head>
 

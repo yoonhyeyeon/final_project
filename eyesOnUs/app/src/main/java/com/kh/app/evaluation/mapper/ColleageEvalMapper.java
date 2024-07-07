@@ -1,6 +1,7 @@
 package com.kh.app.evaluation.mapper;
 
 import com.kh.app.evaluation.vo.ColleageEvalVo;
+import com.kh.app.sign.vo.EmployeeVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -40,6 +41,9 @@ public interface ColleageEvalMapper {
             "    , #{suggestion}\n" +
             ")")
     int write(ColleageEvalVo vo);
+
+    @Select("SELECT NAME FROM EMPLOYEE")
+    List<EmployeeVo> writeList(EmployeeVo vo);
 
     // 목록조회
     @Select("SELECT \n" +

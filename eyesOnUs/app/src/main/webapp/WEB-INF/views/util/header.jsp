@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,11 +9,11 @@
 
 <div class="btn">
   <div id="goto">
-    <button>📥출근</button>
+    <button onclick="write01(${vo.empNo});">📥출근</button>
   </div>
 
   <div id="leave">
-    <button>📤퇴근</button>
+    <button onclick="write02(${vo.empNo});">📤퇴근</button>
   </div>
 
 </div>

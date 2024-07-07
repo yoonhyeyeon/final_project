@@ -40,18 +40,18 @@
               <span>평가자</span>
               <select id="evaluatorNo">
                  <option value="">------선택------</option>
-                 <% for (int i = 1; i <= 64; i++) { %>
-                   <option id="evaluatorNo" value="<%= i %>"><%= i %></option>
-                 <% } %>
+                   <c:forEach var="vo" items="${voList}">
+                       <option value="${vo.name}">${vo.name}</option>
+                   </c:forEach>
               </select>
               <br>
               <br>
               <span>평가 대상</span>
               <select id="evaluateeNo">
                  <option value="">------선택------</option>
-                 <% for (int i = 1; i <= 64; i++) { %>
-                   <option id="evaluateeNo" value="<%= i %>"><%= i %></option>
-                 <% } %>
+                   <c:forEach var="vo" items="${voList}">
+                       <option value="${vo.name}">${vo.name}</option>
+                   </c:forEach>
               </select>
               <p>잠재력</p>
               <div class="myform">

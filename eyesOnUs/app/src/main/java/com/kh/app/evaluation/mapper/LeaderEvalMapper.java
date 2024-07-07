@@ -1,6 +1,7 @@
 package com.kh.app.evaluation.mapper;
 
 import com.kh.app.evaluation.vo.LeaderEvalVo;
+import com.kh.app.sign.vo.EmployeeVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -41,6 +42,9 @@ public interface LeaderEvalMapper {
             ")")
     int write(LeaderEvalVo vo);
 
+    @Select("SELECT NAME FROM EMPLOYEE")
+    List<EmployeeVo> writeList(EmployeeVo vo);
+
     // 목록조회
     @Select("SELECT \n" +
             "    L.NO\n" +
@@ -61,4 +65,5 @@ public interface LeaderEvalMapper {
             "ON L.EVALUATEE_NO = M.NO\n" +
             "ORDER BY L.NO ASC")
     List<LeaderEvalVo> list();
+
 }

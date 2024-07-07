@@ -34,7 +34,7 @@
                     &nbsp;&nbsp;<p>담당자 코드</p>&nbsp;&nbsp;&nbsp;&nbsp; :
                     <input type="text" name="empNo" id="empNo"><br><hr>
                     <div id="div-submit">
-                        <button id="submitButton" onclick="smt();">등록</button>
+                        <button id="submitButton" onclick="smtM();">등록</button>
                     </div>
                 </div>
             </div>

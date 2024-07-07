@@ -63,4 +63,8 @@ public class ProjectService {
     public int managerDelete(String no) {
         return dao.managerDelete(no);
     }
+
+    public ProjectRecordVo recordDetail(String no) {
+        return dao.recordDetail(no);
+    }
 }

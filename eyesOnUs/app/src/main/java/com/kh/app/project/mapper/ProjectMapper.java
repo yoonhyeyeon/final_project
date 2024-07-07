@@ -34,15 +34,6 @@ public interface ProjectMapper {
     @Delete("DELETE PROJECT WHERE NO = #{no}")
     int deletePrj(String no);
 
-    ////////////////////////PROJECT RECORD CRUD ///////////////////////////////////////
-
-    @Insert("INSERT INTO CONFERENCE_RECORD(NO,PRJ_NO,TITLE,CONTENT) VALUES(SEQ_CONFERENCE_RECORD.NEXTVAL,#{prjNo},#{title},#{content})")
-    int recordInsert(ProjectRecordVo vo);
-
-    @Select("SELECT * FROM CONFERENCE_RECORD WHERE DEL_YN ='N' ORDER BY PRJ_NO ASC")
-    List<ProjectRecordVo> recordList();
-
-
     @Select("SELECT P.NO as NO,P.title as title, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
             ",TO_CHAR(P.MODIFY_DATE,'YYYY.MM.DD')  as modifyDate , P.START_DATE as startDate\n" +
             "FROM PROJECT P\n" +
@@ -55,8 +46,6 @@ public interface ProjectMapper {
             "WHERE P.NO = #{no}")
     ProjectVo getProjectByNo(String no);
 
-
-
     @Select("SELECT P.NO as NO,P.title as title, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
             ",TO_CHAR(P.MODIFY_DATE,'YYYY.MM.DD')  as modifyDate , P.START_DATE as startDate\n" +
             "FROM PROJECT P\n" +
@@ -68,6 +57,26 @@ public interface ProjectMapper {
             "ON P.CODE = D.CODE\n" +
             "WHERE P.TITLE LIKE '%' || #{title} || '%'")
     List<ProjectVo> projectSearchByName(String title);
+    ////////////////////////PROJECT RECORD CRUD ///////////////////////////////////////
+
+    @Insert("INSERT INTO CONFERENCE_RECORD(NO,PRJ_NO,TITLE,CONTENT) VALUES(SEQ_CONFERENCE_RECORD.NEXTVAL,#{prjNo},#{title},#{content})")
+    int recordInsert(ProjectRecordVo vo);
+
+    @Select("SELECT * FROM CONFERENCE_RECORD WHERE DEL_YN ='N' ORDER BY PRJ_NO ASC")
+    List<ProjectRecordVo> recordList();
+
+    @Select("SELECT C.NO as no,C.PRJ_NO as prjNo , M.EMP_NO as empNo, E.NAME as name, C.TITLE as title, C.CONTENT as content, C.ENL_DATE as enlDate\n" +
+            "FROM CONFERENCE_RECORD C\n" +
+            "LEFT JOIN PROJECT P\n" +
+            "ON C.PRJ_NO = P.NO\n" +
+            "LEFT JOIN PROJECT_MANAGER M\n" +
+            "ON C.PRJ_NO = M.PRO_NO\n" +
+            "LEFT JOIN EMPLOYEE E\n" +
+            "ON E.NO = M.EMP_NO\n"+
+            "WHERE C.NO = #{no}")
+    ProjectRecordVo recordDetail(String no);
+
+///////////////////////////////////// PROJECT_MANAGER CRUD ///////////////////////////////////////////////////////////
 
     @Insert("INSERT INTO PROJECT_MANAGER(NO,PRO_NO,EMP_NO) VALUES(SEQ_PROJECT_MANAGER.NEXTVAL,#{proNo},#{empNo})")
     int managerInsert(ProjectManagerVo vo);
@@ -82,4 +91,5 @@ public interface ProjectMapper {
 
     @Delete("DELETE PROJECT_MANAGER WHERE NO = #{no}")
     int managerDelete(String no);
+
 }

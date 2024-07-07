@@ -60,5 +60,9 @@ public class ProjectDao {
     public int managerDelete(String no) {
         return mapper.managerDelete(no);
     }
+
+    public ProjectRecordVo recordDetail(String no) {
+        return mapper.recordDetail(no);
+    }
 }
 

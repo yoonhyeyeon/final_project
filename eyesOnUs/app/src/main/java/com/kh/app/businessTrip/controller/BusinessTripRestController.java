@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,44 +22,68 @@ public class BusinessTripRestController {
 
     // 출장 상세 조회 (API)
     @GetMapping("detail")
-    public BusinessTripVo getBusinessTripDetail(String businessTripNo){
+    public Map<String, BusinessTripVo> getBusinessTripDetail(String businessTripNo){
         BusinessTripVo businessTripDetailVo = service.getBusinessTripDetail(businessTripNo);
-        return businessTripDetailVo;
+
+        Map<String, BusinessTripVo> businessTripDetailMap = new HashMap<>();
+        businessTripDetailMap.put("businessTripDetailVo", businessTripDetailVo);
+
+        return businessTripDetailMap;
     } // getBusinessTripDetail
 
     // 출장 승인자 상세 조회 (API)
     @GetMapping("approverDetail")
-    public BusinessTripVo getBusinessTripApproverDetail(String businessTripNo){
-        BusinessTripVo businessTripAppproverVo = service.getBusinessTripApproverDetail(businessTripNo);
-        return businessTripAppproverVo;
+    public Map<String, BusinessTripVo> getBusinessTripApproverDetail(String businessTripNo){
+        BusinessTripVo businessTripApproverDetailVo = service.getBusinessTripApproverDetail(businessTripNo);
+
+        Map<String, BusinessTripVo> businessTripApproverDetailMap = new HashMap<>();
+        businessTripApproverDetailMap.put("businessTripApproverDetailVo", businessTripApproverDetailVo);
+
+        return businessTripApproverDetailMap;
     } // getBusinessTripApproverDetail
 
     // 출장 승인자 목록 조회 (API)
     @GetMapping("approverList")
-    public List<BusinessTripVo> getBusinessTripApproverList(String empNo){
+    public Map<String, List> getBusinessTripApproverList(String empNo){
         List<BusinessTripVo> businessTripApproverVoList = service.getBusinessTripApproverList(empNo);
-        return businessTripApproverVoList;
+
+        Map<String, List> businessTripApproverListMap = new HashMap<>();
+        businessTripApproverListMap.put("businessTripApproverVoList", businessTripApproverVoList);
+
+        return businessTripApproverListMap;
     } // getBusinessTripApproverList
 
     // 출장 승인 (API)
     @PutMapping("approve")
-    public int updateBusinessTripApprove(BusinessTripVo businessTripVo){
+    public Map<String, Integer> updateBusinessTripApprove(BusinessTripVo businessTripVo){
         int businessTripApproveResult = service.updateBusinessTripApprove(businessTripVo);
-        return businessTripApproveResult;
+
+        Map<String, Integer> businessTripApproveResultMap = new HashMap<>();
+        businessTripApproveResultMap.put("businessTripApproveResult", businessTripApproveResult);
+
+        return businessTripApproveResultMap;
     } // updateBusinessTripApprove
 
     // 프로젝트 목록 조회 (API)
     @GetMapping("projectList")
-    public List<ProjectVo> getProjectList(){
+    public Map<String, List> getProjectList(){
         List<ProjectVo> projectVoList = service.getProjectList();
-        return projectVoList;
+
+        Map<String, List> projectListMap = new HashMap<>();
+        projectListMap.put("projectVoList", projectVoList);
+
+        return projectListMap;
     } // getProjectList
 
     // 출장 목록 조회 (동적 쿼리) (API)
     @GetMapping
-    public List<BusinessTripVo> getBusinessTripListForAll(BusinessTripVo businessTripVo){
+    public Map<String, List> getBusinessTripListForAll(BusinessTripVo businessTripVo){
         List<BusinessTripVo> businessTripVoListForAll = service.getBusinessTripListForAll(businessTripVo);
-        return businessTripVoListForAll;
+
+        Map<String, List> businessTripListMapForAll = new HashMap<>();
+        businessTripListMapForAll.put("businessTripVoListForAll", businessTripVoListForAll);
+
+        return businessTripListMapForAll;
     } // getBusinessTripForAll
 
 //    // 출장 승인 진행 목록 조회 (신청자 입장) (API)

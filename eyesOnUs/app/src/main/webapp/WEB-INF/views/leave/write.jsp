@@ -4,36 +4,67 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>휴가 신청</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
-<body>
-	<h1>휴가 신청</h1>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Jua&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <title>휴가 등록</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/home/home.css">
+        <link rel="stylesheet" href="/css/home/sidebar.css">
+        <link rel="stylesheet" href="/css/util/footer.css">
+        <link rel="stylesheet" href="/css/home/header.css">
+        <script defer src="/js/testMain/sidebar.js"></script>
+        <script defer src="/js/commute/write.js"></script>
 
-    <form action="/leave/write" method="post">
+        <link rel="stylesheet" href="/css/leave/write.css">
+        <script defer src="/js/leave/write.js"></script>
+    </head>
+    <body>
+        <header id="headerContainer">
+            <%@ include file="/WEB-INF/views/util/header.jsp" %>
+        </header>
 
-        <input type="text" name="empNo" value="43" hidden>
+        <nav id="navContainer">
+            <%@ include file="/WEB-INF/views/home/nav.jsp" %>
+        </nav>
 
-        <input type="text" name="approverNo" value="13" hidden>
+        <section>
+            <form action="/leave/write" method="post">
+                <input type="text" name="empNo" value="43" hidden>
+        
+                <input type="text" name="approverNo" value="13" hidden>
+        
+                <label for="typeNo">휴가 타입 선택</label>
+                <select name="typeNo">
+                    <option value="1">연차</option>
+                    <option value="2">병가</option>
+                    <option value="3">경조사</option>
+                </select>
+                <br>
+                <label for="startDate">시작일</label>
+                <input type="date" name="startDate">
+                <br>
+                <label for="endDate">종료일</label>
+                <input type="date" name="endDate">
+                <br>
+                <textarea name="reason" placeholder="사유"></textarea>
+                <br>
+                <input type="submit" value="신청">
+            </form>
+        </section>
 
-        <label for="typeNo">휴가 타입 선택</label>
-        <select name="typeNo">
-            <option value="1">연차</option>
-            <option value="2">병가</option>
-            <option value="3">경조사</option>
-        </select>
-        <br>
-        <label for="startDate">시작일</label>
-        <input type="date" name="startDate">
-        <br>
-        <label for="endDate">종료일</label>
-        <input type="date" name="endDate">
-        <br>
-        <textarea name="reason" placeholder="사유"></textarea>
-        <br>
-        <input type="submit" value="신청">
-    </form>
-</body>
+        <footer id="footerContainer">
+            <%@ include file="/WEB-INF/views/util/footer.jsp" %>
+        </footer>
+
+        <aside class="sidebar" id="sidebar">
+            <%@ include file="/WEB-INF/views/home/sidebar.jsp" %>
+        </aside>
+
+        <button id="sidebarBtn"><span>메뉴</span></button>
+    </body>
 </html>

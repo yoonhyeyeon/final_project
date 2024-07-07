@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("api/leave")
@@ -19,37 +21,57 @@ public class LeaveRestController {
 
     // 휴가 상세 조회 (API)
     @GetMapping("detail")
-    public LeaveVo getLeaveDetail(String leaveNo){
+    public Map<String, LeaveVo> getLeaveDetail(String leaveNo){
         LeaveVo leaveDetailVo = service.getLeaveDetail(leaveNo);
-        return leaveDetailVo;
+
+        Map<String, LeaveVo> leaveDetailMap = new HashMap<>();
+        leaveDetailMap.put("leaveDetailVo", leaveDetailVo);
+
+        return leaveDetailMap;
     } // getLeaveDetail
 
     // 휴가 승인자 상세 조회 (API)
     @GetMapping("approverDetail")
-    public LeaveVo getLeaveApproverDetail(String leaveNo){
-        LeaveVo leaveApproverVo = service.getLeaveApproverDetail(leaveNo);
-        return leaveApproverVo;
+    public Map<String, LeaveVo> getLeaveApproverDetail(String leaveNo){
+        LeaveVo leaveApproverDetailVo = service.getLeaveApproverDetail(leaveNo);
+
+        Map<String, LeaveVo> leaveApproverDetailMap = new HashMap<>();
+        leaveApproverDetailMap.put("leaveApproverDetailVo", leaveApproverDetailVo);
+
+        return leaveApproverDetailMap;
     } // getLeaveApproverDetail
 
     // 휴가 승인자 목록 조회 (API)
     @GetMapping("approverList")
-    public List<LeaveVo> getLeaveApproverList(String empNo){
+    public Map<String, List> getLeaveApproverList(String empNo){
         List<LeaveVo> leaveApproverVoList = service.getLeaveApproverList(empNo);
-        return leaveApproverVoList;
+
+        Map<String, List> leaveApproverListMap = new HashMap<>();
+        leaveApproverListMap.put("leaveApproverVoList", leaveApproverVoList);
+
+        return leaveApproverListMap;
     } // getLeaveApproverList
 
     // 휴가 승인 (API)
     @PutMapping("approve")
-    public int updateLeaveApprove(LeaveVo leaveVo){
+    public Map<String, Integer> updateLeaveApprove(LeaveVo leaveVo){
         int leaveApproveResult = service.updateLeaveApprove(leaveVo);
-        return leaveApproveResult;
+
+        Map<String, Integer> leaveApproverResultMap = new HashMap<>();
+        leaveApproverResultMap.put("leaveApproveResult", leaveApproveResult);
+
+        return leaveApproverResultMap;
     } // updateLeaveApprove
 
     // 휴가 목록 조회 (동적 쿼리) (API)
     @GetMapping
-    public List<LeaveVo> getLeaveListForAll(LeaveVo leaveVo){
+    public Map<String, List> getLeaveListForAll(LeaveVo leaveVo){
         List<LeaveVo> leaveVoListForAll = service.getLeaveListForAll(leaveVo);
-        return leaveVoListForAll;
+
+        Map<String, List> leaveListMapForAll = new HashMap<>();
+        leaveListMapForAll.put("leaveVoListForAll", leaveVoListForAll);
+
+        return leaveListMapForAll;
     } // getLeaveListForAll
 
 //    // 휴가 승인 진행 목록 조회 (신청자 입장) (API)

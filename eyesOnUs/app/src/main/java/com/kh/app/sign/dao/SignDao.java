@@ -79,11 +79,11 @@ public class SignDao {
 
     // 결재자 상세 조회 (API)
     public SignVo getSignApproverDetail(String signNo) {
-        SignVo signApproverVo = mapper.getSignApproverDetail(signNo);
-        if(signApproverVo == null){
+        SignVo signApproverDetailVo = mapper.getSignApproverDetail(signNo);
+        if(signApproverDetailVo == null){
             throw new RuntimeException("[S-020] SIGN APPROVER DETAIL SELECT ERROR");
         }
-        return signApproverVo;
+        return signApproverDetailVo;
     } // getSignApproverDetail
 
     // 결재자 목록 조회 (API)

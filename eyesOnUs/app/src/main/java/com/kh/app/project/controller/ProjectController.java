@@ -146,12 +146,12 @@ public class ProjectController {
 
     ///////////////////////////////////////////// PROJECT_MANAGER //////////////////////////////////////////////////////////////////
 
-    @GetMapping("manager/list")
-    public String managerList(){
+    @GetMapping("manager/insert")
+    public String managerInsert(){
         return "prjManager/managerInsert";
     }
 
-    @PostMapping("manager/list")
+    @PostMapping("manager/insert")
     @ResponseBody
     public int managerInsert(ProjectManagerVo vo){
         int result = service.managerInsert(vo);
@@ -160,6 +160,24 @@ public class ProjectController {
 
     }
 
+    @GetMapping("manager/listData")
+    @ResponseBody
+    public List<ProjectManagerVo> managerListData(){
+        List<ProjectManagerVo> voList = service.managerList();
+        return  voList;
+    }
+
+    @GetMapping("manager/list")
+    public String managerList(){
+        return "prjManager/managerList";
+    }
+
+    @DeleteMapping("manager/delete")
+    @ResponseBody
+    public int managerDelete(String no){
+        int result = service.managerDelete(no);
+        return result;
+    }
 
 
 }

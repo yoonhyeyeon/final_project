@@ -52,5 +52,13 @@ public class ProjectDao {
     public int managerInsert(ProjectManagerVo vo) {
         return mapper.managerInsert(vo);
     }
+
+    public List<ProjectManagerVo> managerList() {
+        return mapper.managerList();
+    }
+
+    public int managerDelete(String no) {
+        return mapper.managerDelete(no);
+    }
 }
 

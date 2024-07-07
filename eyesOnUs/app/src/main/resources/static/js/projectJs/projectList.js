@@ -14,6 +14,7 @@ $.ajax({
             str += "<td>" + voList[i].state + "</td>";
             str += "<td>" + voList[i].startDate + "</td>";
             str += "<td>" + voList[i].modifyDate + "</td>";
+            str += "<td>" + voList[i].modifyDate + "</td>";
             str += "</tr>";
         }
         tbody.innerHTML = str;

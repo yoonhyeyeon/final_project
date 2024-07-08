@@ -41,9 +41,7 @@ public interface MemberEvalMapper {
             ")")
     int write(MemberEvalVo vo);
 
-    @Select("SELECT\n" +
-            "    NAME\n" +
-            "FROM EMPLOYEE")
+    @Select("SELECT NO FROM EMPLOYEE")
     List<EmployeeVo> writeList(EmployeeVo vo);
 
     // 목록조회

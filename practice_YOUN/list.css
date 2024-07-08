@@ -2,8 +2,21 @@
 
 #out {
     margin: 5%;
-    text-align: center;
     font-family: 'Do Hyeon', sans-serif;
+}
+#head{
+  text-align: center;
+}
+
+#list{
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+}
+
+.evaluatorNo{
+  text-align: end;
+  margin-right: 10%;
+  font-size: 1.2em;
 }
 
 #listBtn > button{
@@ -57,4 +70,5 @@
   border-right: 1px solid #ccc;
   margin: 2%;
   font-size: 1.2em;
+  cursor: pointer;
 }

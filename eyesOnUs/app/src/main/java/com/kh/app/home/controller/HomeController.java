@@ -2,10 +2,9 @@ package com.kh.app.home.controller;
 
 import com.kh.app.home.service.CommuteService;
 import com.kh.app.home.vo.CommuteVo;
-import com.kh.app.sign.vo.EmployeeVo;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +25,10 @@ public class HomeController {
 
     // 출근
     @PostMapping("go")
-    public HashMap<String, String> write(CommuteVo vo){
+    public HashMap<String, String> write(CommuteVo vo, HttpSession session){
         int result = service.write(vo);
+
+        session.setAttribute("msg" , "출근성공");
 
         HashMap<String , String> map = new HashMap<>();
         if( result != 1 ){

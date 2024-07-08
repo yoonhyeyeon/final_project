@@ -41,7 +41,7 @@
               <select id="evaluatorNo">
                  <option value="">------선택------</option>
                    <c:forEach var="vo" items="${voList}">
-                       <option value="${vo.name}">${vo.name}</option>
+                       <option value="${vo.no}">${vo.no}</option>
                    </c:forEach>
               </select>
               <br>
@@ -50,7 +50,7 @@
               <select id="evaluateeNo">
                  <option value="">------선택------</option>
                    <c:forEach var="vo" items="${voList}">
-                       <option value="${vo.name}">${vo.name}</option>
+                       <option value="${vo.no}">${vo.no}</option>
                    </c:forEach>
               </select>
               <p>소통력</p>

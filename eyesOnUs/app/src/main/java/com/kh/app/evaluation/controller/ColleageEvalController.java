@@ -22,7 +22,6 @@ public class ColleageEvalController {
     // 작성하기
     @GetMapping("write")
     public String write(EmployeeVo vo, Model model){
-
         List<EmployeeVo> voList = service.writeList(vo);
         model.addAttribute("voList", voList);
 

@@ -42,7 +42,7 @@ public interface LeaderEvalMapper {
             ")")
     int write(LeaderEvalVo vo);
 
-    @Select("SELECT NAME FROM EMPLOYEE")
+    @Select("SELECT NO FROM EMPLOYEE")
     List<EmployeeVo> writeList(EmployeeVo vo);
 
     // 목록조회

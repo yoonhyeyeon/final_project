@@ -2,9 +2,7 @@ package com.kh.app.projectwork.mapper;
 
 import com.kh.app.personal.vo.PersonalVo;
 import com.kh.app.projectwork.vo.ProjectWorkVo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,5 +17,6 @@ public interface ProjectWorkMapper {
             "VALUES (SEQ_PROJECT_WORK.NEXTVAL, #{no2}, #{stateBNo}, #{typeNo}, SYSDATE, #{title}, #{content})")
     int getPrjWorkWrite(ProjectWorkVo vo);
 
-
+    @Delete("DELETE FROM PROJECT_WORK WHERE NO = #{num}")
+    int prjWorkDelete(@Param("num")String num);
 }//class

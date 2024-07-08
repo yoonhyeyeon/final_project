@@ -7,10 +7,7 @@ import com.kh.app.projectwork.service.ProjectWorkService;
 import com.kh.app.projectwork.vo.ProjectWorkVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +33,18 @@ public class ProjectWorkApiController {
             return ResponseEntity.ok("작성하기 성공");
         }else {
             return ResponseEntity.internalServerError().body("작성하기 실패");
+        }
+    }
+
+
+    @DeleteMapping("delete/{num}")
+    public ResponseEntity<String> prjWorkDelete(@PathVariable String num){
+        int result = service.prjWorkDelete(num);
+        System.out.println("result = " + result);
+        if (result == 1) {
+            return ResponseEntity.ok("delete success ~ !");
+        } else {
+            return ResponseEntity.status(500).body("delete fail...");
         }
     }
 

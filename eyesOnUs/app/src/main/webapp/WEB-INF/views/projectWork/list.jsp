@@ -75,7 +75,7 @@
                 <th>사원 번호</th> <!-- 추가된 열 -->
                 <th>상태 번호</th> <!-- 추가된 열 -->
                 <th>유형 번호</th> <!-- 추가된 열 -->
-                <th>수정</th> <!-- 추가된 열 -->
+                <th>삭제</th> <!-- 추가된 열 -->
             </tr>
         </thead>
         <tbody id="personalTableBody">
@@ -105,7 +105,7 @@
                         rows += "<td>" + voList[i].no2 + "</td>";
                         rows += "<td>" + voList[i].stateBNo + "</td>";
                         rows += "<td>" + voList[i].typeNo+ "</td>";
-                         rows += "<td><button class='edit-button' onclick='editRecord(" + voList[i].no + ")'>수정</button></td>"; //gpt_수정
+                         rows += "<td><button class='edit-button' onclick='deleteRecord(" + voList[i].no + ")'>삭제</button></td>";
                         rows += "</tr>";
                     }
 
@@ -117,10 +117,24 @@
             });
         });
 
-         // 수정 버튼 클릭 시 호출되는 함수 //gpt_수정
-                function editRecord(no) { //gpt_수정
-                    window.location.href = "http://127.0.0.1:8383/personal/edit?no=" + no; //gpt_수정
-                } //gpt_수정
+
+     function deleteRecord(no) {
+              if (confirm("정말로 삭제하시겠습니까?")) {
+                  $.ajax({
+                      url: "/api/projectWork/delete/" + no,
+                      method: "DELETE",
+                      success: function(result) {
+                          alert("삭제되었습니다.");
+                          location.reload(); // 페이지를 새로고침하여 목록 갱신
+                      },
+                      error: function(xhr, status, error) {
+                          console.error("Error deleting record:", error);
+                          alert("삭제에 실패했습니다.");
+                      }
+                  });
+              }
+          }
+
     </script>
 </body>
 </html>

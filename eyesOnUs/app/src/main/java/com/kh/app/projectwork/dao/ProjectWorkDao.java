@@ -24,4 +24,7 @@ public class ProjectWorkDao {
     }
 
 
+    public int prjWorkDelete(String num) {
+        return mapper.prjWorkDelete(num);
+    }
 }//class

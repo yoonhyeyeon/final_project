@@ -1,7 +1,7 @@
 package com.kh.app.member.dao;
 
 import com.kh.app.member.mapper.MemberMapper;
-import com.kh.app.member.member.vo.MemberVo;
+import com.kh.app.member.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +16,12 @@ public class MemberDao {
         return mapper.join(vo);
     }
 
-
+    // 로그인 (임시)
+    public MemberVo login(MemberVo vo) {
+        MemberVo loginMemberVo = mapper.login(vo);
+        if(loginMemberVo == null){
+            throw new RuntimeException("로그인 실패");
+        }
+        return loginMemberVo;
+    }
 }//class

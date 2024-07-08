@@ -15,6 +15,8 @@ public class BusinessTripVo {
     private String reason;
     private String destination;
     private String state;
+    private String approveDate;
+    private String enrollDate;
 
     // ROWNUM
     private String rownum;

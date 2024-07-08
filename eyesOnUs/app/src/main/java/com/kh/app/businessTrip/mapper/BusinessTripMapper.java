@@ -37,6 +37,8 @@ public interface BusinessTripMapper {
             "    , B.REASON\n" +
             "    , B.DESTINATION\n" +
             "    , B.STATE\n" +
+            "    , B.ENROLL_DATE\n" +
+            "    , B.APPROVE_DATE\n" +
             "    , E.NAME            EMP_NAME\n" +
             "    , E.NICK\n" +
             "    , D.CODE            DIV_CODE\n" +
@@ -111,7 +113,8 @@ public interface BusinessTripMapper {
 
     // 출장 승인 (API)
     @Update("UPDATE BUSINESS_TRIP\n" +
-            "SET STATE = #{state}\n" +
+            "SET STATE = #{state}" +
+            "    APPROVE_DATE = SYSDATE\n" +
             "WHERE NO = #{no}")
     int updateBusinessTripApprove(BusinessTripVo businessTripVo);
 
@@ -127,7 +130,7 @@ public interface BusinessTripMapper {
             "    , END_DATE\n" +
             "    , MODIFY_DATE\n" +
             "FROM PROJECT")
-    List<ProjectVo> getProjectList();
+    List<ProjectVo> getProjectList(@RequestParam("empNo") String empNo);
 
     // 출장 목록 조회 (동적 쿼리) (API)
     @Select({
@@ -138,6 +141,8 @@ public interface BusinessTripMapper {
                     , Y.NO
                     , Y.PRO_NO
                     , Y.EMP_NO
+                    , Y.ENROLL_DATE
+                    , Y.APPROVE_DATE
                     , Y.APPROVER_NO
                     , Y.START_DATE
                     , Y.END_DATE
@@ -159,6 +164,8 @@ public interface BusinessTripMapper {
                         , B.PRO_NO
                         , B.EMP_NO
                         , B.APPROVER_NO
+                        , B.ENROLL_DATE
+                        , B.APPROVE_DATE
                         , B.START_DATE
                         , B.END_DATE
                         , B.REASON

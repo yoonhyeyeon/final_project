@@ -22,6 +22,7 @@
 
         <link rel="stylesheet" href="/css/businessTrip/list.css">
         <script defer src="/js/businessTrip/list.js"></script>
+        <script defer src="/js/businessTrip/commonFunction.js"></script>
     </head>
     <body>
         <header id="headerContainer">
@@ -33,7 +34,70 @@
         </nav>
 
         <section>
-            출장 목록 조회
+            <h1>출장 승인 대기 목록</h1>
+            <table border="1" id="wait">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>분류</th>
+                        <th>사유</th>
+                        <th>신청자</th>
+                        <th>승인자</th>
+                        <th>부서</th>
+                        <th>신청일</th>
+                        <th>시작일</th>
+                        <th>종료일</th>
+                        <th>승인일</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <br>
+            
+            <h1>출장 승인 목록</h1>
+            <table border="1" id="approval">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>분류</th>
+                        <th>사유</th>
+                        <th>신청자</th>
+                        <th>승인자</th>
+                        <th>부서</th>
+                        <th>신청일</th>
+                        <th>시작일</th>
+                        <th>종료일</th>
+                        <th>승인일</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <br>
+
+            <h1>출장 반려 목록</h1>
+            <table border="1" id="return">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>분류</th>
+                        <th>사유</th>
+                        <th>신청자</th>
+                        <th>승인자</th>
+                        <th>부서</th>
+                        <th>신청일</th>
+                        <th>시작일</th>
+                        <th>종료일</th>
+                        <th>승인일</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </section>
 
         <footer id="footerContainer">

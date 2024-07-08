@@ -42,8 +42,8 @@ public class BusinessTripService {
     } // updateBusinessTripApprove
 
     // 프로젝트 목록 조회 (API)
-    public List<ProjectVo> getProjectList() {
-        return dao.getProjectList();
+    public List<ProjectVo> getProjectList(String empNo) {
+        return dao.getProjectList(empNo);
     } // getProjectList
 
     // 출장 목록 조회 (동적 쿼리) (API)

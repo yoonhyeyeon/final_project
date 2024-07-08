@@ -37,6 +37,7 @@ public class SignVo {
 
     // SIGN_COM
     private List<String> comment;
+    private List<String> approveDate;
 
     // EMPLOYEE
     private String empName;

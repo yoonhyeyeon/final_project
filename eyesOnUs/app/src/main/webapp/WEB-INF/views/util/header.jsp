@@ -9,11 +9,11 @@
 
 <div class="btn">
   <div id="goto">
-    <button onclick="write01(${vo.empNo});">📥출근</button>
+    <button onclick="write01(${sessionScope.loginMemberVo.no});">📥출근</button>
   </div>
 
   <div id="leave">
-    <button onclick="write02(${vo.empNo});">📤퇴근</button>
+    <button onclick="write02(${sessionScope.loginMemberVo.no});">📤퇴근</button>
   </div>
 
 </div>

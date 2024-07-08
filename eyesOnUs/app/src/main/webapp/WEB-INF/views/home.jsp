@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/home/header.css">
     <script defer src="/js/testMain/sidebar.js"></script>
     <script defer src="../js/commute/write.js"></script>
+    <script defer src="../js/commute/quit.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>SHIN</title>
 </head>

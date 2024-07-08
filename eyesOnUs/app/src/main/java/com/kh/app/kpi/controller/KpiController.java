@@ -32,13 +32,13 @@ public class KpiController {
     @PostMapping("write")
     public HashMap<String, String> kpiWrite(KpiVo vo, HttpSession session){
 
-//        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 
         HashMap<String , String > map = new HashMap<>();
-//        if( loginMemberVo == null ){
-//            map.put("msg", "로그인 필요");
-//            return map;
-//        }
+        if( loginMemberVo == null ){
+            map.put("msg", "로그인 필요");
+            return map;
+        }
 
 
         int result = service.kpiWrite(vo);

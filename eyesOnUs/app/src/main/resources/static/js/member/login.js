@@ -16,3 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+document.getElementById('joinButton').addEventListener('click', function() {
+    // 페이지 이동
+    window.location.href = 'http://127.0.0.1:8383/member/join';
+});
+

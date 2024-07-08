@@ -33,6 +33,5 @@ public interface MemberMapper {
             ")\n")
     public int join(MemberVo vo);
 
-    @Select("SELECT * FROM EMPLOYEE WHERE ID = #{id} AND PWD = #{pwd}")
-    MemberVo login(MemberVo vo);
+
 }//class

@@ -26,7 +26,7 @@
 
   <div class="login">
     <h1>Sign up Now</h1>
-    <form id="loginForm">
+    <form id="loginForm" action="/member/login" method="post">
       <label for="username">아이디:</label>
       <input type="text" id="username" name="username" required>
 

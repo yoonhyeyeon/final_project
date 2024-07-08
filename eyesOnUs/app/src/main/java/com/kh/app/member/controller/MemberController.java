@@ -1,13 +1,13 @@
 package com.kh.app.member.controller;
 
-import com.kh.app.member.member.vo.MemberVo;
 import com.kh.app.member.service.MemberService;
+import com.kh.app.member.vo.MemberVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("member")
@@ -24,7 +24,7 @@ public class MemberController {
 
     //회원가입 기능
     @PostMapping("join")
-    public String join(@ModelAttribute MemberVo vo){
+    public String join(MemberVo vo){
         int result = service.join(vo);
 
         if(result != 1){
@@ -42,10 +42,9 @@ public class MemberController {
 
     //로그인 요청 처리
     @PostMapping("login")
-    public String login(@RequestParam Map<String, String> paramMap, HttpSession session){
-        session.setAttribute("msg", "로그인 성공");
+    public String login(MemberVo vo, HttpSession session){
+        MemberVo loginMemberVo = service.login(vo);
+        session.setAttribute("loginMemberVo", loginMemberVo);
         return "redirect:/home";
     }
-
-
 }//class

@@ -28,10 +28,10 @@
     <h1>Sign up Now</h1>
     <form id="loginForm" action="/member/login" method="post">
       <label for="username">아이디:</label>
-      <input type="text" id="username" name="username" required>
+      <input type="text" id="username" name="id" required>
 
       <label for="password">비밀번호:</label>
-      <input type="password" id="password" name="password" required>
+      <input type="password" id="password" name="pwd" required>
 
       <button id="loginButton">로그인</button>
     </form>

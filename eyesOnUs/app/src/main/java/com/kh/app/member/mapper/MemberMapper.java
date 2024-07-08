@@ -1,6 +1,6 @@
 package com.kh.app.member.mapper;
 
-import com.kh.app.member.member.vo.MemberVo;
+import com.kh.app.member.vo.MemberVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -33,5 +33,12 @@ public interface MemberMapper {
             ")\n")
     public int join(MemberVo vo);
 
-
+    // 로그인 (임시)
+    @Select({"""
+            SELECT *
+            FROM EMPLOYEE
+            WHERE ID = #{id}
+            AND PWD = #{pwd}
+            """})
+    MemberVo login(MemberVo vo);
 }//class

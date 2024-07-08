@@ -3,6 +3,7 @@ package com.kh.app.businessTrip.controller;
 import com.kh.app.businessTrip.service.BusinessTripService;
 import com.kh.app.businessTrip.vo.BusinessTripVo;
 import com.kh.app.businessTrip.vo.ProjectVo;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -46,16 +47,17 @@ public class BusinessTripRestController {
         return businessTripApproverDetailMap;
     } // getBusinessTripApproverDetail
 
-    // 출장 승인자 목록 조회 (API)
-    @GetMapping("approverList")
-    public Map<String, List> getBusinessTripApproverList(String empNo){
-        List<BusinessTripVo> businessTripApproverVoList = service.getBusinessTripApproverList(empNo);
-
-        Map<String, List> businessTripApproverListMap = new HashMap<>();
-        businessTripApproverListMap.put("businessTripApproverVoList", businessTripApproverVoList);
-
-        return businessTripApproverListMap;
-    } // getBusinessTripApproverList
+//    // 출장 승인자 목록 조회 (API)
+//    @GetMapping("approverList")
+//    public Map<String, List> getBusinessTripApproverList(HttpSession session){
+//        session.getAttribute("")
+//        List<BusinessTripVo> businessTripApproverVoList = service.getBusinessTripApproverList(empNo);
+//
+//        Map<String, List> businessTripApproverListMap = new HashMap<>();
+//        businessTripApproverListMap.put("businessTripApproverVoList", businessTripApproverVoList);
+//
+//        return businessTripApproverListMap;
+//    } // getBusinessTripApproverList
 
     // 출장 승인 (API)
     @PutMapping("approve")

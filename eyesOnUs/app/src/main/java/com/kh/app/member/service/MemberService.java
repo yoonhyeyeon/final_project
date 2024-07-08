@@ -17,9 +17,7 @@ public class MemberService {
         return dao.join(vo);
     }
 
-    public MemberVo login(MemberVo vo) {
-        return dao.loin(vo);
-    }
+
 
 
 }//class

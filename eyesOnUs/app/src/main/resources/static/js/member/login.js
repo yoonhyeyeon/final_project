@@ -14,3 +14,5 @@ document.addEventListener('DOMContentLoaded', function() {
     text2.style.animation = 'fadeIn 1s forwards'; // text2에 fadeIn 애니메이션 적용
   }, 1500); // text2가 text1보다 0.5초 늦게 나타나도록 설정
 });
+
+

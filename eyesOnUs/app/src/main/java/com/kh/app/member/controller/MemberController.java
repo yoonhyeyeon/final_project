@@ -5,10 +5,9 @@ import com.kh.app.member.service.MemberService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Controller
 @RequestMapping("member")
@@ -41,18 +40,12 @@ public class MemberController {
         return "member/login";
     }
 
-    //로그인 기능 구현
+    //로그인 요청 처리
     @PostMapping("login")
-    public String login(MemberVo vo, HttpSession session){
-        System.out.println("vo = " + vo);
-        MemberVo loginMemberVo = service.login(vo);
-
-        if(loginMemberVo == null){
-            throw new RuntimeException();
-        }
-
-        session.setAttribute("loginMemberVo", loginMemberVo);
+    public String login(@RequestParam Map<String, String> paramMap, HttpSession session){
+        session.setAttribute("msg", "로그인 성공");
         return "redirect:/home";
     }
+
 
 }//class

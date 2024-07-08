@@ -17,7 +17,4 @@ public class MemberDao {
     }
 
 
-    public MemberVo loin(MemberVo vo) {
-        return mapper.login(vo);
-    }
 }//class

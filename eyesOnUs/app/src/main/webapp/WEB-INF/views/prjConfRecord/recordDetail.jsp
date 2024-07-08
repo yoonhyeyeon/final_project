@@ -14,6 +14,7 @@
       <script defer src="../js/sidebar.js"></script>
       <script defer src="../js/calender.js"></script>
       <script defer src="/js/prjConfRecord/recordDetail.js"></script>
+      <script defer src="/js/prjConfRecord/recordDelete.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
     <body id="container">

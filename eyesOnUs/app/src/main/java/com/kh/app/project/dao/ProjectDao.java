@@ -64,5 +64,9 @@ public class ProjectDao {
     public ProjectRecordVo recordDetail(String no) {
         return mapper.recordDetail(no);
     }
+
+    public int recordDelete(String no) {
+        return mapper.recordDelete(no);
+    }
 }
 

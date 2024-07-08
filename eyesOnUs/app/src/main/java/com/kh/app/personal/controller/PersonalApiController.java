@@ -37,14 +37,14 @@ public class PersonalApiController {
         }
     }
 
-    // 수정하기 //gpt_수정(추가)
-    @PostMapping("edit")
-    public ResponseEntity<String> personalEdit(@RequestBody PersonalVo vo){
-        int result = service.personalEdit(vo);
-        if(result == 1){
-            return ResponseEntity.ok("수정 성공");
+    @DeleteMapping("delete/{num}")
+    public ResponseEntity<String> personalDelete(@PathVariable String num){
+        int result = service.personalDelete(num);
+        System.out.println("result = " + result);
+        if (result == 1) {
+            return ResponseEntity.ok("delete success ~ !");
         } else {
-            return ResponseEntity.internalServerError().body("수정 실패");
+            return ResponseEntity.status(500).body("delete fail...");
         }
     }
 

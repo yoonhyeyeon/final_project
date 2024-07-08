@@ -60,8 +60,8 @@ public class BusinessTripDao {
     } // updateBusinessTripApprove
 
     // 프로젝트 목록 조회 (API)
-    public List<ProjectVo> getProjectList() {
-        List<ProjectVo> projectVoList = mapper.getProjectList();
+    public List<ProjectVo> getProjectList(String empNo) {
+        List<ProjectVo> projectVoList = mapper.getProjectList(empNo);
         if(projectVoList == null){
             throw new RuntimeException("[B-009] PROJECT LIST SELECT ERROR");
         }

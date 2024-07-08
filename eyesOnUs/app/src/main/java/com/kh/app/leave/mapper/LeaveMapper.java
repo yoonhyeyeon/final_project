@@ -37,6 +37,8 @@ public interface LeaveMapper {
             "    , L.END_DATE\n" +
             "    , L.REASON\n" +
             "    , L.STATE\n" +
+            "    , L.ENROLL_DATE\n" +
+            "    , L.APPROVE_DATE\n" +
             "    , E.NAME            EMP_NAME\n" +
             "    , E.NICK\n" +
             "    , D.CODE            DIV_CODE\n" +
@@ -113,6 +115,7 @@ public interface LeaveMapper {
     // 휴가 승인 (API)
     @Update("UPDATE LEAVE\n" +
             "SET STATE = #{state}\n" +
+            "    APPROVE_DATE = SYSDATE\n" +
             "WHERE NO = #{no}")
     int updateLeaveApprove(LeaveVo leaveVo);
 
@@ -126,6 +129,8 @@ public interface LeaveMapper {
                     , Y.LEAVE_TYPE
                     , Y.LEAVE_NAME
                     , Y.EMP_NO
+                    , Y.ENROLL_DATE
+                    , Y.APPROVE_DATE
                     , Y.APPROVER_NO
                     , Y.START_DATE
                     , Y.END_DATE
@@ -146,6 +151,8 @@ public interface LeaveMapper {
                         , L.TYPE_NO LEAVE_TYPE
                         , A.NAME LEAVE_NAME
                         , L.EMP_NO
+                        , L.ENROLL_DATE
+                        , L.APPROVE_DATE
                         , L.APPROVER_NO
                         , L.START_DATE
                         , L.END_DATE

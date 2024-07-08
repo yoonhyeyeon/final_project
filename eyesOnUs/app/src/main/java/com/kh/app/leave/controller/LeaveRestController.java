@@ -22,10 +22,14 @@ public class LeaveRestController {
     // 휴가 상세 조회 (API)
     @GetMapping("detail")
     public Map<String, LeaveVo> getLeaveDetail(String leaveNo){
+        // 휴가 상세 조회
         LeaveVo leaveDetailVo = service.getLeaveDetail(leaveNo);
-
         Map<String, LeaveVo> leaveDetailMap = new HashMap<>();
         leaveDetailMap.put("leaveDetailVo", leaveDetailVo);
+
+        // 휴가 승인자 상세 조회
+        LeaveVo leaveApproverDetailVo = service.getLeaveApproverDetail(leaveNo);
+        leaveDetailMap.put("leaveApproverDetailVo", leaveApproverDetailVo);
 
         return leaveDetailMap;
     } // getLeaveDetail
@@ -66,10 +70,15 @@ public class LeaveRestController {
     // 휴가 목록 조회 (동적 쿼리) (API)
     @GetMapping
     public Map<String, List> getLeaveListForAll(LeaveVo leaveVo){
+        // 휴가 목록 조회
         List<LeaveVo> leaveVoListForAll = service.getLeaveListForAll(leaveVo);
-
         Map<String, List> leaveListMapForAll = new HashMap<>();
         leaveListMapForAll.put("leaveVoListForAll", leaveVoListForAll);
+
+        // 휴가 승인자 목록 조회
+        String empNo = leaveVo.getEmpNo();
+        List<LeaveVo> leaveApproverVoList = service.getLeaveApproverList(empNo);
+        leaveListMapForAll.put("leaveApproverVoList", leaveApproverVoList);
 
         return leaveListMapForAll;
     } // getLeaveListForAll

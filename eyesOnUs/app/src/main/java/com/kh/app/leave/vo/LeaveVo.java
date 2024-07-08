@@ -14,6 +14,8 @@ public class LeaveVo {
     private String endDate;
     private String reason;
     private String state;
+    private String approveDate;
+    private String enrollDate;
 
     // ROWNUM
     private String rownum;

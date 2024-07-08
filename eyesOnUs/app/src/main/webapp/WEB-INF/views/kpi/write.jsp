@@ -57,7 +57,7 @@
                          <br />
                          <br />
                          <div class="submit-bar">
-                             <button onclick="write01();" id="submit">등록하기</button>
+                             <button onclick="write01(${sessionScope.loginMemberVo.no});" id="submit">등록하기</button>
                          </div>
                      </div>
                  </div>

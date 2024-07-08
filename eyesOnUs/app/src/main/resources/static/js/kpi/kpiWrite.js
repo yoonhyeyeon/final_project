@@ -1,4 +1,4 @@
-function write01() {
+function write01(empNo) {
     const projectNoValue = document.querySelector("#projectNo").value;
     const goalValue = document.querySelector("#goal").value;
     const personalScheduleValue = document.querySelector("#personalSchedule").value;
@@ -8,6 +8,7 @@ function write01() {
         url: "http://127.0.0.1:8383/kpi/write",
         type: "POST",
         data: {
+            empNo : empNo ,
             projectNo: projectNoValue,
             goal: goalValue,
             personalSchedule: personalScheduleValue,

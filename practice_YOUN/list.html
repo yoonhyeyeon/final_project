@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/list.css">
+</head>
+<body>
+  
+  <div id="out">
+    <h2>평가목록</h2>
+    <hr><br><br>
+    <div id="list">
+      <span>평가자 : 윤혜연</span>
+       <br>
+      <div id="listBtn">
+        <button onclick="leader();">팀장 평가</button>
+        <button>팀원 평가</button>
+        <button>동료 평가</button>
+      </div>
+      <div id="listBox">
+        <div id="listItemBox" onclick="location.href='http://127.0.0.1:8383/leaderEval/write'">
+          <span>이름</span>
+          <span>부서</span>
+          <span>팀</span>
+          <span>직급</span>
+        </div>
+        <div id="Item">
+          <div id="listItem">
+            <span>박연구</span>
+            <span>연구개발구</span>
+            <span>연구개발본부</span>
+            <span>부장</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -19,19 +19,24 @@ $(document).ready( ()=>{
                 const rName = document.querySelector(".name");
                 const rEnlDate = document.querySelector(".enlDate");
                 const rContent = document.querySelector("#recordContent");
-
+                const delTag = document.querySelector("#dBtn");
+                
+                let str = "";
                 let str1 = "";
                 let str2 = "";
                 let str3 = "";
                 let str4 = "";
                 let str5 = "";
 
+                str += `<button id="delBtn" onclick="del(${data.no});">삭제하기</button>`
                 str1 += "프로젝트 번호 : " + data.prjNo;
                 str2 += "담당자 : " + data.name;
                 str3 += "제목 : " + data.title;
                 str4 += "등록일 : " + data.enlDate;
                 str5 += "내용 : " + data.content;
 
+
+                delTag.innerHTML = str;
                 prjNo.innerHTML = str1;
                 rTitle.innerHTML = str2;
                 rName.innerHTML = str3;

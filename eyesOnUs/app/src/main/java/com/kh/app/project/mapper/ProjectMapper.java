@@ -92,4 +92,6 @@ public interface ProjectMapper {
     @Delete("DELETE PROJECT_MANAGER WHERE NO = #{no}")
     int managerDelete(String no);
 
+    @Delete("DELETE CONFERENCE_RECORD WHERE NO = #{no}")
+    int recordDelete(String no);
 }

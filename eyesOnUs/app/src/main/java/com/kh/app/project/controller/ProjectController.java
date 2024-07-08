@@ -157,6 +157,12 @@ public class ProjectController {
         return "prjConfRecord/recordDetail";
     }
 
+    @DeleteMapping("record/delete")
+    @ResponseBody
+    public int recordDetete(String no){
+        return service.recordDelete(no);
+    }
+
     ///////////////////////////////////////////// PROJECT_MANAGER //////////////////////////////////////////////////////////////////
 
     @GetMapping("manager/insert")

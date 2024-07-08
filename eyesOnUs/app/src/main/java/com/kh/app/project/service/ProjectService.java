@@ -1,11 +1,13 @@
 package com.kh.app.project.service;
 
 
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.project.dao.ProjectDao;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

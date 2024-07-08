@@ -5,6 +5,7 @@ import com.kh.app.project.service.ProjectService;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -123,10 +125,10 @@ public class ProjectController {
     public int recordInsert(ProjectRecordVo vo, HttpSession session){
 
         MemberVo loginVo = (MemberVo)session.getAttribute("loginVo");
-        
-        int result = service.recordInsert(vo);
 
+        int result = service.recordInsert(vo);
         return result;
+
     }
 
     @ResponseBody

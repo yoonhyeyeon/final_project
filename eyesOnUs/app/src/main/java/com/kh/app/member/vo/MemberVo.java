@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class MemberVo {
+
+    private String no;
     private String deptCode;
     private String divCode;
     private String positionCode;

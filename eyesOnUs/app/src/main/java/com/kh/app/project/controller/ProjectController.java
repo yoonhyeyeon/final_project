@@ -1,11 +1,13 @@
 package com.kh.app.project.controller;
 
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.project.service.ProjectService;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.stereotype.Controller;
@@ -118,16 +120,13 @@ public class ProjectController {
 
     @PostMapping("record/insert")
     @ResponseBody
-    public String recordInsert(ProjectRecordVo vo, HttpServletRequest req){
+    public int recordInsert(ProjectRecordVo vo, HttpSession session){
 
+        MemberVo loginVo = (MemberVo)session.getAttribute("loginVo");
+        
         int result = service.recordInsert(vo);
 
-        if(result != 1){
-            req.setAttribute("result","회의록 등록 실패..");
-            return "common/result";
-        }
-        req.setAttribute("result","회의록 등록 완료!");
-        return "common/result";
+        return result;
     }
 
     @ResponseBody

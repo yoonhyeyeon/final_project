@@ -24,4 +24,7 @@ public class ProjectWorkService {
     }
 
 
+    public int prjWorkDelete(String num) {
+        return dao.prjWorkDelete(num);
+    }
 }//class

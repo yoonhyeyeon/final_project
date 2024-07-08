@@ -32,30 +32,33 @@
         <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
         <section>
-              <div id="out">
-                <h2>평가목록</h2>
-                <hr><br><br>
-                <div id="list">
-                  <span>평가자 : 윤혜연</span>
-                   <br>
-                  <div id="listBtn">
-                    <button onclick="leader(${vo.no});">팀장 평가</button>
-                    <button onclick="member(${vo.no});">팀원 평가</button>
-                    <button onclick="colleage(${vo.no});">동료 평가</button>
-                  </div>
-                  <div id="listBox">
-                    <div id="listItemBox">
-                      <span>이름</span>
-                      <span>부서</span>
-                      <span>팀</span>
-                      <span>직급</span>
-                    </div>
-                    <div id="Item">
+          <div id="out">
+            <h2 id="head">평가목록</h2>
+            <hr><br><br>
+            <div id="list">
+              <br><br><br>
+              <span class="evaluatorNo">평가자 : 윤혜연</span>
+              <div id="listBtn">
+                <button onclick="leader(${vo.no});">팀장 평가</button>
+                <br><br>
+                <button onclick="member(${vo.no});">팀원 평가</button>
+                <br><br>
+                <button onclick="colleage(${vo.no});">동료 평가</button>
+                <br><br>
+              </div>
+              <div id="listBox">
+                <div id="listItemBox">
+                  <span>이름</span>
+                  <span>부서</span>
+                  <span>팀</span>
+                  <span>직급</span>
+                </div>
+                <div id="Item">
 
-                    </div>
-                  </div>
                 </div>
               </div>
+            </div>
+          </div>
         </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>

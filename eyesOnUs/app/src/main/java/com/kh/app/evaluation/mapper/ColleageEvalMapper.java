@@ -42,7 +42,7 @@ public interface ColleageEvalMapper {
             ")")
     int write(ColleageEvalVo vo);
 
-    @Select("SELECT NAME FROM EMPLOYEE")
+    @Select("SELECT NO FROM EMPLOYEE")
     List<EmployeeVo> writeList(EmployeeVo vo);
 
     // 목록조회

@@ -7,14 +7,12 @@ public class ProjectVo {
 
     // PROJECT
     private String no;
-    private String code;
+    private String deptCode;
     private String empNo;
     private String stateANo;
+    private String title;
     private String content;
     private String startDate;
     private String endDate;
     private String modifyDate;
-
-    // ROWNUM
-    private String rownum;
 } // class

@@ -23,11 +23,47 @@ public class BusinessTripDao {
         return writeResult;
     } // businessTripWrite
 
+    // 출장 목록 조회 (신청자 입장) (API)
+    public List<BusinessTripVo> getBusinessTripListForWriter(String empNo) {
+        List<BusinessTripVo> businessTripVoListForWriter = mapper.getBusinessTripListForWriter(empNo);
+        if(businessTripVoListForWriter == null){
+            throw new RuntimeException("[B-001] BUSINESS_TRIP LIST FOR WRITER SELECT ERROR");
+        }
+        return businessTripVoListForWriter;
+    } // getBusinessTripListForWriter
+
+    // 출장 승인자 목록 조회 (신청자 입장) (API)
+    public List<BusinessTripVo> getBusinessTripApproverListForWriter(String empNo) {
+        List<BusinessTripVo> businessTripApproverVoListForWriter = mapper.getBusinessTripApproverListForWriter(empNo);
+        if(businessTripApproverVoListForWriter == null){
+            throw new RuntimeException("[B-002] BUSINESS_TRIP APPROVER LIST FOR WRITER SELECT ERROR");
+        }
+        return businessTripApproverVoListForWriter;
+    } // getBusinessTripApproverListForWriter
+
+    // 출장 목록 조회 (결재자 입장) (API)
+    public List<BusinessTripVo> getBusinessTripListForApprover(String approverNo) {
+        List<BusinessTripVo> businessTripVoListForApprover = mapper.getBusinessTripListForApprover(approverNo);
+        if(businessTripVoListForApprover == null){
+            throw new RuntimeException("[B-003] BUSINESS_TRIP LIST FOR APPROVER SELECT ERROR");
+        }
+        return businessTripVoListForApprover;
+    } // getBusinessTripListForApprover
+
+    // 출장 승인자 목록 조회 (결재자 입장) (API)
+    public List<BusinessTripVo> getBusinessTripApproverListForApprover(String approverNo) {
+        List<BusinessTripVo> businessTripApproverVoListForApprover = mapper.getBusinessTripApproverListForApprover(approverNo);
+        if(businessTripApproverVoListForApprover == null){
+            throw new RuntimeException("[B-004] BUSINESS_TRIP APPROVER LIST FOR APPROVER SELECT ERROR");
+        }
+        return businessTripApproverVoListForApprover;
+    } // getBusinessTripApproverListForApprover
+
     // 출장 상세 조회 (API)
     public BusinessTripVo getBusinessTripDetail(String businessTripNo) {
         BusinessTripVo businessTripDetailVo = mapper.getBusinessTripDetail(businessTripNo);
         if(businessTripDetailVo == null){
-            throw new RuntimeException("[B-005] BUSINESS_TRIP DETAIL SELECT ERROR");
+            throw new RuntimeException("[B-005] BUSINESS_TRIP APPROVER LIST FOR APPROVER SELECT ERROR");
         }
         return businessTripDetailVo;
     } // getBusinessTripDetail
@@ -36,25 +72,16 @@ public class BusinessTripDao {
     public BusinessTripVo getBusinessTripApproverDetail(String businessTripNo) {
         BusinessTripVo businessTripApproverDetailVo = mapper.getBusinessTripApproverDetail(businessTripNo);
         if(businessTripApproverDetailVo == null){
-            throw new RuntimeException("[B-006] BUSINESS_TRIP APPROVER DETAIL SELECT ERROR");
+            throw new RuntimeException("[B-006] BUSINESS_TRIP APPROVER LIST FOR APPROVER SELECT ERROR");
         }
         return businessTripApproverDetailVo;
     } // getBusinessTripApproverDetail
-
-    // 출장 승인자 목록 조회 (API)
-    public List<BusinessTripVo> getBusinessTripApproverList(String empNo) {
-        List<BusinessTripVo> businessTripApproverVoList = mapper.getBusinessTripApproverList(empNo);
-        if(businessTripApproverVoList == null){
-            throw new RuntimeException("[B-007] BUSINESS_TRIP APPROVER LIST SELECT ERROR");
-        }
-        return businessTripApproverVoList;
-    } // getBusinessTripApproverList
 
     // 출장 승인 (API)
     public int updateBusinessTripApprove(BusinessTripVo businessTripVo) {
         int businessTripApproveResult = mapper.updateBusinessTripApprove(businessTripVo);
         if(businessTripApproveResult != 1){
-            throw new RuntimeException("[B-008] BUSINESS_TRIP STATE UPDATE ERROR");
+            throw new RuntimeException("[B-007] BUSINESS_TRIP APPROVE UPDATE ERROR");
         }
         return businessTripApproveResult;
     } // updateBusinessTripApprove
@@ -63,89 +90,8 @@ public class BusinessTripDao {
     public List<ProjectVo> getProjectList(String empNo) {
         List<ProjectVo> projectVoList = mapper.getProjectList(empNo);
         if(projectVoList == null){
-            throw new RuntimeException("[B-009] PROJECT LIST SELECT ERROR");
+            throw new RuntimeException("[B-008] PROJECT LIST SELECT ERROR");
         }
         return projectVoList;
     } // getProjectList
-
-    // 출장 목록 조회 (동적 쿼리) (API)
-    public List<BusinessTripVo> getBusinessTripListForAll(BusinessTripVo businessTripVo) {
-        List<BusinessTripVo> businessTripVoListForAll = mapper.getBusinessTripListForAll(businessTripVo);
-        if(businessTripVoListForAll == null){
-            throw new RuntimeException("[B-014] BUSINESS_TRIP LIST FOR ALL SELECT ERROR");
-        }
-        return businessTripVoListForAll;
-    } // getBusinessTripListForAll
-
-//    // 출장 승인 진행 목록 조회 (신청자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripWaitList(String empNo) {
-//        List<BusinessTripVo> businessTripWaitVoList = mapper.getBusinessTripWaitList(empNo);
-//        if(businessTripWaitVoList == null){
-//            throw new RuntimeException("[B-001] BUSINESS_TRIP WAIT LIST SELECT ERROR");
-//        }
-//        return businessTripWaitVoList;
-//    } // getBusinessTripWaitList
-//
-//    // 출장 승인 목록 조회 (신청자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripApprovalList(String empNo) {
-//        List<BusinessTripVo> businessTripApprovalVoList = mapper.getBusinessTripApprovalList(empNo);
-//        if(businessTripApprovalVoList == null){
-//            throw new RuntimeException("[B-002] BUSINESS_TRIP APPROVAL LIST SELECT ERROR");
-//        }
-//        return businessTripApprovalVoList;
-//    } // getBusinessTripApprovalList
-//
-//    // 출장 반려 목록 조회 (신청자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripReturnList(String empNo) {
-//        List<BusinessTripVo> businessTripReturnVoList = mapper.getBusinessTripReturnList(empNo);
-//        if(businessTripReturnVoList == null){
-//            throw new RuntimeException("[B-003] BUSINESS_TRIP RETURN LIST SELECT ERROR");
-//        }
-//        return businessTripReturnVoList;
-//    } // getBusinessTripReturnList
-//
-//    // 출장 전체 목록 조회 (신청자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripList(String empNo) {
-//        List<BusinessTripVo> businessTripVoList = mapper.getBusinessTripList(empNo);
-//        if(businessTripVoList == null){
-//            throw new RuntimeException("[B-004] BUSINESS_TRIP LIST SELECT ERROR");
-//        }
-//        return businessTripVoList;
-//    } // getBusinessTripList
-//
-//    // 출장 승인 진행 목록 조회 (승인자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripWaitListForApprover(String approverNo) {
-//        List<BusinessTripVo> businessTripWaitVoListForApprover = mapper.getBusinessTripWaitListForApprover(approverNo);
-//        if(businessTripWaitVoListForApprover == null){
-//            throw new RuntimeException("[B-010] BUSINESS_TRIP WAIT LIST FOR APPROVER SELECT ERROR");
-//        }
-//        return businessTripWaitVoListForApprover;
-//    } // getBusinessTripWaitListForApprover
-//
-//    // 출장 승인 목록 조회 (승인자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripApprovalListForApprover(String approverNo) {
-//        List<BusinessTripVo> businessTripApprovalVoListForApprover = mapper.getBusinessTripApprovalListForApprover(approverNo);
-//        if(businessTripApprovalVoListForApprover == null){
-//            throw new RuntimeException("[B-011] BUSINESS_TRIP APPROVAL LIST FOR APPROVER SELECT ERROR");
-//        }
-//        return businessTripApprovalVoListForApprover;
-//    } // getBusinessTripApprovalListForApprover
-//
-//    // 출장 반려 목록 조회 (승인자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripReturnListForApprover(String approverNo) {
-//        List<BusinessTripVo> businessTripReturnVoListForApprover = mapper.getBusinessTripReturnListForApprover(approverNo);
-//        if(businessTripReturnVoListForApprover == null){
-//            throw new RuntimeException("[B-012] BUSINESS_TRIP RETURN LIST FOR APPROVER SELECT ERROR");
-//        }
-//        return businessTripReturnVoListForApprover;
-//    } // getBusinessTripReturnListForApprover
-//
-//    // 출장 전체 목록 조회 (승인자 입장) (API)
-//    public List<BusinessTripVo> getBusinessTripListForApprover(String approverNo) {
-//        List<BusinessTripVo> businessTripVoListForApprover = mapper.getBusinessTripListForApprover(approverNo);
-//        if(businessTripVoListForApprover == null){
-//            throw new RuntimeException("[B-013] BUSINESS_TRIP LIST FOR APPROVER SELECT ERROR");
-//        }
-//        return businessTripVoListForApprover;
-//    } // getBusinessTripListForApprover
 } // class

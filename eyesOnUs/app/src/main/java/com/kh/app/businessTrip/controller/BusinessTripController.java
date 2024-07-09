@@ -5,6 +5,7 @@ import com.kh.app.businessTrip.vo.BusinessTripVo;
 import com.kh.app.member.vo.MemberVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,5 +47,8 @@ public class BusinessTripController {
 
     // 출장 상세 조회 (화면)
     @GetMapping("detail")
-    public void businessTripDetail(){} // businessTripDetail
+    public String businessTripDetail(BusinessTripVo businessTripVo, Request req){
+        req.setAttribute("businessTripVo", businessTripVo);
+        return "businessTrip/detail";
+    } // businessTripDetail
 } // class

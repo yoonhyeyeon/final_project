@@ -44,7 +44,12 @@ public class MemberController {
     @PostMapping("login")
     public String login(MemberVo vo, HttpSession session){
         MemberVo loginMemberVo = service.login(vo);
-        session.setAttribute("loginMemberVo", loginMemberVo);
-        return "redirect:/home";
+        if(loginMemberVo != null) {
+            session.setAttribute("loginMemberVo", loginMemberVo);
+            return "redirect:/home";
+        } else {
+            return "/member/login";
+        }
+
     }
 }//class

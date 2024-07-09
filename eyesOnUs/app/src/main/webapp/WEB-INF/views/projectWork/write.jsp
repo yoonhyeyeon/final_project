@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>프로젝트일정 작성</title>
 <style>
-    body {
+  body {
         font-family: Arial, sans-serif;
         background-color: #e0f7fa; /* 신뢰감을 주는 파란색 배경 */
         margin: 0;
@@ -32,6 +32,10 @@
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         width: 300px;
+        height: 600px; /* 폼 높이 고정 */
+        display: flex;
+        flex-direction: column; /* 세로 방향 배치 */
+        justify-content: space-between; /* 공간 균등 배분 */
     }
 
     input[type="text"],
@@ -66,7 +70,6 @@
 
 </head>
 <body>
-	<h1>프로젝트일정 작성하기</h1>
 
 	<form action="/api/projectWork/write" method="post">
 

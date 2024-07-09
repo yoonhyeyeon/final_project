@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="/css/member/login.css">
-  <script defer src="/js/member/login.js"></script>
+  <script defer src="/js/adminHr/adminHrLogin.js"></script>
 </head>
 <body>
   <div class="background"></div>
@@ -19,14 +19,15 @@
     <br>
     <div class="animation" id="text2">지금 바로 시작하세요.</div>
   </div>
+
   <div class="login">
     <h1>Sign up Now</h1>
-    <form id="loginForm" action="/member/login" method="post">
+    <form id="loginForm" action="/adminHr/adminHrLoginData" method="post">
       <label for="username">아이디:</label>
-      <input type="text" id="username" name="id" required>
+      <input type="text" id="id" name="id" required>
 
       <label for="password">비밀번호:</label>
-      <input type="password" id="password" name="pwd" required>
+      <input type="password" id="pwd" name="pwd" required>
 
       <button id="loginButton">로그인</button>
     </form>

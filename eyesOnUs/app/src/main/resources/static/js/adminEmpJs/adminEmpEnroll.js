@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.submit-button').click(function(event) {
         event.preventDefault();
 
-        var formData = {
+        let formData = {
             id: $('input[name="id"]').val(),
             nick: $('input[name="nick"]').val(),
             pwd: $('input[name="pwd"]').val(),

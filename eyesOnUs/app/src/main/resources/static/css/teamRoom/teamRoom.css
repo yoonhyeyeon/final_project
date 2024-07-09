@@ -49,11 +49,9 @@ body {
   background-color: white; /* 배경 색상 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
   border-radius: 10px; /* 모서리 둥글게 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 10px; /* 모서리 둥글게 */
   padding: 20px;
-  overflow: auto; /* 내부 콘텐츠가 많을 경우 스크롤 가능 */
+  overflow: auto; /* 컨테이너 오버플로우 숨기기 */
 }
 
 .list-container {

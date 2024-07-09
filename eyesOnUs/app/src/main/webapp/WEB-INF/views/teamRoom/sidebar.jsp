@@ -6,6 +6,6 @@
         <button class="sidebar-btn" onclick="location.href='projectWork';">프로젝트 일정</button>
         <button class="sidebar-btn" onclick="location.href='personal';">기타 일정</button>
         <button class="sidebar-btn" onclick="location.href='teamRoom';">캘린더</button>
-        <button class="sidebar-btn" >근태관리</button>
-        <button class="sidebar-btn" onclick="location.href='home';">🏠홈</button>
+        <button class="sidebar-btn" onclick="location.href='test/person';">개인 페이지</button>
+        <button class="sidebar-btn" onclick="location.href='test/main';">🏠홈</button>
     </div>

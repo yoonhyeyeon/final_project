@@ -75,7 +75,7 @@
 
 </head>
 <body>
-
+    <h4>기타일정</h4>
 	<form action="/api/personal/write" method="post">
 
         <input type="text" name="no2" placeholder="사번">

@@ -65,7 +65,6 @@
 </style>
 </head>
 <body>
-    <h1>프로젝트일정 목록 조회</h1>
     <table>
         <thead>
             <tr>

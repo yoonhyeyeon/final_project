@@ -13,11 +13,18 @@ public class ProjectWorkController {
     public String list(){
         return "projectWork/list";
 
-    }//작성 화면
+    }
+
+    //작성 화면
     @GetMapping("write")
     public String write(){
         return "projectWork/write";
     }
 
+    //팀룸 화면
+    @GetMapping
+    public String teamRoom(){
+        return "projectWork/teamRoom";
+    }
 
 }//class

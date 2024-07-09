@@ -2,6 +2,7 @@ package com.kh.app.kpi.dao;
 
 import com.kh.app.kpi.mapper.KpiMapper;
 import com.kh.app.kpi.vo.KpiVo;
+import com.kh.app.project.vo.ProjectVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -17,20 +18,14 @@ public class KpiDao {
     public int kpiWrite(KpiVo vo) {
         return mapper.kpiWrite(vo);
     }
-
-    public List<KpiVo> writeList(KpiVo vo) {
+    public List<ProjectVo> writeList(ProjectVo vo) {
         return mapper.writeList(vo);
     }
 
     // 게시글 목록
-    public List<KpiVo> kpiList() {
-        return mapper.KpiList();
+    public List<KpiVo> kpiList(String empNo) {
+        return mapper.KpiList(empNo);
     }
-
-
-//    public List<KpiVo> kpiList(String empNo) {
-//        return mapper.kpiList(empNo);
-//    }
 
     //게시글 상세조회
     public KpiVo kpiByNo(String no) {
@@ -47,9 +42,5 @@ public class KpiDao {
     public int kpiDelete(String no) {
         return mapper.kpiDelete(no);
     }
-
-//    public String kpiDelete(String no) {
-//        return mapper.kpiDelete(no);
-//    }
 
 }

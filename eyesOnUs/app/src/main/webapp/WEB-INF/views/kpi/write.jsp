@@ -40,7 +40,9 @@
                          프로젝트 번호 : <select name="projectNo" id="projectNo" style="width:100px">
                            <option value="">------선택------</option>
                            <c:forEach var="vo" items="${voList}">
-                               <option value="${vo.projectNo}">${vo.projectNo}</option>
+                               <c:if test="${sessionScope.loginMemberVo.no == vo.empNo}">
+                                <option value="${vo.no}">${vo.no} : ${vo.title}</option>
+                               </c:if>
                            </c:forEach>
                          </select>
                          <br />

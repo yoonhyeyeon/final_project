@@ -1,6 +1,7 @@
 package com.kh.app.kpi.mapper;
 
 import com.kh.app.kpi.vo.KpiVo;
+import com.kh.app.project.vo.ProjectVo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -13,16 +14,24 @@ public interface KpiMapper {
     int kpiWrite(KpiVo vo);
 
     // vo 값 가져오기
-    @Select("SELECT DISTINCT NO , EMP_NO , PROJECT_NO , GOAL , PERSONAL_SCHEDULE , ENROLL_DATE , MODIFY_DATE , FOCUS FROM KPI ORDER BY PROJECT_NO ASC")
-    List<KpiVo> writeList(KpiVo vo);
+    @Select("SELECT * FROM PROJECT")
+    List<ProjectVo> writeList(ProjectVo vo);
 
     // 게시글 목록
-    @Select("SELECT K.NO , K.PROJECT_NO , P.TITLE , K.FOCUS , P.START_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO ORDER BY K.NO ASC")
-    List<KpiVo> KpiList();
-
-
-//    @Select("SELECT K.PROJECT_NO , K.FOCUS , P.START_DATE , P.END_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO WHERE EMP_NO = #{empNo}")
-//    List<KpiVo> kpiList(String empNo);
+    @Select("""
+            SELECT
+                K.NO
+                , K.PROJECT_NO
+                , P.TITLE
+                , K.FOCUS
+                , P.START_DATE
+            FROM KPI K
+            JOIN PROJECT P
+            ON K.PROJECT_NO = P.NO
+            WHERE K.EMP_NO = #{empNo}
+            ORDER BY K.NO ASC
+            """)
+    List<KpiVo> KpiList(String empNo);
 
     // 게시글 상세조회
     @Select("SELECT K.NO , K.PROJECT_NO , P.TITLE , K.GOAL , K.PERSONAL_SCHEDULE , K.FOCUS , P.START_DATE , K.ENROLL_DATE FROM KPI K JOIN PROJECT P ON K.PROJECT_NO = P.NO WHERE K.NO = #{no}")

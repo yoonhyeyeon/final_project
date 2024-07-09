@@ -21,10 +21,7 @@ $(document).ready(() => {
 
           let str = "";
           str += "프로젝트 번호 : <select name='projectNo' id='projectNo' style='width:100px'>";
-          str += "<option value=''>------선택------</option>";
-          for( let i = 1; i <= 36; i++){
-            str += "<option id='prjNo' value='"+i+"'>"+i+"</option>";
-          }
+          str += "<option id='prjNo' value='"+detailData.projectNo+"'>"+detailData.projectNo+"</option>";
           str += "</select>";
           str += "<br />";
           str += "목표";
@@ -56,7 +53,7 @@ $(document).ready(() => {
  function modify01(){
 
     const goalValue = document.querySelector("#goal").value;
-    const projectNoValue = document.querySelector("#projectNo").value;
+    const projectNoValue = document.querySelector("#prjNo").value;
     const personalScheduleValue = document.querySelector("#personalSchedule").value;
     $(document).ready(() => {
       const no = getParam("no");

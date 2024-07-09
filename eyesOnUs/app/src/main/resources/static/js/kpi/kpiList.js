@@ -1,6 +1,6 @@
   $.ajax({
     url: "http://127.0.0.1:8383/kpi/listData",
-    type: "GET",
+    type: "get",
     success: (data) => {
       console.log("통신 성공");
       console.log(data);

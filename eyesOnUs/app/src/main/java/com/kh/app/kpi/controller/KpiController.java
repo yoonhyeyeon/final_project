@@ -3,6 +3,7 @@ package com.kh.app.kpi.controller;
 import com.kh.app.kpi.service.KpiService;
 import com.kh.app.kpi.vo.KpiVo;
 import com.kh.app.member.vo.MemberVo;
+import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,8 +23,8 @@ public class KpiController {
 
     // KPI 작성
     @GetMapping("write")
-    public String kpiWrite(KpiVo vo, Model model){
-        List<KpiVo> voList = service.writeList(vo);
+    public String kpiWrite(ProjectVo vo, Model model){
+        List<ProjectVo> voList = service.writeList(vo);
         model.addAttribute("voList", voList);
 
         return "kpi/write";
@@ -40,7 +41,6 @@ public class KpiController {
             return map;
         }
 
-
         int result = service.kpiWrite(vo);
 
         map.put("msg", "작성 성공");
@@ -52,22 +52,23 @@ public class KpiController {
 
     // 게시글 목록
     @GetMapping("list")
-    public String kpiList(){
+    public String kpiList(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
         return "kpi/list";
     }
 
     @GetMapping("listData")
     @ResponseBody
-    public List<KpiVo> kpiListData(){
-        List<KpiVo> voList = service.kpiList();
+    public List<KpiVo> kpiListData(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String empNo = loginMemberVo.getNo();
+
+        List<KpiVo> voList = service.kpiList(empNo);
         return voList;
     }
-
-//    @GetMapping("list")
-//    public List<KpiVo> kpiList(KpiVo vo){
-//        List<KpiVo> voList = service.kpiList( vo.getEmpNo() );
-//        return voList;
-//    }
 
     // 게시글 상세조회
     @GetMapping("detail")
@@ -113,11 +114,5 @@ public class KpiController {
         }
         return map;
     }
-
-//    @PostMapping("delete")
-//    public String kpiDelete(KpiVo vo){
-//        return service.kpiDelete(vo.getNo());
-//    }
-
 
 }

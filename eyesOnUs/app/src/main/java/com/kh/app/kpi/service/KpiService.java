@@ -2,9 +2,9 @@ package com.kh.app.kpi.service;
 
 import com.kh.app.kpi.dao.KpiDao;
 import com.kh.app.kpi.vo.KpiVo;
+import com.kh.app.project.vo.ProjectVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,19 +19,14 @@ public class KpiService {
         return dao.kpiWrite(vo);
     }
 
-    public List<KpiVo> writeList(KpiVo vo) {
+    public List<ProjectVo> writeList(ProjectVo vo) {
         return dao.writeList(vo);
     }
 
     // 게시글 목록
-    public List<KpiVo> kpiList() {
-        return dao.kpiList();
+    public List<KpiVo> kpiList(String empNo) {
+        return dao.kpiList(empNo);
     }
-
-
-//    public List<KpiVo> kpiList(String empNo) {
-//        return dao.kpiList(empNo);
-//    }
 
     // 게시글 상세조회
     public KpiVo kpiByNo(String no) {
@@ -49,6 +44,7 @@ public class KpiService {
     public int kpiDelete(String no) {
         return dao.kpiDelete(no);
     }
+
 
 //    public String kpiDelete(String no) {
 //        return  dao.kpiDelete(no);

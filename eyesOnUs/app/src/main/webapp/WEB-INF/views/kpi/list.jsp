@@ -34,9 +34,14 @@
               <div id="out">
                 <h2>KPI 목록</h2>
                 <hr>
-                <div class="list-box">
+                    <c:if test="${sessionScope.loginMemberVo.no == null}">
+                        <h2>로그인하고 와주세요</h2>
+                    </c:if>
+                    <c:if test="${sessionScope.loginMemberVo.no != null}">
+                                <div class="list-box">
 
-                </div>
+                                </div>
+                    </c:if>
               </div>
 
         </section>

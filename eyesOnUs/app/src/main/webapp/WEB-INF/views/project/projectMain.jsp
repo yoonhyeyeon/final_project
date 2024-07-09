@@ -12,10 +12,22 @@
     <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
     <link rel="stylesheet" href="/css/teamRoom/list.css">
     <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+    <link rel="stylesheet" href="/css/projectCss/projectList.css">
+    <script defer scr="/js/projectJs/projectList.js"></script>
+    <script defer scr="/js/projectJs/projectDetail.js"></script>
 </head>
 <body>
 
+<div class="time">
+ <div id="time">
+  <!-- 현재 시간을 표시할 div 추가 -->
+  </div>
 
+  <div id="work-time-table">
+  <!-- 근무 시간을 표시할 div 추가 -->
+  <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
+  </div>
+</div>
 
   <div id="sidebar" class="sidebar">
    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
@@ -26,11 +38,12 @@
 
 
 <div id="calendarContainer" class="calendar-container">
+  <!-- 여기에 **본문** 내용을 추가할 수 있습니다 -->
   <%@ include file="/WEB-INF/views/project/projectList.jsp" %>
 </div>
 
 <div id="listContainer" class="list-container">
-  <!-- 여기에 목록 내용을 추가할 수 있습니다 -->
+  <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
   <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
 </div>
 

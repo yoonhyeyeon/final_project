@@ -39,3 +39,25 @@
       <button id="sidebarBtn"><span>메뉴</span></button>
     </body>
 </html>
+    <!-- FullCalendar 초기화 코드 -->
+    <script>
+        $(document).ready(function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: [
+                    {
+                        "title": "Event 1",
+                        "start": "2024-07-01T09:00:00",
+                        "end": "2024-07-02T18:00:00"
+                    },
+                    {
+                        "title": "Event 2",
+                        "start": "2024-07-08",
+                        "end": "2024-07-10"
+                    }
+                ]
+            });
+            calendar.render();
+        });
+    </script>

@@ -20,31 +20,61 @@
       <div id="warp">
         <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
-        <section>
-            <div id="out">
-                <div id="in">
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>프로젝트 번호</td>
-                                <td>제목</td>
-                                <td>등록일</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
+        <c:if test="${sessionScope.loginMemberVo.no eq voList.empNo}">
+            <section>
+                <div id="out">
+                    <div id="in">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>프로젝트 번호</td>
+                                    <td>제목</td>
+                                    <td>등록일</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+    
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div id="divSearch">
-                <select name="search" id="search">
-                    <option value="1">프로젝트 번호</option>
-                </select>
-                <input type="text" name="title" id="title">
-                <button id="searchBtn" onclick="saerchName();">검색</button>
-            </div>
-        </section>
+                <div id="divSearch">
+                    <select name="search" id="search">
+                        <option value="1">프로젝트 번호</option>
+                    </select>
+                    <input type="text" name="title" id="title">
+                    <button id="searchBtn" onclick="saerchName();">검색</button>
+                </div>
+            </section>
+        </c:if>
+        <c:if test="${sessionScope.loginMemberVo.no ne voList.empNo}">
+            <section>
+                <div id="out">
+                    <div id="in">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>프로젝트 번호</td>
+                                    <td>제목</td>
+                                    <td>등록일</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+    
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="divSearch">
+                    <select name="search" id="search">
+                        <option value="1">프로젝트 번호</option>
+                    </select>
+                    <input type="text" name="title" id="title">
+                    <button id="searchBtn" onclick="saerchName();">검색</button>
+                </div>
+            </section>
+        </c:if>
+        
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>
       <%@ include file="/WEB-INF/views/mainUtil/sidebar.jsp" %>

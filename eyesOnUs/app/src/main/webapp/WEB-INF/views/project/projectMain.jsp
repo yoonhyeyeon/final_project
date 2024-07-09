@@ -1,33 +1,45 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-      <link rel="stylesheet" type="text/css" href="/css/testMain/footer.css">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
-      <script defer src="../js/adminUtil.js"></script>
-      <script defer src="../js/sidebar.js"></script>
-      <script defer src="../js/calender.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEAM ROOM</title>
+    <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+    <link rel="stylesheet" href="/css/teamRoom/list.css">
+    <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
 </head>
-    <body id="container">
-      <div id="warp">
-        <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
-        <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
-        <section>
-            <a href="http://127.0.0.1:8383/project/projectInsert">프로젝트 등록하기</a> <br>
-            <a href="http://127.0.0.1:8383/project/projectList">프로젝트 목록</a>
-        </section>
-        <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
-      </div>
-      <%@ include file="/WEB-INF/views/mainUtil/sidebar.jsp" %>
-      <button id="sidebarBtn"><span>메뉴</span></button>
-    </body>
+<body>
 
 
+
+  <div id="sidebar" class="sidebar">
+   <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+</div>
+<button id="openBtn" class="open-btn">☰ Sidebar</button>
+
+
+
+
+<div id="calendarContainer" class="calendar-container">
+  <%@ include file="/WEB-INF/views/project/projectList.jsp" %>
+</div>
+
+<div id="listContainer" class="list-container">
+  <!-- 여기에 목록 내용을 추가할 수 있습니다 -->
+  <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/js/teamRoom/list.js"></script>
+<script src="/js/teamRoom/teamRoom.js"></script>
+
+</body>
 </html>
-

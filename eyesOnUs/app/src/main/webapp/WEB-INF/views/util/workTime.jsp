@@ -13,10 +13,6 @@
 <body>
     <table class="work-time-table">
         <tr>
-            <th>항목</th>
-            <th>값</th>
-        </tr>
-        <tr>
             <td>출근</td>
             <td>09:00</td>
         </tr>

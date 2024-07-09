@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
+    background-color: #eae9f0; /* 연한 하늘색 배경 */
 }
 
 .sidebar {
@@ -78,6 +79,7 @@ body {
   grid-template-rows: 1fr 1fr;
   position: absolute;
   height: 10%;
+  width: 10%;
   top: 100px;  /* 상단에서 20px 떨어진 위치 */
   left: 70px;  /* 좌측에서 20px 떨어진 위치 */
   z-index: 1;  /* 낮은 z-index 값으로 sidebar 뒤에 위치 */

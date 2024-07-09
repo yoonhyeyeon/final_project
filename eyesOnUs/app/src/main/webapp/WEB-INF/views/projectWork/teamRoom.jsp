@@ -34,12 +34,12 @@
 
 
 <div id="calendarContainer" class="calendar-container">
-  <!-- 여기에 **조회** 내용을 추가할 수 있습니다 -->
+  <!-- 여기에 **메인** 내용을 추가할 수 있습니다 -->
   <%@ include file="/WEB-INF/views/projectWork/list.jsp" %>
 </div>
 
 <div id="listContainer" class="list-container">
-  <!-- 여기에 **작성** 내용을 추가할 수 있습니다 -->
+  <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
 <%@ include file="/WEB-INF/views/projectWork/write.jsp" %>
 </div>
 

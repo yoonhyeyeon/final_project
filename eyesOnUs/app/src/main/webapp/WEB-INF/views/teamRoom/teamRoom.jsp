@@ -35,11 +35,11 @@
 
 
 <div id="calendarContainer" class="calendar-container">
-  <!-- 여기에 캘린더 내용을 추가할 수 있습니다 -->
+  <!-- 여기에 **본문** 내용을 추가할 수 있습니다 -->
 </div>
 
 <div id="listContainer" class="list-container">
-  <!-- 여기에 목록 내용을 추가할 수 있습니다 -->
+  <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
   <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
 </div>
 

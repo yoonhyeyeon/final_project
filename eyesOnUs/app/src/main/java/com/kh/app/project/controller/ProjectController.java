@@ -124,8 +124,7 @@ public class ProjectController {
     @ResponseBody
     public int recordInsert(ProjectRecordVo vo, HttpSession session){
 
-        MemberVo loginVo = (MemberVo)session.getAttribute("loginVo");
-
+        MemberVo loginVo = (MemberVo) session.getAttribute("loginMemberVo");
         int result = service.recordInsert(vo);
         return result;
 

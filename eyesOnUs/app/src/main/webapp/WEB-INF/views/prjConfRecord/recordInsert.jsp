@@ -22,8 +22,11 @@
 </head>
 
 <body id="container">
-    <c:choose>
-        <c:when test="${not empty sessionScope.loginVo.deptCode}">
+    <div id="warp">
+    <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
+    <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
+
+        <c:if test="${sessionScope.loginMemberVo.rank eq '0' or sessionScope.loginMemberVo.rank eq '10' or sessionScope.loginMemberVo.rank eq '20'}">
             <section>
              <div id="out">
                     <div id="in">
@@ -39,16 +42,22 @@
                     </div>
                 </div>
             </section>
-        </c:when>
-        <c:when test="${empty sessionScope.loginVo.deptCode}">
+        </c:if>
+        <c:if test ="${sessionScope.loginMemberVo.rank eq '30' or sessionScope.loginMemberVo.rank eq '40'}">
             <section>
-                <h1>권한이 없습니다.</h1>
+                <div id="div-title">
+                    <h1>권한이 없습니다</h1>
+                </div>
             </section>
-        </c:when>
-    </c:choose>
-      <div id="warp">
-        <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
-        <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
+        </c:if>
+        <c:if test ="${empty sessionScope.loginMemberVo.no}">
+            <section>
+                <div id="div-title">
+                    <h1>로그인을 하고오세요</h1>
+                </div>
+            </section>
+        </c:if>
+        
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>
       <%@ include file="/WEB-INF/views/mainUtil/sidebar.jsp" %>

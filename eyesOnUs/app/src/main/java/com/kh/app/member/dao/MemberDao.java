@@ -19,9 +19,6 @@ public class MemberDao {
     // 로그인 (임시)
     public MemberVo login(MemberVo vo) {
         MemberVo loginMemberVo = mapper.login(vo);
-        if(loginMemberVo == null){
-            throw new RuntimeException("로그인 실패");
-        }
         return loginMemberVo;
     }
 }//class

@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -132,10 +133,12 @@ public class ProjectController {
 
     @ResponseBody
     @GetMapping("record/listData")
-    public List<ProjectRecordVo> recordList(HttpServletRequest req){
+    public List<ProjectRecordVo> recordList(HttpServletRequest req, HttpSession session, Model model){
 
+        MemberVo loginVo = (MemberVo) session.getAttribute("loginMemberVo");
         List<ProjectRecordVo> voList = service.recordList();
 
+        model.addAttribute("voList",voList);
 
         return voList;
     }
@@ -148,7 +151,8 @@ public class ProjectController {
 
     @GetMapping("record/detailData")
     @ResponseBody
-    public ProjectRecordVo recordDetail(ProjectRecordVo vo){
+    public ProjectRecordVo recordDetail(ProjectRecordVo vo, HttpSession session){
+        MemberVo loginVo = (MemberVo) session.getAttribute("loginMemberVo");
         return service.recordDetail(vo.getNo());
     }
 

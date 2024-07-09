@@ -65,6 +65,7 @@ public interface ProjectMapper {
     @Select("SELECT * FROM CONFERENCE_RECORD WHERE DEL_YN ='N' ORDER BY PRJ_NO ASC")
     List<ProjectRecordVo> recordList();
 
+
     @Select("SELECT C.NO as no,C.PRJ_NO as prjNo , M.EMP_NO as empNo, E.NAME as name, C.TITLE as title, C.CONTENT as content, C.ENL_DATE as enlDate\n" +
             "FROM CONFERENCE_RECORD C\n" +
             "LEFT JOIN PROJECT P\n" +

@@ -28,12 +28,12 @@ public interface BusinessTripMapper {
             """})
     int businessTripWrite(BusinessTripVo vo);
 
-    // TODO
     // 출장 목록 조회 (신청자 입장) (API)
     @Select("""
             SELECT
                 B.NO
-                , B.PRO_NO
+                , B.PRO_NO          PRO_CODE
+                , J.TITLE           PRO_NAME
                 , B.EMP_NO
                 , B.APPROVER_NO
                 , B.ENROLL_DATE
@@ -56,12 +56,12 @@ public interface BusinessTripMapper {
             JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
             JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
             JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+            JOIN PROJECT J ON (B.PRO_NO = J.NO) 
             WHERE B.EMP_NO = #{empNo}
             ORDER BY B.NO DESC
             """)
     List<BusinessTripVo> getBusinessTripListForWriter(@RequestParam("empNo") String empNo);
 
-    // TODO
     // 출장 승인자 목록 조회 (신청자 입장) (API)
     @Select("""
             SELECT
@@ -85,21 +85,63 @@ public interface BusinessTripMapper {
             """)
     List<BusinessTripVo> getBusinessTripApproverListForWriter(@RequestParam("empNo") String empNo);
 
-    // TODO
-    // 출장 목록 조회 (결재자 입장) (API)
+    // 출장 목록 조회 (승인자 입장) (API)
     @Select({"""
-            
+            SELECT
+                B.NO
+                , B.PRO_NO          PRO_CODE
+                , J.TITLE           PRO_NAME
+                , B.EMP_NO
+                , B.APPROVER_NO
+                , B.ENROLL_DATE
+                , B.APPROVE_DATE
+                , B.START_DATE
+                , B.END_DATE
+                , B.REASON
+                , B.DESTINATION
+                , B.STATE
+                , E.NAME            EMP_NAME
+                , E.NICK
+                , D.CODE            DIV_CODE
+                , D.NAME            DIV_NAME
+                , P.CODE            POSITION_CODE
+                , P.NAME            POSITION_NAME
+                , T.CODE            DEPT_CODE
+                , T.NAME            DEPT_NAME
+            FROM BUSINESS_TRIP B
+            JOIN EMPLOYEE E ON (B.EMP_NO = E.NO)
+            JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+            JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+            JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+            JOIN PROJECT J ON (B.PRO_NO = J.NO)
+            WHERE B.APPROVER_NO = #{approverNo}
+            ORDER BY B.NO DESC
             """})
     List<BusinessTripVo> getBusinessTripListForApprover(@RequestParam("approverNo") String approverNo);
 
-    // TODO
-    // 출장 승인자 목록 조회 (결재자 입장) (API)
+    // 출장 승인자 목록 조회 (승인자 입장) (API)
     @Select({"""
-            
+            SELECT
+                B.NO
+                , B.APPROVER_NO
+                , E.NAME            APPROVER_NAME
+                , E.NICK
+                , D.CODE            DIV_CODE
+                , D.NAME            DIV_NAME
+                , P.CODE            POSITION_CODE
+                , P.NAME            POSITION_NAME
+                , T.CODE            DEPT_CODE
+                , T.NAME            DEPT_NAME
+            FROM BUSINESS_TRIP B
+            JOIN EMPLOYEE E ON (APPROVER_NO = E.NO)
+            JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+            JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+            JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+            WHERE B.APPROVER_NO = #{approverNo}
+            ORDER BY B.NO DESC
             """})
     List<BusinessTripVo> getBusinessTripApproverListForApprover(@RequestParam("approverNo") String approverNo);
 
-    // TODO
     // 출장 상세 조회 (API)
     @Select({"""
             SELECT
@@ -133,7 +175,6 @@ public interface BusinessTripMapper {
             """})
     BusinessTripVo getBusinessTripDetail(@RequestParam("businessTripNo") String businessTripNo);
 
-    // TODO
     // 출장 승인자 상세 조회 (API)
     @Select({"""
             SELECT

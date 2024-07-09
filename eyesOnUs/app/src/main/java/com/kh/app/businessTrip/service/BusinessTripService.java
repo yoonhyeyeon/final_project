@@ -37,12 +37,12 @@ public class BusinessTripService {
         return dao.getBusinessTripApproverListForWriter(empNo);
     } // getBusinessTripApproverListForWriter
 
-    // 출장 목록 조회 (결재자 입장) (API)
+    // 출장 목록 조회 (승인자 입장) (API)
     public List<BusinessTripVo> getBusinessTripListForApprover(String approverNo) {
         return dao.getBusinessTripListForApprover(approverNo);
     } // getBusinessTripListForApprover
 
-    // 출장 승인자 목록 조회 (결재자 입장) (API)
+    // 출장 승인자 목록 조회 (승인자 입장) (API)
     public List<BusinessTripVo> getBusinessTripApproverListForApprover(String approverNo) {
         return dao.getBusinessTripApproverListForApprover(approverNo);
     } // getBusinessTripApproverListForApprover

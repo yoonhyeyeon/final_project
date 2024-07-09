@@ -7,9 +7,7 @@ public class EmployeeVo {
 
     // EMPLOYEE
     private String no;
-    private String deptCode;
-    private String divCode;
-    private String positionCode;
+
     private String state;
     private String salaryCode;
     private String rank;
@@ -26,15 +24,15 @@ public class EmployeeVo {
     private String retireDate;
     private String retireYn;
 
-    // ROWNUM
-    private String rownum;
-
     // DIVISION
+    private String divCode;
     private String divName;
 
     // POSITION
+    private String positionCode;
     private String positionName;
 
     // DEPARTMENT
+    private String deptCode;
     private String deptName;
 } // class

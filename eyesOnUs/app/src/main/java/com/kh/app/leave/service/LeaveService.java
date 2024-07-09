@@ -20,6 +20,26 @@ public class LeaveService {
         return dao.leaveWrite(vo);
     } // leaveWrite
 
+    // 휴가 목록 조회 (신청자 입장) (API)
+    public List<LeaveVo> getLeaveListForWriter(String empNo) {
+        return dao.getLeaveListForWriter(empNo);
+    } // getLeaveListForWriter
+
+    // 휴가 승인자 목록 조회 (신청자 입장) (API)
+    public List<LeaveVo> getLeaveApproverListForWriter(String empNo) {
+        return dao.getLeaveApproverListForWriter(empNo);
+    } // getLeaveApproverListForWriter
+
+    // 휴가 목록 조회 (승인자 입장) (API)
+    public List<LeaveVo> getLeaveListForApprover(String approverNo) {
+        return dao.getLeaveListForApprover(approverNo);
+    } // getLeaveListForApprover
+
+    // 휴가 승인자 목록 조회 (승인자 입장) (API)
+    public List<LeaveVo> getLeaveApproverListForApprover(String approverNo) {
+        return dao.getLeaveApproverListForApprover(approverNo);
+    } // getLeaveApproverListForApprover
+
     // 휴가 상세 조회 (API)
     public LeaveVo getLeaveDetail(String leaveNo) {
         return dao.getLeaveDetail(leaveNo);
@@ -30,58 +50,8 @@ public class LeaveService {
         return dao.getLeaveApproverDetail(leaveNo);
     } // getLeaveApproverDetail
 
-    // 휴가 승인자 목록 조회 (API)
-    public List<LeaveVo> getLeaveApproverList(String empNo) {
-        return dao.getLeaveApproverList(empNo);
-    } // getLeaveApproverList
-
     // 휴가 승인 (API)
     public int updateLeaveApprove(LeaveVo leaveVo) {
         return dao.updateLeaveApprove(leaveVo);
     } // updateLeaveApprove
-
-    // 휴가 목록 조회 (동적 쿼리) (API)
-    public List<LeaveVo> getLeaveListForAll(LeaveVo leaveVo) {
-        return dao.getLeaveListForAll(leaveVo);
-    } // getLeaveListForAll
-
-//    // 휴가 승인 대기 목록 조회 (신청자 입장) (API)
-//    public List<LeaveVo> getLeaveWaitList(String empNo) {
-//        return dao.getLeaveWaitList(empNo);
-//    } // getLeaveWaitList
-//
-//    // 휴가 승인 목록 조회 (신청자 입장) (API)
-//    public List<LeaveVo> getLeaveApprovalList(String empNo) {
-//        return dao.getLeaveApprovalList(empNo);
-//    } // getLeaveApprovalList
-//
-//    // 휴가 반려 목록 조회 (신청자 입장) (API)
-//    public List<LeaveVo> getLeaveReturnList(String empNo) {
-//        return dao.getLeaveReturnList(empNo);
-//    } // getLeaveReturnList
-//
-//    // 휴가 전체 목록 조회 (신청자 입장) (API)
-//    public List<LeaveVo> getLeaveList(String empNo) {
-//        return dao.getLeaveList(empNo);
-//    } // getLeaveList
-//
-//    // 휴가 승인 대기 목록 조회 (승인자 입장) (API)
-//    public List<LeaveVo> getLeaveWaitListForApprover(String approverNo) {
-//        return dao.getLeaveWaitListForApprover(approverNo);
-//    } // getLeaveWaitListForApprover
-//
-//    // 휴가 승인 목록 조회 (승인자 입장) (API)
-//    public List<LeaveVo> getLeaveApprovalListForApprover(String approverNo) {
-//        return dao.getLeaveApprovalListForApprover(approverNo);
-//    } // getLeaveApprovalListForApprover
-//
-//    // 휴가 반려 목록 조회 (승인자 입장) (API)
-//    public List<LeaveVo> getLeaveReturnListForApprover(String approverNo) {
-//        return dao.getLeaveReturnListForApprover(approverNo);
-//    } // getLeaveReturnListForApprover
-//
-//    // 휴가 전체 목록 조회 (승인자 입장) (API)
-//    public List<LeaveVo> getLeaveListForApprover(String approverNo) {
-//        return dao.getLeaveListForApprover(approverNo);
-//    } // getLeaveListForApprover
 } // class

@@ -19,11 +19,11 @@ public class SignController {
 
     private final SignService service;
 
-    // 결재 신청 (화면)
+    // 기안 (화면)
     @GetMapping("write")
     public void signWrite(){} // showWrite
 
-    // 결재 신청
+    // 기안
     @PostMapping("write")
     public String signWrite(SignVo vo) throws IOException {
         MultipartFile file = vo.getFile();
@@ -50,9 +50,23 @@ public class SignController {
         return "redirect:/home";
     } // signWrite
 
-    // 결재 목록 조회 (화면)
-    @GetMapping("list")
-    public void signList(){} // signList
+    // 결재 목록 조회 (기안자 입장) (화면)
+    @GetMapping("listForWriter")
+    public String signListForWriter(){
+        return "sign/list/listForWriter";
+    } // signListForWriter
+
+    // 결재 목록 조회 (결재자 입장) (화면)
+    @GetMapping("listForApprover")
+    public String signListForApprover(){
+        return "sign/list/listForApprover";
+    } // signListForApprover
+
+    // 결재 목록 조회 (참조자 입장) (화면)
+    @GetMapping("listForReference")
+    public String signListForReference(){
+        return "sign/list/listForReference";
+    } // signListForReference
 
     // 결재 상세 조회 (화면)
     @GetMapping("detail")

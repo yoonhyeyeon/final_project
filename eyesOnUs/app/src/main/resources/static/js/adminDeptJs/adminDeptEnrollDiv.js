@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.enroll-button').click(function(event) {
         event.preventDefault();
 
-        var formData = {
+        let formData = {
             deptCategory: $('select[name="deptCategory"]').val(),
             name: $('input[name="name"]').val(),
             code: $('input[name="code"]').val(),

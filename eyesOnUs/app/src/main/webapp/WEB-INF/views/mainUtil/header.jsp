@@ -21,7 +21,7 @@
 
       <div id="btn2">
         <button>수정</button>
-        <button>로그아웃</button>
+        <button onclick="location.href='${pageContext.request.contextPath}/member/logout'">로그아웃</button>
       </div>
     </div>
 

@@ -17,29 +17,26 @@ public class LeaveVo {
     private String approveDate;
     private String enrollDate;
 
-    // ROWNUM
-    private String rownum;
-
-    // EMPLOYEE (EMP_NO)
+    // EMPLOYEE
     private String empName;
 
-    // EMPLOYEE (APPROVER_NO)
+    // EMPLOYEE
     private String approverName;
     private String nick;
 
-    // LEAVE_TYPE (TYPE_NO)
+    // LEAVE_TYPE
     private String leaveType;
     private String leaveName;
 
-    // DIVISION (EMP_NO, APPROVER_NO)
+    // DIVISION
     private String divCode;
     private String divName;
 
-    // POSITION (EMP_NO, APPROVER_NO)
+    // POSITION
     private String positionCode;
     private String positionName;
 
-    // DEPARTMENT (EMP_NO, APPROVER_NO)
+    // DEPARTMENT
     private String deptCode;
     private String deptName;
 } // class

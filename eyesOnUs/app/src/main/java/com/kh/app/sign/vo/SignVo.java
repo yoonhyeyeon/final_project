@@ -17,9 +17,6 @@ public class SignVo {
     private String content;
     private String enrollDate;
 
-    // ROWNUM
-    private String rownum;
-
     // SIGN_REF
     private List<String> refNo;
 

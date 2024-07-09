@@ -11,7 +11,7 @@
     </style>
     <head>
         <meta charset="UTF-8">
-        <title>출장 목록 조회</title>
+        <title>휴가 목록 조회</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <link rel="stylesheet" href="/css/home/home.css">
         <link rel="stylesheet" href="/css/home/sidebar.css">
@@ -20,9 +20,9 @@
         <script defer src="/js/testMain/sidebar.js"></script>
         <script defer src="/js/commute/write.js"></script>
 
-        <link rel="stylesheet" href="/css/businessTrip/list.css">
-        <script defer src="/js/businessTrip/list.js"></script>
-        <script defer src="/js/businessTrip/commonFunction.js"></script>
+        <link rel="stylesheet" href="/css/leave/list/listForWriter.css">
+        <script defer src="/js/leave/list/listForWriter.js"></script>
+        <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
         <header id="headerContainer">
@@ -34,19 +34,16 @@
         </nav>
 
         <section>
-            <h1>출장 승인 대기 목록</h1>
+            <h1>휴가 승인 대기 목록</h1>
             <table border="1" id="wait">
                 <thead>
                     <tr>
                         <th>번호</th>
-                        <th>분류</th>
+                        <th>휴가 타입</th>
                         <th>사유</th>
                         <th>신청자</th>
                         <th>승인자</th>
-                        <th>부서</th>
                         <th>신청일</th>
-                        <th>시작일</th>
-                        <th>종료일</th>
                         <th>승인일</th>
                         <th>상태</th>
                     </tr>
@@ -56,19 +53,16 @@
             </table>
             <br>
             
-            <h1>출장 승인 목록</h1>
+            <h1>휴가 승인 목록</h1>
             <table border="1" id="approval">
                 <thead>
                     <tr>
                         <th>번호</th>
-                        <th>분류</th>
+                        <th>휴가 타입</th>
                         <th>사유</th>
                         <th>신청자</th>
                         <th>승인자</th>
-                        <th>부서</th>
                         <th>신청일</th>
-                        <th>시작일</th>
-                        <th>종료일</th>
                         <th>승인일</th>
                         <th>상태</th>
                     </tr>
@@ -78,19 +72,16 @@
             </table>
             <br>
 
-            <h1>출장 반려 목록</h1>
+            <h1>휴가 반려 목록</h1>
             <table border="1" id="return">
                 <thead>
                     <tr>
                         <th>번호</th>
-                        <th>분류</th>
+                        <th>휴가 타입</th>
                         <th>사유</th>
                         <th>신청자</th>
                         <th>승인자</th>
-                        <th>부서</th>
                         <th>신청일</th>
-                        <th>시작일</th>
-                        <th>종료일</th>
                         <th>승인일</th>
                         <th>상태</th>
                     </tr>

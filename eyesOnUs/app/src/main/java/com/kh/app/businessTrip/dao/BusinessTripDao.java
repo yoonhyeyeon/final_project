@@ -41,7 +41,7 @@ public class BusinessTripDao {
         return businessTripApproverVoListForWriter;
     } // getBusinessTripApproverListForWriter
 
-    // 출장 목록 조회 (결재자 입장) (API)
+    // 출장 목록 조회 (승인자 입장) (API)
     public List<BusinessTripVo> getBusinessTripListForApprover(String approverNo) {
         List<BusinessTripVo> businessTripVoListForApprover = mapper.getBusinessTripListForApprover(approverNo);
         if(businessTripVoListForApprover == null){
@@ -50,7 +50,7 @@ public class BusinessTripDao {
         return businessTripVoListForApprover;
     } // getBusinessTripListForApprover
 
-    // 출장 승인자 목록 조회 (결재자 입장) (API)
+    // 출장 승인자 목록 조회 (승인자 입장) (API)
     public List<BusinessTripVo> getBusinessTripApproverListForApprover(String approverNo) {
         List<BusinessTripVo> businessTripApproverVoListForApprover = mapper.getBusinessTripApproverListForApprover(approverNo);
         if(businessTripApproverVoListForApprover == null){
@@ -63,7 +63,7 @@ public class BusinessTripDao {
     public BusinessTripVo getBusinessTripDetail(String businessTripNo) {
         BusinessTripVo businessTripDetailVo = mapper.getBusinessTripDetail(businessTripNo);
         if(businessTripDetailVo == null){
-            throw new RuntimeException("[B-005] BUSINESS_TRIP APPROVER LIST FOR APPROVER SELECT ERROR");
+            throw new RuntimeException("[B-005] BUSINESS_TRIP DETAIL SELECT ERROR");
         }
         return businessTripDetailVo;
     } // getBusinessTripDetail
@@ -72,7 +72,7 @@ public class BusinessTripDao {
     public BusinessTripVo getBusinessTripApproverDetail(String businessTripNo) {
         BusinessTripVo businessTripApproverDetailVo = mapper.getBusinessTripApproverDetail(businessTripNo);
         if(businessTripApproverDetailVo == null){
-            throw new RuntimeException("[B-006] BUSINESS_TRIP APPROVER LIST FOR APPROVER SELECT ERROR");
+            throw new RuntimeException("[B-006] BUSINESS_TRIP APPROVER DETAIL SELECT ERROR");
         }
         return businessTripApproverDetailVo;
     } // getBusinessTripApproverDetail

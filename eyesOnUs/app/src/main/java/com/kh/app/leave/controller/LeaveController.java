@@ -2,6 +2,8 @@ package com.kh.app.leave.controller;
 
 import com.kh.app.leave.service.LeaveService;
 import com.kh.app.leave.vo.LeaveVo;
+import com.kh.app.member.vo.MemberVo;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,14 +23,26 @@ public class LeaveController {
 
     // 휴가 신청
     @PostMapping("write")
-    public String leaveWrite(LeaveVo vo) {
+    public String leaveWrite(LeaveVo vo, HttpSession session) {
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String empNo = loginMemberVo.getNo();
+        vo.setEmpNo(empNo);
+
         int result = service.leaveWrite(vo);
         return "redirect:/home";
     } // leaveWrite
 
-    // 휴가 목록 조회 (화면)
-    @GetMapping("list")
-    public void leaveList(){} // leaveList
+    // 휴가 목록 조회 (신청자 입장) (화면)
+    @GetMapping("listForWriter")
+    public String leaveListForWriter(){
+        return "leave/list/listForWriter";
+    } // leaveListForWriter
+
+    // 휴가 목록 조회 (승인자 입장) (화면)
+    @GetMapping("listForApprover")
+    public String leaveListForApprover(){
+        return "leave/list/listForApprover";
+    } // leaveListForApprover
 
     // 휴가 상세 조회 (화면)
     @GetMapping("detail")

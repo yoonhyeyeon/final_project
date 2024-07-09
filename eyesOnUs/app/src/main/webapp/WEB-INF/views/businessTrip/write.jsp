@@ -34,10 +34,15 @@
 
         <section>
             <form action="/businessTrip/write" method="post">
-                <input type="text" name="empNo" value="43" hidden>
-        
-                <input type="text" name="approverNo" value="13" hidden>
-        
+                <!-- 사원 가져와서 출력 -->
+                <label for="approverNo">승인자 선택</label>
+                <select name="approverNo">
+                    <option value="13">팀장</option>
+                    <option value="13">팀장</option>
+                    <option value="13">팀장</option>
+                </select>
+                <br>
+
                 <!-- 해당 프로젝트 가져와서 출력 -->
                 <label for="proNo">프로젝트 선택</label>
                 <select name="proNo">
@@ -46,16 +51,21 @@
                     <option value="3">Too hard</option>
                 </select>
                 <br>
+
                 <label for="startDate">시작일</label>
                 <input type="date" name="startDate">
                 <br>
+
                 <label for="endDate">종료일</label>
                 <input type="date" name="endDate">
                 <br>
+
                 <textarea name="reason" placeholder="사유"></textarea>
                 <br>
+
                 <input type="text" name="destination" placeholder="출장지">
                 <br>
+
                 <input type="submit" value="신청">
             </form>
         </section>

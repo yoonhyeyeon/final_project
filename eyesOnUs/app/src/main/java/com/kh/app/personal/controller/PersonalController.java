@@ -46,10 +46,10 @@ public class PersonalController {
         return "personal/delete";
     }
 
-    //기타일정 수정하기 화면
-    @GetMapping("edit")
-    public String edit(){
-        return "personal/edit";
+    //기타일정 삭제하기 화면
+    @GetMapping
+    public String teamRoom(){
+        return "personal/teamRoom";
     }
 
 }

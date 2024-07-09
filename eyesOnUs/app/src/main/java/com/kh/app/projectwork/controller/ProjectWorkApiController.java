@@ -8,6 +8,7 @@ import com.kh.app.projectwork.vo.ProjectWorkVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -25,14 +26,16 @@ public class ProjectWorkApiController {
         return voList;
     }
 
-    //작성하기
+
     @PostMapping("write")
-    public ResponseEntity<String> getPrjWorkWrite(ProjectWorkVo vo) {
+    public RedirectView getPrjWorkWrite(ProjectWorkVo vo) {
         int result = service.getPrjWorkWrite(vo);
         if(result == 1){
-            return ResponseEntity.ok("작성하기 성공");
+            // 작성 성공 시 리다이렉트
+            return new RedirectView("/projectWork");
         }else {
-            return ResponseEntity.internalServerError().body("작성하기 실패");
+            // 작성 실패 시 에러 페이지로 리다이렉트
+            return new RedirectView("/projectWork");
         }
     }
 

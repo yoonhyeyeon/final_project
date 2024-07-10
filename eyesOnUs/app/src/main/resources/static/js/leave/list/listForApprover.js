@@ -19,6 +19,11 @@ $.ajax({
         for(let i = 0; i < data.leaveVoListForApprover.length; ++i){
             const trTag = document.createElement("tr");
 
+            trTag.addEventListener("click", () => {
+                location.href = `/leave/detail?no=${data.leaveVoListForApprover[i].no}&state=${data.leaveVoListForApprover[i].state}`;
+            });
+            trTag.style.cursor = "pointer";
+
             const tdTag02 = addTag("td", data.leaveVoListForApprover[i].leaveName);
             const tdTag03 = addTag("td", data.leaveVoListForApprover[i].reason);
             const tdTag04 = addTag("td", data.leaveVoListForApprover[i].divName + " " + data.leaveVoListForApprover[i].empName + " " + data.leaveVoListForApprover[i].positionName);

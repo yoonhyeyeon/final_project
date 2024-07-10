@@ -19,6 +19,11 @@ $.ajax({
         for(let i = 0; i < data.businessTripVoListForWriter.length; ++i){
             const trTag = document.createElement("tr");
 
+            trTag.addEventListener("click", () => {
+                location.href = `/businessTrip/detail?businessTripNo=${data.businessTripVoListForWriter[i].no}`;
+            });
+            trTag.style.cursor = "pointer";
+
             const tdTag02 = addTag("td", data.businessTripVoListForWriter[i].reason);
             const tdTag03 = addTag("td", data.businessTripVoListForWriter[i].divName + " " + data.businessTripVoListForWriter[i].empName + " " + data.businessTripVoListForWriter[i].positionName);
             const tdTag04 = addTag("td", data.businessTripApproverVoListForWriter[i].divName + " " + data.businessTripApproverVoListForWriter[i].approverName + " " + data.businessTripApproverVoListForWriter[i].positionName);

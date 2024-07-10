@@ -61,7 +61,6 @@ public class BusinessTripRestController {
     // 출장 상세 조회 (API)
     @GetMapping("detail")
     public Map<String, BusinessTripVo> getBusinessTripDetail(BusinessTripVo businessTripVo){
-        System.out.println("businessTripVo = " + businessTripVo);
         // 출장 상세 조회 (API)
         BusinessTripVo businessTripDetailVo = service.getBusinessTripDetail(businessTripVo);
         Map<String, BusinessTripVo> businessTripDetailMap = new HashMap<>();

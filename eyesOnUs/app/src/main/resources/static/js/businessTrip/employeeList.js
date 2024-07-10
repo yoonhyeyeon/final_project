@@ -1,5 +1,5 @@
 $.ajax({
-    url: "http://127.0.0.1:8383/api/sign/employee",
+    url: "/api/sign/employee",
     method: "get",
     data: {
         empNo: 43

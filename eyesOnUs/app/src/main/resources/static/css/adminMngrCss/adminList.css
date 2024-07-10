@@ -121,6 +121,11 @@
   text-decoration: underline;
 }
 
+.pagination .current-page {
+    color: red;
+    font-size: larger;
+}
+
 .search-form {
   margin-top: 20px;
   display: flex;
@@ -128,4 +133,3 @@
   align-items: center;
   font-family: 'Do Hyeon', sans-serif;
 }
-

@@ -12,6 +12,7 @@
          font-family: Arial, sans-serif;
          background-color: #f0f0f0;
          padding: 20px;
+         background-color: #eae9f0; /* 연한 하늘색 배경 */
      }
 
      h1 {

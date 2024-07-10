@@ -12,7 +12,6 @@
 <style>
    body {
            font-family: Arial, sans-serif;
-           background-color: #e0f7fa; /* 신뢰감을 주는 파란색 배경 */
            margin: 0;
            padding: 0;
            display: flex;
@@ -56,7 +55,6 @@
        input[type="submit"] {
            width: 100%;
            padding: 10px;
-           background-color: #007bb5; /* 신뢰감을 주는 파란색 버튼 */
            border: none;
            border-radius: 4px;
            color: white;

@@ -57,6 +57,24 @@ public interface ProjectMapper {
             "ON P.CODE = D.CODE\n" +
             "WHERE P.TITLE LIKE '%' || #{title} || '%'")
     List<ProjectVo> projectSearchByName(String title);
+
+    @Select("SELECT NO, CODE, EMP_NO, STATE_A_NO, TITLE, CONTENT,\n" +
+            "        startDate,endDate,modifyDate\n" +
+            "FROM (\n" +
+            "    SELECT NO, CODE, EMP_NO, STATE_A_NO, TITLE, CONTENT,\n" +
+            "           TO_CHAR(START_DATE, 'YYYY/MM/DD') AS startDate,\n" +
+            "           TO_CHAR(END_DATE, 'YYYY/MM/DD') AS endDate,\n" +
+            "           TO_CHAR(MODIFY_DATE, 'YYYY/MM/DD') AS modifyDate,\n" +
+            "           ROW_NUMBER() OVER (ORDER BY NO ASC) AS rnum\n" +
+            "    FROM PROJECT\n" +
+            "    WHERE STATE_A_NO = 1\n" +
+            "      AND CODE = #{code}\n" +
+            ")\n" +
+            "WHERE rnum <= 10\n" +
+            "ORDER BY NO ASC")
+    List<ProjectVo> listData(ProjectVo vo);
+
+
     ////////////////////////PROJECT RECORD CRUD ///////////////////////////////////////
 
     @Insert("INSERT INTO CONFERENCE_RECORD(NO,PRJ_NO,TITLE,CONTENT) VALUES(SEQ_CONFERENCE_RECORD.NEXTVAL,#{prjNo},#{title},#{content})")
@@ -95,4 +113,7 @@ public interface ProjectMapper {
 
     @Delete("DELETE CONFERENCE_RECORD WHERE NO = #{no}")
     int recordDelete(String no);
+
 }
+
+

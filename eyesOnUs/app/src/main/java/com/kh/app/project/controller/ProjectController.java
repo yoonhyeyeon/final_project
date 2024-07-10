@@ -110,6 +110,14 @@ public class ProjectController {
        return voList;
     }
 
+    @GetMapping("listData2")
+    @ResponseBody
+    public List<ProjectVo> listData2(ProjectVo vo){
+
+        List<ProjectVo> voList = service.listData2(vo);
+        return voList;
+    }
+
 
 
 

@@ -4,7 +4,7 @@ $.ajax({
     data : {},
     success : function(x){
         const voList = x;
-        const tbody = document.querySelector("#prjList");
+        const tbody = document.querySelector("tbody");
         let str="";
         for(let i=0;i<voList.length;i++){
             str += "<tr class='list-item' data-id='"+voList[i].no + "'>";

@@ -55,7 +55,7 @@
       input[type="submit"] {
           width: 100%;
           padding: 10px;
-          background-color: #007bb5; /* 신뢰감을 주는 파란색 버튼 */
+          background-color: #007BFF;
           border: none;
           border-radius: 4px;
           color: white;
@@ -64,7 +64,7 @@
       }
 
       input[type="submit"]:hover {
-          background-color: #005f87; /* 더 짙은 파란색으로 변경 */
+        background-color: #0056b3;
       }
 
       select {

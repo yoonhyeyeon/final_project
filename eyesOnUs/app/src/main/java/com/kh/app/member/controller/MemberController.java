@@ -50,13 +50,6 @@ public class MemberController {
         } else {
             return "/member/login";
         }
-    }
 
-    // 로그아웃 요청 처리
-    @GetMapping("logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "/member/login";
     }
-
 }//class

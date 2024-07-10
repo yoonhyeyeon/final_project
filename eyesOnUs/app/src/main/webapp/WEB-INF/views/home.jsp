@@ -11,7 +11,6 @@
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="/css/testMain/footer.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
@@ -21,7 +20,6 @@
       <script defer src="../js/testMain/sidebar.js"></script>
       <script defer src="../js/testMain/calender.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <title>개인페이지</title>
     </head>
 

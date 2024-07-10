@@ -9,21 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>근무시간 테이블</title>
     <link rel="stylesheet" href="/css/util/workTime.css">
+    <script defer src="../js/workTime/workTime.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <table class="work-time-table">
-        <tr>
-            <td>출근</td>
-            <td>09:00</td>
-        </tr>
-        <tr>
-            <td>퇴근</td>
-            <td>18:00</td>
-        </tr>
-        <tr>
-            <td>총시간</td>
-            <td>9시간</td>
-        </tr>
+        <thead>
+
+        </thead>
     </table>
 </body>
 </html>

@@ -42,28 +42,33 @@ public interface ColleageEvalMapper {
             ")")
     int write(ColleageEvalVo vo);
 
-    @Select("SELECT NO FROM EMPLOYEE")
+    @Select("SELECT * FROM EMPLOYEE")
     List<EmployeeVo> writeList(EmployeeVo vo);
 
     // 목록조회
-    @Select("SELECT \n" +
-            "    C.NO\n" +
-            "    , E.NAME AS EVALUATOR_NO\n" +
-            "    , M.NAME AS EVALUATEE_NO\n" +
-            "    , C.POTENTIAL\n" +
-            "    , C.COMMUNICATION\n" +
-            "    , C.PROBLEM_SOLVE\n" +
-            "    , C.RESPONSIBILITY\n" +
-            "    , C.COMPLIMENT\n" +
-            "    , C.DISAPPOINTMENT\n" +
-            "    , C.SUGGESTION\n" +
-            "    , TO_CHAR(C.WRITE_DATE, 'YYYY-MM-DD') AS WRITE_DATE\n" +
-            "FROM COLLEAGE_EVAL C\n" +
-            "JOIN EMPLOYEE E\n" +
-            "ON C.EVALUATOR_NO = E.NO\n" +
-            "JOIN EMPLOYEE M\n" +
-            "ON C.EVALUATEE_NO = M.NO\n" +
-            "ORDER BY C.NO ASC")
-    List<ColleageEvalVo> list();
+    @Select("""
+            SELECT
+                C.NO
+                , E.NAME AS EVALUATOR_NO
+                , M.NAME AS EVALUATEE_NO
+                , C.POTENTIAL
+                , C.COMMUNICATION
+                , C.PROBLEM_SOLVE
+                , C.RESPONSIBILITY
+                , C.COMPLIMENT
+                , C.DISAPPOINTMENT
+                , C.SUGGESTION
+                , TO_CHAR(C.WRITE_DATE, 'YYYY-MM-DD') AS WRITE_DATE
+            FROM COLLEAGE_EVAL C
+            JOIN EMPLOYEE E
+            ON C.EVALUATOR_NO = E.NO
+            JOIN EMPLOYEE M
+            ON C.EVALUATEE_NO = M.NO
+            WHERE E.NO = #{no}
+            ORDER BY C.NO ASC
+            """)
+    List<ColleageEvalVo> list(String no);
 
+    @Select("SELECT * FROM EMPLOYEE")
+    List<EmployeeVo> listByNo(EmployeeVo vo);
 }

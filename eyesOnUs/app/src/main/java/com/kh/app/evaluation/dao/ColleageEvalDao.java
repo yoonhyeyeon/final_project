@@ -24,8 +24,11 @@ public class ColleageEvalDao {
     }
 
     // 목록조회
-    public List<ColleageEvalVo> list() {
-        return mapper.list();
+    public List<ColleageEvalVo> list(String no) {
+        return mapper.list(no);
     }
 
+    public List<EmployeeVo> listByNo(EmployeeVo vo) {
+        return mapper.listByNo(vo);
+    }
 }

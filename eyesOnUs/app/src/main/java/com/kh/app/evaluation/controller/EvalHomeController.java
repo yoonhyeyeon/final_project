@@ -2,6 +2,8 @@ package com.kh.app.evaluation.controller;
 
 import com.kh.app.evaluation.service.EvalHomeService;
 import com.kh.app.evaluation.vo.EvalHomeVo;
+import com.kh.app.member.vo.MemberVo;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,32 +27,48 @@ public class EvalHomeController {
     // 평가해야될 모든 사원 목록
     @GetMapping("listData")
     @ResponseBody
-    public List<EvalHomeVo> evalListData(){
-        List<EvalHomeVo> voList = service.list();
+    public List<EvalHomeVo> evalListData(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String no = loginMemberVo.getNo();
+
+        List<EvalHomeVo> voList = service.list(no);
         return voList;
     }
 
     // 팀장 평가 목록
     @GetMapping("leaderData")
     @ResponseBody
-    public List<EvalHomeVo> leaderData(){
-        List<EvalHomeVo> voList = service.leader();
+    public List<EvalHomeVo> leaderData(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String no = loginMemberVo.getNo();
+
+        List<EvalHomeVo> voList = service.leader(no);
         return voList;
     }
 
     // 팀원 평가 목록
     @GetMapping("memberEvalData")
     @ResponseBody
-    public List<EvalHomeVo> memberEvalData(){
-        List<EvalHomeVo> voList = service.memberEval();
+    public List<EvalHomeVo> memberEvalData(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String no = loginMemberVo.getNo();
+
+        List<EvalHomeVo> voList = service.memberEval(no);
         return voList;
     }
 
     // 동료 평가 목록
     @GetMapping("colleageData")
     @ResponseBody
-    public List<EvalHomeVo> colleageData(){
-        List<EvalHomeVo> voList = service.colleage();
+    public List<EvalHomeVo> colleageData(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String no = loginMemberVo.getNo();
+
+        List<EvalHomeVo> voList = service.colleage(no);
         return voList;
     }
 

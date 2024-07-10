@@ -11,7 +11,7 @@
 .myform label{
   font-size: 1.5em;
   color: transparent;
-  text-shadow: 0 0 0 #ffffff;
+  text-shadow: 0 0 0 #eae9f0;
 }
 
 .myform label:hover{
@@ -35,7 +35,7 @@
 .myform2 label{
   font-size: 1.5em;
   color: transparent;
-  text-shadow: 0 0 0 #ffffff;
+  text-shadow: 0 0 0 #eae9f0;
 }
 .myform2 label:hover{
   text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
@@ -58,7 +58,7 @@
 .myform3 label{
   font-size: 1.5em;
   color: transparent;
-  text-shadow: 0 0 0 #ffffff;
+  text-shadow: 0 0 0 #eae9f0;
 }
 .myform3 label:hover{
   text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
@@ -81,7 +81,7 @@
 .myform4 label{
   font-size: 1.5em;
   color: transparent;
-  text-shadow: 0 0 0 #ffffff;
+  text-shadow: 0 0 0 #eae9f0;
 }
 .myform4 label:hover{
   text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);

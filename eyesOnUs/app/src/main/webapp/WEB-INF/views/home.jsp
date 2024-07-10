@@ -19,7 +19,11 @@
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/testMain/sidebar.js"></script>
       <script defer src="../js/testMain/calender.js"></script>
+      <script defer src="../js/commute/write.js"></script>
+      <script defer src="../js/commute/quit.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+
       <title>개인페이지</title>
     </head>
 

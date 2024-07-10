@@ -2,7 +2,9 @@ package com.kh.app.evaluation.controller;
 
 import com.kh.app.evaluation.service.ColleageEvalService;
 import com.kh.app.evaluation.vo.ColleageEvalVo;
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.vo.EmployeeVo;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,7 @@ public class ColleageEvalController {
     @GetMapping("write")
     public String write(EmployeeVo vo, Model model){
         List<EmployeeVo> voList = service.writeList(vo);
+
         model.addAttribute("voList", voList);
 
         return "colleageEval/write";
@@ -42,14 +45,21 @@ public class ColleageEvalController {
 
     // 목록
     @GetMapping("list")
-    public String list(){
+    public String list(EmployeeVo vo, Model model){
+        List<EmployeeVo> voList = service.listByNo(vo);
+        model.addAttribute("voList", voList);
+
         return "colleageEval/list";
     }
 
     @GetMapping("listData")
     @ResponseBody
-    public List<ColleageEvalVo> listData(){
-        List<ColleageEvalVo> voList = service.list();
+    public List<ColleageEvalVo> listData(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String no = loginMemberVo.getNo();
+
+        List<ColleageEvalVo> voList = service.list(no);
         return voList;
     }
 }

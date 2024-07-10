@@ -62,7 +62,11 @@ public interface MemberEvalMapper {
             "ON M.EVALUATOR_NO = E.NO\n" +
             "JOIN EMPLOYEE P\n" +
             "ON M.EVALUATEE_NO = P.NO\n" +
+            "WHERE E.NO = #{no}\n" +
             "ORDER BY M.NO ASC")
-    List<MemberEvalVo> list();
+    List<MemberEvalVo> list(String no);
+
+    @Select("SELECT * FROM EMPLOYEE")
+    List<EmployeeVo> listByNo(EmployeeVo vo);
 
 }

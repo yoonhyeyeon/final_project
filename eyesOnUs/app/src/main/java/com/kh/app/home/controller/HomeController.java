@@ -3,15 +3,18 @@ package com.kh.app.home.controller;
 import com.kh.app.home.service.CommuteService;
 import com.kh.app.home.vo.CommuteVo;
 import com.kh.app.member.vo.MemberVo;
+import com.kh.app.sign.vo.EmployeeVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 @RequestMapping("home")
@@ -21,7 +24,12 @@ public class HomeController {
     private final CommuteService service;
 
     @GetMapping
-    public String home(){
+    public String home(EmployeeVo vo, Model model,HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
+
+        List<EmployeeVo> voList = service.list(vo);
+
         return "home";
     }
 

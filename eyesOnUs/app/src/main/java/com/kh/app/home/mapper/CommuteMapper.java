@@ -12,6 +12,9 @@ import java.util.List;
 @Mapper
 public interface CommuteMapper {
 
+    @Select("SELECT * FROM EMPLOYEE")
+    List<EmployeeVo> list(EmployeeVo vo);
+
     // 출근시간
     @Insert("INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME) VALUES (SEQ_COMMUTE.NEXTVAL, #{empNo}, SYSDATE)")
     int write(CommuteVo vo);
@@ -25,4 +28,5 @@ public interface CommuteMapper {
             "    WHERE EMP_NO = #{empNo}\n" +
             ")")
     int quit(CommuteVo vo);
+
 }

@@ -22,9 +22,13 @@ public class LeaderEvalDao {
     public List<EmployeeVo> writeList(EmployeeVo vo) {
         return mapper.writeList(vo);
     }
+
     // 목록조회
-    public List<LeaderEvalVo> list() {
-        return mapper.list();
+    public List<LeaderEvalVo> list(String no) {
+        return mapper.list(no);
     }
 
+    public List<EmployeeVo> listByNo(EmployeeVo vo) {
+        return mapper.listByNo(vo);
+    }
 }

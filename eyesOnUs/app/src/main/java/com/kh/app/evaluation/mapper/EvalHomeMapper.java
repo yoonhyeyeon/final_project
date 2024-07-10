@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface EvalHomeMapper {
 
-    // 평가해야 될 모든 사람들 목록 조회 (임의로 emp_no 63 값 넣음)
+    // 평가해야 될 모든 사람들 목록 조회
     @Select("SELECT\n" +
             "    E.NO\n" +
             "    , E.NAME\n" +
@@ -27,16 +27,16 @@ public interface EvalHomeMapper {
             "(SELECT \n" +
             "    DEPT_CODE\n" +
             "FROM EMPLOYEE\n" +
-            "WHERE NO = 63)\n" +
+            "WHERE NO = #{no})\n" +
             "OR E.DIV_CODE = \n" +
             "(SELECT\n" +
             "    DIV_CODE\n" +
             "FROM EMPLOYEE\n" +
-            "WHERE NO = 63))\n" +
-            "AND NO NOT IN 63")
-    List<EvalHomeVo> list();
+            "WHERE NO = #{no}))\n" +
+            "AND NO NOT IN #{no}")
+    List<EvalHomeVo> list(String no);
 
-    // 팀장 조회 ( 임의로 empNo 63 넣음)
+    // 팀장 조회
     @Select("SELECT\n" +
             "    E.NO\n" +
             "    , E.NAME\n" +
@@ -54,11 +54,11 @@ public interface EvalHomeMapper {
             "(SELECT \n" +
             "    DEPT_CODE\n" +
             "FROM EMPLOYEE\n" +
-            "WHERE NO = 63)\n" +
+            "WHERE NO = #{no})\n" +
             "AND E.POSITION_CODE = 40")
-    List<EvalHomeVo> leader();
+    List<EvalHomeVo> leader(String no);
 
-    // 팀원 ( 임의로 empNo 63 넣음)
+    // 팀원
     @Select("SELECT\n" +
             "    E.NO\n" +
             "    , E.NAME\n" +
@@ -76,12 +76,12 @@ public interface EvalHomeMapper {
             "SELECT\n" +
             "    DIV_CODE\n" +
             "FROM EMPLOYEE\n" +
-            "WHERE NO = 63\n" +
+            "WHERE NO = ${no}\n" +
             ")\n" +
-            "AND (NO NOT IN 63 AND POSITION_CODE NOT IN 40)")
-    List<EvalHomeVo> memberEval();
+            "AND (NO NOT IN ${no} AND POSITION_CODE NOT IN 40)")
+    List<EvalHomeVo> memberEval(String no);
 
-    // 동료 ( 임의로 empNo 63 넣음)
+    // 동료
     @Select("SELECT\n" +
             "    E.NO\n" +
             "    , E.NAME\n" +
@@ -99,9 +99,9 @@ public interface EvalHomeMapper {
             "SELECT\n" +
             "    DEPT_CODE\n" +
             "FROM EMPLOYEE\n" +
-            "WHERE NO = 63\n" +
+            "WHERE NO = #{no}\n" +
             ")\n" +
             "AND POSITION_CODE IN (50,60,70,80,90)\n" +
-            "AND NO NOT IN 63")
-    List<EvalHomeVo> colleage();
+            "AND NO NOT IN #{no}")
+    List<EvalHomeVo> colleage(String no);
 }

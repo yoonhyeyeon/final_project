@@ -2,11 +2,11 @@
 <header id="headerContainer">
     <div class="btn">
       <div id="goto">
-        <button>📥출근</button>
+        <button onclick="write01(${sessionScope.loginMemberVo.no});">📥출근</button>
       </div>
 
       <div id="leave">
-        <button>📤퇴근</button>
+        <button onclick="write02(${sessionScope.loginMemberVo.no});">📤퇴근</button>
       </div>
 
     </div>
@@ -15,8 +15,8 @@
 
     <div id="profile">
         <pre>
-          안녕하세요. |로그인아이디| 님
-          |인사관리부서| 사원
+          안녕하세요. |${sessionScope.loginMemberVo.id}| 님
+          |인사관리부서| ${sessionScope.loginMemberVo.name} 사원
         </pre>
 
       <div id="btn2">

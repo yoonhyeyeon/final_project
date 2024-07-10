@@ -23,10 +23,14 @@ public class LeaderEvalService {
 
     public List<EmployeeVo> writeList(EmployeeVo vo) {
         return dao.writeList(vo);
+
     }
     // 목록조회
-    public List<LeaderEvalVo> list() {
-        return dao.list();
+    public List<LeaderEvalVo> list(String no) {
+        return dao.list(no);
     }
 
+    public List<EmployeeVo> listByNo(EmployeeVo vo) {
+        return dao.listByNo(vo);
+    }
 }

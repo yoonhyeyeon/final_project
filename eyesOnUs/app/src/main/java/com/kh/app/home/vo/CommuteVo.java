@@ -9,5 +9,6 @@ public class CommuteVo {
     private String empNo;
     private String workTime;
     private String quitTime;
-
+    private int totalHours;
+    private int totalMinutes;
 }

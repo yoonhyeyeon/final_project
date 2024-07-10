@@ -2,7 +2,9 @@ package com.kh.app.evaluation.controller;
 
 import com.kh.app.evaluation.service.LeaderEvalService;
 import com.kh.app.evaluation.vo.LeaderEvalVo;
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.vo.EmployeeVo;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.stereotype.Controller;
@@ -46,14 +48,21 @@ public class LeaderEvalController {
 
     // 목록조회
     @GetMapping("list")
-    public String list(){
+    public String list(EmployeeVo vo, Model model){
+        List<EmployeeVo> voList = service.listByNo(vo);
+        model.addAttribute("voList", voList);
+
         return "leaderEval/list";
     }
 
     @GetMapping("listData")
     @ResponseBody
-    public List<LeaderEvalVo> listData(){
-        List<LeaderEvalVo> voList = service.list();
+    public List<LeaderEvalVo> listData(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String no = loginMemberVo.getNo();
+
+        List<LeaderEvalVo> voList = service.list(no);
         return voList;
     }
 

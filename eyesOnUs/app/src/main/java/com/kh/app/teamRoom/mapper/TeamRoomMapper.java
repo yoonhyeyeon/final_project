@@ -16,6 +16,9 @@ public interface TeamRoomMapper {
     @Select("SELECT * FROM PROJECT_WORK WHERE STATE_B_NO = 1 ORDER BY NO ASC")
     List<TeamRoomVo> getTodoPrjList();
 
+    //이름만 직책만 검색 팀장 이하만
+    @Select("SELECT NAME, NICK FROM EMPLOYEE WHERE RANK >= 20")
+    List<TeamRoomVo> getTeamList();
 
 
 }//class

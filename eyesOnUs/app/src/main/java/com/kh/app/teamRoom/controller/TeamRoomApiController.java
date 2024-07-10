@@ -32,5 +32,13 @@ public class TeamRoomApiController {
         return voList;
     }
 
+    //사원목록 조회
+    @GetMapping("temaList")
+    public List<TeamRoomVo> getTeamList(){
+        List<TeamRoomVo> voList = service.getTeamList();
+        return voList;
+    }
 
-}
+
+
+}//class

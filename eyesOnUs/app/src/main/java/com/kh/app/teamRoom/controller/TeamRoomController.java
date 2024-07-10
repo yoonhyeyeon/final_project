@@ -11,8 +11,14 @@ public class TeamRoomController {
 
     //팀룸 화면
     @GetMapping
-    public String write(){
+    public String teamRoom(){
         return "teamRoom/teamRoom";
+
     }
 
+    //팀룸 화면
+    @GetMapping("teamList")
+    public String teamList(){
+        return "teamRoom/teamList";
+    }
 }

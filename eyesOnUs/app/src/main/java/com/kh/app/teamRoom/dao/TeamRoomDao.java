@@ -20,4 +20,8 @@ public class TeamRoomDao {
     public List<TeamRoomVo> getTodoPrjList() {
         return mapper.getTodoPrjList();
     }
+
+    public List<TeamRoomVo> getTeamList() {
+        return mapper.getTeamList();
+    }
 }//class

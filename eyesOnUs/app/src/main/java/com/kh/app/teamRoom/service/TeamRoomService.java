@@ -20,4 +20,9 @@ public class TeamRoomService {
     public List<TeamRoomVo> getTodoPrjList() {
         return dao.getTodoPrjList();
     }
-}
+
+    public List<TeamRoomVo> getTeamList() {
+        return dao.getTeamList();
+    }
+
+}//class

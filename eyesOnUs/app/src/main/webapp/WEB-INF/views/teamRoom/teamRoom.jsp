@@ -11,6 +11,10 @@
       <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
       <link rel="stylesheet" href="/css/teamRoom/list.css">
       <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+      <script defer src="../js/testMain/calender.js"></script>
+      <script defer src="../js/test/testCalendar.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -33,6 +37,7 @@
 
       <div id="calendarContainer" class="calendar-container">
         <!-- 여기에 **본문** 내용을 추가할 수 있습니다 -->
+         <div id="calendar"></div>
       </div>
 
       <div id="listContainer" class="list-container">

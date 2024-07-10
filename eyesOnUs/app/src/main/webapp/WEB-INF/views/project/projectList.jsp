@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>KIM</title>
-<link rel="stylesheet" href="/css/projectCss/projectList.css">
-      <script defer src="/js/projectJs/projectSearch.js"></script>
-      <script defer src="/js/projectJs/projectList.js"></script>
-</head>
-    <body id="container">
-      <div id="warp">
-        <section>
+
                     <table>
                         <thead>
                             <tr>
@@ -35,15 +24,13 @@
                 <input type="text" name="title" id="title">
                 <button id="searchBtn" onclick="saerchName();">검색</button>
             </div>
-        </section>
-      </div>
+
     </body>
 
 
 
 </html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
 

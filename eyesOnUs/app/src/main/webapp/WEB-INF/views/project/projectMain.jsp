@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 
 
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -16,6 +17,7 @@
           <script defer src="/js/projectJs/projectSearch.js"></script>
           <script defer src="/js/projectJs/projectList.js"></script>
     </head>
+
 <body>
 
 <div class="time">
@@ -38,6 +40,7 @@
 
 
 <div id="calendarContainer" class="calendar-container">
+
   <table>
         <thead>
             <tr>
@@ -53,11 +56,13 @@
     
         </tbody>
     </table>  
+
 </div>
 
 
 
 <div id="listContainer" class="list-container">
+
   <div id="divSearch">
     <select name="search" id="search">
         <option value="1">제목</option>
@@ -65,6 +70,7 @@
     <input type="text" name="title" id="title">
     <button id="searchBtn" onclick="saerchName();">검색</button>
 </div>
+
   <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
 </div>
 

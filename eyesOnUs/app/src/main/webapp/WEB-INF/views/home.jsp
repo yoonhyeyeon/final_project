@@ -33,7 +33,5 @@
         </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
       </div>
-      <%@ include file="/WEB-INF/views/mainUtil/sidebar.jsp" %>
-      <button id="sidebarBtn"><span>메뉴</span></button>
     </body>
 </html>

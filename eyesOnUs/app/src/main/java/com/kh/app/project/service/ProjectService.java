@@ -73,4 +73,8 @@ public class ProjectService {
     public int recordDelete(String no) {
         return dao.recordDelete(no);
     }
+
+    public List<ProjectVo> listData2(ProjectVo vo) {
+        return dao.listData2(vo);
+    }
 }

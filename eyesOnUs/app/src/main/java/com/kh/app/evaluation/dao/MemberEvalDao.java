@@ -24,8 +24,11 @@ public class MemberEvalDao {
     }
 
     // 목록조회
-    public List<MemberEvalVo> list() {
-        return mapper.list();
+    public List<MemberEvalVo> list(String no) {
+        return mapper.list(no);
     }
 
+    public List<EmployeeVo> listByNo(EmployeeVo vo) {
+        return mapper.listByNo(vo);
+    }
 }

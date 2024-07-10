@@ -2,7 +2,6 @@ package com.kh.app.evaluation.service;
 
 import com.kh.app.evaluation.dao.EvallHomeDao;
 import com.kh.app.evaluation.vo.EvalHomeVo;
-import com.kh.app.sign.vo.EmployeeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,23 +16,23 @@ public class EvalHomeService {
     private final EvallHomeDao dao;
 
     // 모든 사원
-    public List<EvalHomeVo> list() {
-        return dao.list();
+    public List<EvalHomeVo> list(String no) {
+        return dao.list(no);
     }
 
     // 팀장
-    public List<EvalHomeVo> leader() {
-        return dao.leader();
+    public List<EvalHomeVo> leader(String no) {
+        return dao.leader(no);
     }
 
     // 팀원
-    public List<EvalHomeVo> memberEval() {
-        return dao.memberEval();
+    public List<EvalHomeVo> memberEval(String no) {
+        return dao.memberEval(no);
     }
 
     // 동료
-    public List<EvalHomeVo> colleage() {
-        return dao.colleage();
+    public List<EvalHomeVo> colleage(String no) {
+        return dao.colleage(no);
     }
 }
 

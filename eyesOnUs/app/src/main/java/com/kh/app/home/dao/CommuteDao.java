@@ -14,12 +14,18 @@ public class CommuteDao {
 
     private final CommuteMapper mapper;
 
+    public List<EmployeeVo> list(EmployeeVo vo) {
+        return mapper.list(vo);
+    }
+
     // 출근시간
     public int write(CommuteVo vo) {
         return mapper.write(vo);
     }
 
+    // 퇴근시간
     public int quit(CommuteVo vo) {
         return mapper.quit(vo);
     }
+
 }

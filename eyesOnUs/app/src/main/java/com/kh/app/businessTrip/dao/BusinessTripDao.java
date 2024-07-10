@@ -60,8 +60,8 @@ public class BusinessTripDao {
     } // getBusinessTripApproverListForApprover
 
     // 출장 상세 조회 (API)
-    public BusinessTripVo getBusinessTripDetail(String businessTripNo) {
-        BusinessTripVo businessTripDetailVo = mapper.getBusinessTripDetail(businessTripNo);
+    public BusinessTripVo getBusinessTripDetail(BusinessTripVo businessTripVo) {
+        BusinessTripVo businessTripDetailVo = mapper.getBusinessTripDetail(businessTripVo);
         if(businessTripDetailVo == null){
             throw new RuntimeException("[B-005] BUSINESS_TRIP DETAIL SELECT ERROR");
         }
@@ -69,8 +69,8 @@ public class BusinessTripDao {
     } // getBusinessTripDetail
 
     // 출장 승인자 상세 조회 (API)
-    public BusinessTripVo getBusinessTripApproverDetail(String businessTripNo) {
-        BusinessTripVo businessTripApproverDetailVo = mapper.getBusinessTripApproverDetail(businessTripNo);
+    public BusinessTripVo getBusinessTripApproverDetail(BusinessTripVo businessTripVo) {
+        BusinessTripVo businessTripApproverDetailVo = mapper.getBusinessTripApproverDetail(businessTripVo);
         if(businessTripApproverDetailVo == null){
             throw new RuntimeException("[B-006] BUSINESS_TRIP APPROVER DETAIL SELECT ERROR");
         }

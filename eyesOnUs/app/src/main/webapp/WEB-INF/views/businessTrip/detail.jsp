@@ -61,6 +61,7 @@
             <button>출장 신청</button>
             <button>출장 목록 조회</button>
             <button>승인할 출장 목록</button>
+            <div>${businessVo.no}</div>
         </div>
     </body>
 </html>

@@ -1,35 +1,42 @@
-$.ajax({
-    url: "http://127.0.0.1:8383/api/businessTrip/detail",
-    method: "get",
-    data: {
-        businessTripNo: businessTripVo.no
-    },
-    success: (data) => {
-        console.log("통신 성공");
+window.addEventListener("load", onPageLoad);
 
-        const waitTable = document.querySelector("#wait > tbody");
+function onPageLoad(){
+    const businessTripNo = "${no}";
+    console.log(businessTripNo);
 
-        waitTable.innerHTML = "";
-
-        let waitTableCnt = 1;
-
-        for(let i = 0; i < data.businessTripDetailVo.length; ++i){
+    $.ajax({
+        url: "/api/businessTrip/detail",
+        method: "get",
+        data: {
+            no: businessTripNo
+        },
+        success: (data) => {
+            console.log("통신 성공");
+            const waitTable = document.querySelector("#wait > tbody");
+            waitTable.innerHTML = "";
             const trTag = document.createElement("tr");
+            let waitTableCnt = 1;
 
-            let tdTag01 = waitTableCnt;
-            const tdTag02 = addTag("td", data.businessTripDetailVo[i].reason);
-            const tdTag03 = addTag("td", data.businessTripDetailVo[i].divName + " " + data.businessTripDetailVo[i].empName + " " + data.businessTripDetailVo[i].positionName);
-            const tdTag04 = addTag("td", data.businessTripApproverDetailVo[i].divName + " " + data.businessTripApproverDetailVo[i].approverName + " " + data.businessTripApproverDetailVo[i].positionName);
+            const tdTag01 = addTag("td", waitTableCnt);
+            const tdTag02 = addTag("td", data.businessTripDetailVo.reason);
+            const tdTag03 = addTag("td", data.businessTripDetailVo.divName + " " + data.businessTripDetailVo.empName + " " + data.businessTripDetailVo.positionName);
+            const tdTag04 = addTag("td", data.businessTripApproverDetailVo.divName + " " + data.businessTripApproverDetailVo.approverName + " " + data.businessTripApproverDetailVo.positionName);
 
-            const enrollDate = data.businessTripApproverDetailVo[i].enrollDate.substring(0, 10);
-            const approveDate = data.businessTripApproverDetailVo[i].approveDate ? data.businessTripApproverDetailVo[i].approveDate.substring(0, 10) : "";
+            const enrollDate = data.businessTripDetailVo.enrollDate.substring(0, 10);
+            const approveDate = data.businessTripDetailVo.approveDate ? data.businessTripDetailVo.approveDate.substring(0, 10) : "";
 
             const tdTag05 = addTag("td", enrollDate);
             const tdTag06 = addTag("td", approveDate);
-            const tdTag07 = addTag("td", data.businessTripDetailVo[i].state);
 
-            waitTableCnt++;
-
+            let tdTag07 = ""
+            if(data.businessTripDetailVo.state === "0"){
+                tdTag07 = addTag("td", "승인 대기");
+            } else if(data.businessTripDetailVo.state === "1"){
+                tdTag07 = addTag("td", "승인 완료");
+            } else if(data.businessTripDetailVo.state === "2"){
+                tdTag07 = addTag("td", "반려");
+            }
+    
             trTag.appendChild(tdTag01);
             trTag.appendChild(tdTag02);
             trTag.appendChild(tdTag03);
@@ -39,10 +46,10 @@ $.ajax({
             trTag.appendChild(tdTag07);
 
             waitTable.appendChild(trTag);
+        },
+        error: (error) => {
+            console.log("통신 실패");
+            console.log(error);
         }
-    },
-    error: (error) => {
-        console.log("통신 실패");
-        console.log(error);
-    }
-});
+    });
+}

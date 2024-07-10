@@ -171,9 +171,9 @@ public interface BusinessTripMapper {
             JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
             JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
             JOIN PROJECT J ON (B.PRO_NO = J.NO)
-            WHERE B.NO = #{businessTripNo}
+            WHERE B.NO = #{no}
             """})
-    BusinessTripVo getBusinessTripDetail(@RequestParam("businessTripNo") String businessTripNo);
+    BusinessTripVo getBusinessTripDetail(BusinessTripVo businessTripVo);
 
     // 출장 승인자 상세 조회 (API)
     @Select({"""
@@ -193,9 +193,9 @@ public interface BusinessTripMapper {
             JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
             JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
             JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
-            WHERE B.NO = #{businessTripNo}
+            WHERE B.NO = #{no}
             """})
-    BusinessTripVo getBusinessTripApproverDetail(@RequestParam("businessTripNo") String businessTripNo);
+    BusinessTripVo getBusinessTripApproverDetail(BusinessTripVo businessTripVo);
 
     // 출장 승인 (API)
     @Update({"""

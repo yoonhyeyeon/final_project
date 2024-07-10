@@ -60,14 +60,15 @@ public class BusinessTripRestController {
 
     // 출장 상세 조회 (API)
     @GetMapping("detail")
-    public Map<String, BusinessTripVo> getBusinessTripDetail(String businessTripNo){
+    public Map<String, BusinessTripVo> getBusinessTripDetail(BusinessTripVo businessTripVo){
+        System.out.println("businessTripVo = " + businessTripVo);
         // 출장 상세 조회 (API)
-        BusinessTripVo businessTripDetailVo = service.getBusinessTripDetail(businessTripNo);
+        BusinessTripVo businessTripDetailVo = service.getBusinessTripDetail(businessTripVo);
         Map<String, BusinessTripVo> businessTripDetailMap = new HashMap<>();
         businessTripDetailMap.put("businessTripDetailVo", businessTripDetailVo);
 
         // 출장 승인자 상세 조회 (API)
-        BusinessTripVo businessTripApproverDetailVo = service.getBusinessTripApproverDetail(businessTripNo);
+        BusinessTripVo businessTripApproverDetailVo = service.getBusinessTripApproverDetail(businessTripVo);
         businessTripDetailMap.put("businessTripApproverDetailVo", businessTripApproverDetailVo);
 
         return businessTripDetailMap;

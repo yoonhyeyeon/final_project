@@ -3,10 +3,11 @@ package com.kh.app.businessTrip.controller;
 import com.kh.app.businessTrip.service.BusinessTripService;
 import com.kh.app.businessTrip.vo.BusinessTripVo;
 import com.kh.app.member.vo.MemberVo;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Request;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class BusinessTripController {
         vo.setEmpNo(empNo);
 
         int businessTripWriteResult = service.businessTripWrite(vo);
-        return "redirect:/home";
+        return "businessTrip/list/listForWriter";
     } // businessTripWrite
 
     // 출장 목록 조회 (신청자 입장) (화면)
@@ -47,8 +48,10 @@ public class BusinessTripController {
 
     // 출장 상세 조회 (화면)
     @GetMapping("detail")
-    public String businessTripDetail(BusinessTripVo businessTripVo, Request req){
-        req.setAttribute("businessTripVo", businessTripVo);
+    public String businessTripDetail(BusinessTripVo businessTripVo, Model model){
+        System.out.println("businessTripVo = " + businessTripVo);
+        model.addAttribute("businessTripVo", businessTripVo);
+        System.out.println(model.getAttribute("businessTripVo"));
         return "businessTrip/detail";
     } // businessTripDetail
 } // class

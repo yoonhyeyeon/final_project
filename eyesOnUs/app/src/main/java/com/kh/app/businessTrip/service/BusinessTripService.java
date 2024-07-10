@@ -3,17 +3,11 @@ package com.kh.app.businessTrip.service;
 import com.kh.app.businessTrip.dao.BusinessTripDao;
 import com.kh.app.businessTrip.vo.BusinessTripVo;
 import com.kh.app.businessTrip.vo.ProjectVo;
-import com.kh.app.member.vo.MemberVo;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @Transactional
@@ -48,13 +42,13 @@ public class BusinessTripService {
     } // getBusinessTripApproverListForApprover
 
     // 출장 상세 조회 (API)
-    public BusinessTripVo getBusinessTripDetail(String businessTripNo) {
-        return dao.getBusinessTripDetail(businessTripNo);
+    public BusinessTripVo getBusinessTripDetail(BusinessTripVo businessTripVo) {
+        return dao.getBusinessTripDetail(businessTripVo);
     } // getBusinessTripDetail
 
     // 출장 승인자 상세 조회 (API)
-    public BusinessTripVo getBusinessTripApproverDetail(String businessTripNo) {
-        return dao.getBusinessTripApproverDetail(businessTripNo);
+    public BusinessTripVo getBusinessTripApproverDetail(BusinessTripVo businessTripVo) {
+        return dao.getBusinessTripApproverDetail(businessTripVo);
     } // getBusinessTripApproverDetail
 
     // 출장 승인 (API)

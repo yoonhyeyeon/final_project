@@ -8,7 +8,7 @@
         <a href="http://127.0.0.1:8383/test/url">사이트맵</a>
       </div>
       <div id="adminInfo" class="nav">
-        <a href="./adminInfo.html">메일</a>
+        <a href="http://127.0.0.1:8383/teamRoom">팀룸</a>
       </div>
       <div id="adminInfo" class="nav">
         <a href="./adminEmpList.html">자유게시판</a>

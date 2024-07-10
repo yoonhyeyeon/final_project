@@ -13,4 +13,6 @@ public class PersonalVo {
     private String modifyDate;
     private String title;
     private String content;
+
+
 }

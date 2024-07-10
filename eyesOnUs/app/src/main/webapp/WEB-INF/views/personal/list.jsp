@@ -70,6 +70,7 @@
                 <th>번호</th>
                 <th>제목</th>
                 <th>내용</th>
+                <th>등록일</th>
                 <th>사원 번호</th> <!-- 추가된 열 -->
                 <th>상태 번호</th> <!-- 추가된 열 -->
                 <th>유형 번호</th> <!-- 추가된 열 -->
@@ -100,6 +101,7 @@
                         rows += "<td>" + voList[i].no + "</td>";
                         rows += "<td>" + voList[i].title + "</td>";
                         rows += "<td>" + voList[i].content + "</td>";
+                        rows += "<td>" + voList[i].startDate + "</td>";
                         rows += "<td>" + voList[i].no2 + "</td>";
                         rows += "<td>" + voList[i].stateBNo + "</td>";
                         rows += "<td>" + voList[i].typeNo+ "</td>";
@@ -114,6 +116,12 @@
                 }
             });
         });
+
+
+
+
+
+
 
       function deleteRecord(no) {
           if (confirm("정말로 삭제하시겠습니까?")) {

@@ -88,7 +88,7 @@ public class MessageController {
 
         // 발신자의 메시지 목록 조회
         List<MessageVo> voList = service.messageSendListData(senderNo, page, size);
-        int totalCount = service.getTotalCount(senderNo);
+        int totalCount = service.getTotalSendCount(senderNo);
         int totalPages = (int) Math.ceil((double) totalCount / size);
 
         // 결과 맵 생성
@@ -100,15 +100,132 @@ public class MessageController {
         return result;
     }
 
+    @PostMapping("messageSendListSearchData")
+    @ResponseBody
+    public Map<String, Object> messageSendListSearchData(
+            HttpSession session,
+            @RequestParam("empCategory") String empCategory,
+            @RequestParam("searchBox") String searchBox,
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "20") int size){
+
+        // 세션에서 로그인 정보 가져오기
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
+        // 로그인 정보 확인
+        if (loginMemberVo == null) {
+            // 로그인이 되어 있지 않으면 로그인 페이지로 리다이렉트
+            Map<String, Object> result = new HashMap<>();
+            result.put("error", "로그인이 필요합니다.");
+            return result;
+        }
+
+        // 발신자 정보 가져오기
+        String senderNo = loginMemberVo.getNo();
+
+        // 발신자의 메시지 목록 조회
+        List<MessageVo> voList = service.messageSendListSearchData(senderNo, empCategory, searchBox, page, size);
+        int totalCount = service.getSearchTotalSendCount(senderNo, empCategory, searchBox);
+        int totalPages = (int) Math.ceil((double) totalCount / size);
+
+        // 결과 맵 생성
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        result.put("currentPage", page);
+        result.put("totalPages", totalPages);
+
+        return result;
+
+    }
 
     @GetMapping("messageReceiveList")
     public String messageReceiveList(){
         return "message/messageReceiveList";
     }
 
+    @GetMapping("messageReceiveListData")
+    @ResponseBody
+    public Map<String, Object> messageReceiveListData(
+            HttpSession session,
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "20") int size){
+
+        // 세션에서 로그인 정보 가져오기
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
+        // 로그인 정보 확인
+        if (loginMemberVo == null) {
+            // 로그인이 되어 있지 않으면 로그인 페이지로 리다이렉트
+            Map<String, Object> result = new HashMap<>();
+            result.put("error", "로그인이 필요합니다.");
+            return result;
+        }
+
+        // 수신자 정보 가져오기
+        String receiverNo = loginMemberVo.getNo();
+
+        // 발신자의 메시지 목록 조회
+        List<MessageVo> voList = service.messageReceiveListData(receiverNo, page, size);
+        int totalCount = service.getTotalReceiveCount(receiverNo);
+        int totalPages = (int) Math.ceil((double) totalCount / size);
+
+        // 결과 맵 생성
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        result.put("currentPage", page);
+        result.put("totalPages", totalPages);
+
+        return result;
+
+    }
+
+    @PostMapping("messageReceiveListSearchData")
+    @ResponseBody
+    public Map<String, Object> messageReceiveListSearchData(
+            HttpSession session,
+            @RequestParam("empCategory") String empCategory,
+            @RequestParam("searchBox") String searchBox,
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "20") int size){
+
+        // 세션에서 로그인 정보 가져오기
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
+        // 로그인 정보 확인
+        if (loginMemberVo == null) {
+            // 로그인이 되어 있지 않으면 로그인 페이지로 리다이렉트
+            Map<String, Object> result = new HashMap<>();
+            result.put("error", "로그인이 필요합니다.");
+            return result;
+        }
+
+        // 수신자 정보 가져오기
+        String receiverNo = loginMemberVo.getNo();
+
+        // 발신자의 메시지 목록 조회
+        List<MessageVo> voList = service.messageReceiveListSearchData(receiverNo, empCategory, searchBox, page, size);
+        int totalCount = service.getSearchTotalReceiveCount(receiverNo, empCategory, searchBox);
+        int totalPages = (int) Math.ceil((double) totalCount / size);
+
+        // 결과 맵 생성
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        result.put("currentPage", page);
+        result.put("totalPages", totalPages);
+
+        return result;
+
+    }
+
     @GetMapping("messageDetail")
     public String messageDetail(){
         return "message/messageDetail";
+    }
+
+    @GetMapping("messageDetailData")
+    @ResponseBody
+    public MessageVo messageDetailData(@RequestParam("no") String no){
+        return service.messageDetailData(no);
     }
 
 }

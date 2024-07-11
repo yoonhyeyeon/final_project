@@ -1,7 +1,7 @@
 $(document).ready(function() {
     function populateEmpContainer(page) {
         $.ajax({
-            url: '/message/messageSendListData?page=' + page,
+            url: '/message/messageReceiveListData?page=' + page,
             type: 'GET',
             dataType: 'json',
             success: function(response) {
@@ -12,7 +12,7 @@ $(document).ready(function() {
                     '<div>부서명</div>' +
                     '<div>팀명</div>' +
                     '<div>직급</div>' +
-                    '<div>수신인</div>' +
+                    '<div>발신인</div>' +
                     '<div>읽음</div>' +
                     '<div>삭제</div>' +
                     '</div>';
@@ -24,10 +24,10 @@ $(document).ready(function() {
                     var row = '<div class="msg-list-row list-body-row">' +
                         '<div class="emp-data list-body-low">' + vo.sendTime + '</div>' +
                         `<div class="emp-data list-body-low"><a class="team-link" href="/message/messageDetail?no=${vo.no}">${vo.title}</a></div>` +
-                        '<div class="emp-data list-body-low">' + vo.receiverDeptName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.receiverDivName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.receiverPositionName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.receiverName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderDeptName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderDivName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderPositionName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderName + '</div>' +
                         '<div class="emp-data list-body-low">' + readStatus + '</div>' +
                         `<div class="emp-data list-body-low"><a class="team-link" href="/message/delete?no=${vo.no}">삭제</a></div>` +
                         '</div>';
@@ -66,7 +66,7 @@ $(document).ready(function() {
         var empCategory = $('#empCategory').val();
         var searchBox = $('#searchBox').val();
         $.ajax({
-            url: '/message/messageSendListSearchData',
+            url: '/message/messageReceiveListSearchData',
             type: 'POST',
             dataType: 'json',
             data: {
@@ -82,7 +82,7 @@ $(document).ready(function() {
                     '<div>부서명</div>' +
                     '<div>팀명</div>' +
                     '<div>직급</div>' +
-                    '<div>수신인</div>' +
+                    '<div>발신인</div>' +
                     '<div>읽음</div>' +
                     '<div>삭제</div>' +
                     '</div>';
@@ -94,12 +94,12 @@ $(document).ready(function() {
                     var row = '<div class="msg-list-row list-body-row">' +
                         '<div class="emp-data list-body-low">' + vo.sendTime + '</div>' +
                         `<div class="emp-data list-body-low"><a class="team-link" href="/message/messageDetail?no=${vo.no}">${vo.title}</a></div>` +
-                        '<div class="emp-data list-body-low">' + vo.receiverDeptName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.receiverDivName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.receiverPositionName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.receiverName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderDeptName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderDivName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderPositionName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.senderName + '</div>' +
                         '<div class="emp-data list-body-low">' + readStatus + '</div>' +
-                        `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/edit?no=${vo.no}">삭제</a></div>` +
+                        `<div class="emp-data list-body-low"><a class="team-link" href="/message/delete?no=${vo.no}">삭제</a></div>` +
                         '</div>';
                     $('#empContainer').append(row);
                 }

@@ -84,6 +84,30 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+     // 상태 번호를 문자열로 변환하는 함수
+            function getStateBNoString(stateBNo) {
+                switch(stateBNo) {
+                    case 1: return "대기";
+                    case 2: return "진행 중";
+                    case 3: return "완료";
+                    default: return "알 수 없음";
+                }
+            }
+
+            // 유형 번호를 문자열로 변환하는 함수
+            function getTypeNoString(typeNo) {
+                switch(typeNo) {
+                    case 1: return "버그";
+                    case 2: return "기능 추가";
+                    case 3: return "개선";
+                    default: return "기타";
+                }
+            }
+
+
+
+
+
         $(document).ready(function() {
             $.ajax({
                 url: "http://127.0.0.1:8383/api/personal/list",
@@ -97,14 +121,17 @@
                     let rows = "";
 
                     for (let i = 0; i < voList.length; ++i) {
+                     const stateBNoStr = getStateBNoString(voList[i].stateBNo);
+                     const typeNoStr = getTypeNoString(voList[i].typeNo);
+
                         rows += "<tr>";
                         rows += "<td>" + voList[i].no + "</td>";
                         rows += "<td>" + voList[i].title + "</td>";
                         rows += "<td>" + voList[i].content + "</td>";
                         rows += "<td>" + voList[i].startDate + "</td>";
                         rows += "<td>" + voList[i].no2 + "</td>";
-                        rows += "<td>" + voList[i].stateBNo + "</td>";
-                        rows += "<td>" + voList[i].typeNo+ "</td>";
+                        rows += "<td>" + stateBNoStr + "</td>";
+                        rows += "<td>" + typeNoStr + "</td>";
                         rows += "<td><button class='edit-button' onclick='deleteRecord(" + voList[i].no + ")'>삭제</button></td>";
                         rows += "</tr>";
                     }

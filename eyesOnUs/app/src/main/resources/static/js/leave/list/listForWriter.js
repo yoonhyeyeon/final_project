@@ -5,7 +5,7 @@ function onPageLoad(){
         url: "/api/leave/listForWriter",
         method: "get",
         success: (data) => {
-            console.log("통신 성공");
+            console.log("신청한 휴가 리스트 통신 성공");
     
             const waitTable = document.querySelector("#wait > tbody");
             const approvalTable = document.querySelector("#approval > tbody");
@@ -15,15 +15,15 @@ function onPageLoad(){
             approvalTable.innerHTML = "";
             returnTable.innerHTML = "";
     
-            let waitTableCnt = 1;
-            let approvalTableCnt = 1;
-            let returnTableCnt = 1;
-    
+            let waitTableCnt = 0;
+            let approvalTableCnt = 0;
+            let returnTableCnt = 0;
+ 
             for(let i = 0; i < data.leaveVoListForWriter.length; ++i){
                 const trTag = document.createElement("tr");
     
                 trTag.addEventListener("click", () => {
-                    location.href = `/leave/detail?no=${data.leaveVoListForWriter[i].no}&state=${data.leaveVoListForWriter[i].state}`;
+                    location.href = `/leave/detail?no=${data.leaveVoListForWriter[i].no}`;
                 });
                 trTag.style.cursor = "pointer";
     
@@ -41,17 +41,17 @@ function onPageLoad(){
                 let tdTag01 = "";
                 let tdTag08 = "";
                 if(data.leaveVoListForWriter[i].state === "0"){
+                    waitTableCnt++;
                     tdTag01 = addTag("td", waitTableCnt);
                     tdTag08 = addTag("td", "승인 대기");
-                    waitTableCnt++;
                 } else if(data.leaveVoListForWriter[i].state === "1"){
+                    approvalTableCnt++;
                     tdTag01 = addTag("td", approvalTableCnt);
                     tdTag08 = addTag("td", "승인 완료");
-                    approvalTableCnt++;
                 } else if(data.leaveVoListForWriter[i].state === "2"){
+                    returnTableCnt++;
                     tdTag01 = addTag("td", returnTableCnt);
                     tdTag08 = addTag("td", "반려");
-                    returnTableCnt++;
                 }
     
                 trTag.appendChild(tdTag01);
@@ -70,6 +70,14 @@ function onPageLoad(){
                 } else if(data.leaveVoListForWriter[i].state === "2"){
                     returnTable.appendChild(trTag);
                 }
+
+                const waitMarkTag = document.querySelector("#waitMark");
+                const approvalMarkTag = document.querySelector("#approvalMark");
+                const returnMarkTag = document.querySelector("#returnMark");
+
+                waitMarkTag.innerHTML = waitTableCnt + " 건";
+                approvalMarkTag.innerHTML = approvalTableCnt + " 건";
+                returnMarkTag.innerHTML = returnTableCnt + " 건";
             }
         },
         error: (error) => {

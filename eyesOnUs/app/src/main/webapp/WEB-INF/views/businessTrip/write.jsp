@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>신청한 출장 목록 조회</title>
+        <title>출장 신청</title>
 
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
@@ -17,8 +17,9 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="/css/businessTrip/write.css">
         <script defer src="/js/businessTrip/write.js"></script>
+        <script defer src="/js/common/employeeList.js"></script>
+        <script defer src="/js/common/projectList.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -72,58 +73,6 @@
             </form>
         </div>
 
-        <div id="listContainer" class="list-container">
-            <button onclick="location.href='/businessTrip/write'">출장 신청</button>
-            <button onclick="location.href='/businessTrip/listForWriter'">신청한 출장 목록</button>
-            <button onclick="location.href='/businessTrip/listForApprover'">승인할 출장 목록</button>
-        </div>
+        <div id="listContainer" class="list-container"></div>
     </body>
 </html>
-
-<script>
-    window.addEventListener("load", pageOnload);
-
-    function pageOnload(){
-        $.ajax({
-            url: "/api/sign/employeeList",
-            method: "get",
-            success: (data) => {
-                console.log("통신 성공");
-                console.log(data);
-
-                const selectTagApproverNo = document.querySelector("select[name=approverNo]");
-
-                for(let i = 0; i < data.employeeVoList.length; ++i){
-                    const optionTagApproverNo = addTag("option", data.employeeVoList[i].divName + " " + data.employeeVoList[i].name + " " + data.employeeVoList[i].positionName);
-                    optionTagApproverNo.value = data.employeeVoList[i].no;
-                    selectTagApproverNo.appendChild(optionTagApproverNo);
-                }
-
-                $.ajax({
-                    url: "/api/businessTrip/projectList",
-                    method: "get",
-                    success: (data) => {
-                        console.log("통신 성공");
-                        console.log(data);
-                        
-                        const selectTagProNo = document.querySelector("select[name=proNo]");
-
-                        for(let i = 0; i < data.projectVoList.length; ++i){
-                            const optionTagProNo = addTag("option", data.projectVoList[i].title);
-                            optionTagProNo.value = data.projectVoList[i].no;
-                            selectTagProNo.appendChild(optionTagProNo);
-                        }
-                    },
-                    error: (error) => {
-                        console.log("통신 실패");
-                        console.log(data);
-                    }
-                });
-            },
-            error: (error) => {
-                console.log("통신 실패");
-                console.log(error);
-            }
-        });
-    }
-</script>

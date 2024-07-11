@@ -48,6 +48,7 @@ public class BusinessTripController {
     // 출장 상세 조회 (화면)
     @GetMapping("detail")
     public String businessTripDetail(BusinessTripVo businessTripVo, Model model){
+        // 출장 상세 조회할 businessTripNo 넘겨주기
         model.addAttribute("businessTripVo", businessTripVo);
         return "businessTrip/detail";
     } // businessTripDetail

@@ -41,17 +41,22 @@ public class LeaveService {
     } // getLeaveApproverListForApprover
 
     // 휴가 상세 조회 (API)
-    public LeaveVo getLeaveDetail(String leaveNo) {
-        return dao.getLeaveDetail(leaveNo);
+    public LeaveVo getLeaveDetail(LeaveVo leaveVo) {
+        return dao.getLeaveDetail(leaveVo);
     } // getLeaveDetail
 
     // 휴가 승인자 상세 조회 (API)
-    public LeaveVo getLeaveApproverDetail(String leaveNo) {
-        return dao.getLeaveApproverDetail(leaveNo);
+    public LeaveVo getLeaveApproverDetail(LeaveVo leaveVo) {
+        return dao.getLeaveApproverDetail(leaveVo);
     } // getLeaveApproverDetail
 
     // 휴가 승인 (API)
     public int updateLeaveApprove(LeaveVo leaveVo) {
         return dao.updateLeaveApprove(leaveVo);
     } // updateLeaveApprove
+
+    // 휴가 타입 리스트 (API)
+    public List<LeaveVo> getLeaveTypeList() {
+        return dao.getLeaveTypeList();
+    } // getLeaveTypeList
 } // class

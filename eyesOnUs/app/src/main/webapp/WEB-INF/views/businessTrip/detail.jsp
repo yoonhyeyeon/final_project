@@ -17,8 +17,6 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="/css/businessTrip/detail.css">
-        <script defer src="/js/businessTrip/detail.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -57,11 +55,7 @@
             </table>
         </div>
 
-        <div id="listContainer" class="list-container">
-            <button>출장 신청</button>
-            <button>출장 목록 조회</button>
-            <button>승인할 출장 목록</button>
-        </div>
+        <div id="listContainer" class="list-container"></div>
     </body>
 </html>
 
@@ -78,7 +72,8 @@
                 no: businessTripNo
             },
             success: (data) => {
-                console.log("통신 성공");
+                console.log("출장 상세 조회 통신 성공");
+
                 const waitTable = document.querySelector("#wait > tbody");
                 waitTable.innerHTML = "";
                 const trTag = document.createElement("tr");

@@ -6,6 +6,7 @@ import com.kh.app.member.vo.MemberVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,8 @@ public class LeaveController {
         String empNo = loginMemberVo.getNo();
         vo.setEmpNo(empNo);
 
+        System.out.println("vo = " + vo);
+
         int result = service.leaveWrite(vo);
         return "redirect:/home";
     } // leaveWrite
@@ -46,5 +49,9 @@ public class LeaveController {
 
     // 휴가 상세 조회 (화면)
     @GetMapping("detail")
-    public void leaveDetail(){} // leaveDetail
+    public String leaveDetail(LeaveVo leaveVo, Model model){
+        // 휴가 상세 조회할 leaveNo 넘겨주기
+        model.addAttribute("leaveVo", leaveVo);
+        return "leave/detail";
+    } // leaveDetail
 } // class

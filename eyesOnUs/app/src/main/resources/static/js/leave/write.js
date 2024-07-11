@@ -1,1 +1,5 @@
-console.log("leave write");
+window.addEventListener("load", onPageLoad);
+
+function onPageLoad(){
+    getLeaveTypeList();
+}

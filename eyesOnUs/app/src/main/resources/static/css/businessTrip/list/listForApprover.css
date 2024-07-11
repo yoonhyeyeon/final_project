@@ -1,4 +1,68 @@
-section{
+#calendarContainer{
+    display: grid;
+    grid-template-rows: 0.1fr 0.3fr 1fr 3fr;
+}
+
+#approveChange{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.approveChange{
+    border: 2px solid lightgray;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    font-size: small;
+}
+
+#secondSpan{
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    font-size: small;
+}
+
+#secondSpan:hover{
+    cursor: pointer;
+    background-color: red;
+}
+
+.approveChange:hover{
+    cursor: pointer;
+    background-color: red;
+}
+
+#upperDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.listBtn{
+    width: 125px;
+    height: 100px;
+    border: 3px solid lightgray;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.listBtn:hover{
+    background-color: red;
+    cursor: pointer;
+}
+
+.listBtn > h5{
+    color: rgb(18, 18, 156);
+    margin: 0 0;
+}
+
+.clicked{
+    background-color: red;
 }

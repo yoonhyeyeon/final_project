@@ -1,5 +1,6 @@
 package com.kh.app.teamRoom.service;
 
+import com.kh.app.home.vo.CommuteVo;
 import com.kh.app.teamRoom.dao.TeamRoomDao;
 import com.kh.app.teamRoom.vo.TeamRoomVo;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +22,7 @@ public class TeamRoomService {
         return dao.getTodoPrjList();
     }
 
-    public List<TeamRoomVo> getTeamList() {
-        return dao.getTeamList();
+    public List<TeamRoomVo> list(String no) {
+        return dao.list(no);
     }
-
 }//class

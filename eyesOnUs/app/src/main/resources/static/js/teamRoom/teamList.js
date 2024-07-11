@@ -1,22 +1,25 @@
- $.ajax({
-        url: "http://127.0.0.1:8383/api/teamRoom/teamList",
-        method: "get",
-        dataType: "json",
-        success: function(data) {
-            const voList = data;
-            const tbody = $("#teamListBody"); //테이블의 tbody
-            let rows = "";
+$.ajax({
+    url : "http://127.0.0.1:8383/util/detailData",
+    type : "get",
+    success : (data)=>{
+        console.log("통신 성공");
+        console.log(data);
 
-            for (let i = 0; i < voList.length; ++i) {
-                rows += "<tr>";
-                rows += "<td>" + voList[i].name + "</td>";
-                rows += "<td>" + voList[i].nick + "</td>";
-                rows += "</tr>";
-            }
+        const list = document.querySelector("thead");
+        let str = "";
 
-            tbody.html(rows);
-        },
-        error: function(xhr, status, error) {
-            console.error("Error fetching todo list:", error);
+       for(let i = 0; i < data.length ; i++){
+            str += "<div id='listItem'>";
+            str += "<span>" + data[i].name + "</span>";
+            str += "<span>" + data[i].nick + "</span>";
+            str += "</div>";
+
+
         }
-    });
+        list.innerHTML = str;
+
+    },
+    fail : ()=>{
+        console.log("통신 실패");
+    },
+});

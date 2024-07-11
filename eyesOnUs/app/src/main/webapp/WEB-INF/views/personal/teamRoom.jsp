@@ -23,6 +23,11 @@
   <!-- 근무 시간을 표시할 div 추가 -->
   <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
   </div>
+
+  <div id="teamList">
+  <%@ include file="/WEB-INF/views/teamRoom/teamList.jsp" %>
+  </div>
+
 </div>
 
   <div id="sidebar" class="sidebar">

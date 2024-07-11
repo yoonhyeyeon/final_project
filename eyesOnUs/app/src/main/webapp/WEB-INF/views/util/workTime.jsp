@@ -15,21 +15,6 @@
 <body>
     <table class="work-time-table">
         <thead>
-            <tr>
-                <td>총근무시간</td>
-                <td>-</td>
-            </tr>
-            
-            <tr>
-                <td>출근</td>
-                <td>-</td>
-            </tr>
-
-            
-            <tr>
-                <td>퇴근</td>
-                <td>-</td>
-            </tr>
 
         </thead>
     </table>

@@ -6,7 +6,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 $('#empContainer').empty();
-                var headerRow = '<div class="emp-header list-header-row">' +
+                var headerRow = '<div class="msg-header list-header-row">' +
                     '<div>시간</div>' +
                     '<div>제목</div>' +
                     '<div>부서명</div>' +
@@ -14,18 +14,21 @@ $(document).ready(function() {
                     '<div>직급</div>' +
                     '<div>수신인</div>' +
                     '<div>읽음</div>' +
+                    '<div>삭제</div>' +
                     '</div>';
                 $('#empContainer').append(headerRow);
                 var voList = response.voList;
                 for (var i = 0; i < voList.length; i++) {
                     var vo = voList[i];
-                    var row = '<div class="emp-row list-body-row">' +
+                    var readStatus = (vo.readYn === 'Y') ? '읽음' : '읽기 전';
+                    var row = '<div class="msg-list-row list-body-row">' +
                         '<div class="emp-data list-body-low">' + vo.sendTime + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.title + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.deptName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.divName + '</div>' +
-                        '<div class="emp-data list-body-low">' + vo.positionName + '</div>' +
-                        `<div class="emp-data list-body-low"><a class="team-link" href="/message/detail?no=${vo.no}">${vo.name}</a></div>` +
+                        `<div class="emp-data list-body-low"><a class="team-link" href="/message/detail?no=${vo.no}">${vo.title}</a></div>` +
+                        '<div class="emp-data list-body-low">' + vo.receiverDeptName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.receiverDivName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.receiverPositionName + '</div>' +
+                        '<div class="emp-data list-body-low">' + vo.receiverName + '</div>' +
+                        '<div class="emp-data list-body-low">' + readStatus + '</div>' +
                         `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/edit?no=${vo.no}">삭제</a></div>` +
                         '</div>';
                     $('#empContainer').append(row);

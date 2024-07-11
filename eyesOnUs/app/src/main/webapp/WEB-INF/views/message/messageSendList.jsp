@@ -7,7 +7,8 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="/css/messageCss/messageWriteCss.css">
-            <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminList.css">
+            <link rel="stylesheet" type="text/css" href="/css/messageCss/messageListCss.css">
+
             <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
             <script defer src="/js/messageJs/messageSearchJs.js"></script>
             <script defer src="/js/messageJs/messageSendListJs.js"></script>

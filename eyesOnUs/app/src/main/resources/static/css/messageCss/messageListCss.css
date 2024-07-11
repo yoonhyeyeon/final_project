@@ -61,7 +61,7 @@
 
 .msg-header {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .list-body-row {
@@ -86,9 +86,9 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.msg-detail-row {
+.msg-list-row {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .list-body-row:hover {

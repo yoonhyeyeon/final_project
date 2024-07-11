@@ -11,6 +11,7 @@
     <title>projectWork</title>
     <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
     <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+    <link rel="stylesheet" href="/css/teamRoom/clock.css">
     <script defer src="../js/testMain/calender.js"></script>
 </head>
 <body>
@@ -55,6 +56,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/js/teamRoom/list.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
-
+<script src="/js/teamRoom/clock.js"></script>
 </body>
 </html>

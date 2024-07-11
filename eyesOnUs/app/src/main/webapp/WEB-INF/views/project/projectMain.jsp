@@ -18,16 +18,16 @@
     </head>
 <body>
 
-<div class="time">
- <div id="time">
-  <!-- 현재 시간을 표시할 div 추가 -->
-  </div>
+     <div class="time">
+         <div id="time">
+             <!-- 현재 시간을 표시할 div 추가 -->
+         </div>
 
-  <div id="work-time-table">
-  <!-- 근무 시간을 표시할 div 추가 -->
-  <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
-  </div>
-</div>
+         <div id="work-time-table">
+             <!-- 근무 시간을 표시할 div 추가 -->
+             <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
+         </div>
+     </div>
 
   <div id="sidebar" class="sidebar">
    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
@@ -87,6 +87,12 @@
 </div>
 
 
+<style>
+    #personalTableBody1, #personalTableBody2{
+        font-size: 15px; /* 전체적으로 글자 크기 축소 */
+
+    }
+</style>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

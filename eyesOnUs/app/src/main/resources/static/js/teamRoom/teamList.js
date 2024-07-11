@@ -1,25 +1,51 @@
-$.ajax({
-    url : "http://127.0.0.1:8383/util/detailData",
-    type : "get",
-    success : (data)=>{
-        console.log("통신 성공");
-        console.log(data);
+document.addEventListener("DOMContentLoaded", function () {
+    const table = document.getElementById("teamList-table");
 
-        const list = document.querySelector("thead");
-        let str = "";
+    // 서버에서 팀원 목록 데이터를 가져오는 함수
+    function fetchTeamList() {
+        $.ajax({
+            url: 'api/teamRoom/listData',
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                if (data.length > 0) {
+                    displayTable(data);
+                } else {
+                    table.innerHTML = "<tr><td colspan='2'>로그인이 필요합니다.</td></tr>";
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+                table.innerHTML = "<tr><td colspan='2'>로그인 후 이용가능한 기능.</td></tr>";
+            }
+        });
+    }
 
-       for(let i = 0; i < data.length ; i++){
-            str += "<div id='listItem'>";
-            str += "<span>" + data[i].name + "</span>";
-            str += "<span>" + data[i].nick + "</span>";
-            str += "</div>";
+    // 팀원 목록 데이터를 테이블에 표시하는 함수
+    function displayTable(data) {
+        table.innerHTML = ""; // 테이블 초기화
 
+        // 테이블 헤더 추가
+        const header = table.createTHead();
+        const headerRow = header.insertRow(0);
+        const nameHeader = document.createElement("td");
+        nameHeader.textContent = "이름";
+        const nickHeader = document.createElement("td");
+        nickHeader.textContent = "직책";
+        headerRow.appendChild(nameHeader);
+        headerRow.appendChild(nickHeader);
 
-        }
-        list.innerHTML = str;
+        // 테이블 바디 추가
+        const tbody = table.createTBody();
+        data.forEach(item => {
+            const row = tbody.insertRow();
+            const nameCell = row.insertCell();
+            const nickCell = row.insertCell();
+            nameCell.textContent = item.name;
+            nickCell.textContent = item.nick;
+        });
+    }
 
-    },
-    fail : ()=>{
-        console.log("통신 실패");
-    },
+    // 페이지 로드 시 데이터 가져오기
+    fetchTeamList();
 });

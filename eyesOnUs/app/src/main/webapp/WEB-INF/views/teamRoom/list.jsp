@@ -4,6 +4,13 @@
 
 <h4>진행 중인 기타일정</h4>
 
+<style>
+    #personalTableBody1{
+        font-size: 15px; /* 전체적으로 글자 크기 축소 */
+
+    }
+</style>
+
 <table>
     <thead>
         <tr>

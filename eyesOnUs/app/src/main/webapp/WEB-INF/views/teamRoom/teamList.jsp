@@ -14,23 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
+    <table id="teamList-table">
 
-
-
-    <table>
-        <thead id="listItemBox">
-            <tr>
-                <th>이름</th>
-                <th>직책</th>
-            </tr>
-        </thead>
-        <tbody id="Item">
-            <!-- 동적 데이터 추가 -->
-        </tbody>
     </table>
-
-
-
-
 </body>
 </html>

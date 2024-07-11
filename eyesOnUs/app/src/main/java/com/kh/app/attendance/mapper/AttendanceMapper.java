@@ -10,6 +10,7 @@ import java.util.List;
 public interface AttendanceMapper {
 
     @Select("""
+            <script>
             SELECT
                 C.EMP_NO
                 , E.NAME AS EMP
@@ -32,7 +33,11 @@ public interface AttendanceMapper {
             JOIN ATTEND A
             ON E.STATE = A.STATE
             WHERE C.EMP_NO = #{empNo}
+            <if test="month != null">
+                AND TO_CHAR(C.WORK_TIME, 'MM') = #{month}
+            </if>
+            </script>
             """)
-    List<CommuteVo> list(String empNo);
+    List<CommuteVo> list(String empNo, String month);
 
 }

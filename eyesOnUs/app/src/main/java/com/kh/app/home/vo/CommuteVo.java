@@ -18,5 +18,6 @@ public class CommuteVo {
     private String division;
     private String position;
     private String attend;
+    private String month;
 
 }

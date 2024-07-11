@@ -17,7 +17,6 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/testPersonalPage.css">
       <link rel="stylesheet" type="text/css" href="/css/attendance/list.css">
-      <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/testMain/sidebar.js"></script>
       <script defer src="../js/testMain/calender.js"></script>
       <script defer src="../js/commute/write.js"></script>
@@ -42,7 +41,7 @@
               <br>
               <div id="listMain">
                 <span>조회</span>
-                <select name="month" id="month">
+                <select name="month" id="month" onchange="monthData();">
                   <option value="01">1월</option>
                   <option value="02">2월</option>
                   <option value="03">3월</option>

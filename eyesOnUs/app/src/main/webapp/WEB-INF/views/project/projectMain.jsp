@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
         <link rel="stylesheet" href="/css/projectCss/projectMain.css">
           <script defer src="/js/projectJs/projectSearch.js"></script>
           <script defer src="/js/projectJs/projectList.js"></script>
@@ -97,6 +98,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
-
+<script src="/js/teamRoom/clock.js"></script>
 </body>
 </html>

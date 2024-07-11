@@ -24,7 +24,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
 
-      <title>개인페이지</title>
+      <title>홈페이지</title>
     </head>
 
     <body id="container">

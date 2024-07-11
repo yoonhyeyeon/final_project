@@ -4,6 +4,7 @@
   <div id="personalPage-body-left">
     <div id="personalPage-body-left-currentTime">
       <h3>시계</h3>
+      <%@ include file="/WEB-INF/views/teamRoom/clock.jsp" %>
     </div>
     <div id="personalPage-body-left-currentTime">
       <h3>결제</h3>

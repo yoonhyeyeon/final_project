@@ -9,6 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>TEAM ROOM</title>
       <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+      <link rel="stylesheet" href="/css/teamRoom/clock.css">
       <link rel="stylesheet" href="/css/teamRoom/list.css">
       <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
       <script defer src="../js/testMain/calender.js"></script>
@@ -54,6 +55,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="/js/teamRoom/list.js"></script>
       <script src="/js/teamRoom/teamRoom.js"></script>
+      <script src="/js/teamRoom/clock.js"></script>
 
     </body>
 

@@ -42,7 +42,7 @@
     <hr><br><br>
     <div id="list">
       <br><br><br>
-      <span class="evaluatorNo">평가자 : 윤혜연</span>
+      <span class="evaluatorNo"></span>
       <div id="listBtn">
         <button onclick="leader(${vo.no});">팀장 평가</button>
         <br><br>

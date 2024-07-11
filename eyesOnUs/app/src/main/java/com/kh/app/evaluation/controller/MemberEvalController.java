@@ -33,7 +33,10 @@ public class MemberEvalController {
     }
 
     @PostMapping("write")
-    public HashMap<String, String> write(MemberEvalVo vo){
+    public HashMap<String, String> write(MemberEvalVo vo,HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
         int result = service.write(vo);
 
         HashMap<String, String> map = new HashMap<>();

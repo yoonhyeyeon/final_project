@@ -1,58 +1,47 @@
-$.ajax({
-  url : "http://127.0.0.1:8383/attendance/listData",
-  type : "get",
-  success : (data)=>{
-    console.log("통신 성공");
-    console.log(data);
+function monthData() {
+    const month = document.querySelector("#month").value;
 
-    const list = document.querySelector("#list");
-    console.log(list);
+    $.ajax({
+      url : "http://127.0.0.1:8383/attendance/listData",
+      type : "get",
+      data: { month: month },
+      success : (data)=>{
+        console.log("통신 성공");
+        console.log(data);
 
-    let str = "";
+        const list = document.querySelector("#list");
+        console.log(list);
 
-    const title = document.querySelector("#listHead");
-    console.log(title);
+        let str = "";
 
-    let str2 = "";
+        const title = document.querySelector("#listHead");
+        console.log(title);
 
-    str2 += "<span>" + data[0].emp + "</span>";
-    str2 += "<span>" + data[0].position + "</span>";
-    str2 += "<span>(" + data[0].division + ")</span>";
+        let str2 = "";
 
-    title.innerHTML = str2;
+        str2 += "<span>" + data[0].emp + "</span>";
+        str2 += "<span>" + data[0].position + "</span>";
+        str2 += "<span>(" + data[0].division + ")</span>";
 
-    for(let i = 0; i < data.length; i++){
-      str += "<div id='listBody'>";
-      str += "<span>" + data[i].workDate + "</span>";
-      str += "<span>(" + data[i].workDay + ")</span>";
-      str += "<span>" + data[i].workTime + "</span>";
-      str += "<span>" + data[i].quitTime + "</span>";
-      str += "<span>" + data[i].totalHours + "시간 " + data[i].totalMinutes + "분" + "</span>";
-      str += "<span>" + data[i].attend + "</span>";
-      str += "</div>";
-    }
+        title.innerHTML = str2;
 
-    list.innerHTML = str;
+        for(let i = 0; i < data.length; i++){
+          str += "<div id='listBody'>";
+          str += "<span>" + data[i].workDate + "</span>";
+          str += "<span>(" + data[i].workDay + ")</span>";
+          str += "<span>" + data[i].workTime + "</span>";
+          str += "<span>" + data[i].quitTime + "</span>";
+          str += "<span>" + data[i].totalHours + "시간 " + data[i].totalMinutes + "분" + "</span>";
+          str += "<span>" + data[i].attend + "</span>";
+          str += "</div>";
+        }
 
-  },
-  fail : ()=>{
-    console.log("통신 실패");
-  },
-});
+        list.innerHTML = str;
 
+      },
+      fail : ()=>{
+        console.log("통신 실패");
+      },
+    });
 
-
-$.ajax({
-  url : "http://127.0.0.1:8383/attendance/noData",
-  type : "get",
-  success : (data)=>{
-    console.log("통신 성공");
-    console.log(data);
-
-
-
-  },
-  fail : ()=>{
-    console.log("통신 실패");
-  },
-});
+}

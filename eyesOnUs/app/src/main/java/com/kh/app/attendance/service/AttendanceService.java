@@ -15,8 +15,8 @@ public class AttendanceService {
 
     private final AttendanceDao dao;
 
-    public List<CommuteVo> list(String empNo) {
-        return dao.list(empNo);
+    public List<CommuteVo> list(String empNo, String month) {
+        return dao.list(empNo, month);
     }
 
 }

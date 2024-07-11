@@ -34,14 +34,13 @@
   text-align: center;
 }
 
-#listMain > button{
-  width: 30px;
+#listMain > select{
+  width: 35px;
   height: 25px;
   background-color: rgb(142, 160, 255);
   border: 1px solid rgb(86, 91, 114);
   border-radius: 5px;
   color: rgb(0, 26, 105);
-  cursor: pointer;
 }
 
 #listMain{

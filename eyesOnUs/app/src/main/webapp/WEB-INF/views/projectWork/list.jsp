@@ -25,12 +25,7 @@
            box-shadow: 0 0 10px rgba(0,0,0,0.1);
        }
 
-       table thead {
-           position: sticky; /* 헤더를 고정시킴 */
-           top: 0; /* 페이지의 최상단에 고정 */
-           background-color: #f2f2f2; /* 헤더의 배경색 */
-           z-index: 1; /* 헤더가 테이블 본문 위에 오도록 설정 */
-       }
+     
 
 
 
@@ -87,12 +82,12 @@
                 <th>내용</th>
                 <th>등록일</th>
                 <th>사원 번호</th> <!-- 추가된 열 -->
-                <th>상태 번호</th> <!-- 추가된 열 -->
-                <th>유형 번호</th> <!-- 추가된 열 -->
+                <th>상태</th> <!-- 추가된 열 -->
+                <th>유형</th> <!-- 추가된 열 -->
                 <th>삭제</th> <!-- 추가된 열 -->
             </tr>
         </thead>
-        <tbody id="personalTableBody">
+        <tbody id="projectTableBody">
             <!-- Dynamic rows will be inserted here -->
         </tbody>
     </table>
@@ -132,7 +127,7 @@
 
                     const voList = data;
 
-                    const tbody = $("#personalTableBody");
+                    const tbody = $("#projectTableBody");
                     let rows = "";
 
                     for (let i = 0; i < voList.length; ++i) {

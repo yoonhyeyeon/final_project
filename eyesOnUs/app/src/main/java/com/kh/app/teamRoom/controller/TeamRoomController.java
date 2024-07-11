@@ -16,9 +16,11 @@ public class TeamRoomController {
 
     }
 
-    //팀룸 화면
+    //사원조회 화면
     @GetMapping("teamList")
     public String teamList(){
         return "teamRoom/teamList";
     }
+    
+    
 }

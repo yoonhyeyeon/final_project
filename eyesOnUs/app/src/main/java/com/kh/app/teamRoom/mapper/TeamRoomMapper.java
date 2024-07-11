@@ -1,5 +1,6 @@
 package com.kh.app.teamRoom.mapper;
 
+import com.kh.app.home.vo.CommuteVo;
 import com.kh.app.teamRoom.vo.TeamRoomVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -16,10 +17,15 @@ public interface TeamRoomMapper {
     @Select("SELECT * FROM PROJECT_WORK WHERE STATE_B_NO = 1 ORDER BY NO ASC")
     List<TeamRoomVo> getTodoPrjList();
 
-    //이름만 직책만 검색 팀장 이하만
-    @Select("SELECT NAME, NICK FROM EMPLOYEE WHERE RANK >= 20")
-    List<TeamRoomVo> getTeamList();
-
+    @Select("SELECT name, nick\n" +
+            "FROM EMPLOYEE EMP\n" +
+            "WHERE EMP.DEPT_CODE = (\n" +
+            "    SELECT DEPT_CODE\n" +
+            "    FROM EMPLOYEE\n" +
+            "    WHERE NO = #{empNo}\n" +
+            ") AND EMP.NO != #{empNo}")
+    List<TeamRoomVo> list(String no);
+    
 
 }//class
 

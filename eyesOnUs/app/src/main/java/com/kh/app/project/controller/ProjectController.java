@@ -29,9 +29,20 @@ public class ProjectController {
     private final ProjectService service;
 
     @GetMapping("projectMain")
-    public String select(){
+    public String select(HttpSession session){
+
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
         return "project/projectMain";
     }
+    //내일 추가할거긴핮ㄴ데 메인 오른쪽 사이드에 뭐 넣을지 생각중
+   //@GetMapping("deptListData")
+   //@ResponseBody
+    //public List<> deptByNo(){
+   // }
+
+
     @GetMapping("projectInsert")
     public String insert(){
         return "project/insertPrj";

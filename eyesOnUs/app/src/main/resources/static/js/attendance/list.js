@@ -10,6 +10,17 @@ $.ajax({
 
     let str = "";
 
+    const title = document.querySelector("#listHead");
+    console.log(title);
+
+    let str2 = "";
+
+    str2 += "<span>" + data[0].emp + "</span>";
+    str2 += "<span>" + data[0].position + "</span>";
+    str2 += "<span>(" + data[0].division + ")</span>";
+
+    title.innerHTML = str2;
+
     for(let i = 0; i < data.length; i++){
       str += "<div id='listBody'>";
       str += "<span>" + data[i].workDate + "</span>";
@@ -34,21 +45,11 @@ $.ajax({
 $.ajax({
   url : "http://127.0.0.1:8383/attendance/noData",
   type : "get",
-  data : {empNo : empNo},
   success : (data)=>{
     console.log("통신 성공");
     console.log(data);
 
-    const title = document.querySelector("#listHead");
-    console.log(title);
 
-    let str = "";
-
-    str += "<span>" + data.emp + "</span>";
-    str += "<span>" + data.division + "</span>";
-    str += "<span>" + data.position + "</span>";
-
-    title.innerHTML = str;
 
   },
   fail : ()=>{

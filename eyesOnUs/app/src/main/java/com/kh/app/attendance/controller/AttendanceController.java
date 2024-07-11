@@ -39,15 +39,5 @@ public class AttendanceController {
         return voList;
     }
 
-    @GetMapping("noData")
-    @ResponseBody
-    public CommuteVo noData(HttpSession session){
-
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-        String empNo = loginMemberVo.getNo();
-
-        return service.noData(empNo);
-
-    }
 
 }

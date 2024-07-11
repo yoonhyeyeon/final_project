@@ -35,24 +35,4 @@ public interface AttendanceMapper {
             """)
     List<CommuteVo> list(String empNo);
 
-    @Select("SELECT * FROM COMMUTE")
-    List<CommuteVo> listVo(CommuteVo vo);
-
-    @Select("""
-            SELECT
-                C.EMP_NO
-                , E.NAME AS EMP
-                , D.NAME AS DIVISION
-                , P.NAME AS POSITION
-            FROM COMMUTE C
-            JOIN EMPLOYEE E
-            ON C.EMP_NO = E.NO
-            JOIN DIVISION D
-            ON E.DEPT_CODE = D.CODE
-            JOIN POSITION P
-            ON E.POSITION_CODE = P.CODE
-            WHERE C.EMP_NO = #{empNo}
-            """)
-    CommuteVo noDate(String empNo);
-
 }

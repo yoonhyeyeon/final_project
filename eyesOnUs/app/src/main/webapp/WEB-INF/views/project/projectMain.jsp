@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <link rel="stylesheet" href="/css/projectCss/projectList.css">
+        <link rel="stylesheet" href="/css/projectCss/projectMain.css">
           <script defer src="/js/projectJs/projectSearch.js"></script>
           <script defer src="/js/projectJs/projectList.js"></script>
     </head>
@@ -38,28 +38,11 @@
 
 
 <div id="calendarContainer" class="calendar-container">
-  <div id="divSearch">
-    <select name="search" id="search">
-        <option value="1">제목</option>
-    </select>
-    <input type="text" name="title" id="title">
-    <button id="searchBtn" onclick="saerchName();">검색</button>
-</div>
-  <table>
-        <thead>
-            <tr>
-                <td>프로젝트 이름</td>
-                <td>PM</td>
-                <td>담당 부서</td>
-                <td>상태</td>
-                <td>시작일</td>
-                <td>수정일</td>
-            </tr>
-        </thead>
-        <tbody id="prjList">
-    
-        </tbody>
-    </table>  
+    <button id="prjListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectList'">프로젝트 리스트</button>
+    <button id="prjLnsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectInsert'">프로젝트 등록하기</button>
+    <br><br>
+    <button id="recordListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/insert'">회의록 리스트</button>
+    <button id="recordInsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/list'">회의록 등록하기</button>
 </div>
 
 

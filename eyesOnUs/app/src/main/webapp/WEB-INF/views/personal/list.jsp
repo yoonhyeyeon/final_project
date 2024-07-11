@@ -72,8 +72,8 @@
                 <th>내용</th>
                 <th>등록일</th>
                 <th>사원 번호</th> <!-- 추가된 열 -->
-                <th>상태 번호</th> <!-- 추가된 열 -->
-                <th>유형 번호</th> <!-- 추가된 열 -->
+                <th>상태</th> <!-- 추가된 열 -->
+                <th>유형</th> <!-- 추가된 열 -->
                 <th>삭제</th> <!-- 추가된 열 -->
             </tr>
         </thead>
@@ -84,27 +84,28 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-     // 상태 번호를 문자열로 변환하는 함수
-            function getStateBNoString(stateBNo) {
-                switch(stateBNo) {
-                    case 1: return "대기";
-                    case 2: return "진행 중";
-                    case 3: return "완료";
-                    default: return "알 수 없음";
-                }
+
+  // 상태 번호를 문자열로 변환하는 함수
+        function getStateBNoString(stateBNo) {
+             stateBNo = parseInt(stateBNo, 10); // 숫자로 강제 변환
+            switch(stateBNo) {
+                case 1: return "진행";
+                case 2: return "중단";
+                case 3: return "완료";
+                default: return "알 수 없음";
             }
+        }
 
-            // 유형 번호를 문자열로 변환하는 함수
-            function getTypeNoString(typeNo) {
-                switch(typeNo) {
-                    case 1: return "버그";
-                    case 2: return "기능 추가";
-                    case 3: return "개선";
-                    default: return "기타";
-                }
+        // 유형 번호를 문자열로 변환하는 함수
+        function getTypeNoString(typeNo) {
+            typeNo = parseInt(typeNo, 10); // 숫자로 강제 변환
+            switch(typeNo) {
+                case 1: return "플젝 일정";
+                case 2: return "팀 일정";
+                case 3: return "개인 일정";
+                default: return "기타";
             }
-
-
+        }
 
 
 
@@ -121,8 +122,8 @@
                     let rows = "";
 
                     for (let i = 0; i < voList.length; ++i) {
-                     const stateBNoStr = getStateBNoString(voList[i].stateBNo);
-                     const typeNoStr = getTypeNoString(voList[i].typeNo);
+                    const stateBNoStr = getStateBNoString(voList[i].stateBNo);
+                    const typeNoStr = getTypeNoString(voList[i].typeNo);
 
                         rows += "<tr>";
                         rows += "<td>" + voList[i].no + "</td>";
@@ -137,6 +138,8 @@
                     }
 
                     tbody.html(rows);
+                     // 테이블이 로드된 후 맨 위로 스크롤 이동
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
                 },
                 error: function(xhr, status, error) {
                     console.error("Error fetching data:", error);
@@ -145,27 +148,23 @@
         });
 
 
-
-
-
-
-
-      function deleteRecord(no) {
-          if (confirm("정말로 삭제하시겠습니까?")) {
-              $.ajax({
-                  url: "/api/personal/delete/" + no,
-                  method: "DELETE",
-                  success: function(result) {
-                      alert("삭제되었습니다.");
-                      location.reload(); // 페이지를 새로고침하여 목록 갱신
-                  },
-                  error: function(xhr, status, error) {
-                      console.error("Error deleting record:", error);
-                      alert("삭제에 실패했습니다.");
-                  }
-              });
+     function deleteRecord(no) {
+              if (confirm("정말로 삭제하시겠습니까?")) {
+                  $.ajax({
+                      url: "/api/personal/delete/" + no,
+                      method: "DELETE",
+                      success: function(result) {
+                          alert("삭제되었습니다.");
+                          location.reload(); // 페이지를 새로고침하여 목록 갱신
+                      },
+                      error: function(xhr, status, error) {
+                          console.error("Error deleting record:", error);
+                          alert("삭제에 실패했습니다.");
+                      }
+                  });
+              }
           }
-      }
+
 
     </script>
 </body>

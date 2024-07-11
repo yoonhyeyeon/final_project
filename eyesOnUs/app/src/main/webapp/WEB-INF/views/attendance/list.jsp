@@ -37,13 +37,7 @@
           <div id="out">
             <div id="listBox">
               <div id="listHead">
-                <c:forEach var="vo" items="${voList}">
-                    <c:if test="${sessionScope.loginMemberVo.no == vo.empNo}">
-                      <span>${vo.emp}</span>
-                      <span>${vo.division}</span>
-                      <span>${vo.position}</span>
-                    </c:if>
-                </c:forEach>
+
               </div>
               <br>
               <div id="listMain">

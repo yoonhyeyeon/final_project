@@ -18,11 +18,4 @@ public class AttendanceDao {
         return mapper.list(empNo);
     }
 
-    public List<CommuteVo> listVo(CommuteVo vo) {
-        return mapper.listVo(vo);
-    }
-
-    public CommuteVo noDate(String empNo) {
-        return mapper.noDate(empNo);
-    }
 }

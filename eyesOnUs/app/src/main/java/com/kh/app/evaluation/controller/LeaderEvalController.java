@@ -6,7 +6,6 @@ import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.vo.EmployeeVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +33,10 @@ public class LeaderEvalController {
     }
 
     @PostMapping("write")
-    public HashMap<String, String> write(LeaderEvalVo vo){
+    public HashMap<String, String> write(LeaderEvalVo vo,HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
         int result = service.write(vo);
 
         HashMap<String , String> map = new HashMap<>();

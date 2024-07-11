@@ -47,7 +47,6 @@
     <div id="form">
       <span>평가자&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <select id="evaluatorNo">
-         <option value="">------선택------</option>
            <c:if test="${sessionScope.loginMemberVo.no == vo.no}">
             <option value="${vo.no}">${vo.no} : ${vo.name}</option>
            </c:if>

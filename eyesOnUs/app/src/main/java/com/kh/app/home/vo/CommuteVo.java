@@ -11,4 +11,12 @@ public class CommuteVo {
     private String quitTime;
     private int totalHours;
     private int totalMinutes;
+    private String workDay;
+    private String workDate;
+
+    private String emp;
+    private String division;
+    private String position;
+    private String attend;
+
 }

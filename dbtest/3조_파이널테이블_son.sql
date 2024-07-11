@@ -290,6 +290,45 @@ REFERENCES AUTHORITY (RANK);
 --------------------------------------------------
 
 
+--------------------------------------------------
+-------------------메시지--------------------
+--------------------------------------------------
+
+-----시퀀스 삭제-----
+DROP SEQUENCE SEQ_MESSAGE;
+
+-----시퀀스 생성-----
+CREATE SEQUENCE SEQ_MESSAGE NOCACHE NOCYCLE;
+
+-----테이블 삭제-----
+DROP TABLE MESSAGE CASCADE CONSTRAINTS;
+
+-----테이블 생성-----
+CREATE TABLE MESSAGE(
+    NO          NUMBER		    PRIMARY KEY
+	, SENDER    NUMBER		    NOT NULL
+	, RECEIVER  NUMBER		    NOT NULL
+	, TITLE     VARCHAR2(100)
+	, CONTENT   VARCHAR2(1000)
+	, SEND_TIME TIMESTAMP       DEFAULT SYSDATE
+	, READ_YN	CHAR(1)         DEFAULT 'N'     NOT NULL
+	, DEL_YN	CHAR(1)	        DEFAULT 'N'     NOT NULL
+);
+
+-----외래키 제약조건-----
+ALTER TABLE MESSAGE
+ADD CONSTRAINT FK_MESSAGE_SENDER
+FOREIGN KEY (SENDER)
+REFERENCES EMPLOYEE(NO);
+
+ALTER TABLE MESSAGE
+ADD CONSTRAINT FK_MESSAGE_RECEIVER
+FOREIGN KEY (RECEIVER)
+REFERENCES EMPLOYEE(NO);
+
+--------------------------------------------------
+
+
 
 
 

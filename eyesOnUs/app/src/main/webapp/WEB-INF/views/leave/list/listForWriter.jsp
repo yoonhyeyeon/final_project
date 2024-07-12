@@ -39,20 +39,28 @@
         <button id="openBtn" class="open-btn">☰ Sidebar</button>
 
         <div id="calendarContainer" class="calendar-container">
-            <div id="main">
-                <div>
-                    결재 대기
+            <div id="approveChange">
+                <span class="approveChange" onclick="location.href='/leave/write'">휴가 신청</span>
+                <span id="secondSpan" onclick="location.href='/leave/listForWriter'">신청한 휴가</span>
+                <span class="approveChange" onclick="location.href='/leave/listForApprover'" >승인할 휴가</span>
+            </div>
+            <h5>휴가 승인 현황</h5>
+            <div id="upperDiv">
+                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=0'">
+                    <h5>승인 대기</h5>
+                    <h4 id="waitMark">0 건</h4>
                 </div>
-                <div>
-                    결재 중
+                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=1'">
+                    <h5>승인 완료</h5>
+                    <h4 id="approvalMark">0 건</h4>
                 </div>
-                <div>
-                    결재 완료
+                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=2'">
+                    <h5>반려</h5>
+                    <h4 id="returnMark">0 건</h4>
                 </div>
-                <div>
-                    반려
-                </div>
+            </div>
 
+            <div id="lowerDiv">
                 <h5>휴가 승인 대기 목록</h5>
                 <table border="1" id="wait">
                     <thead>
@@ -111,10 +119,6 @@
             </div>
         </div>
 
-        <div id="listContainer" class="list-container">
-            <button onclick="location.href='/leave/write'">휴가 신청</button>
-            <button onclick="location.href='/leave/listForWriter'">신청한 휴가 목록</button>
-            <button onclick="location.href='/leave/listForApprover'">승인할 휴가 목록</button>
-        </div>
+        <div id="listContainer" class="list-container"></div>
     </body>
 </html>

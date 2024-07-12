@@ -1,1 +1,5 @@
-console.log("businessTrip write");
+window.addEventListener("load", pageOnload);
+
+function pageOnload(){
+    getProjectList();
+}

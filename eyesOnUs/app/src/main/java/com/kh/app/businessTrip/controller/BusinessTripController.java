@@ -3,7 +3,6 @@ package com.kh.app.businessTrip.controller;
 import com.kh.app.businessTrip.service.BusinessTripService;
 import com.kh.app.businessTrip.vo.BusinessTripVo;
 import com.kh.app.member.vo.MemberVo;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -49,9 +48,8 @@ public class BusinessTripController {
     // 출장 상세 조회 (화면)
     @GetMapping("detail")
     public String businessTripDetail(BusinessTripVo businessTripVo, Model model){
-        System.out.println("businessTripVo = " + businessTripVo);
+        // 출장 상세 조회할 businessTripNo 넘겨주기
         model.addAttribute("businessTripVo", businessTripVo);
-        System.out.println(model.getAttribute("businessTripVo"));
         return "businessTrip/detail";
     } // businessTripDetail
 } // class

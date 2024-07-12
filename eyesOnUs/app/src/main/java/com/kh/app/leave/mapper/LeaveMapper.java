@@ -167,9 +167,9 @@ public interface LeaveMapper {
             JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
             JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
             JOIN LEAVE_TYPE A ON (L.TYPE_NO = A.NO)
-            WHERE L.NO = #{leaveNo}
+            WHERE L.NO = #{no}
             """})
-    LeaveVo getLeaveDetail(@RequestParam("leaveNo") String leaveNo);
+    LeaveVo getLeaveDetail(LeaveVo leaveVo);
 
     // 휴가 승인자 상세 조회 (API)
     @Select({"""
@@ -189,9 +189,9 @@ public interface LeaveMapper {
             JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
             JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
             JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
-            WHERE L.NO = #{leaveNo}
+            WHERE L.NO = #{no}
             """})
-    LeaveVo getLeaveApproverDetail(@RequestParam("leaveNo") String leaveNo);
+    LeaveVo getLeaveApproverDetail(LeaveVo leaveVo);
 
 
     // 휴가 승인 (API)
@@ -202,4 +202,14 @@ public interface LeaveMapper {
             WHERE NO = #{no}
             """})
     int updateLeaveApprove(LeaveVo leaveVo);
+
+    // 휴가 타입 리스트 (API)
+    @Select("""
+            SELECT
+                NO          LEAVE_TYPE
+                , NAME      LEAVE_NAME
+            FROM LEAVE_TYPE
+            ORDER BY NO ASC
+            """)
+    List<LeaveVo> getLeaveTypeList();
 } // interface

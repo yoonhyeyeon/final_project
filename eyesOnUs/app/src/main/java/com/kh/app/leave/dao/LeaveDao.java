@@ -59,8 +59,8 @@ public class LeaveDao {
     } // getLeaveApproverListForApprover
 
     // 휴가 상세 조회 (API)
-    public LeaveVo getLeaveDetail(String leaveNo) {
-        LeaveVo leaveDetailVo = mapper.getLeaveDetail(leaveNo);
+    public LeaveVo getLeaveDetail(LeaveVo leaveVo) {
+        LeaveVo leaveDetailVo = mapper.getLeaveDetail(leaveVo);
         if(leaveDetailVo == null){
             throw new RuntimeException("[L-005] LEAVE DETAIL SELECT ERROR");
         }
@@ -68,8 +68,8 @@ public class LeaveDao {
     } // getLeaveDetail
 
     // 휴가 승인자 상세 조회 (API)
-    public LeaveVo getLeaveApproverDetail(String leaveNo) {
-        LeaveVo leaveApproverDetailVo = mapper.getLeaveApproverDetail(leaveNo);
+    public LeaveVo getLeaveApproverDetail(LeaveVo leaveVo) {
+        LeaveVo leaveApproverDetailVo = mapper.getLeaveApproverDetail(leaveVo);
         if(leaveApproverDetailVo == null){
             throw new RuntimeException("[L-006] LEAVE APPROVER DETAIL SELECT ERROR");
         }
@@ -84,4 +84,13 @@ public class LeaveDao {
         }
         return leaveApproveResult;
     } // updateLeaveApprove
+
+    // 휴가 타입 리스트 (API)
+    public List<LeaveVo> getLeaveTypeList() {
+        List<LeaveVo> leaveTypeVoList = mapper.getLeaveTypeList();
+        if(leaveTypeVoList == null){
+            throw new RuntimeException("[L-008] LEAVE TYPE LIST SELECT ERROR");
+        }
+        return leaveTypeVoList;
+    } // getLeaveTypeList
 } // class

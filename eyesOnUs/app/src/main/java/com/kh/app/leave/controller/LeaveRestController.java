@@ -1,7 +1,5 @@
 package com.kh.app.leave.controller;
 
-import com.kh.app.businessTrip.vo.BusinessTripVo;
-import com.kh.app.businessTrip.vo.ProjectVo;
 import com.kh.app.leave.service.LeaveService;
 import com.kh.app.leave.vo.LeaveVo;
 import com.kh.app.member.vo.MemberVo;
@@ -61,14 +59,14 @@ public class LeaveRestController {
 
     // 휴가 상세 조회 (API)
     @GetMapping("detail")
-    public Map<String, LeaveVo> getLeaveDetail(String leaveNo){
+    public Map<String, LeaveVo> getLeaveDetail(LeaveVo leaveVo){
         // 휴가 상세 조회 (API)
-        LeaveVo leaveDetailVo = service.getLeaveDetail(leaveNo);
+        LeaveVo leaveDetailVo = service.getLeaveDetail(leaveVo);
         Map<String, LeaveVo> leaveDetailMap = new HashMap<>();
         leaveDetailMap.put("leaveDetailVo", leaveDetailVo);
 
         // 휴가 승인자 상세 조회 (API)
-        LeaveVo leaveApproverDetailVo = service.getLeaveApproverDetail(leaveNo);
+        LeaveVo leaveApproverDetailVo = service.getLeaveApproverDetail(leaveVo);
         leaveDetailMap.put("leaveApproverDetailVo", leaveApproverDetailVo);
 
         return leaveDetailMap;
@@ -84,4 +82,17 @@ public class LeaveRestController {
 
         return leaveApproverResultMap;
     } // updateLeaveApprove
+
+    // 휴가 타입 리스트 (API)
+    @GetMapping("leaveTypeList")
+    public Map<String, List> getLeaveTypeList(){
+        List<LeaveVo> leaveTypeVoList = service.getLeaveTypeList();
+
+        System.out.println("leaveTypeVoList = " + leaveTypeVoList);
+
+        Map<String, List> leaveTypeListMap = new HashMap<>();
+        leaveTypeListMap.put("leaveTypeVoList", leaveTypeVoList);
+
+        return leaveTypeListMap;
+    } // getLeaveTypeList
 } // class

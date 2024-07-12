@@ -5,6 +5,7 @@ import com.kh.app.project.service.ProjectService;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
+import com.kh.app.sign.vo.EmployeeVo;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -36,11 +37,16 @@ public class ProjectController {
 
         return "project/projectMain";
     }
-    //내일 추가할거긴핮ㄴ데 메인 오른쪽 사이드에 뭐 넣을지 생각중
-   //@GetMapping("deptListData")
-   //@ResponseBody
-    //public List<> deptByNo(){
-   // }
+
+   @GetMapping("deptListData")
+   @ResponseBody
+   public List<EmployeeVo> deptListByNo(HttpSession session){
+
+       MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
+       List<EmployeeVo> voList = service.deptListByNo(loginMemberVo.getDeptCode());
+
+       return voList;
+    }
 
 
     @GetMapping("projectInsert")
@@ -94,8 +100,9 @@ public class ProjectController {
 
     @GetMapping("listData")
     @ResponseBody
-    public List<ProjectVo> projectListData(){
-        List<ProjectVo> voList = service.projectList();
+    public List<ProjectVo> projectListData(HttpSession session){
+        MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
+        List<ProjectVo> voList = service.projectList(loginMemberVo.getDeptCode());
         return  voList;
     }
     @GetMapping("projectList")

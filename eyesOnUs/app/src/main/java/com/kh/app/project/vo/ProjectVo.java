@@ -18,4 +18,7 @@ public class ProjectVo {
     private String pm;
     private String dept;
     private String state;
+
+
+    private String divisionName;
 }

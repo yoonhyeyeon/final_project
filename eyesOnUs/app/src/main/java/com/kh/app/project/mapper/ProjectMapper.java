@@ -3,7 +3,7 @@ package com.kh.app.project.mapper;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
-import jakarta.servlet.http.HttpServletRequest;
+import com.kh.app.sign.vo.EmployeeVo;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -27,8 +27,9 @@ public interface ProjectMapper {
             "ON P.EMP_NO = E.NO\n" +
             "JOIN DEPARTMENT D\n" +
             "ON P.CODE = D.CODE\n" +
+            "WHERE P.CODE = #{code}\n" +
             "ORDER BY P.NO ASC")
-            List<ProjectVo> projectList();
+            List<ProjectVo> projectList(String deptCode);
 
 
     @Delete("DELETE PROJECT WHERE NO = #{no}")
@@ -114,6 +115,17 @@ public interface ProjectMapper {
     @Delete("DELETE CONFERENCE_RECORD WHERE NO = #{no}")
     int recordDelete(String no);
 
+    @Select("""
+           SELECT D.NAME as deptName, E.NAME as name, P.NAME as positionName, E.NO as NO
+           FROM EMPLOYEE E
+           JOIN DEPARTMENT D
+           ON E.DEPT_CODE = D.CODE
+           JOIN POSITION P
+           ON P.CODE = E.POSITION_CODE
+           WHERE E.DEPT_CODE = #{deptCode}
+           """
+    )
+    List<EmployeeVo> deptListByNo(String deptCode);
 }
 
 

@@ -14,8 +14,7 @@
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <link rel="stylesheet" href="/css/teamRoom/clock.css">
         <link rel="stylesheet" href="/css/projectCss/projectMain.css">
-          <script defer src="/js/projectJs/projectSearch.js"></script>
-          <script defer src="/js/projectJs/projectList.js"></script>
+          <script defer src="/js/projectJs/projectMain.js"></script>
     </head>
 <body>
 
@@ -56,29 +55,13 @@
 
 
 <div id="listContainer" class="list-container">
-  <h4>진행 중인 프로젝트</h4>
-
+    <h1 id="h1Title"></h1>
 <table>
     <thead>
         <tr>
-            <th>번호</th>
-            <th>프로젝트 이름</th>
-            <th>시작일</th>
-        </tr>
-    </thead>
-    <tbody id="personalTableBody1">
-        <!-- 첫 번째 테이블의 동적 데이터가 여기에 추가됩니다 -->
-    </tbody>
-</table>
-
-<h4>진행 중인 프로젝트 일정</h4>
-
-<table>
-    <thead>
-        <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>내용</th>
+            <th>이름</th>
+            <th>직급</th>
+            <th>사원번호</th>
         </tr>
     </thead>
     <tbody id="personalTableBody2">

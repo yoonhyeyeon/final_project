@@ -1,13 +1,11 @@
 package com.kh.app.project.service;
 
 
-import com.kh.app.member.vo.MemberVo;
 import com.kh.app.project.dao.ProjectDao;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
+import com.kh.app.sign.vo.EmployeeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +23,8 @@ public class ProjectService {
         return dao.insertProject(vo);
     }
 
-    public List<ProjectVo> projectList() {
-        return dao.projectList();
+    public List<ProjectVo> projectList(String deptCode) {
+        return dao.projectList(deptCode);
     }
 
     public int modifyPrj(ProjectVo vo) {
@@ -76,5 +74,9 @@ public class ProjectService {
 
     public List<ProjectVo> listData2(ProjectVo vo) {
         return dao.listData2(vo);
+    }
+
+    public List<EmployeeVo> deptListByNo(String deptCode) {
+        return dao.deptListByNo(deptCode);
     }
 }

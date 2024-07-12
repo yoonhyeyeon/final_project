@@ -1545,6 +1545,7 @@ DECLARE
   v_quit_time TIMESTAMP;
   v_random_minute PLS_INTEGER;
   v_random_interval INTERVAL DAY TO SECOND;
+  v_day_of_week VARCHAR2(10); 
   
 BEGIN
   -- 7월 1일부터 12일까지의 데이터 삽입
@@ -1554,10 +1555,16 @@ BEGIN
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                   'YYYY-MM-DD HH24:MI:SS');
     
+    v_day_of_week := TO_CHAR(v_work_time, 'DY');
+    
+    IF v_day_of_week IN ('SAT', 'SUN') THEN
+      CONTINUE;
+    END IF;
+    
     v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 60));
-    v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE');
+    v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE'); 
 
-    v_quit_time := v_work_time + INTERVAL '10' HOUR + v_random_interval;
+    v_quit_time := v_work_time + INTERVAL '10' HOUR + v_random_interval; 
     
     IF EXTRACT(HOUR FROM v_quit_time) < 18 THEN
       v_quit_time := v_quit_time + INTERVAL '6' HOUR;
@@ -1571,6 +1578,7 @@ BEGIN
     VALUES (SEQ_COMMUTE.NEXTVAL, 43, v_work_time, v_quit_time);
   END LOOP;
 
+  -- 1월부터 6월까지의 데이터 삽입
   FOR month IN 1..6 LOOP
     FOR day IN 1..31 LOOP
       BEGIN
@@ -1580,13 +1588,19 @@ BEGIN
                       TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                       'YYYY-MM-DD HH24:MI:SS');
         
+        v_day_of_week := TO_CHAR(v_work_time, 'DY');
+        
+        IF v_day_of_week IN ('SAT', 'SUN') THEN
+          CONTINUE;
+        END IF;
+        
         v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 60));
         v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE');
 
         v_quit_time := v_work_time + INTERVAL '10' HOUR + v_random_interval;
         
         IF EXTRACT(HOUR FROM v_quit_time) < 18 THEN
-          v_quit_time := v_quit_time + INTERVAL '6' HOUR; 
+          v_quit_time := v_quit_time + INTERVAL '6' HOUR;
         END IF;
         
         IF EXTRACT(HOUR FROM v_quit_time) >= 24 THEN
@@ -1604,7 +1618,6 @@ BEGIN
   END LOOP;
 END;
 /
-
 
 
 

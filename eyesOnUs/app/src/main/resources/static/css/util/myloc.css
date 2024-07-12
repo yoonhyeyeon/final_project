@@ -1,0 +1,23 @@
+
+
+
+
+.weather-container {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* 밝은 배경색 */
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#weather {
+    font-size: 20px;
+    color: #333;
+}

@@ -4,6 +4,7 @@ import com.kh.app.message.vo.MessageVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -310,4 +311,11 @@ public interface MessageMapper {
                 WHERE M.NO = #{no}
             """)
     MessageVo messageDetailData(String no);
+
+    @Update("""
+            UPDATE MESSAGE
+            SET READ_YN = 'Y'
+            WHERE NO = #{no}
+            """)
+    void updateMessageDelYn(String no);
 }

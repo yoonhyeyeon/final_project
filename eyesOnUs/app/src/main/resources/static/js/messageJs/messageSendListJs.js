@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    sessionStorage.setItem('currentPage', window.location.href);
     function populateEmpContainer(page) {
         $.ajax({
             url: '/message/messageSendListData?page=' + page,

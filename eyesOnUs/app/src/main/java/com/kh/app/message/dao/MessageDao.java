@@ -4,6 +4,7 @@ import com.kh.app.message.mapper.MessageMapper;
 import com.kh.app.message.vo.MessageVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -51,5 +52,10 @@ public class MessageDao {
 
     public MessageVo messageDetailData(String no) {
         return mapper.messageDetailData(no);
+    }
+
+    @Transactional
+    public void updateMessageDelYn(String no) {
+        mapper.updateMessageDelYn(no);
     }
 }

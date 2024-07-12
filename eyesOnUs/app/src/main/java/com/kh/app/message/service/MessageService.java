@@ -56,4 +56,8 @@ public class MessageService {
     public MessageVo messageDetailData(String no) {
         return dao.messageDetailData(no);
     }
+
+    public void updateMessageDelYn(String no) {
+        dao.updateMessageDelYn(no);
+    }
 }

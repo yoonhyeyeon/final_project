@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    sessionStorage.setItem('currentPage', window.location.href);
     function populateEmpContainer(page) {
         $.ajax({
             url: '/message/messageReceiveListData?page=' + page,
@@ -20,6 +21,7 @@ $(document).ready(function() {
                 var voList = response.voList;
                 for (var i = 0; i < voList.length; i++) {
                     var vo = voList[i];
+                    console.log(vo.readYn);
                     var readStatus = (vo.readYn === 'Y') ? '읽음' : '읽기 전';
                     var row = '<div class="msg-list-row list-body-row">' +
                         '<div class="emp-data list-body-low">' + vo.sendTime + '</div>' +

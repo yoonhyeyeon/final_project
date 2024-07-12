@@ -228,4 +228,18 @@ public class MessageController {
         return service.messageDetailData(no);
     }
 
+    @GetMapping("loginNo")
+    @ResponseBody
+    public String getLoginNo(HttpSession session) {
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        System.out.println("loginMemberVo = " + loginMemberVo);
+        System.out.println("loginMemberVo.getNo = " + loginMemberVo.getNo());
+        return loginMemberVo.getNo();
+    }
+
+    @PostMapping("updateDelYn")
+    public void updateDelYn(@RequestBody String no) {
+        System.out.println("no = " + no);
+        service.updateMessageDelYn(no);
+    }
 }

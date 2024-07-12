@@ -9,7 +9,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RECORD LIST</title>
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <link rel="stylesheet" href="/css/prjConfRecord/recordList.css">
@@ -37,7 +36,7 @@
 <c:if test="${not empty sessionScope.loginMemberVo.no}">
     <div id="calendarContainer" class="calendar-container">
         <div id="divSearch">
-            <h1>회의록 목록</h1>
+                <h1>회의록 목록</h1>
         </div>
       <table id="recordTable">
             <thead>

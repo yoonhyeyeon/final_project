@@ -30,12 +30,12 @@
 
 #listMain, #listBody{
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr 3fr 3fr 3fr 3fr;
+  grid-template-columns: 0.5fr 1.5fr 3fr 3fr 3fr 3fr;
   text-align: center;
 }
 
 #listMain > select{
-  width: 35px;
+  width: 55px;
   height: 25px;
   background-color: rgb(142, 160, 255);
   border: 1px solid rgb(86, 91, 114);

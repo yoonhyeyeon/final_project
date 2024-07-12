@@ -41,6 +41,9 @@
 
   <div id="out">
     <h2>KPI 목록</h2>
+        <div id="write">
+          <button onclick="location.href='http://127.0.0.1:8383/kpi/write'">작성하기</button>
+        </div>
     <hr>
         <c:if test="${sessionScope.loginMemberVo.no == null}">
             <h2>로그인하고 와주세요</h2>

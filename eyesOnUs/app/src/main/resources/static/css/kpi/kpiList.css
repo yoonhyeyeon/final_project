@@ -1,8 +1,29 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 #out {
   text-align: center;
   font-family: 'Do Hyeon', sans-serif;
+}
+
+#write{
+  display: flex;
+  justify-content: end;
+  margin-right: 4%;
+}
+
+#write > button{
+  width: 100px;
+  height: 40px;
+  background-color: rgb(208, 222, 255);
+  border: 1px solid rgb(110, 117, 134);
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+#write > button:hover {
+  background-color: rgb(205, 205, 247);
+  transform: scale(0.95);
 }
 
 #no , #projectNo{

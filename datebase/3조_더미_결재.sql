@@ -1548,8 +1548,8 @@ DECLARE
   v_day_of_week VARCHAR2(10); 
   
 BEGIN
-  -- 7월 1일부터 12일까지의 데이터 삽입
-  FOR day IN 1..12 LOOP
+  -- 7월 1일부터 11일까지의 데이터 삽입
+  FOR day IN 1..11 LOOP
     v_work_time := TO_TIMESTAMP('2024-07-' || TO_CHAR(day, 'FM00') || ' ' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(6, 10)), 'FM00') || ':' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 

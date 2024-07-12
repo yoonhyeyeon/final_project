@@ -13,8 +13,9 @@
            padding: 20px;
        }
 
-       h1 {
+       h4 {
            color: #333;
+           text-align: center;
        }
 
        table {

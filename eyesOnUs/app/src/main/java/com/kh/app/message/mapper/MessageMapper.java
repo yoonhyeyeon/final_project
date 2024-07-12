@@ -34,6 +34,7 @@ public interface MessageMapper {
                 SELECT COUNT(*)
                 FROM MESSAGE
                 WHERE SENDER = #{senderNo}
+                AND DEL_YN = 'N'
             """)
     int getTotalSendCount(String senderNo);
 
@@ -89,6 +90,7 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.SENDER = #{senderNo}
+                AND DEL_YN = 'N'
                 ORDER BY M.SEND_TIME DESC
                 OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY
             """)
@@ -107,6 +109,7 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.SENDER = #{senderNo}
+                AND DEL_YN = 'N'
                 AND
                 <choose>
                     <when test='empCategory == "receiverDeptName"'>
@@ -151,6 +154,7 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.SENDER = #{senderNo}
+                AND DEL_YN = 'N'
                 AND
                 <choose>
                     <when test='empCategory == "receiverDeptName"'>
@@ -176,6 +180,7 @@ public interface MessageMapper {
                 SELECT COUNT(*)
                 FROM MESSAGE
                 WHERE RECEIVER = #{receiverNo}
+                AND DEL_YN = 'N'
             """)
     int getTotalReceiveCount(String receiverNo);
 
@@ -202,6 +207,7 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.RECEIVER = #{receiverNo}
+                AND DEL_YN = 'N'
                 ORDER BY M.SEND_TIME DESC
                 OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY
             """)
@@ -220,6 +226,7 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.RECEIVER = #{receiverNo}
+                AND DEL_YN = 'N'
                 AND
                 <choose>
                     <when test='empCategory == "senderDeptName"'>
@@ -264,6 +271,7 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.RECEIVER = #{receiverNo}
+                AND DEL_YN = 'N'
                 AND
                 <choose>
                     <when test='empCategory == "senderDeptName"'>
@@ -309,6 +317,7 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.NO = #{no}
+                AND DEL_YN = 'N'
             """)
     MessageVo messageDetailData(String no);
 
@@ -316,6 +325,7 @@ public interface MessageMapper {
             UPDATE MESSAGE
             SET READ_YN = 'Y'
             WHERE NO = #{no}
+            AND DEL_YN = 'N'
             """)
     void updateMessageDelYn(String no);
 }

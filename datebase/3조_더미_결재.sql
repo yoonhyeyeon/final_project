@@ -1544,9 +1544,10 @@ DECLARE
   v_work_time TIMESTAMP;
   v_quit_time TIMESTAMP;
   v_random_minute PLS_INTEGER;
-  v_random_interval INTERVAL DAY TO SECOND; -- INTERVAL을 저장할 변수
+  v_random_interval INTERVAL DAY TO SECOND;
   
 BEGIN
+  -- 7월 1일부터 12일까지의 데이터 삽입
   FOR day IN 1..12 LOOP
     v_work_time := TO_TIMESTAMP('2024-07-' || TO_CHAR(day, 'FM00') || ' ' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(6, 10)), 'FM00') || ':' || 
@@ -1554,9 +1555,17 @@ BEGIN
                   'YYYY-MM-DD HH24:MI:SS');
     
     v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 60));
-    v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE'); -- 분을 INTERVAL로 변환
+    v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE');
 
-    v_quit_time := v_work_time + INTERVAL '8' HOUR + v_random_interval; -- INTERVAL을 직접 더합니다
+    v_quit_time := v_work_time + INTERVAL '10' HOUR + v_random_interval;
+    
+    IF EXTRACT(HOUR FROM v_quit_time) < 18 THEN
+      v_quit_time := v_quit_time + INTERVAL '6' HOUR;
+    END IF;
+    
+    IF EXTRACT(HOUR FROM v_quit_time) >= 24 THEN
+      v_quit_time := v_quit_time + INTERVAL '1' DAY;
+    END IF;
     
     INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
     VALUES (SEQ_COMMUTE.NEXTVAL, 43, v_work_time, v_quit_time);
@@ -1572,9 +1581,17 @@ BEGIN
                       'YYYY-MM-DD HH24:MI:SS');
         
         v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 60));
-        v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE'); -- 분을 INTERVAL로 변환
+        v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE');
 
-        v_quit_time := v_work_time + INTERVAL '8' HOUR + v_random_interval; -- INTERVAL을 직접 더합니다
+        v_quit_time := v_work_time + INTERVAL '10' HOUR + v_random_interval;
+        
+        IF EXTRACT(HOUR FROM v_quit_time) < 18 THEN
+          v_quit_time := v_quit_time + INTERVAL '6' HOUR; 
+        END IF;
+        
+        IF EXTRACT(HOUR FROM v_quit_time) >= 24 THEN
+          v_quit_time := v_quit_time + INTERVAL '1' DAY;
+        END IF;
         
         INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
         VALUES (SEQ_COMMUTE.NEXTVAL, 43, v_work_time, v_quit_time);
@@ -1587,6 +1604,8 @@ BEGIN
   END LOOP;
 END;
 /
+
+
 
 
 -- TENDINOUS

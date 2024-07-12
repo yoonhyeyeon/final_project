@@ -1,0 +1,16 @@
+#out {
+  margin: 2%;
+}
+
+#out > h2 {
+  text-align: center;
+}
+
+#search {
+  width: 43%;
+  padding: 1%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

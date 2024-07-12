@@ -36,6 +36,7 @@
                             <input type="text" name="sendTime" id="sendTime" class="title-body do-hyeon-regular" readonly>
                         </div>
                     </form>
+                    <button class="getBack-button" id="listButton">목록으로</button>
                 </div>
             </section>
         </body>

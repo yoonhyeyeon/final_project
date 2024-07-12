@@ -52,7 +52,6 @@ body {
   border-radius: 10px; /* 모서리 둥글게 */
   border-radius: 10px; /* 모서리 둥글게 */
   padding: 20px;
-  overflow: auto; /* 컨테이너 오버플로우 숨기기 */
 }
 
 

@@ -30,8 +30,6 @@
 
       <button id="loginButton">로그인</button>
     </form>
-      <button id="joinButton">회원가입</button>
-    </div>
 
 </body>
 </html>

@@ -41,8 +41,8 @@
         <button id="prjListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectList'">프로젝트 리스트</button>
         <button id="prjLnsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectInsert'">프로젝트 등록하기</button>
         <br><br>
-        <button id="recordListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/insert'">회의록 리스트</button>
-        <button id="recordInsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/list'">회의록 등록하기</button>
+        <button id="recordListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/list'">회의록 리스트</button>
+        <button id="recordInsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/insert'">회의록 등록하기</button>
     </div>
 </c:if>
 

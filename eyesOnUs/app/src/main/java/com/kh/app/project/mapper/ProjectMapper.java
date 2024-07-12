@@ -85,15 +85,22 @@ public interface ProjectMapper {
     List<ProjectRecordVo> recordList();
 
 
-    @Select("SELECT C.NO as no,C.PRJ_NO as prjNo , M.EMP_NO as empNo, E.NAME as name, C.TITLE as title, C.CONTENT as content, C.ENL_DATE as enlDate\n" +
-            "FROM CONFERENCE_RECORD C\n" +
-            "LEFT JOIN PROJECT P\n" +
-            "ON C.PRJ_NO = P.NO\n" +
-            "LEFT JOIN PROJECT_MANAGER M\n" +
-            "ON C.PRJ_NO = M.PRO_NO\n" +
-            "LEFT JOIN EMPLOYEE E\n" +
-            "ON E.NO = M.EMP_NO\n"+
-            "WHERE C.NO = #{no}")
+    @Select("""
+            SELECT\s
+                C.NO as no
+                ,C.PRJ_NO as prjNo\s
+                , E.NO as empNo
+                , E.NAME as name
+                , C.TITLE as title
+                , C.CONTENT as content
+                , C.ENL_DATE as enlDate
+            FROM CONFERENCE_RECORD C
+            JOIN PROJECT P
+            ON C.PRJ_NO = P.NO
+            JOIN EMPLOYEE E
+            ON E.NO = P.EMP_NO
+            WHERE C.NO = #{no}
+            """)
     ProjectRecordVo recordDetail(String no);
 
 ///////////////////////////////////// PROJECT_MANAGER CRUD ///////////////////////////////////////////////////////////

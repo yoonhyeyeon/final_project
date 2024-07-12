@@ -30,19 +30,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const headerRow = header.insertRow(0);
         const nameHeader = document.createElement("td");
         nameHeader.textContent = "이름";
-        const nickHeader = document.createElement("td");
-        nickHeader.textContent = "직책";
+        const phoneHeader = document.createElement("td"); // 헤더 이름 변경
+        phoneHeader.textContent = "전화번호"; // 헤더 텍스트 변경
         headerRow.appendChild(nameHeader);
-        headerRow.appendChild(nickHeader);
+        headerRow.appendChild(phoneHeader);
 
         // 테이블 바디 추가
         const tbody = table.createTBody();
         data.forEach(item => {
             const row = tbody.insertRow();
             const nameCell = row.insertCell();
-            const nickCell = row.insertCell();
+            const phoneCell = row.insertCell(); // 셀 이름 변경
             nameCell.textContent = item.name;
-            nickCell.textContent = item.nick;
+            phoneCell.textContent = item.phone; // 데이터 속성 변경
         });
     }
 

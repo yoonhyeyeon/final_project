@@ -20,7 +20,7 @@
         <a href="./adminNotice.html">공지사항</a>
       </div>
       <div id="adminFAQ" class="nav">
-        <a href="./adminFAQ.html">근태확인</a>
+        <a href="http://127.0.0.1:8383/attendance/list">근태확인</a>
       </div>
     </div>
 

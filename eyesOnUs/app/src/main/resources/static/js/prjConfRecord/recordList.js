@@ -3,7 +3,7 @@ $.ajax({
     method : "get",
     data : {},
     success : function(x){
-        const tbody = document.querySelector("tbody");
+        const tbody = document.querySelector("#recordList");
         let str="";
         for(let i=0;i<x.length;i++){
             str += "<tr class='list-item' data-id='"+x[i].no + "'>";

@@ -135,7 +135,7 @@ function f01(){
                 },
                 success : function(data){
                         alert("수정 완료!");
-                        location.href='http://127.0.0.1:8383/project/projectMain';
+                        location.href='http://127.0.0.1:8383/project/projectList';
 
                 },
                 error : function(data){

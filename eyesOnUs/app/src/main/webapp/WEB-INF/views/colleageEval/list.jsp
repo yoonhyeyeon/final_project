@@ -12,20 +12,21 @@
     <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
     <link rel="stylesheet" href="/css/teamRoom/list.css">
     <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+    <link rel="stylesheet" href="/css/teamRoom/clock.css">
     <link rel="stylesheet" type="text/css" href="/css/colleageEval/colleageList.css">
 </head>
 <body>
 
-<div class="time">
- <div id="time">
-  <!-- 현재 시간을 표시할 div 추가 -->
-  </div>
+     <div class="time">
+         <div id="time">
+             <!-- 현재 시간을 표시할 div 추가 -->
+         </div>
 
-  <div id="work-time-table">
-  <!-- 근무 시간을 표시할 div 추가 -->
-  <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
-  </div>
-</div>
+         <div id="work-time-table">
+             <!-- 근무 시간을 표시할 div 추가 -->
+             <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
+         </div>
+     </div>
 
   <div id="sidebar" class="sidebar">
    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
@@ -81,6 +82,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/js/teamRoom/list.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
+<script src="/js/teamRoom/clock.js"></script>
 <script defer src="../js/colleageEval/colleageList.js"></script>
 
 </body>

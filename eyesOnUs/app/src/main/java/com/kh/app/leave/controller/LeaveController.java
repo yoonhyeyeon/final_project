@@ -29,10 +29,8 @@ public class LeaveController {
         String empNo = loginMemberVo.getNo();
         vo.setEmpNo(empNo);
 
-        System.out.println("vo = " + vo);
-
         int result = service.leaveWrite(vo);
-        return "redirect:/home";
+        return "leave/list/listForWriter";
     } // leaveWrite
 
     // 휴가 목록 조회 (신청자 입장) (화면)

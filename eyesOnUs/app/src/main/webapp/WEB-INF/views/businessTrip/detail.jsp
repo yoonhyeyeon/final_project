@@ -17,6 +17,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+        <link rel="stylesheet" href="/css/businessTrip/detail.css">
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -37,22 +38,73 @@
         <button id="openBtn" class="open-btn">☰ Sidebar</button>
 
         <div id="calendarContainer" class="calendar-container">
-            <h5>출장 상세 조회</h5>
-            <table border="1" id="wait">
-                <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>사유</th>
-                        <th>신청자</th>
-                        <th>승인자</th>
-                        <th>신청일</th>
-                        <th>승인일</th>
-                        <th>상태</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <h3>출장 상세 조회</h3>
+            <div id="form">
+                <div id="startDate" class="formApponent first th">
+                    <span>시작일</span>
+                </div>
+                <div id="startDateValue" class="appApp first">
+                    <span id="startDateSpan">시작일</span>
+                </div>
+                <div id="endDate" class="formApponent first th">
+                    <span>종료일</span>
+                </div>
+                <div id="endDateValue" class="appApp first">
+                    <span id="endDateSpan">종료일</span>
+                </div>
+                <div id="project" class="formApponent second th">
+                    <span>프로젝트</span>
+                </div>
+                <div id="projectValue" class="appApp second">
+                    <span id="projectSpan">프로젝트</span>
+                </div>
+                <div id="destination" class="formApponent second th">
+                    <span>출장지</span>
+                </div>
+                <div id="destinationValue" class="appApp second">
+                    <span id="destinationSpan">출장지</span>
+                </div>
+                <div id="reason" class="formApponent third th">
+                    <span>사유</span>
+                </div>
+                <div id="reasonValue" class="appApp third">
+                    <pre id="reasonPre">사유</pre>
+                </div>
+                <div id="approver" class="formApponent th">
+                    <span>승인자</span>
+                </div>
+                <div id="approverValue" class="appApp">
+                    <span id="approverSpan">승인자</span>
+                </div>
+                <div id="writer" class="formApponent th">
+                    <span>신청자</span>
+                </div>
+                <div id="writerValue" class="appApp">
+                    <span id="writerSpan">신청자</span>
+                </div>
+                <div id="enrollDate" class="formApponent th forth">
+                    <span>신청일</span>
+                </div>
+                <div id="enrollDateValue" class="appApp forth">
+                    <span id="enrollDateSpan">신청일</span>
+                </div>
+                <div id="approveDate" class="formApponent th forth">
+                    <span>승인일</span>
+                </div>
+                <div id="approveDateValue" class="appApp forth">
+                    <span id="approveDateSpan">승인일</span>
+                </div>
+                <div id="state" class="formApponent th fifth">
+                    <span>승인 상태</span>
+                </div>
+                <div id="stateValue" class="appApp fifth">
+                    <span id="stateSpan">승인 상태</span>
+                </div>
+                <div class="fifth"></div>
+                <div class="fifth"></div>
+            </div>
+            <button onclick="">승인</button>
+            <button onclick="">반려</button>
         </div>
 
         <div id="listContainer" class="list-container"></div>
@@ -74,40 +126,57 @@
             success: (data) => {
                 console.log("출장 상세 조회 통신 성공");
 
-                const waitTable = document.querySelector("#wait > tbody");
-                waitTable.innerHTML = "";
-                const trTag = document.createElement("tr");
-                let waitTableCnt = 1;
+                const startDateSpan = document.querySelector("#startDateSpan");
+                const endDateSpan = document.querySelector("#endDateSpan");
+                const projectSpan = document.querySelector("#projectSpan");
+                const destinationSpan = document.querySelector("#destinationSpan");
+                const reasonPre = document.querySelector("#reasonPre");
+                const approverSpan = document.querySelector("#approverSpan");
+                const writerSpan = document.querySelector("#writerSpan");
+                const enrollDateSpan = document.querySelector("#enrollDateSpan");
+                const approveDateSpan = document.querySelector("#approveDateSpan");
+                const stateSpan = document.querySelector("#stateSpan");
 
-                const tdTag01 = addTag("td", waitTableCnt);
-                const tdTag02 = addTag("td", data.businessTripDetailVo.reason);
-                const tdTag03 = addTag("td", data.businessTripDetailVo.divName + " " + data.businessTripDetailVo.empName + " " + data.businessTripDetailVo.positionName);
-                const tdTag04 = addTag("td", data.businessTripApproverDetailVo.divName + " " + data.businessTripApproverDetailVo.approverName + " " + data.businessTripApproverDetailVo.positionName);
+                startDateSpan.innerHTML = "";
+                endDateSpan.innerHTML = "";
+                projectSpan.innerHTML = "";
+                destinationSpan.innerHTML = "";
+                reasonPre.innerHTML = "";
+                approverSpan.innerHTML = "";
+                writerSpan.innerHTML = "";
+                enrollDateSpan.innerHTML = "";
+                approveDateSpan.innerHTML = "";
+                stateSpan.innerHTML = "";
 
+                const startDate = data.businessTripDetailVo.startDate.substring(0, 10);
+                const endDate = data.businessTripDetailVo.endDate.substring(0, 10);
+                const project = data.businessTripDetailVo.proName;
+                const destination = data.businessTripDetailVo.destination;
+                const reason = data.businessTripDetailVo.reason;
+                const approver = data.businessTripApproverDetailVo.divName + " " + data.businessTripApproverDetailVo.approverName + " " + data.businessTripApproverDetailVo.positionName;
+                const writer = data.businessTripDetailVo.divName + " " + data.businessTripDetailVo.empName + " " + data.businessTripDetailVo.positionName;
                 const enrollDate = data.businessTripDetailVo.enrollDate.substring(0, 10);
                 const approveDate = data.businessTripDetailVo.approveDate ? data.businessTripDetailVo.approveDate.substring(0, 10) : "";
-
-                const tdTag05 = addTag("td", enrollDate);
-                const tdTag06 = addTag("td", approveDate);
-
-                let tdTag07 = ""
+                
+                let state = ""
                 if(data.businessTripDetailVo.state === "0"){
-                    tdTag07 = addTag("td", "승인 대기");
+                    state = "승인 대기";
                 } else if(data.businessTripDetailVo.state === "1"){
-                    tdTag07 = addTag("td", "승인 완료");
+                    state = "승인";
                 } else if(data.businessTripDetailVo.state === "2"){
-                    tdTag07 = addTag("td", "반려");
+                    state = "반려";
                 }
-        
-                trTag.appendChild(tdTag01);
-                trTag.appendChild(tdTag02);
-                trTag.appendChild(tdTag03);
-                trTag.appendChild(tdTag04);
-                trTag.appendChild(tdTag05);
-                trTag.appendChild(tdTag06);
-                trTag.appendChild(tdTag07);
 
-                waitTable.appendChild(trTag);
+                startDateSpan.innerHTML = startDate;
+                endDateSpan.innerHTML = endDate;
+                projectSpan.innerHTML = project;
+                destinationSpan.innerHTML = destination;
+                reasonPre.innerHTML = reason;
+                approverSpan.innerHTML = approver;
+                writerSpan.innerHTML = writer;
+                enrollDateSpan.innerHTML = enrollDate;
+                approveDateSpan.innerHTML = approveDate;
+                stateSpan.innerHTML = state;
             },
             error: (error) => {
                 console.log("통신 실패");

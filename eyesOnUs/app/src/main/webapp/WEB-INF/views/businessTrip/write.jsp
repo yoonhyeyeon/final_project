@@ -17,6 +17,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+        <link rel="stylesheet" href="/css/businessTrip/write.css">
         <script defer src="/js/businessTrip/write.js"></script>
         <script defer src="/js/common/employeeList.js"></script>
         <script defer src="/js/common/projectList.js"></script>
@@ -39,39 +40,54 @@
         </div>
         <button id="openBtn" class="open-btn">☰ Sidebar</button>
 
-        <div id="calendarContainer" class="calendar-container">
-            <form action="/businessTrip/write" method="post">
-                <!-- 사원 가져와서 출력 -->
-                <label for="approverNo">승인자 선택</label>
-                <select name="approverNo">
-                    <option value="" selected>승인자를 선택하세요</option>
-                </select>
-                <br>
-
-                <!-- 해당 프로젝트 가져와서 출력 -->
-                <label for="proNo">프로젝트 선택</label>
-                <select name="proNo">
-                    <option value="" selected>프로젝트를 선택하세요</option>
-                </select>
-                <br>
-
-                <label for="startDate">시작일</label>
-                <input type="date" name="startDate">
-                <br>
-
-                <label for="endDate">종료일</label>
-                <input type="date" name="endDate">
-                <br>
-
-                <textarea name="reason" placeholder="사유"></textarea>
-                <br>
-
-                <input type="text" name="destination" placeholder="출장지">
-                <br>
-
+        <form action="/businessTrip/write" method="post">
+            <div id="calendarContainer" class="calendar-container">
+                <h3>출장 신청</h3>
+                <div id="form">
+                    <div id="startDate" class="formApponent first th">
+                        <span>시작일</span>
+                    </div>
+                    <div id="startDateValue" class="formApponent first">
+                        <input type="date" name="startDate">
+                    </div>
+                    <div id="endDate" class="formApponent first th">
+                        <span>종료일</span>
+                    </div>
+                    <div id="endDateValue" class="formApponent first">
+                        <input type="date" name="endDate">
+                    </div>
+                    <div id="project" class="formApponent second th">
+                        <span>프로젝트</span>
+                    </div>
+                    <div id="projectValue" class="formApponent second">
+                        <select name="proNo">
+                            <option value="" selected>프로젝트를 선택하세요</option>
+                        </select>
+                    </div>
+                    <div id="destination" class="formApponent second th">
+                        <span>출장지</span>
+                    </div>
+                    <div id="destinationValue" class="formApponent second">
+                        <input type="text" name="destination">
+                    </div>
+                    <div id="reason" class="formApponent third th">
+                        <span>사유</span>
+                    </div>
+                    <div id="reasonValue" class="formApponent third">
+                        <textarea name="reason"></textarea>
+                    </div>
+                    <div id="approver" class="formApponent th">
+                        <span>승인자</span>
+                    </div>
+                    <div id="approverValue" class="formApponent">
+                        <select name="approverNo">
+                            <option value="" selected>승인자를 선택하세요</option>
+                        </select>
+                    </div>
+                </div>
                 <input type="submit" value="신청">
-            </form>
-        </div>
+            </div>
+        </form>
 
         <div id="listContainer" class="list-container"></div>
     </body>

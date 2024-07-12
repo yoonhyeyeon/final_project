@@ -88,8 +88,6 @@ public class LeaveRestController {
     public Map<String, List> getLeaveTypeList(){
         List<LeaveVo> leaveTypeVoList = service.getLeaveTypeList();
 
-        System.out.println("leaveTypeVoList = " + leaveTypeVoList);
-
         Map<String, List> leaveTypeListMap = new HashMap<>();
         leaveTypeListMap.put("leaveTypeVoList", leaveTypeVoList);
 

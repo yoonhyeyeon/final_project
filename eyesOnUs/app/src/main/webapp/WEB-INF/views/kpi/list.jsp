@@ -19,6 +19,7 @@
 
      <div class="time">
          <div id="time">
+
              <!-- 현재 시간을 표시할 div 추가 -->
          </div>
 

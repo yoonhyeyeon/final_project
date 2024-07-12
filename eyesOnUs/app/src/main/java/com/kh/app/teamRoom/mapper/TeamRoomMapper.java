@@ -17,7 +17,7 @@ public interface TeamRoomMapper {
     @Select("SELECT * FROM PROJECT_WORK WHERE STATE_B_NO = 1 ORDER BY NO ASC")
     List<TeamRoomVo> getTodoPrjList();
 
-    @Select("SELECT name, nick\n" +
+    @Select("SELECT name, phone\n" +
             "FROM EMPLOYEE EMP\n" +
             "WHERE EMP.DEPT_CODE = (\n" +
             "    SELECT DEPT_CODE\n" +

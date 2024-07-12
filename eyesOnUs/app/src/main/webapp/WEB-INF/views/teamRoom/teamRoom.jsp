@@ -44,13 +44,27 @@
       <button id="openBtn" class="open-btn">☰ Sidebar</button>
 
       <div id="calendarContainer" class="calendar-container">
-        <!-- 여기에 **본문** 내용을 추가할 수 있습니다 -->
-         <div id="calendar"></div>
+        <div id="out">
+              <c:if test="${sessionScope.loginMemberVo.no == null}">
+                  <h2>로그인하고 와주세요</h2>
+                  <h5 style="color: gray;">로그아웃 상태에서는 기타일정 기능만 사용 가능합니다.</h5>
+              </c:if>
+              <c:if test="${sessionScope.loginMemberVo.no != null}">
+                <!-- 여기에 **본문** 내용을 추가할 수 있습니다 -->
+                 <div id="calendar"></div>
+              </c:if>
+        </div>
       </div>
 
       <div id="listContainer" class="list-container">
-        <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
-        <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+              <div id="out">
+                    <c:if test="${sessionScope.loginMemberVo.no == null}">
+                    </c:if>
+                    <c:if test="${sessionScope.loginMemberVo.no != null}">
+                        <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
+                        <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+                    </c:if>
+              </div>
       </div>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

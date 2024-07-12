@@ -52,17 +52,6 @@ public class TeamRoomApiController {
         return voList;
     }
 
-//    //부서목록 조회
-//    @GetMapping("deptList")
-//    @ResponseBody
-//    public List<TeamRoomVo> deptList(HttpSession session){
-//
-//        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-//        String no = loginMemberVo.getNo();
-//
-//        List<TeamRoomVo> voList = service.deptList(no);
-//        return voList;
-//    }
 
 
 }//class

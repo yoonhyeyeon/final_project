@@ -47,9 +47,11 @@
     <div id="form">
       <span>평가자&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <select id="evaluatorNo">
-           <c:if test="${sessionScope.loginMemberVo.no == vo.no}">
-            <option value="${vo.no}">${vo.no} : ${vo.name}</option>
-           </c:if>
+           <c:forEach var="vo" items="${voList}">
+               <c:if test="${sessionScope.loginMemberVo.no == vo.no}">
+                <option value="${vo.no}">${vo.no} : ${vo.name}</option>
+               </c:if>
+           </c:forEach>
       </select>
       <br>
       <br>
@@ -57,7 +59,7 @@
       <select id="evaluateeNo">
          <option value="">------선택------</option>
            <c:forEach var="vo" items="${voList}">
-               <option value="${vo.no}">${vo.no}</option>
+               <option value="${vo.no}">${vo.name}</option>
            </c:forEach>
       </select>
       <p>잠재력</p>

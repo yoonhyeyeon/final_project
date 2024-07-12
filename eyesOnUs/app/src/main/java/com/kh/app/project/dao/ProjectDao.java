@@ -5,7 +5,7 @@ import com.kh.app.project.mapper.ProjectMapper;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
-import jakarta.servlet.http.HttpServletRequest;
+import com.kh.app.sign.vo.EmployeeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -21,8 +21,8 @@ public class ProjectDao {
         return mapper.insertProject(vo);
     }
 
-    public List<ProjectVo> projectList() {
-        return mapper.projectList();
+    public List<ProjectVo> projectList(String deptCode) {
+        return mapper.projectList(deptCode);
     }
 
     public int modifyPrj(ProjectVo vo) {
@@ -71,6 +71,10 @@ public class ProjectDao {
 
     public List<ProjectVo> listData2(ProjectVo vo) {
         return mapper.listData(vo);
+    }
+
+    public List<EmployeeVo> deptListByNo(String deptCode) {
+        return mapper.deptListByNo(deptCode);
     }
 }
 

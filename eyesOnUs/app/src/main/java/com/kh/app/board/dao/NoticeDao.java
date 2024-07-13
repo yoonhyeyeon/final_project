@@ -23,5 +23,8 @@ public class NoticeDao {
         return mapper.listData();
     }
 
-
+    // 상세조회
+    public NoticeVo noticeByNo(String no) {
+        return mapper.noticeByNo(no);
+    }
 }

@@ -65,4 +65,16 @@ public class NoticeController {
         return voList;
     }
 
+    // 상세조회
+    @GetMapping("detail")
+    public String noticeByNo(){
+        return "";
+    }
+
+    @GetMapping("detailData")
+    @ResponseBody
+    public NoticeVo noticeByNoData(NoticeVo vo){
+        return service.noticeByNo(vo.getNo());
+    }
+
 }

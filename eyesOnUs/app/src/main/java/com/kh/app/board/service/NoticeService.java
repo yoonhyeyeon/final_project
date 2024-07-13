@@ -25,4 +25,8 @@ public class NoticeService {
         return dao.listData();
     }
 
+    // 상세조회
+    public NoticeVo noticeByNo(String no) {
+        return dao.noticeByNo(no);
+    }
 }

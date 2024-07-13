@@ -68,13 +68,7 @@
                     <th>조회수</th>
                   </tr>
                   <tbody class="box">
-                    <tr class="list">
-                      <td>1</td>
-                      <td></td>
-                      <td>2024-07-13</td>
-                      <td>관리자</td>
-                      <td>1</td>
-                    </tr>
+
                   </tbody>
                 </table>
               </div>

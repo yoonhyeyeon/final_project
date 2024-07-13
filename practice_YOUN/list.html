@@ -11,25 +11,58 @@
   <div id="out">
     <h2>🔵 공지사항</h2>
     <hr>
-    <div id="search">
-      <span>게시글 검색</span>&nbsp<select name="" id="">
-        <option value="title">제목</option>
-        <option value="content">게시글</option>
-      </select>&nbsp;<input type="text">
-      <button>검색</button>
-    </div>
-    <br>
-    <div class="body">
-      <div id="left">
-        <span>ㅇ</span>
-        <span>ㅇ</span>
-      </div>
-      <div id="right">
-        <span>d</span>
-        <span>d</span>
+    <div id="out2">
+      <button id="writeBtn">작성하기</button>
+      <div id="search">
+        <span>게시글 검색</span>&nbsp
+        <select name="" id="">
+          <option value="title">제목</option>
+          <option value="content">게시글</option>
+        </select>&nbsp;<input type="text">
+        <button style="cursor: pointer;">검색🔍</button>
       </div>
     </div>
 
+    <br><br>
+    <div class="body">
+      <div id="left">
+        <span>게시판</span>
+        <p>- 공지사항</p>
+        <p>- 자유게시판</p>
+        <p>- 건의게시판</p>
+        
+      </div>
+      <div id="right">
+        <table border="1" id="rightBox">
+          <tr id="listBox">
+            <th>No.</th>
+            <th>제목</th>
+            <th>등록일</th>
+            <th>등록자</th>
+            <th>조회수</th>
+          </tr>
+          <tbody>
+            <tr class="list">
+              <td>1</td>
+              <td>속보 김제민 끼쟁이</td>
+              <td>2024-07-13</td>
+              <td>관리자</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br>
+    <div id="footerBtn">
+      <div id="footBtn">
+        <button>이전</button>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <button>다음</button>
+      </div>
+    </div>
   </div>
   
   

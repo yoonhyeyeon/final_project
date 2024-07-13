@@ -17,7 +17,7 @@
         <a href="./adminDeptList.html">건의게시판</a>
       </div>
       <div id="adminNotice" class="nav">
-        <a href="./adminNotice.html">공지사항</a>
+        <a href="http://127.0.0.1:8383/notice/list">공지사항</a>
       </div>
       <div id="adminFAQ" class="nav">
         <a href="http://127.0.0.1:8383/attendance/list">근태확인</a>

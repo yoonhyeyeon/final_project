@@ -45,7 +45,7 @@ body {
 
 .calendar-container {
   width: 80%;
-  max-width: 800px;
+  max-width: 900px;
   max-height: 80vh; /* 최대 높이 설정 */
   background-color: white; /* 배경 색상 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */

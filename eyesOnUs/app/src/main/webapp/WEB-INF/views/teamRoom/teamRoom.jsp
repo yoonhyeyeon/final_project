@@ -12,7 +12,6 @@
       <link rel="stylesheet" href="/css/teamRoom/clock.css">
       <link rel="stylesheet" href="/css/teamRoom/list.css">
       <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-      <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
       <script defer src="../js/testMain/calender.js"></script>
       <script defer src="../js/test/testCalendar.js"></script>
        <script defer src="../js/teamRoom/teamList.js"></script>

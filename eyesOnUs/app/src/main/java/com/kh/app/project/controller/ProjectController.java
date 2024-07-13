@@ -61,7 +61,6 @@ public class ProjectController {
 
         MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
         int result = service.insertProject(vo);
-
         return result;
     }
 
@@ -207,10 +206,9 @@ public class ProjectController {
 
     @PostMapping("manager/insert")
     @ResponseBody
-    public int managerInsert(ProjectManagerVo vo){
-        int result = service.managerInsert(vo);
-
-        return result;
+    public int managerInsert(ProjectManagerVo vo,HttpSession session){
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        return service.managerInsert(vo);
 
     }
 
@@ -229,8 +227,7 @@ public class ProjectController {
     @DeleteMapping("manager/delete")
     @ResponseBody
     public int managerDelete(String no){
-        int result = service.managerDelete(no);
-        return result;
+        return service.managerDelete(no);
     }
 
 

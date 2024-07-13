@@ -176,13 +176,13 @@
                 approveDateSpan.innerHTML = approveDate;
                 stateSpan.innerHTML = state;
 
-                if(data.businessTripApproveRightVo.approveRight){
+                if(data.businessTripDetailVo.state === "0" && data.businessTripDetailVo.approverNo === data.vo.empNo){
                     // 버튼 태그 담을 div 가져오기
                     const calendarContainerDiv = document.querySelector("#calendarContainer");
                     
                     // 버튼 태그 만들기
-                    const btnTag01 = createElement("button");
-                    const btnTag02 = createElement("button");
+                    const btnTag01 = document.createElement("button");
+                    const btnTag02 = document.createElement("button");
 
                     // 버튼 태그 텍스트 담기
                     btnTag01.innerHTML = "승인";

@@ -94,4 +94,31 @@ public class SignDao {
         }
         return signVoListForReference;
     } // getSignListForReference
+
+    // 결재 상세 조회 (API)
+    public SignVo getSignDetail(SignVo signVo) {
+        SignVo signDetailVo = mapper.getSignDetail(signVo);
+        if(signDetailVo == null){
+            throw new RuntimeException("[S-009] SIGN DETAIL SELECT ERROR");
+        }
+        return signDetailVo;
+    } // getSignDetail
+
+    // 결재자 상세 조회 (API)
+    public SignVo getSignApproverDetail(SignVo signVo) {
+        SignVo signApproverDetailVo = mapper.getSignApproverDetail(signVo);
+        if(signApproverDetailVo == null){
+            throw new RuntimeException("[S-010] SIGN APPROVER DETAIL SELECT ERROR");
+        }
+        return signApproverDetailVo;
+    } // getSignApproverDetail
+
+    // 참조자 상세 조회 (API)
+    public SignVo getSignReferenceDetail(SignVo signVo) {
+        SignVo signReferenceDetailVo = mapper.getSignReferenceDetail(signVo);
+        if(signReferenceDetailVo == null){
+            throw new RuntimeException("[S-011] SIGN REFERENCE DETAIL SELECT ERROR");
+        }
+        return signReferenceDetailVo;
+    } // getSignReferenceDetail
 } // class

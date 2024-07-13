@@ -25,7 +25,7 @@ function onPageLoad(){
                 const trTag = document.createElement("tr");
     
                 trTag.addEventListener("click", () => {
-                    const url = `/businessTrip/detail?no=${data.businessTripVoListForApprover[i].no}&state=${data.businessTripVoListForApprover[i].state}`;
+                    const url = `/businessTrip/detail?no=${data.businessTripVoListForApprover[i].no}`;
                     location.href = url;
                 });
                 trTag.style.cursor = "pointer";

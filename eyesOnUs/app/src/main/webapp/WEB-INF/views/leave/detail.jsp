@@ -116,7 +116,7 @@
             url: "/api/leave/detail",
             method: "get",
             data: {
-                no: leaveNo
+                no: leaveNo,
             },
             success: (data) => {
                 console.log("휴가 상세 조회 통신 성공");
@@ -169,13 +169,13 @@
                 approveDateSpan.innerHTML = approveDate;
                 stateSpan.innerHTML = state;
 
-                if(data.businessTripApproveRightVo.approveRight){
+                if(data.leaveDetailVo.state === "0" && data.leaveDetailVo.approverNo === data.vo.empNo){
                     // 버튼 태그 담을 div 가져오기
                     const calendarContainerDiv = document.querySelector("#calendarContainer");
                     
                     // 버튼 태그 만들기
-                    const btnTag01 = createElement("button");
-                    const btnTag02 = createElement("button");
+                    const btnTag01 = document.createElement("button");
+                    const btnTag02 = document.createElement("button");
 
                     // 버튼 태그 텍스트 담기
                     btnTag01.innerHTML = "승인";
@@ -202,10 +202,10 @@
     // 승인 처리
     function approveProcess(){
         $.ajax({
-            url: "/api/businessTrip/approve",
+            url: "/api/leave/approve",
             method: "put",
             data: {
-                no: businessTripNo
+                no: leaveNo
             },
             success: (data) => {
                 console.log("출장 승인 처리 통신 성공");
@@ -221,10 +221,10 @@
     // 반려 처리
     function returnProcess(){
         $.ajax({
-            url: "/api/businessTrip/approve",
+            url: "/api/leave/approve",
             method: "get",
             data: {
-                no: businessTripNo
+                no: leaveNo
             },
             success: (data) => {
                 console.log("출장 반려 처리 통신 성공");
@@ -261,7 +261,7 @@
 
                 if(data.leaveApproveResult === 1){
                     alert("휴가 승인 완료");
-                    window.location.href = "/sign/listForApprover";
+                    window.location.href = "/leave/listForApprover";
                     return ;
                 }
                 alert("휴가 승인 실패");
@@ -301,7 +301,7 @@
 
                 if(data.leaveApproveResult === 1){
                     alert("휴가 반려 완료");
-                    window.location.href = "/sign/listForApprover";
+                    window.location.href = "/leave/listForApprover";
                     return ;
                 }
                 alert("휴가 반려 실패");

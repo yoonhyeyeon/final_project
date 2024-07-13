@@ -60,7 +60,9 @@ public class LeaveRestController {
 
     // 휴가 상세 조회 (API)
     @GetMapping("detail")
-    public Map<String, LeaveVo> getLeaveDetail(LeaveVo leaveVo){
+    public Map<String, LeaveVo> getLeaveDetail(LeaveVo leaveVo, HttpSession session){
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
         // 휴가 상세 조회 (API)
         LeaveVo leaveDetailVo = service.getLeaveDetail(leaveVo);
         Map<String, LeaveVo> leaveDetailMap = new HashMap<>();
@@ -70,13 +72,10 @@ public class LeaveRestController {
         LeaveVo leaveApproverDetailVo = service.getLeaveApproverDetail(leaveVo);
         leaveDetailMap.put("leaveApproverDetailVo", leaveApproverDetailVo);
 
-        // 승인권 표시
-        if(leaveVo.getState() != null){
-            LeaveVo LeaveApproveRightVo = new LeaveVo();
-            LeaveApproveRightVo.setApproveRight(true);
-
-            leaveDetailMap.put("LeaveApproveRightVo", LeaveApproveRightVo);
-        }
+        // 승인, 반려 버튼 판단용 로그인 사원 번호
+        LeaveVo vo = new LeaveVo();
+        vo.setEmpNo(loginMemberVo.getNo());
+        leaveDetailMap.put("vo", vo);
 
         return leaveDetailMap;
     } // getLeaveDetail

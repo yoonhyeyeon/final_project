@@ -18,12 +18,12 @@ public class LeaveVo {
     private String approveDate;
     private String enrollDate;
 
-    // EMPLOYEE
+    // EMPLOYEE (EMP_NO)
     private String empName;
-
-    // EMPLOYEE
-    private String approverName;
     private String nick;
+
+    // EMPLOYEE (APPROVER_NO)
+    private String approverName;
 
     // LEAVE_TYPE
     private String leaveType;
@@ -40,7 +40,4 @@ public class LeaveVo {
     // DEPARTMENT
     private String deptCode;
     private String deptName;
-
-    // 승인권 표시
-    private boolean approveRight;
 } // class

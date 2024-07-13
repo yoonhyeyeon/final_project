@@ -198,4 +198,28 @@ public interface SignMapper {
             ORDER BY S.NO DESC
             """})
     List<SignVo> getSignListForReference(@RequestParam("refNo") String refNo);
+
+    // 결재 상세 조회 (API)
+    @Select({"""
+            SELECT
+                *
+            FROM SIGN
+            """})
+    SignVo getSignDetail(SignVo signVo);
+
+    // 결재자 상세 조회 (API)
+    @Select({"""
+            SELECT
+                *
+            FROM SIGN
+            """})
+    SignVo getSignApproverDetail(SignVo signVo);
+
+    // 참조자 상세 조회 (API)
+    @Select({"""
+            SELECT
+                *
+            FROM SIGN
+            """})
+    SignVo getSignReferenceDetail(SignVo signVo);
 } // interface

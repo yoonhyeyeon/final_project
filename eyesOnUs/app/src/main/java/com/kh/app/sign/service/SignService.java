@@ -59,4 +59,19 @@ public class SignService {
     public List<SignVo> getSignListForReference(String refNo) {
         return dao.getSignListForReference(refNo);
     } // getSignListForReference
+
+    // 결재 상세 조회 (API)
+    public SignVo getSignDetail(SignVo signVo) {
+        return dao.getSignDetail(signVo);
+    } // getSignDetail
+
+    // 결재자 상세 조회 (API)
+    public SignVo getSignApproverDetail(SignVo signVo) {
+        return dao.getSignApproverDetail(signVo);
+    } // getSignApproverDetail
+
+    // 참조자 상세 조회 (API)
+    public SignVo getSignReferenceDetail(SignVo signVo) {
+        return dao.getSignReferenceDetail(signVo);
+    } // getSignReferenceDetail
 } // class

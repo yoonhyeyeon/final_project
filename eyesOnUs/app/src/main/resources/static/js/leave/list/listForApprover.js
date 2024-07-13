@@ -23,7 +23,7 @@ function onPageLoad(){
                 const trTag = document.createElement("tr");
     
                 trTag.addEventListener("click", () => {
-                    location.href = `/leave/detail?no=${data.leaveVoListForApprover[i].no}&state=${data.leaveVoListForApprover[i].state}`;
+                    location.href = `/leave/detail?no=${data.leaveVoListForApprover[i].no}`;
                 });
                 trTag.style.cursor = "pointer";
     

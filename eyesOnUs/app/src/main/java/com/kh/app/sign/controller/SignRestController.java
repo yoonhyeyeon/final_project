@@ -86,16 +86,28 @@ public class SignRestController {
         return signListMapForReference;
     } // getSignListForReference
 
-    // 결재 상세 조회 (기안자 입장) (API)
-    // 결재 상세 조회 (기안자 입장) (API)
-    // 결재자 상세 조회 (기안자 입장) (API)
+    // 결재 상세 조회 (API)
+    public Map<String, SignVo> getSignDetail(SignVo signVo, HttpSession session){
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 
-    // 결재 상세 조회 (결재자 입장) (API)
-    // 결재 상세 조회 (결재자 입장) (API)
-    // 결재자 상세 조회 (결재자 입장) (API)
+        // 결재 상세 조회 (API)
+        SignVo signDetailVo = service.getSignDetail(signVo);
+        Map<String, SignVo> signDetailMap = new HashMap<>();
+        signDetailMap.put("signDetailVo", signDetailVo);
 
-    // 결재 상세 조회 (참조자 입장) (API)
-    // 결재 상세 조회 (참조자 입장) (API)
-    // 결재자 상세 조회 (참조자 입장) (API)
-    
+        // 결재자 상세 조회 (API)
+        SignVo signApproverDetailVo = service.getSignApproverDetail(signVo);
+        signDetailMap.put("signApproverDetailVo", signApproverDetailVo);
+
+        // 참조자 상세 조회 (API)
+        SignVo signReferenceDetailVo = service.getSignReferenceDetail(signVo);
+        signDetailMap.put("signReferenceDetailVo", signReferenceDetailVo);
+
+        // 승인, 반려 버튼 판단용 로그인 사원 번호
+        SignVo vo = new SignVo();
+        vo.setEmpNo(loginMemberVo.getNo());
+        signDetailMap.put("vo", vo);
+
+        return signDetailMap;
+    } // getSignDetail
 } // class

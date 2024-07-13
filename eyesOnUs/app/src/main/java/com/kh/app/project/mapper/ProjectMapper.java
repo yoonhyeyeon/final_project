@@ -35,7 +35,7 @@ public interface ProjectMapper {
     @Delete("DELETE PROJECT WHERE NO = #{no}")
     int deletePrj(String no);
 
-    @Select("SELECT P.NO as NO,P.title as title, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
+    @Select("SELECT P.NO as NO,P.title as title,P.EMP_NO as empNo, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
             ",TO_CHAR(P.MODIFY_DATE,'YYYY.MM.DD')  as modifyDate , P.START_DATE as startDate\n" +
             "FROM PROJECT P\n" +
             "JOIN STATE_A S\n" +
@@ -47,7 +47,7 @@ public interface ProjectMapper {
             "WHERE P.NO = #{no}")
     ProjectVo getProjectByNo(String no);
 
-    @Select("SELECT P.NO as NO,P.title as title, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
+    @Select("SELECT P.NO as NO, P.title as title, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
             ",TO_CHAR(P.MODIFY_DATE,'YYYY.MM.DD')  as modifyDate , P.START_DATE as startDate\n" +
             "FROM PROJECT P\n" +
             "JOIN STATE_A S\n" +
@@ -71,7 +71,7 @@ public interface ProjectMapper {
             "    WHERE STATE_A_NO = 1\n" +
             "      AND CODE = #{code}\n" +
             ")\n" +
-            "WHERE rnum <= 10\n" +
+            "WHERE rnum <= 5\n" +
             "ORDER BY NO ASC")
     List<ProjectVo> listData(ProjectVo vo);
 
@@ -133,6 +133,8 @@ public interface ProjectMapper {
            """
     )
     List<EmployeeVo> deptListByNo(String deptCode);
+
+
 }
 
 

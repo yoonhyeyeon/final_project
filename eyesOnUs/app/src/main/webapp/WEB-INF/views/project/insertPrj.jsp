@@ -35,31 +35,47 @@
 
 
 
-
-<div id="calendarContainer" class="calendar-container">
-    <div id="out">
-        <div id="in">
-            <div id="div-title">
-                <h1>프로젝트</h1>
-            </div>
-            &nbsp;&nbsp;<p>주제 :</p> <input type="text" name="title" id="title"><hr>
-            &nbsp;&nbsp;<p>PM-CODE</p> : <input type="text" name="empNo" id="emp" value="${sessionScope.loginVo.empNo}"><br><hr>
-            &nbsp;&nbsp;상태 : <input type="text" name="state" id="state" placeholder="1.등록  2.중지  3.해산"><br>
-            <hr>
-            &nbsp;&nbsp;<p>부서코드 :</p> <input type="text" name="code" id="code"><br><br>
-            <textarea name="content" id="projectContent" placeholder="내용"></textarea><br>
-            <div id="div-submit">
-                <button id="submitButton" onclick="smt();">등록</button>
+<c:if test="${sessionScope.loginMemberVo.rank eq 10}">
+    
+    <div id="calendarContainer" class="calendar-container">
+        <div id="out">
+            <div id="in">
+                <div id="div-title">
+                    <h1>프로젝트</h1>
+                </div>
+                &nbsp;&nbsp;<p>주제 :</p> <input type="text" name="title" id="title"><hr>
+                &nbsp;&nbsp;<p>PM-CODE</p> : <input type="text" name="empNo" id="emp" value="${sessionScope.loginMemberVo.no}" placeholder="${sessionScope.loginMemberVo.no}" readonly><br><hr>
+                &nbsp;&nbsp;상태 : <input type="text" name="state" id="state" placeholder="1.등록  2.중지  3.해산"><br>
+                <hr>
+                &nbsp;&nbsp;<p>부서코드 :</p> <input type="text" name="code" id="code" value="${sessionScope.loginMemberVo.deptCode}" placeholder="${sessionScope.loginMemberVo.deptCode}" readonly><br><br>
+                <textarea name="content" id="projectContent" placeholder="내용"></textarea><br>
+                <div id="div-submit">
+                    <button id="submitButton" onclick="smt();">등록</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    
+    <div id="listContainer" class="list-container">
+      <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
+      <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+    </div>
+</c:if>
 
+<c:if test="${sessionScope.loginMemberVo.rank > 10}">
+    <div id="notLogin">
+        <h1>권한이 없습니다</h1><br><br>
+        <a href="http://127.0.0.1:8383/project/projectMain">돌아가기</a>
+    </div>
 <div id="listContainer" class="list-container">
-  <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
-  <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
 </div>
+</c:if>
 
+<c:if test="${empty sessionScope.loginMemberVo.no}">
+    <h1>로그인 하고 오세요</h1>
+    <div id="listContainer" class="list-container">
+    </div>
+</c:if>
 
 
 

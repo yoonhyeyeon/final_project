@@ -17,7 +17,7 @@
           <script defer src="/js/projectJs/projectList.js"></script>
     </head>
 <body>
-
+<input type="text"id="ingProjectData" value="${sessionScope.loginMemberVo.deptCode}" hidden>
 <div class="time">
  <div id="time">
   <!-- 현재 시간을 표시할 div 추가 -->

@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.annotations.Delete;
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -58,7 +59,7 @@ public class ProjectController {
     @PostMapping("projectInsert")
     public int insert(ProjectVo vo,HttpSession session){
 
-        MemberVo loginVo = (MemberVo)session.getAttribute("loginMemberVo");
+        MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
         int result = service.insertProject(vo);
 
         return result;
@@ -109,7 +110,9 @@ public class ProjectController {
 
     @GetMapping("detailData")
     @ResponseBody
-    public ProjectVo getProjectByNo(ProjectVo vo){
+    public ProjectVo getProjectByNo(ProjectVo vo,HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
         return service.getProjectByNo(vo.getNo());
     }
 

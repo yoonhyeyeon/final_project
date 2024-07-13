@@ -64,12 +64,8 @@
                             <option value="" selected>휴가 타입을 선택하세요</option>
                         </select>
                     </div>
-                    <div id="destination" class="formApponent second th">
-                        <span>출장지</span>
-                    </div>
-                    <div id="destinationValue" class="formApponent second">
-                        <input type="text" name="destination">
-                    </div>
+                    <div id="destination" class="second"></div>
+                    <div id="destinationValue" class="second"></div>
                     <div id="reason" class="formApponent third th">
                         <span>사유</span>
                     </div>

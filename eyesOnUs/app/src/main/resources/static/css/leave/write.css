@@ -39,14 +39,6 @@
     border-right: 2px solid lightgray;
 }
 
-#projectValue{
-    border-right: 2px solid lightgray;
-}
-
-#destination{
-    border-right: 2px solid lightgray;
-}
-
 #reason{
     border-right: 2px solid lightgray;
 }
@@ -57,11 +49,6 @@
 
 #approver{
     border-right: 2px solid lightgray;
-}
-
-input[name=destination]{
-    width: 100%;
-    border: 0;
 }
 
 textarea[name=reason]{
@@ -93,6 +80,6 @@ input[type=submit]{
 }
 
 input[type=submit]:hover{
-    background-color: red;
+    background-color: rgb(188, 218, 228);
     cursor: pointer;
 }

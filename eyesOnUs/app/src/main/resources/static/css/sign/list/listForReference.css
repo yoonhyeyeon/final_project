@@ -25,6 +25,7 @@
 #approveChangeSpan02{
     border-top: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
+    border-right: 2px solid lightgray;
     width: 100px;
     height: 20px;
     text-align: center;
@@ -36,6 +37,19 @@
     background-color: rgb(188, 218, 228);
 }
 
+#approveChangeSpan03{
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    font-size: small;
+}
+
+#approveChangeSpan03:hover{
+    cursor: pointer;
+    background-color: rgb(188, 218, 228);
+}
 
 #upperDiv{
     display: flex;

@@ -63,68 +63,62 @@ public class SignDao {
     public int updateSignApprove(SignVo signVo) {
         int signApproveResult = mapper.updateSignApprove(signVo);
         if(signApproveResult != 1){
-            throw new RuntimeException("[S-018] SIGN STATE UPDATE ERROR");
+            throw new RuntimeException("[S-005] SIGN APPROVE UPDATE ERROR");
         }
         return signApproveResult;
     } // updateSignApprove
-    
-    
-    
-    
-    
-    
+
+    // 결재 목록 조회 (기안자 입장) (API)
+    public List<SignVo> getSignListForWriter(String empNo) {
+        List<SignVo> signVoListForWriter = mapper.getSignListForWriter(empNo);
+        if(signVoListForWriter == null){
+            throw new RuntimeException("[S-006] SIGN LIST FOR WRITER SELECT ERROR");
+        }
+        return signVoListForWriter;
+    } // getSignListForWriter
+
+    // 결재 목록 조회 (결재자 입장) (API)
+    public List<SignVo> getSignListForApprover(String approverNo) {
+        List<SignVo> signVoListForApprover = mapper.getSignListForApprover(approverNo);
+        if(signVoListForApprover == null){
+            throw new RuntimeException("[S-007] SIGN LIST FOR APPROVER SELECT ERROR");
+        }
+        return signVoListForApprover;
+    } // getSignListForApprover
+
+    // 결재 목록 조회 (참조자 입장) (API)
+    public List<SignVo> getSignListForReference(String refNo) {
+        List<SignVo> signVoListForReference = mapper.getSignListForReference(refNo);
+        if(signVoListForReference == null){
+            throw new RuntimeException("[S-008] SIGN LIST FOR REFERENCE SELECT ERROR");
+        }
+        return signVoListForReference;
+    } // getSignListForReference
 
     // 결재 상세 조회 (API)
-    public SignVo getSignDetail(String signNo) {
-        SignVo signDetailVo = mapper.getSignDetail(signNo);
+    public SignVo getSignDetail(SignVo signVo) {
+        SignVo signDetailVo = mapper.getSignDetail(signVo);
         if(signDetailVo == null){
-            throw new RuntimeException("[S-019] SIGN DETAIL SELECT ERROR");
+            throw new RuntimeException("[S-009] SIGN DETAIL SELECT ERROR");
         }
         return signDetailVo;
     } // getSignDetail
 
     // 결재자 상세 조회 (API)
-    public SignVo getSignApproverDetail(String signNo) {
-        SignVo signApproverDetailVo = mapper.getSignApproverDetail(signNo);
+    public SignVo getSignApproverDetail(SignVo signVo) {
+        SignVo signApproverDetailVo = mapper.getSignApproverDetail(signVo);
         if(signApproverDetailVo == null){
-            throw new RuntimeException("[S-020] SIGN APPROVER DETAIL SELECT ERROR");
+            throw new RuntimeException("[S-010] SIGN APPROVER DETAIL SELECT ERROR");
         }
         return signApproverDetailVo;
     } // getSignApproverDetail
 
-    // 결재자 목록 조회 (API)
-    public List<SignVo> getSignApproverList(String empNo) {
-        List<SignVo> signApproverVoList = mapper.getSignApproverList(empNo);
-        if(signApproverVoList == null){
-            throw new RuntimeException("[S-021] SIGN APPROVER LIST SELECT ERROR");
+    // 참조자 상세 조회 (API)
+    public SignVo getSignReferenceDetail(SignVo signVo) {
+        SignVo signReferenceDetailVo = mapper.getSignReferenceDetail(signVo);
+        if(signReferenceDetailVo == null){
+            throw new RuntimeException("[S-011] SIGN REFERENCE DETAIL SELECT ERROR");
         }
-        return signApproverVoList;
-    } // getSignApproverList
-
-    // 결재 목록 조회 (신청자 입장) (동적 쿼리) (API)
-    public List<SignVo> getVoListDynamic(SignVo signVo) {
-        List<SignVo> signVoListDynamic = mapper.getVoListDynamic(signVo);
-        if(signVoListDynamic == null){
-            throw new RuntimeException("[S-022] SIGN LIST DYNAMIC SELECT ERROR");
-        }
-        return signVoListDynamic;
-    } // getVoListDynamic
-
-    // 결재 목록 조회 (결재자 입장) (동적 쿼리) (API)
-    public List<SignVo> getVoListDynamicForApprover(SignVo signVo) {
-        List<SignVo> signVoListDynamicForApprover = mapper.getVoListDynamicForApprover(signVo);
-        if(signVoListDynamicForApprover == null){
-            throw new RuntimeException("[S-023] SIGN LIST DYNAMIC FOR APPROVER SELECT ERROR");
-        }
-        return signVoListDynamicForApprover;
-    } // getVoListDynamicForApprover
-
-    // 결재 목록 조회 (참조자 입장) (동적 쿼리) (API)
-    public List<SignVo> getVoListDynamicForReference(SignVo signVo) {
-        List<SignVo> signVoListDynamicForReference = mapper.getVoListDynamicForReference(signVo);
-        if(signVoListDynamicForReference == null){
-            throw new RuntimeException("[S-024] SIGN LIST DYNAMIC FOR REFERENCE SELECT ERROR");
-        }
-        return signVoListDynamicForReference;
-    } // getVoListDynamicForReference
+        return signReferenceDetailVo;
+    } // getSignReferenceDetail
 } // class

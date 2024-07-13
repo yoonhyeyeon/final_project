@@ -2,10 +2,10 @@ window.addEventListener("load", onPageLoad);
 
 function onPageLoad(){
     $.ajax({
-        url: "/api/leave/listForApprover",
+        url: "/api/sign/listForWriter",
         method: "get",
         success: (data) => {
-            console.log("승인할 휴가 리스트 통신 성공");
+            console.log("기안 리스트 통신 성공");
     
             const waitTable = document.querySelector("#wait > tbody");
             const approvalTable = document.querySelector("#approval > tbody");
@@ -18,56 +18,58 @@ function onPageLoad(){
             let waitTableCnt = 0;
             let approvalTableCnt = 0;
             let returnTableCnt = 0;
-    
-            for(let i = 0; i < data.leaveVoListForApprover.length; ++i){
+ 
+            for(let i = 0; i < data.signVoListForWriter.length; ++i){
                 const trTag = document.createElement("tr");
     
                 trTag.addEventListener("click", () => {
-                    location.href = `/leave/detail?no=${data.leaveVoListForApprover[i].no}`;
+                    location.href = `/sign/detail?no=${data.signVoListForWriter[i].no}`;
                 });
                 trTag.style.cursor = "pointer";
     
-                const tdTag02 = addTag("td", data.leaveVoListForApprover[i].leaveName);
-                const tdTag03 = addTag("td", data.leaveVoListForApprover[i].reason);
-                const tdTag04 = addTag("td", data.leaveVoListForApprover[i].divName + " " + data.leaveVoListForApprover[i].empName + " " + data.leaveVoListForApprover[i].positionName);
-                const tdTag05 = addTag("td", data.leaveApproverVoListForApprover[i].divName + " " + data.leaveApproverVoListForApprover[i].approverName + " " + data.leaveApproverVoListForApprover[i].positionName);
-    
-                const enrollDate = data.leaveVoListForApprover[i].enrollDate.substring(0, 10);
-                const approveDate = data.leaveVoListForApprover[i].approveDate ? data.leaveVoListForApprover[i].approveDate.substring(0, 10) : "";
-    
-                const tdTag06 = addTag("td", enrollDate);
-                const tdTag07 = addTag("td", approveDate);
-    
+                const tdTag02 = addTag("td", data.signVoListForWriter[i].title);
+                const tdTag03 = addTag("td", data.signVoListForWriter[i].empName);
+                
+                const enrollDate = data.signVoListForWriter[i].enrollDate.substring(0, 10);
+                const latestApproveDate = data.signVoListForWriter[i].modifyDate ? data.signVoListForWriter[i].modifyDate.substring(0, 10) : "";
+
+                const tdTag04 = addTag("td", enrollDate);
+                const tdTag05 = addTag("td", latestApproveDate);
+
                 let tdTag01 = "";
-                let tdTag08 = "";
-                if(data.leaveVoListForApprover[i].state === "0"){
-                    waitTableCnt++;
-                    tdTag01 = addTag("td", waitTableCnt);
-                    tdTag08 = addTag("td", "승인 대기");
-                } else if(data.leaveVoListForApprover[i].state === "1"){
+                let tdTag06 = "";
+                if(data.signVoListForWriter[i].result === "1"){
                     approvalTableCnt++;
                     tdTag01 = addTag("td", approvalTableCnt);
-                    tdTag08 = addTag("td", "승인 완료");
-                } else if(data.leaveVoListForApprover[i].state === "2"){
+                    tdTag06 = addTag("td", "결재 완료");
+                } else if(data.signVoListForWriter[i].result === "2"){
                     returnTableCnt++;
                     tdTag01 = addTag("td", returnTableCnt);
-                    tdTag08 = addTag("td", "반려");
+                    tdTag06 = addTag("td", "반려");
+                } else if(data.signVoListForWriter[i].result === "0"){
+                    waitTableCnt++;
+                    tdTag01 = addTag("td", waitTableCnt);
+                    if(data.signVoListForWriter[i].step === "1"){
+                        tdTag06 = addTag("td", "1차 결재 중");
+                    } else if(data.signVoListForWriter[i].step === "2"){
+                        tdTag06 = addTag("td", "2차 결재 중");
+                    } else if(data.signVoListForWriter[i].step === "3"){
+                        tdTag06 = addTag("td", "3차 결재 중");
+                    }
                 }
-    
+
                 trTag.appendChild(tdTag01);
                 trTag.appendChild(tdTag02);
                 trTag.appendChild(tdTag03);
                 trTag.appendChild(tdTag04);
                 trTag.appendChild(tdTag05);
                 trTag.appendChild(tdTag06);
-                trTag.appendChild(tdTag07);
-                trTag.appendChild(tdTag08);
     
-                if(data.leaveVoListForApprover[i].state === "0"){
+                if(data.signVoListForWriter[i].result === "0"){
                     waitTable.appendChild(trTag);
-                } else if(data.leaveVoListForApprover[i].state === "1"){
+                } else if(data.signVoListForWriter[i].result === "1"){
                     approvalTable.appendChild(trTag);
-                } else if(data.leaveVoListForApprover[i].state === "2"){
+                } else if(data.signVoListForWriter[i].result === "2"){
                     returnTable.appendChild(trTag);
                 }
 

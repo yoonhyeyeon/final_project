@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>승인할 출장 목록 조회</title>
+        <title>기안 목록 조회</title>
 
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
@@ -16,9 +16,15 @@
         <script defer src="/js/teamRoom/teamRoom.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            <c:if test="${not empty alertMsg}">
+                alert("${alertMsg}");
+            </c:if>
+        </script>
+        <c:remove var="alertMsg" scope="session"/>
 
-        <link rel="stylesheet" href="/css/businessTrip/list/listForApprover.css">
-        <script defer src="/js/businessTrip/list/listForApprover.js"></script>
+        <link rel="stylesheet" href="/css/sign/list/listForWriter.css">
+        <script defer src="/js/sign/list/listForWriter.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -40,18 +46,19 @@
 
         <div id="calendarContainer" class="calendar-container">
             <div id="approveChange">
-                <span id="approveChangeSpan01" class="approveChangeSpan" onclick="location.href='/businessTrip/write'">출장 신청</span>
-                <span id="approveChangeSpan02" onclick="location.href='/businessTrip/listForWriter'">신청한 출장</span>
-                <span id="approveChangeSpan03" class="approveChangeSpan clickedApproveChangeSpan" onclick="location.href='/businessTrip/listForApprover'" >승인할 출장</span>
+                <span id="approveChangeSpan01" class="approveChangeSpan" onclick="location.href='/sign/write'">기안</span>
+                <span id="approveChangeSpan02" class="clickedApproveChangeSpan" onclick="location.href='/sign/listForWriter'">기안 목록</span>
+                <span id="approveChangeSpan03" onclick="location.href='/sign/listForApprover'">결재할 목록</span>
+                <span id="approveChangeSpan04" class="approveChangeSpan" onclick="location.href='/sign/listForReference'">참조된 목록</span>
             </div>
-            <h5>출장 승인 현황</h5>
+            <h5>결재 현황</h5>
             <div id="upperDiv">
                 <div class="listBtn">
-                    <h5>승인 대기</h5>
+                    <h5>결재 진행</h5>
                     <h4 id="waitMark">0 건</h4>
                 </div>
                 <div class="listBtn">
-                    <h5>승인 완료</h5>
+                    <h5>결재 완료</h5>
                     <h4 id="approvalMark">0 건</h4>
                 </div>
                 <div class="listBtn">
@@ -61,16 +68,15 @@
             </div>
 
             <div id="lowerDiv">
-                <h5>출장 승인 대기 목록</h5>
+                <h5>결재 진행 목록</h5>
                 <table border="1" id="wait">
                     <thead>
                         <tr>
                             <th>번호</th>
-                            <th>사유</th>
-                            <th>신청자</th>
-                            <th>승인자</th>
+                            <th>제목</th>
+                            <th>기안자</th>
                             <th>신청일</th>
-                            <th>승인일</th>
+                            <th>마지막 승인일</th>
                             <th>상태</th>
                         </tr>
                     </thead>
@@ -79,16 +85,15 @@
                 </table>
                 <br>
                 
-                <h5>출장 승인 목록</h5>
+                <h5>결재 완료 목록</h5>
                 <table border="1" id="approval">
                     <thead>
                         <tr>
                             <th>번호</th>
-                            <th>사유</th>
-                            <th>신청자</th>
-                            <th>승인자</th>
+                            <th>제목</th>
+                            <th>기안자</th>
                             <th>신청일</th>
-                            <th>승인일</th>
+                            <th>마지막 승인일</th>
                             <th>상태</th>
                         </tr>
                     </thead>
@@ -102,11 +107,10 @@
                     <thead>
                         <tr>
                             <th>번호</th>
-                            <th>사유</th>
-                            <th>신청자</th>
-                            <th>승인자</th>
+                            <th>제목</th>
+                            <th>기안자</th>
                             <th>신청일</th>
-                            <th>승인일</th>
+                            <th>마지막 승인일</th>
                             <th>상태</th>
                         </tr>
                     </thead>

@@ -1,5 +1,6 @@
 package com.kh.app.leave.controller;
 
+import com.kh.app.businessTrip.vo.BusinessTripVo;
 import com.kh.app.leave.service.LeaveService;
 import com.kh.app.leave.vo.LeaveVo;
 import com.kh.app.member.vo.MemberVo;
@@ -59,7 +60,9 @@ public class LeaveRestController {
 
     // 휴가 상세 조회 (API)
     @GetMapping("detail")
-    public Map<String, LeaveVo> getLeaveDetail(LeaveVo leaveVo){
+    public Map<String, LeaveVo> getLeaveDetail(LeaveVo leaveVo, HttpSession session){
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
         // 휴가 상세 조회 (API)
         LeaveVo leaveDetailVo = service.getLeaveDetail(leaveVo);
         Map<String, LeaveVo> leaveDetailMap = new HashMap<>();
@@ -68,6 +71,11 @@ public class LeaveRestController {
         // 휴가 승인자 상세 조회 (API)
         LeaveVo leaveApproverDetailVo = service.getLeaveApproverDetail(leaveVo);
         leaveDetailMap.put("leaveApproverDetailVo", leaveApproverDetailVo);
+
+        // 승인, 반려 버튼 판단용 로그인 사원 번호
+        LeaveVo vo = new LeaveVo();
+        vo.setEmpNo(loginMemberVo.getNo());
+        leaveDetailMap.put("vo", vo);
 
         return leaveDetailMap;
     } // getLeaveDetail

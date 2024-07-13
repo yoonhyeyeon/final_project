@@ -29,8 +29,16 @@ public class LeaveController {
         String empNo = loginMemberVo.getNo();
         vo.setEmpNo(empNo);
 
-        int result = service.leaveWrite(vo);
-        return "leave/list/listForWriter";
+        int leaveWriteResult = service.leaveWrite(vo);
+        
+        if(leaveWriteResult != 1){
+            session.setAttribute("alertMsg", "휴가 신청 실패");
+            return "leave/write";
+        }
+        
+        session.setAttribute("alertMsg", "휴가 신청 완료");
+        
+        return "redirect:/leave/listForWriter";
     } // leaveWrite
 
     // 휴가 목록 조회 (신청자 입장) (화면)

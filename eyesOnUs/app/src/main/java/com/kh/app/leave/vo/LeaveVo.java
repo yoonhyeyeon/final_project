@@ -1,5 +1,6 @@
 package com.kh.app.leave.vo;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
@@ -17,12 +18,12 @@ public class LeaveVo {
     private String approveDate;
     private String enrollDate;
 
-    // EMPLOYEE
+    // EMPLOYEE (EMP_NO)
     private String empName;
-
-    // EMPLOYEE
-    private String approverName;
     private String nick;
+
+    // EMPLOYEE (APPROVER_NO)
+    private String approverName;
 
     // LEAVE_TYPE
     private String leaveType;

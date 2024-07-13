@@ -103,8 +103,6 @@
                 <div class="fifth"></div>
                 <div class="fifth"></div>
             </div>
-            <button onclick="">승인</button>
-            <button onclick="">반려</button>
         </div>
 
         <div id="listContainer" class="list-container"></div>
@@ -112,11 +110,11 @@
 </html>
 
 <script>
+    const businessTripNo = "${businessTripVo.no}";
+    
     window.addEventListener("load", onPageLoad);
 
     function onPageLoad(){
-        const businessTripNo = "${businessTripVo.no}";
-
         $.ajax({
             url: "/api/businessTrip/detail",
             method: "get",
@@ -177,11 +175,114 @@
                 enrollDateSpan.innerHTML = enrollDate;
                 approveDateSpan.innerHTML = approveDate;
                 stateSpan.innerHTML = state;
+
+                if(data.businessTripDetailVo.state === "0" && data.businessTripDetailVo.approverNo === data.vo.empNo){
+                    // 버튼 태그 담을 div 가져오기
+                    const calendarContainerDiv = document.querySelector("#calendarContainer");
+                    
+                    // 버튼 태그 만들기
+                    const btnTag01 = document.createElement("button");
+                    const btnTag02 = document.createElement("button");
+
+                    // 버튼 태그 텍스트 담기
+                    btnTag01.innerHTML = "승인";
+                    btnTag02.innerHTML = "반려";
+
+                    // 버튼 태그 함수 담기
+                    btnTag01.onclick = approveProcess;
+                    btnTag02.onclick = returnProcess;
+
+                    // 버튼 태그 붙이기
+                    calendarContainerDiv.appendChild(btnTag01);
+                    calendarContainerDiv.appendChild(btnTag02);
+                }
             },
             error: (error) => {
                 console.log("통신 실패");
                 console.log(error);
             }
         });
+    }
+</script>
+
+<script>
+    // 승인 처리
+    function approveProcess(){
+        if(confirm("출장 승인 처리를 진행하겠습니까?")){
+            approveProcessGoOn();
+        } else{
+            approveProcessCancel();
+        }
+    }
+
+    // 승인 처리 (진행)
+    function approveProcessGoOn(){
+        $.ajax({
+            url: "/api/businessTrip/approve",
+            method: "put",
+            data: {
+                no: businessTripNo,
+                state: "1"
+            },
+            success: (data) => {
+                console.log("출장 승인 처리 통신 성공");
+
+                if(data.businessTripApproveResult === 1){
+                    alert("출장 승인 완료");
+                    window.location.href = "/businessTrip/listForApprover";
+                    return ;
+                }
+                alert("출장 승인 실패");
+            },
+            error: (error) => {
+                console.log("통신 실패");
+                console.log(error);
+            }
+        });
+    }
+
+    // 승인 처리 (취소)
+    function approveProcessCancel(){
+        alert("출장 승인 처리를 중지합니다.");
+    }
+
+    // 반려 처리
+    function returnProcess(){
+        if(confirm("출장 반려 처리를 진행하겠습니까?")){
+            returnProcessGoOn();
+        } else{
+            returnProcessCancel();
+        }
+    }
+
+    // 반려 처리 (진행)
+    function returnProcessGoOn(){
+        $.ajax({
+            url: "/api/businessTrip/approve",
+            method: "put",
+            data: {
+                no: businessTripNo,
+                state: "2"
+            },
+            success: (data) => {
+                console.log("출장 반려 처리 통신 성공");
+
+                if(data.businessTripApproveResult === 1){
+                    alert("출장 반려 완료");
+                    window.location.href = "/businessTrip/listForApprover";
+                    return ;
+                }
+                alert("출장 반려 실패");
+            },
+            error: (error) => {
+                console.log("통신 실패");
+                console.log(error);
+            }
+        });
+    }
+
+    // 반려 처리 (취소)
+    function returnProcessCancel(){
+        alert("출장 반려 처리를 중지합니다.");
     }
 </script>

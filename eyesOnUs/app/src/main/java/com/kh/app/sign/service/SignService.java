@@ -45,36 +45,33 @@ public class SignService {
         return dao.updateSignApprove(signVo);
     } // updateSignApprove
 
+    // 결재 목록 조회 (기안자 입장) (API)
+    public List<SignVo> getSignListForWriter(String empNo) {
+        return dao.getSignListForWriter(empNo);
+    } // getSignListForWriter
 
+    // 결재 목록 조회 (결재자 입장) (API)
+    public List<SignVo> getSignListForApprover(String approverNo) {
+        return dao.getSignListForApprover(approverNo);
+    } // getSignListForApprover
 
+    // 결재 목록 조회 (참조자 입장) (API)
+    public List<SignVo> getSignListForReference(String refNo) {
+        return dao.getSignListForReference(refNo);
+    } // getSignListForReference
 
     // 결재 상세 조회 (API)
-    public SignVo getSignDetail(String signNo) {
-        return dao.getSignDetail(signNo);
+    public SignVo getSignDetail(SignVo signVo) {
+        return dao.getSignDetail(signVo);
     } // getSignDetail
 
     // 결재자 상세 조회 (API)
-    public SignVo getSignApproverDetail(String signNo) {
-        return dao.getSignApproverDetail(signNo);
+    public SignVo getSignApproverDetail(SignVo signVo) {
+        return dao.getSignApproverDetail(signVo);
     } // getSignApproverDetail
 
-    // 결재자 목록 조회 (API)
-    public List<SignVo> getSignApproverList(String empNo) {
-        return dao.getSignApproverList(empNo);
-    } // getSignApproverList
-
-    // 결재 목록 조회 (신청자 입장) (동적 쿼리) (API)
-    public List<SignVo> getVoListDynamic(SignVo signVo) {
-        return dao.getVoListDynamic(signVo);
-    } // getVoListDynamic
-
-    // 결재 목록 조회 (결재자 입장) (동적 쿼리) (API)
-    public List<SignVo> getVoListDynamicForApprover(SignVo signVo) {
-        return dao.getVoListDynamicForApprover(signVo);
-    } // getVoListDynamicForApprover
-
-    // 결재 목록 조회 (참조자 입장) (동적 쿼리) (API)
-    public List<SignVo> getVoListDynamicForReference(SignVo signVo) {
-        return dao.getVoListDynamicForReference(signVo);
-    } // getVoListDynamicForReference
+    // 참조자 상세 조회 (API)
+    public SignVo getSignReferenceDetail(SignVo signVo) {
+        return dao.getSignReferenceDetail(signVo);
+    } // getSignReferenceDetail
 } // class

@@ -1,5 +1,6 @@
 package com.kh.app.businessTrip.vo;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data

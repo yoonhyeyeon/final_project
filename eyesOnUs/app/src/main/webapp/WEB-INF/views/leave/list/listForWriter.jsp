@@ -16,6 +16,12 @@
         <script defer src="/js/teamRoom/teamRoom.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            <c:if test="${not empty alertMsg}">
+                alert("${alertMsg}");
+            </c:if>
+        </script>
+        <c:remove var="alertMsg" scope="session"/>
 
         <link rel="stylesheet" href="/css/leave/list/listForWriter.css">
         <script defer src="/js/leave/list/listForWriter.js"></script>
@@ -40,21 +46,21 @@
 
         <div id="calendarContainer" class="calendar-container">
             <div id="approveChange">
-                <span class="approveChange" onclick="location.href='/leave/write'">휴가 신청</span>
-                <span id="secondSpan" onclick="location.href='/leave/listForWriter'">신청한 휴가</span>
-                <span class="approveChange" onclick="location.href='/leave/listForApprover'" >승인할 휴가</span>
+                <span id="approveChangeSpan01" class="approveChangeSpan" onclick="location.href='/leave/write'">휴가 신청</span>
+                <span id="approveChangeSpan02" class="clickedApproveChangeSpan" onclick="location.href='/leave/listForWriter'">신청한 휴가</span>
+                <span id="approveChangeSpan03" class="approveChangeSpan" onclick="location.href='/leave/listForApprover'" >승인할 휴가</span>
             </div>
             <h5>휴가 승인 현황</h5>
             <div id="upperDiv">
-                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=0'">
+                <div class="listBtn">
                     <h5>승인 대기</h5>
                     <h4 id="waitMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=1'">
+                <div class="listBtn">
                     <h5>승인 완료</h5>
                     <h4 id="approvalMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=2'">
+                <div class="listBtn">
                     <h5>반려</h5>
                     <h4 id="returnMark">0 건</h4>
                 </div>
@@ -99,7 +105,7 @@
                 </table>
                 <br>
     
-                <h5>휴가 반려 목록</h5>
+                <h5>반려 목록</h5>
                 <table border="1" id="return">
                     <thead>
                         <tr>

@@ -46,21 +46,21 @@
 
         <div id="calendarContainer" class="calendar-container">
             <div id="approveChange">
-                <span class="approveChange" onclick="location.href='/businessTrip/write'">출장 신청</span>
-                <span id="secondSpan" onclick="location.href='/businessTrip/listForWriter'">신청한 출장</span>
-                <span class="approveChange" onclick="location.href='/businessTrip/listForApprover'" >승인할 출장</span>
+                <span id="approveChangeSpan01" class="approveChangeSpan" onclick="location.href='/businessTrip/write'">출장 신청</span>
+                <span id="approveChangeSpan02" class="clickedApproveChangeSpan" onclick="location.href='/businessTrip/listForWriter'">신청한 출장</span>
+                <span id="approveChangeSpan03" class="approveChangeSpan" onclick="location.href='/businessTrip/listForApprover'" >승인할 출장</span>
             </div>
             <h5>출장 승인 현황</h5>
             <div id="upperDiv">
-                <div class="listBtn" onclick="location.href='/businessTrip/listForWriter?state=0'">
+                <div class="listBtn">
                     <h5>승인 대기</h5>
                     <h4 id="waitMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/businessTrip/listForWriter?state=1'">
+                <div class="listBtn">
                     <h5>승인 완료</h5>
                     <h4 id="approvalMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/businessTrip/listForWriter?state=2'">
+                <div class="listBtn">
                     <h5>반려</h5>
                     <h4 id="returnMark">0 건</h4>
                 </div>

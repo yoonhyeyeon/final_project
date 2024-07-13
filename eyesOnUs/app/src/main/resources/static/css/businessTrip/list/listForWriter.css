@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.approveChange{
+.approveChangeSpan{
     border: 2px solid lightgray;
     width: 100px;
     height: 20px;
@@ -17,7 +17,12 @@
     font-size: small;
 }
 
-#secondSpan{
+.approveChangeSpan:hover{
+    cursor: pointer;
+    background-color: rgb(188, 218, 228);
+}
+
+#approveChangeSpan02{
     border-top: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
     width: 100px;
@@ -26,15 +31,11 @@
     font-size: small;
 }
 
-#secondSpan:hover{
+#approveChangeSpan02:hover{
     cursor: pointer;
-    background-color: red;
+    background-color: rgb(188, 218, 228);
 }
 
-.approveChange:hover{
-    cursor: pointer;
-    background-color: red;
-}
 
 #upperDiv{
     display: flex;
@@ -53,16 +54,11 @@
     border-radius: 10px;
 }
 
-.listBtn:hover{
-    background-color: red;
-    cursor: pointer;
-}
-
 .listBtn > h5{
     color: rgb(18, 18, 156);
     margin: 0 0;
 }
 
-.clicked{
-    background-color: red;
+.clickedApproveChangeSpan{
+    background-color: rgb(188, 218, 228);
 }

@@ -46,21 +46,22 @@
 
         <div id="calendarContainer" class="calendar-container">
             <div id="approveChange">
-                <span class="approveChange" onclick="location.href='/sign/write'">기안</span>
-                <span id="secondSpan" onclick="location.href='/sign/listForWriter'">기안 목록</span>
-                <span class="approveChange" onclick="location.href='/sign/listForApprover'" >결재할 목록</span>
+                <span id="approveChangeSpan01" class="approveChangeSpan" onclick="location.href='/sign/write'">기안</span>
+                <span id="approveChangeSpan02" class="clickedApproveChangeSpan" onclick="location.href='/sign/listForWriter'">기안 목록</span>
+                <span id="approveChangeSpan03" onclick="location.href='/sign/listForApprover'">결재할 목록</span>
+                <span id="approveChangeSpan04" class="approveChangeSpan" onclick="location.href='/sign/listForReference'">참조된 목록</span>
             </div>
             <h5>결재 현황</h5>
             <div id="upperDiv">
-                <div class="listBtn" onclick="location.href='/sign/listForWriter?result=0'">
+                <div class="listBtn">
                     <h5>결재 진행</h5>
                     <h4 id="waitMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/sign/listForWriter?result=1'">
+                <div class="listBtn">
                     <h5>결재 완료</h5>
                     <h4 id="approvalMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/sign/listForWriter?result=2'">
+                <div class="listBtn">
                     <h5>반려</h5>
                     <h4 id="returnMark">0 건</h4>
                 </div>
@@ -75,7 +76,7 @@
                             <th>제목</th>
                             <th>기안자</th>
                             <th>신청일</th>
-                            <th>승인일</th>
+                            <th>마지막 승인일</th>
                             <th>상태</th>
                         </tr>
                     </thead>
@@ -92,7 +93,7 @@
                             <th>제목</th>
                             <th>기안자</th>
                             <th>신청일</th>
-                            <th>승인일</th>
+                            <th>마지막 승인일</th>
                             <th>상태</th>
                         </tr>
                     </thead>
@@ -109,7 +110,7 @@
                             <th>제목</th>
                             <th>기안자</th>
                             <th>신청일</th>
-                            <th>승인일</th>
+                            <th>마지막 승인일</th>
                             <th>상태</th>
                         </tr>
                     </thead>

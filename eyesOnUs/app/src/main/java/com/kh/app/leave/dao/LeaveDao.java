@@ -15,11 +15,11 @@ public class LeaveDao {
 
     // 휴가 신청
     public int leaveWrite(LeaveVo vo) {
-        int result = mapper.leaveWrite(vo);
-        if(result != 1){
+        int leaveWriteResult = mapper.leaveWrite(vo);
+        if(leaveWriteResult != 1){
             throw new RuntimeException("[L-000] LEAVE INSERT ERROR");
         }
-        return result;
+        return leaveWriteResult;
     } // leaveWrite
 
     // 휴가 목록 조회 (신청자 입장) (API)

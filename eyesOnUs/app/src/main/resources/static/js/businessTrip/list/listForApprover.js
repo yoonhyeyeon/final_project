@@ -6,6 +6,8 @@ function onPageLoad(){
         method: "get",
         success: (data) => {
             console.log("승인할 출장 리스트 통신 성공");
+
+            console.log(data);
     
             const waitTable = document.querySelector("#wait > tbody");
             const approvalTable = document.querySelector("#approval > tbody");
@@ -23,7 +25,8 @@ function onPageLoad(){
                 const trTag = document.createElement("tr");
     
                 trTag.addEventListener("click", () => {
-                    location.href = `/businessTrip/detail?no=${data.businessTripVoListForApprover[i].no}&state=${data.businessTripVoListForApprover[i].state}`;
+                    const url = `/businessTrip/detail?no=${data.businessTripVoListForApprover[i].no}&state=${data.businessTripVoListForApprover[i].state}`;
+                    location.href = url;
                 });
                 trTag.style.cursor = "pointer";
     

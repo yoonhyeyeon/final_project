@@ -97,7 +97,7 @@
                 </table>
                 <br>
     
-                <h5>출장 반려 목록</h5>
+                <h5>반려 목록</h5>
                 <table border="1" id="return">
                     <thead>
                         <tr>

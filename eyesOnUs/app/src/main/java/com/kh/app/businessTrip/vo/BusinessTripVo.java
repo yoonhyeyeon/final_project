@@ -1,5 +1,6 @@
 package com.kh.app.businessTrip.vo;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
@@ -40,4 +41,7 @@ public class BusinessTripVo {
     // DEPARTMENT
     private String deptCode;
     private String deptName;
+
+    // 승인권 표시
+    private boolean approveRight;
 } // class

@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <script defer src="/js/teamRoom/list.js"></script>
         <script defer src="/js/teamRoom/teamRoom.js"></script>
-
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="/css/leave/list/listForApprover.css">
@@ -99,7 +99,7 @@
                 </table>
                 <br>
     
-                <h5>휴가 반려 목록</h5>
+                <h5>반려 목록</h5>
                 <table border="1" id="return">
                     <thead>
                         <tr>

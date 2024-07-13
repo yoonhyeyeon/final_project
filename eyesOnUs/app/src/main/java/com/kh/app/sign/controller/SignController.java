@@ -1,7 +1,9 @@
 package com.kh.app.sign.controller;
 
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.service.SignService;
 import com.kh.app.sign.vo.SignVo;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,10 @@ public class SignController {
 
     // 기안
     @PostMapping("write")
-    public String signWrite(SignVo vo) throws IOException {
+    public String signWrite(SignVo vo, HttpSession session) throws IOException {
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String empNo = loginMemberVo.getNo();
+
         MultipartFile file = vo.getFile();
         if(!file.isEmpty()){
 
@@ -46,8 +51,16 @@ public class SignController {
             vo.setOriginName(originName);
             vo.setChangeName(changeName);
         }
-        int result = service.signWrite(vo);
-        return "redirect:/home";
+        int signWriteResult = service.signWrite(vo);
+
+        if(signWriteResult == 0){
+            session.setAttribute("alertMsg", "기안 실패");
+            return "redirect:/businessTrip/write";
+        }
+
+        session.setAttribute("alertMsg", "기안 완료");
+
+        return "redirect:/sign/listForWriter";
     } // signWrite
 
     // 결재 목록 조회 (기안자 입장) (화면)

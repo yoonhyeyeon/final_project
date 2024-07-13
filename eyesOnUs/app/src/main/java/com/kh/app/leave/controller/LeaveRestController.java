@@ -1,5 +1,6 @@
 package com.kh.app.leave.controller;
 
+import com.kh.app.businessTrip.vo.BusinessTripVo;
 import com.kh.app.leave.service.LeaveService;
 import com.kh.app.leave.vo.LeaveVo;
 import com.kh.app.member.vo.MemberVo;
@@ -68,6 +69,14 @@ public class LeaveRestController {
         // 휴가 승인자 상세 조회 (API)
         LeaveVo leaveApproverDetailVo = service.getLeaveApproverDetail(leaveVo);
         leaveDetailMap.put("leaveApproverDetailVo", leaveApproverDetailVo);
+
+        // 승인권 표시
+        if(leaveVo.getState() != null){
+            LeaveVo LeaveApproveRightVo = new LeaveVo();
+            LeaveApproveRightVo.setApproveRight(true);
+
+            leaveDetailMap.put("LeaveApproveRightVo", LeaveApproveRightVo);
+        }
 
         return leaveDetailMap;
     } // getLeaveDetail

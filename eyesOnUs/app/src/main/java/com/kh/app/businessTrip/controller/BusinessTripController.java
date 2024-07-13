@@ -30,7 +30,15 @@ public class BusinessTripController {
         vo.setEmpNo(empNo);
 
         int businessTripWriteResult = service.businessTripWrite(vo);
-        return "businessTrip/list/listForWriter";
+
+        if(businessTripWriteResult != 1){
+            session.setAttribute("alertMsg", "출장 신청 실패");
+            return "redirect:/businessTrip/write";
+        }
+
+        session.setAttribute("alertMsg", "출장 신청 완료");
+
+        return "redirect:/businessTrip/listForWriter";
     } // businessTripWrite
 
     // 출장 목록 조회 (신청자 입장) (화면)

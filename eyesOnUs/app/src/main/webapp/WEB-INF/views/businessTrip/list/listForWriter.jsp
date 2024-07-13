@@ -16,6 +16,12 @@
         <script defer src="/js/teamRoom/teamRoom.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            <c:if test="${not empty alertMsg}">
+                alert("${alertMsg}");
+            </c:if>
+        </script>
+        <c:remove var="alertMsg" scope="session"/>
 
         <link rel="stylesheet" href="/css/businessTrip/list/listForWriter.css">
         <script defer src="/js/businessTrip/list/listForWriter.js"></script>
@@ -97,7 +103,7 @@
                 </table>
                 <br>
     
-                <h5>출장 반려 목록</h5>
+                <h5>반려 목록</h5>
                 <table border="1" id="return">
                     <thead>
                         <tr>

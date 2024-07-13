@@ -18,6 +18,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="/css/leave/detail.css">
+        <script></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -99,8 +100,6 @@
                 <div class="fifth"></div>
                 <div class="fifth"></div>
             </div>
-            <button onclick="">승인</button>
-            <button onclick="">반려</button>
         </div>
 
         <div id="listContainer" class="list-container"></div>
@@ -108,11 +107,11 @@
 </html>
 
 <script>
+    const leaveNo = "${leaveVo.no}";
+
     window.addEventListener("load", onPageLoad);
 
     function onPageLoad(){
-        const leaveNo = "${leaveVo.no}";
-
         $.ajax({
             url: "/api/leave/detail",
             method: "get",
@@ -169,11 +168,153 @@
                 enrollDateSpan.innerHTML = enrollDate;
                 approveDateSpan.innerHTML = approveDate;
                 stateSpan.innerHTML = state;
+
+                if(data.businessTripApproveRightVo.approveRight){
+                    // 버튼 태그 담을 div 가져오기
+                    const calendarContainerDiv = document.querySelector("#calendarContainer");
+                    
+                    // 버튼 태그 만들기
+                    const btnTag01 = createElement("button");
+                    const btnTag02 = createElement("button");
+
+                    // 버튼 태그 텍스트 담기
+                    btnTag01.innerHTML = "승인";
+                    btnTag02.innerHTML = "반려";
+
+                    // 버튼 태그 함수 담기
+                    btnTag01.onclick = approveProcess;
+                    btnTag02.onclick = returnProcess;
+
+                    // 버튼 태그 붙이기
+                    calendarContainerDiv.appendChild(btnTag01);
+                    calendarContainerDiv.appendChild(btnTag02);
+                }
             },
             error: (error) => {
                 console.log("통신 실패");
                 console.log(error);
             }
         });
+    }
+</script>
+
+<script>
+    // 승인 처리
+    function approveProcess(){
+        $.ajax({
+            url: "/api/businessTrip/approve",
+            method: "put",
+            data: {
+                no: businessTripNo
+            },
+            success: (data) => {
+                console.log("출장 승인 처리 통신 성공");
+
+            },
+            error: (error) => {
+                console.log("통신 실패");
+                console.log(error);
+            }
+        });
+    }
+
+    // 반려 처리
+    function returnProcess(){
+        $.ajax({
+            url: "/api/businessTrip/approve",
+            method: "get",
+            data: {
+                no: businessTripNo
+            },
+            success: (data) => {
+                console.log("출장 반려 처리 통신 성공");
+            },
+            error: (error) => {
+                console.log("통신 실패");
+                console.log(error);
+            }
+        });
+    }
+</script>
+
+<script>
+    // 승인 처리
+    function approveProcess(){
+        if(confirm("휴가 승인 처리를 진행하겠습니까?")){
+            approveProcessGoOn();
+        } else{
+            approveProcessCancel();
+        }
+    }
+
+    // 승인 처리 (진행)
+    function approveProcessGoOn(){
+        $.ajax({
+            url: "/api/leave/approve",
+            method: "put",
+            data: {
+                no: leaveNo,
+                state: "1"
+            },
+            success: (data) => {
+                console.log("휴가 승인 처리 통신 성공");
+
+                if(data.leaveApproveResult === 1){
+                    alert("휴가 승인 완료");
+                    window.location.href = "/sign/listForApprover";
+                    return ;
+                }
+                alert("휴가 승인 실패");
+            },
+            error: (error) => {
+                console.log("통신 실패");
+                console.log(error);
+            }
+        });
+    }
+
+    // 승인 처리 (취소)
+    function approveProcessCancel(){
+        alert("휴가 승인 처리를 중지합니다.");
+    }
+
+    // 반려 처리
+    function returnProcess(){
+        if(confirm("휴가 반려 처리를 진행하겠습니까?")){
+            returnProcessGoOn();
+        } else{
+            returnProcessCancel();
+        }
+    }
+
+    // 반려 처리 (진행)
+    function returnProcessGoOn(){
+        $.ajax({
+            url: "/api/sign/approve",
+            method: "put",
+            data: {
+                no: leaveNo,
+                state: "2"
+            },
+            success: (data) => {
+                console.log("휴가 반려 처리 통신 성공");
+
+                if(data.leaveApproveResult === 1){
+                    alert("휴가 반려 완료");
+                    window.location.href = "/sign/listForApprover";
+                    return ;
+                }
+                alert("휴가 반려 실패");
+            },
+            error: (error) => {
+                console.log("통신 실패");
+                console.log(error);
+            }
+        });
+    }
+
+    // 반려 처리 (취소)
+    function returnProcessCancel(){
+        alert("휴가 반려 처리를 중지합니다.");
     }
 </script>

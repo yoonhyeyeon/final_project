@@ -6,10 +6,7 @@ import com.kh.app.businessTrip.vo.ProjectVo;
 import com.kh.app.member.vo.MemberVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -61,6 +58,8 @@ public class BusinessTripRestController {
     // 출장 상세 조회 (API)
     @GetMapping("detail")
     public Map<String, BusinessTripVo> getBusinessTripDetail(BusinessTripVo businessTripVo){
+        System.out.println("businessTripVo = " + businessTripVo);
+
         // 출장 상세 조회 (API)
         BusinessTripVo businessTripDetailVo = service.getBusinessTripDetail(businessTripVo);
         Map<String, BusinessTripVo> businessTripDetailMap = new HashMap<>();
@@ -69,6 +68,14 @@ public class BusinessTripRestController {
         // 출장 승인자 상세 조회 (API)
         BusinessTripVo businessTripApproverDetailVo = service.getBusinessTripApproverDetail(businessTripVo);
         businessTripDetailMap.put("businessTripApproverDetailVo", businessTripApproverDetailVo);
+
+        // 승인권 표시
+        if(businessTripVo.getState() != null){
+            BusinessTripVo businessTripApproveRightVo = new BusinessTripVo();
+            businessTripApproveRightVo.setApproveRight(true);
+
+            businessTripDetailMap.put("businessTripApproveRightVo", businessTripApproveRightVo);
+        }
 
         return businessTripDetailMap;
     } // getBusinessTripDetail

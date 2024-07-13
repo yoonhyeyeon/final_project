@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>신청한 휴가 목록 조회</title>
+        <title>결재할 목록 조회</title>
 
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
@@ -16,15 +16,9 @@
         <script defer src="/js/teamRoom/teamRoom.js"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script>
-            <c:if test="${not empty alertMsg}">
-                alert("${alertMsg}");
-            </c:if>
-        </script>
-        <c:remove var="alertMsg" scope="session"/>
 
-        <link rel="stylesheet" href="/css/leave/list/listForWriter.css">
-        <script defer src="/js/leave/list/listForWriter.js"></script>
+        <link rel="stylesheet" href="/css/sign/list/listForApprover.css">
+        <script defer src="/js/sign/list/listForApprover.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -46,36 +40,34 @@
 
         <div id="calendarContainer" class="calendar-container">
             <div id="approveChange">
-                <span class="approveChange" onclick="location.href='/leave/write'">휴가 신청</span>
-                <span id="secondSpan" onclick="location.href='/leave/listForWriter'">신청한 휴가</span>
-                <span class="approveChange" onclick="location.href='/leave/listForApprover'" >승인할 휴가</span>
+                <span class="approveChange" onclick="location.href='/sign/write'">기안</span>
+                <span id="secondSpan" onclick="location.href='/sign/listForWriter'">기안 목록</span>
+                <span class="approveChange" onclick="location.href='/sign/listForApprover'" >결재할 목록</span>
             </div>
-            <h5>휴가 승인 현황</h5>
+            <h5>결재 현황</h5>
             <div id="upperDiv">
-                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=0'">
-                    <h5>승인 대기</h5>
+                <div class="listBtn" onclick="location.href='/sign/listForApprover?result=0'">
+                    <h5>결재 진행</h5>
                     <h4 id="waitMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=1'">
-                    <h5>승인 완료</h5>
+                <div class="listBtn" onclick="location.href='/sign/listForApprover?result=1'">
+                    <h5>결재 완료</h5>
                     <h4 id="approvalMark">0 건</h4>
                 </div>
-                <div class="listBtn" onclick="location.href='/leave/listForWriter?state=2'">
+                <div class="listBtn" onclick="location.href='/sign/listForApprover?result=2'">
                     <h5>반려</h5>
                     <h4 id="returnMark">0 건</h4>
                 </div>
             </div>
 
             <div id="lowerDiv">
-                <h5>휴가 승인 대기 목록</h5>
+                <h5>결재 진행 목록</h5>
                 <table border="1" id="wait">
                     <thead>
                         <tr>
                             <th>번호</th>
-                            <th>휴가 타입</th>
-                            <th>사유</th>
-                            <th>신청자</th>
-                            <th>승인자</th>
+                            <th>제목</th>
+                            <th>기안자</th>
                             <th>신청일</th>
                             <th>승인일</th>
                             <th>상태</th>
@@ -86,15 +78,13 @@
                 </table>
                 <br>
                 
-                <h5>휴가 승인 목록</h5>
+                <h5>결재 완료 목록</h5>
                 <table border="1" id="approval">
                     <thead>
                         <tr>
                             <th>번호</th>
-                            <th>휴가 타입</th>
-                            <th>사유</th>
-                            <th>신청자</th>
-                            <th>승인자</th>
+                            <th>제목</th>
+                            <th>기안자</th>
                             <th>신청일</th>
                             <th>승인일</th>
                             <th>상태</th>
@@ -110,10 +100,8 @@
                     <thead>
                         <tr>
                             <th>번호</th>
-                            <th>휴가 타입</th>
-                            <th>사유</th>
-                            <th>신청자</th>
-                            <th>승인자</th>
+                            <th>제목</th>
+                            <th>기안자</th>
                             <th>신청일</th>
                             <th>승인일</th>
                             <th>상태</th>

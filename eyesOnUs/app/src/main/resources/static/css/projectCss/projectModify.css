@@ -62,3 +62,7 @@ h2{
   background-color: rgb(211, 211, 255);
   border: 1px solid black;
 }
+
+a{
+  text-decoration-line: none;
+}

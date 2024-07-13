@@ -13,6 +13,11 @@ public class NoticeDao {
 
     private final NoticeMapepr mapper;
 
+    // 작성하기
+    public int write(NoticeVo vo) {
+        return mapper.write(vo);
+    }
+
     // 목록
     public List<NoticeVo> listData() {
         return mapper.listData();

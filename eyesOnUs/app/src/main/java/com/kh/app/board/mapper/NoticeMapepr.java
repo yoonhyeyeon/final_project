@@ -45,5 +45,21 @@ public interface NoticeMapepr {
             """)
     List<NoticeVo> listData();
 
+    // 상세조회
+    @Select("""
+            SELECT
+                N.NO
+                , E.NAME AS WRITER_NO
+                , N.TITLE
+                , N.CONTENT
+                , N.HIT
+                , N.ENROLL_DATE
+            FROM NOTICE_BOARD N
+            JOIN EMPLOYEE E
+            ON N.WRITER_NO = E.NO
+            WHERE N.NO = #{no}
+            """)
+    NoticeVo noticeByNo(String no);
+
 }
 

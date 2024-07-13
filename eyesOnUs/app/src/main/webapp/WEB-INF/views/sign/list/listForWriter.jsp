@@ -14,6 +14,9 @@
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <script defer src="/js/teamRoom/list.js"></script>
         <script defer src="/js/teamRoom/teamRoom.js"></script>
+        <script defer src="/js/workTime/workTime.js"></script>
+        <script defer src="/js/teamRoom/clock.js"></script>
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>

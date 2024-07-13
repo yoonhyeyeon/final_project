@@ -70,7 +70,7 @@
                   <tbody class="box">
                     <tr class="list">
                       <td>1</td>
-                      <td>속보 김제민 끼쟁이</td>
+                      <td></td>
                       <td>2024-07-13</td>
                       <td>관리자</td>
                       <td>1</td>

@@ -18,7 +18,8 @@
 </head>
 
 <body>
-
+    <input type="text" name="svo" id="svo" value="${sessionScope.loginMemberVo.no}" hidden>
+    <input type="text" name="vo" id="vo" value="${vo.empNo}" hidden>
 <div class="time">
 <div id="time">
     <!-- 현재 시간을 표시할 div 추가 -->
@@ -48,8 +49,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
-        
+
         <p class="division"></p><hr>
         &nbsp;&nbsp;<p class="employee"></p><br><hr>
         &nbsp;&nbsp;<p class="state" ></p><br>

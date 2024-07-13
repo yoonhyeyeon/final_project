@@ -2,6 +2,9 @@ function getParam(param){
     const url = new URLSearchParams(window.location.search);
     return url.get(param);
 }
+const svo = document.querySelector("#svo").value;
+const vo = document.querySelector("#vo").value;
+
 $(document).ready(() => {
     const no = getParam("no");
     if(no){
@@ -13,7 +16,7 @@ $(document).ready(() => {
           console.log("상세 정보 통신 성공");
           console.log(detailData)
 
-
+          if(vo == svo){
             const dept = document.querySelector(".deptCode");
             const pm = document.querySelector(".employee");
             const prjContent = document.querySelector("#projectContent");
@@ -55,12 +58,38 @@ $(document).ready(() => {
                 sbtn.addEventListener("click", ()=>{
             const no = sbtn.getAttribute("data-id");
             window.location.href="http://127.0.0.1:8383/project/projectModify?no="+no;
-
-
-
-
             });
         });
+
+            }else{
+                const dept = document.querySelector(".deptCode");
+                const pm = document.querySelector(".employee");
+                const prjContent = document.querySelector("#projectContent");
+                const state = document.querySelector(".state");
+                const title = document.querySelector(".title");
+    
+    
+    
+    
+                let str1 = "";
+                let str2 = "";
+                let str3 = "";
+                let str4 = "";
+                let str5 = "";
+    
+                str5 += "주제 :" + detailData.title
+                str1 += "부서 : " +  detailData.dept
+                str2 += "담당자 : " +  detailData.pm
+                str3 += detailData.content
+                str4 += "상태 : " + detailData.state   
+                dept.innerHTML = str1;
+                pm.innerHTML = str2;
+                prjContent.innerHTML = str3;
+                state.innerHTML = str4;
+                title.innerHTML = str5;
+    
+    
+            }
 
         },
         error : function(x){

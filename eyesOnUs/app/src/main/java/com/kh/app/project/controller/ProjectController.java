@@ -66,13 +66,15 @@ public class ProjectController {
     }
 
     @GetMapping("projectModify")
-    public String modifyPrj(){
+    public String modifyPrj(ProjectVo vo, HttpServletRequest req){
+        ProjectVo vo1 = service.getProjectByNo(vo.getNo());
+        req.setAttribute("vo",vo1);
         return "project/modifyPrj";
     }
 
     @ResponseBody
     @PostMapping("projectModify")
-    public String modifyPrj(ProjectVo vo, HttpServletRequest req){
+    public String modifyPrj(ProjectVo vo, HttpServletRequest req,HttpSession session){
 
         int result = service.modifyPrj(vo);
 
@@ -110,14 +112,17 @@ public class ProjectController {
 
     @GetMapping("detailData")
     @ResponseBody
-    public ProjectVo getProjectByNo(ProjectVo vo,HttpSession session){
+    public ProjectVo getProjectByNo(ProjectVo vo,HttpSession session,HttpServletRequest req){
 
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-        return service.getProjectByNo(vo.getNo());
+        ProjectVo vo1 = service.getProjectByNo(vo.getNo());
+        return vo1;
     }
 
     @GetMapping("detail")
-    public String projectDetail(){
+    public String projectDetail(ProjectVo vo,HttpServletRequest req){
+        ProjectVo vo1 = service.getProjectByNo(vo.getNo());
+        req.setAttribute("vo",vo1);
         return "project/projectDetail";
     }
 

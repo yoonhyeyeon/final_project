@@ -16,13 +16,13 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/testPersonalPage.css">
-      <link rel="stylesheet" type="text/css" href="/css/board/notice/list.css">
+      <link rel="stylesheet" type="text/css" href="/css/board/notice/write.css">
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/testMain/sidebar.js"></script>
       <script defer src="../js/testMain/calender.js"></script>
       <script defer src="../js/commute/write.js"></script>
       <script defer src="../js/commute/quit.js"></script>
-      <script defer src="../js/board/notice/list.js"></script>
+      <script defer src="../js/board/notice/write.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
 
@@ -37,18 +37,6 @@
           <div id="out">
             <h2>🔵 공지사항</h2>
             <hr>
-            <div id="out2">
-              <button id="writeBtn" onclick="location.href='http://127.0.0.1:8383/notice/write'">작성하기</button>
-              <div id="search">
-                <span>게시글 검색</span>&nbsp
-                <select name="" id="">
-                  <option value="title">제목</option>
-                  <option value="content">게시글</option>
-                </select>&nbsp;<input type="text">
-                <button style="cursor: pointer;">검색🔍</button>
-              </div>
-            </div>
-
             <br><br>
             <div class="body">
               <div id="left">
@@ -56,37 +44,25 @@
                 <p>- 공지사항</p>
                 <p>- 자유게시판</p>
                 <p>- 건의게시판</p>
-
               </div>
               <div id="right">
-                <table border="1" id="rightBox">
-                  <tr id="listBox">
-                    <th>No.</th>
-                    <th>제목</th>
-                    <th>등록일</th>
-                    <th>등록자</th>
-                    <th>조회수</th>
-                  </tr>
-                  <tbody class="box">
-                    <tr class="list">
-                      <td>1</td>
-                      <td>속보 김제민 끼쟁이</td>
-                      <td>2024-07-13</td>
-                      <td>관리자</td>
-                      <td>1</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <br>
-            <div id="footerBtn">
-              <div id="footBtn">
-                <button>이전</button>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <button>다음</button>
+                  <h2>&nbsp;&nbsp;&nbsp;글쓰기</h2>
+                  <br>
+                  <div id="box">
+                    <select>
+                        <option>공지사항</option>
+                    </select>
+                  </div>
+                <div id="form">
+                    <p id="titleName">제목 : <input type="text" id="title"></p>
+                    <p id="contentName">내용</p>
+                    <textarea name="content" id="content"></textarea>
+                    <br><br>
+                    <div id="btn">
+                        <button onclick="write01();" id="submit">등록하기</button>
+                    </div>
+                </div>
+                <br>
               </div>
             </div>
           </div>

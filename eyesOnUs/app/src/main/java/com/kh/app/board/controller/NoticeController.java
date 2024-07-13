@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -21,6 +22,30 @@ public class NoticeController {
     private final NoticeService service;
 
     // 작성하기
+    @GetMapping("write")
+    public String write(){
+        return "board/notice/write";
+    }
+
+    @PostMapping("write")
+    @ResponseBody
+    public HashMap<String, String > write(NoticeVo vo, HttpSession session){
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
+        int result = service.write(vo);
+
+        HashMap<String, String > map = new HashMap<>();
+        if( loginMemberVo == null ){
+            map.put("msg", "로그인 필요");
+            return map;
+        }
+
+        map.put("msg", "작성 성공");
+        if( result != 1){
+            map.put("msg", "작성 실패");
+        }
+        return map;
+    }
 
     // 목록
     @GetMapping("list")

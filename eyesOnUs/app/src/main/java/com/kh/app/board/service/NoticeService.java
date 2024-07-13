@@ -15,10 +15,14 @@ public class NoticeService {
 
     private final NoticeDao dao;
 
+    // 작성하기
+    public int write(NoticeVo vo) {
+        return dao.write(vo);
+    }
+
     // 목록
     public List<NoticeVo> listData() {
         return dao.listData();
     }
-
 
 }

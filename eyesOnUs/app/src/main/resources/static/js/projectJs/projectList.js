@@ -30,12 +30,12 @@ $.ajax({
     },
 });
 
-
+const deptCodeVal = document.querySelector("#ingProjectData").value;
 $.ajax({
     url : "http://127.0.0.1:8383/project/listData2",
     method : "get",
     data :{
-        code : '20'
+        code : deptCodeVal
     },
     success : function(x){
         const tbody = document.querySelector("#personalTableBody1");

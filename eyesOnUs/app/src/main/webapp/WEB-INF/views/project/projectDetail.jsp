@@ -43,7 +43,13 @@
         </div>
         &nbsp;&nbsp;<p class="title"></p><hr>
         &nbsp;&nbsp;<p class="deptCode"></p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
         <p class="division"></p><hr>
         &nbsp;&nbsp;<p class="employee"></p><br><hr>
         &nbsp;&nbsp;<p class="state" ></p><br>
@@ -51,7 +57,7 @@
         <h2>내용</h2>
         <textarea name="content" id="projectContent" readonly></textarea><br>
         <div id="divSubmit">
-            <p id="sBtn"></p>
+                <p id="sBtn"></p>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <p id="dBtn"></p>
         </div>

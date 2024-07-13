@@ -56,15 +56,12 @@ public class ProjectController {
 
     @ResponseBody
     @PostMapping("projectInsert")
-    public String insert(ProjectVo vo, HttpServletResponse resp, HttpServletRequest req){
+    public int insert(ProjectVo vo,HttpSession session){
 
+        MemberVo loginVo = (MemberVo)session.getAttribute("loginMemberVo");
         int result = service.insertProject(vo);
 
-        if(result != 1){
-            req.setAttribute("result","등록실패...");
-        }
-        req.setAttribute("result","등록 성공!");
-        return "common/result";
+        return result;
     }
 
     @GetMapping("projectModify")

@@ -43,7 +43,7 @@
                 <h1>프로젝트</h1>
             </div>
             &nbsp;&nbsp;<p>주제 :</p> <input type="text" name="title" id="title"><hr>
-            &nbsp;&nbsp;<p>PM-CODE</p> : <input type="text" name="empNo" id="emp"><br><hr>
+            &nbsp;&nbsp;<p>PM-CODE</p> : <input type="text" name="empNo" id="emp" value="${sessionScope.loginVo.empNo}"><br><hr>
             &nbsp;&nbsp;상태 : <input type="text" name="state" id="state" placeholder="1.등록  2.중지  3.해산"><br>
             <hr>
             &nbsp;&nbsp;<p>부서코드 :</p> <input type="text" name="code" id="code"><br><br>

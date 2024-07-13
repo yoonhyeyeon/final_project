@@ -1,23 +1,32 @@
-
-
-
+.jua-regular {
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 .weather-container {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* 밝은 배경색 */
+    font-family: "Jua";
+    background-color: #f4f4f4; /* 밝은 파란색 배경 */
     text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* 적당한 패딩 */
+    border-radius: 20px; /* 둥근 모서리 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+    max-width: 400px; /* 최대 너비 설정 */
+    margin: 40px auto; /* 상하 마진을 추가하여 중앙 배치 */
+    border: 2px solid #00bcd4; /* 파란색 테두리 */
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.weather-container h1 {
+    font-size: 20px; /* 작은 폰트 크기 */
+    margin-bottom: 15px; /* 여백 줄임 */
+    color: #1c7cb3; /* 짙은 파란색 글자색 */
 }
 
 #weather {
-    font-size: 20px;
-    color: #333;
+    font-size: 18px; /* 작은 폰트 크기 */
+    color: #474747; /* 짙은 초록색 글자색 */
+}
+
+body {
+    background-color: #b3e5fc; /* 페이지 배경색 설정 */
 }

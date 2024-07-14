@@ -14,6 +14,9 @@
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <script defer src="/js/teamRoom/list.js"></script>
         <script defer src="/js/teamRoom/teamRoom.js"></script>
+        <script defer src="/js/workTime/workTime.js"></script>
+        <script defer src="/js/teamRoom/clock.js"></script>
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -179,6 +182,10 @@
                 if(data.businessTripDetailVo.state === "0" && data.businessTripDetailVo.approverNo === data.vo.empNo){
                     // 버튼 태그 담을 div 가져오기
                     const calendarContainerDiv = document.querySelector("#calendarContainer");
+
+                    // 버튼 태그 담을 div 태그 만들기
+                    const btnDiv = document.createElement("div");
+                    btnDiv.id = "approveBtnDiv";
                     
                     // 버튼 태그 만들기
                     const btnTag01 = document.createElement("button");
@@ -193,8 +200,11 @@
                     btnTag02.onclick = returnProcess;
 
                     // 버튼 태그 붙이기
-                    calendarContainerDiv.appendChild(btnTag01);
-                    calendarContainerDiv.appendChild(btnTag02);
+                    btnDiv.appendChild(btnTag01);
+                    btnDiv.appendChild(btnTag02);
+
+                    // div 태그 붙이기
+                    calendarContainerDiv.appendChild(btnDiv);
                 }
             },
             error: (error) => {

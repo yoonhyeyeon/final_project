@@ -3,7 +3,7 @@ function getEmployeeList(){
         url: "/api/sign/employeeList",
         method: "get",
         success: (data) => {
-            console.log("직원 리스트 통신 성공");
+            console.log("승인자 리스트 통신 성공");
 
             const selectTagApproverNo = document.querySelector("select[name=approverNo]");
 

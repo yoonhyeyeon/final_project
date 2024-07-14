@@ -14,13 +14,16 @@
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <script defer src="/js/teamRoom/list.js"></script>
         <script defer src="/js/teamRoom/teamRoom.js"></script>
+        <script defer src="/js/workTime/workTime.js"></script>
+        <script defer src="/js/teamRoom/clock.js"></script>
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="/css/leave/write.css">
-        <script defer src="/js/leave/write.js"></script>
         <script defer src="/js/common/employeeList.js"></script>
-        <script defer src="/js/common/leaveTypeList.js"></script>
+        <script defer src="/js/leave/write/write.js"></script>
+        <script defer src="/js/leave/write/leaveTypeList.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>

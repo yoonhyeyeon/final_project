@@ -175,6 +175,10 @@
                     // 버튼 태그 담을 div 가져오기
                     const calendarContainerDiv = document.querySelector("#calendarContainer");
                     
+                    // 버튼 태그 담을 div 태그 만들기
+                    const btnDiv = document.createElement("div");
+                    btnDiv.id = "approveBtnDiv";
+
                     // 버튼 태그 만들기
                     const btnTag01 = document.createElement("button");
                     const btnTag02 = document.createElement("button");
@@ -188,8 +192,11 @@
                     btnTag02.onclick = returnProcess;
 
                     // 버튼 태그 붙이기
-                    calendarContainerDiv.appendChild(btnTag01);
-                    calendarContainerDiv.appendChild(btnTag02);
+                    btnDiv.appendChild(btnTag01);
+                    btnDiv.appendChild(btnTag02);
+
+                    // div 태그 붙이기
+                    calendarContainerDiv.appendChild(btnDiv);
                 }
             },
             error: (error) => {

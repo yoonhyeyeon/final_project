@@ -89,7 +89,7 @@ button{
 }
 
 button:hover{
-    background-color: red;
+    background-color: rgb(188, 218, 228);
     cursor: pointer;
 }
 
@@ -124,4 +124,12 @@ button:hover{
 
 .fifth{
     border-top: 2px solid lightgray;
+}
+
+#approveBtnDiv{
+    margin: 2%;
+}
+
+#approveBtnDiv > button{
+    margin: 2px;
 }

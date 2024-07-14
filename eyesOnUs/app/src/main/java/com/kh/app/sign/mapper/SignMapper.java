@@ -94,7 +94,9 @@ public interface SignMapper {
     List<EmployeeVo> getEmployeeList();
 
     // 결재 (API)
-    @Update("")
+    @Update({"""
+            
+            """})
     int updateSignApprove(SignVo signVo);
 
     // 결재 목록 조회 (기안자 입장) (API)

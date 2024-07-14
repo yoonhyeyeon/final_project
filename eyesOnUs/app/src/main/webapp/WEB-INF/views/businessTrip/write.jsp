@@ -21,9 +21,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="/css/businessTrip/write.css">
-        <script defer src="/js/businessTrip/write.js"></script>
         <script defer src="/js/common/employeeList.js"></script>
-        <script defer src="/js/common/projectList.js"></script>
+        <script defer src="/js/businessTrip/write/write.js"></script>
+        <script defer src="/js/businessTrip/write/projectList.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>

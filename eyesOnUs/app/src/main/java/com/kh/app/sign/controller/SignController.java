@@ -30,12 +30,12 @@ public class SignController {
     public String signWrite(SignVo vo, HttpSession session) throws IOException {
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
         String empNo = loginMemberVo.getNo();
+        vo.setEmpNo(empNo);
 
         MultipartFile file = vo.getFile();
         if(!file.isEmpty()){
-
             // 저장할 경로, 원래  파일명, 사이즈
-            String uploadDir = "C:\\Users\\seong\\project\\final_test\\back\\final\\src\\main\\resources\\static\\file\\sign\\";
+            String uploadDir = "C:\\Users\\seong\\project\\final\\eyesOnUs\\app\\src\\main\\resources\\static\\sign\\";
             String originName = file.getOriginalFilename();
             String size = String.valueOf(file.getSize());
 
@@ -45,7 +45,8 @@ public class SignController {
             String changeName = "SIGN_" + System.nanoTime() + "_" + random + ext;
 
             String fullPath = uploadDir + changeName;
-            file.transferTo(new File(fullPath));
+            File targetFile = new File(fullPath);
+            file.transferTo(targetFile);
 
             vo.setSize(size);
             vo.setOriginName(originName);
@@ -55,7 +56,7 @@ public class SignController {
 
         if(signWriteResult == 0){
             session.setAttribute("alertMsg", "기안 실패");
-            return "redirect:/businessTrip/write";
+            return "redirect:/sign/write";
         }
 
         session.setAttribute("alertMsg", "기안 완료");

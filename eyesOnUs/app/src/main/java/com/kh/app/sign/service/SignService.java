@@ -28,10 +28,13 @@ public class SignService {
             signSeq++;
         }
 
-        int refResult = 0;
-        for (String ref : vo.getRefNo()) {
-            refResult = dao.signRefWrite(ref);
+        int refResult = 1;
+        if(vo.getRefNo() != null){
+            for (String ref : vo.getRefNo()) {
+                refResult = dao.signRefWrite(ref);
+            }
         }
+
         return signResult * fileResult * pathResult * refResult;
     } // signWrite
 

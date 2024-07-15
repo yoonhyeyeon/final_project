@@ -22,8 +22,7 @@ public class BusinessTripRestController {
 
     // 출장 목록 조회 (신청자 입장) (API)
     @GetMapping("listForWriter")
-    public Map<String, List> getBusinessTripListForWriter(BusinessTripVo businessTripVo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getBusinessTripListForWriter(BusinessTripVo businessTripVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String empNo = loginMemberVo.getNo();
 
         // 출장 목록 조회 (신청자 입장) (API)
@@ -40,8 +39,7 @@ public class BusinessTripRestController {
 
     // 출장 목록 조회 (승인자 입장) (API)
     @GetMapping("listForApprover")
-    public Map<String, List> getBusinessTripListForApprover(BusinessTripVo businessTripVo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getBusinessTripListForApprover(BusinessTripVo businessTripVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String approverNo = loginMemberVo.getNo();
 
         // 출장 목록 조회 (승인자 입장) (API)
@@ -58,9 +56,7 @@ public class BusinessTripRestController {
 
     // 출장 상세 조회 (API)
     @GetMapping("detail")
-    public Map<String, BusinessTripVo> getBusinessTripDetail(BusinessTripVo businessTripVo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-
+    public Map<String, BusinessTripVo> getBusinessTripDetail(BusinessTripVo businessTripVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         // 출장 상세 조회 (API)
         BusinessTripVo businessTripDetailVo = service.getBusinessTripDetail(businessTripVo);
         Map<String, BusinessTripVo> businessTripDetailMap = new HashMap<>();
@@ -91,8 +87,7 @@ public class BusinessTripRestController {
 
     // 프로젝트 목록 조회 (API)
     @GetMapping("projectList")
-    public Map<String, List> getProjectList(HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getProjectList(@SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String empNo = loginMemberVo.getNo();
         List<ProjectVo> projectVoList = service.getProjectList(empNo);
 

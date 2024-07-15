@@ -6,10 +6,7 @@ import com.kh.app.sign.vo.EmployeeVo;
 import com.kh.app.sign.vo.SignVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -33,21 +30,9 @@ public class SignRestController {
         return employeeListMap;
     } // getEmployeeList
 
-    // 결재 (API)
-    @PutMapping("approve")
-    public Map<String, Integer> updateSignApprove(SignVo signVo){
-        int signApproveResult = service.updateSignApprove(signVo);
-
-        Map<String, Integer> signApproveResultMap = new HashMap<>();
-        signApproveResultMap.put("signApproveResult", signApproveResult);
-
-        return signApproveResultMap;
-    } // updateSignApprove
-
     // 결재 목록 조회 (기안자 입장) (API)
     @GetMapping("listForWriter")
-    public Map<String, List> getSignListForWriter(HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getSignListForWriter(@SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String empNo = loginMemberVo.getNo();
 
         List<SignVo> signVoListForWriter = service.getSignListForWriter(empNo);
@@ -60,8 +45,7 @@ public class SignRestController {
     
     // 결재 목록 조회 (결재자 입장) (API)
     @GetMapping("listForApprover")
-    public Map<String, List> getSignListForApprover(HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getSignListForApprover(@SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String approverNo = loginMemberVo.getNo();
 
         List<SignVo> signVoListForApprover = service.getSignListForApprover(approverNo);
@@ -74,8 +58,7 @@ public class SignRestController {
 
     // 결재 목록 조회 (참조자 입장) (API)
     @GetMapping("listForReference")
-    public Map<String, List> getSignListForReference(HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getSignListForReference(@SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String refNo = loginMemberVo.getNo();
 
         List<SignVo> signVoListForReference = service.getSignListForReference(refNo);
@@ -87,9 +70,7 @@ public class SignRestController {
     } // getSignListForReference
 
     // 결재 상세 조회 (API)
-    public Map<String, SignVo> getSignDetail(SignVo signVo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-
+    public Map<String, SignVo> getSignDetail(SignVo signVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         // 결재 상세 조회 (API)
         SignVo signDetailVo = service.getSignDetail(signVo);
         Map<String, SignVo> signDetailMap = new HashMap<>();
@@ -110,4 +91,15 @@ public class SignRestController {
 
         return signDetailMap;
     } // getSignDetail
+
+//    // 결재 (API)
+//    @PutMapping("approve")
+//    public Map<String, Integer> updateSignApprove(SignVo signVo){
+//        int signApproveResult = service.updateSignApprove(signVo);
+//
+//        Map<String, Integer> signApproveResultMap = new HashMap<>();
+//        signApproveResultMap.put("signApproveResult", signApproveResult);
+//
+//        return signApproveResultMap;
+//    } // updateSignApprove
 } // class

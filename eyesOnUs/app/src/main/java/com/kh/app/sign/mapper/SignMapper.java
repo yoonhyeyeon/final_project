@@ -93,12 +93,6 @@ public interface SignMapper {
             """})
     List<EmployeeVo> getEmployeeList();
 
-    // 결재 (API)
-    @Update({"""
-            
-            """})
-    int updateSignApprove(SignVo signVo);
-
     // 결재 목록 조회 (기안자 입장) (API)
     @Select({"""
             SELECT
@@ -204,24 +198,146 @@ public interface SignMapper {
     // 결재 상세 조회 (API)
     @Select({"""
             SELECT
-                *
-            FROM SIGN
+                H.SIGN_NO
+                , H.SIGN_SEQ
+                , H.APPROVER_NO
+                , S.EMP_NO
+                , E.NAME            EMP_NAME
+                , S.RESULT
+                , S.STEP
+                , S.TITLE
+                , S.CONTENT
+                , S.ENROLL_DATE
+                , F.CHANGE_NAME
+                , F.ORIGIN_NAME
+                , F."SIZE"
+                , F.MODIFY_DATE
+                , E.NICK
+                , P.CODE            POSITION_CODE
+                , P.NAME            POSITION_NAME
+                , D.CODE            DIV_CODE
+                , D.NAME            DIV_NAME
+                , T.CODE            DEPT_CODE
+                , T.NAME            DEPT_NAME
+            FROM SIGN_PATH H
+            JOIN SIGN S ON (H.SIGN_NO = S.NO)
+            JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)
+            JOIN EMPLOYEE E ON (H.APPROVER_NO = E.NO)
+            JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+            JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+            JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+            WHERE H.SIGN_NO = #{no}
+            ORDER BY H.SIGN_SEQ DESC
             """})
     SignVo getSignDetail(SignVo signVo);
 
     // 결재자 상세 조회 (API)
     @Select({"""
             SELECT
-                *
-            FROM SIGN
+                H.SIGN_NO
+                , H.SIGN_SEQ
+                , H.APPROVER_NO
+                , S.EMP_NO
+                , E.NAME            EMP_NAME
+                , S.RESULT
+                , S.STEP
+                , S.TITLE
+                , S.CONTENT
+                , S.ENROLL_DATE
+                , F.CHANGE_NAME
+                , F.ORIGIN_NAME
+                , F."SIZE"
+                , F.MODIFY_DATE
+                , E.NICK
+                , P.CODE            POSITION_CODE
+                , P.NAME            POSITION_NAME
+                , D.CODE            DIV_CODE
+                , D.NAME            DIV_NAME
+                , T.CODE            DEPT_CODE
+                , T.NAME            DEPT_NAME
+            FROM SIGN_PATH H
+            JOIN SIGN S ON (H.SIGN_NO = S.NO)
+            JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)
+            JOIN EMPLOYEE E ON (H.APPROVER_NO = E.NO)
+            JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+            JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+            JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+            WHERE H.SIGN_NO = #{no}
+            ORDER BY H.SIGN_SEQ DESC
             """})
     SignVo getSignApproverDetail(SignVo signVo);
 
     // 참조자 상세 조회 (API)
     @Select({"""
             SELECT
-                *
-            FROM SIGN
+                R.SIGN_NO
+                , R.REF_NO
+                , S.EMP_NO
+                , E.NAME            EMP_NAME
+                , S.RESULT
+                , S.STEP
+                , S.TITLE
+                , S.CONTENT
+                , S.ENROLL_DATE
+                , F.CHANGE_NAME
+                , F.ORIGIN_NAME
+                , F."SIZE"
+                , F.MODIFY_DATE
+                , E.NICK
+                , P.CODE            POSITION_CODE
+                , P.NAME            POSITION_NAME
+                , D.CODE            DIV_CODE
+                , D.NAME            DIV_NAME
+                , T.CODE            DEPT_CODE
+                , T.NAME            DEPT_NAME
+            FROM SIGN_REF R
+            JOIN SIGN S ON (R.SIGN_NO = S.NO)
+            JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)
+            JOIN EMPLOYEE E ON (R.REF_NO = E.NO)
+            JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
+            JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
+            JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
+            WHERE R.SIGN_NO = #{no}
+            ORDER BY P.CODE ASC
+                , T.CODE ASC
+                , D.CODE ASC
             """})
     SignVo getSignReferenceDetail(SignVo signVo);
+
+//    // 결재 (SIGN) (API)
+//    @Update({"""
+//            <script>
+//                UPDATE SIGN
+//                SET STEP = #{step}
+//                    , RESULT = #{result}
+//                WHERE NO = #{no}
+//            </script>
+//            """})
+//    int updateSign(SignVo signVo);
+//
+//    // 결재 (SIGN_FILE) (API)
+//    @Update({"""
+//            <script>
+//                UPDATE SIGN_FILE
+//                SET MODIFY_DATE = SYSDATE
+//                    , \"SIZE\" = #{size}
+//                WHERE SIGN_NO = #{no}
+//            </script>
+//            """})
+//    int updateFile(SignVo signVo);
+//
+//    // 결재 (SIGN_COM) (API)
+//    @Insert({"""
+//            INSERT INTO SIGN_COM(
+//                NO
+//                , SIGN_NO
+//                , "COMMENT"
+//            )
+//            VALUES(
+//                SEQ_SIGN_COM.NEXTVAL
+//                , #{no}
+//                , #{comment}
+//            )
+//            """})
+//    int writeComment(SignVo signVo);
 } // interface

@@ -6,10 +6,7 @@ import com.kh.app.leave.vo.LeaveVo;
 import com.kh.app.member.vo.MemberVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,8 +21,7 @@ public class LeaveRestController {
 
     // 휴가 목록 조회 (신청자 입장) (API)
     @GetMapping("listForWriter")
-    public Map<String, List> getLeaveListForWriter(LeaveVo leaveVo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getLeaveListForWriter(LeaveVo leaveVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String empNo = loginMemberVo.getNo();
 
         // 휴가 목록 조회 (신청자 입장) (API)
@@ -42,8 +38,7 @@ public class LeaveRestController {
 
     // 휴가 목록 조회 (승인자 입장) (API)
     @GetMapping("listForApprover")
-    public Map<String, List> getLeaveListForApprover(LeaveVo leaveVo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+    public Map<String, List> getLeaveListForApprover(LeaveVo leaveVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String approverNo = loginMemberVo.getNo();
 
         // 휴가 목록 조회 (승인자 입장) (API)
@@ -60,9 +55,7 @@ public class LeaveRestController {
 
     // 휴가 상세 조회 (API)
     @GetMapping("detail")
-    public Map<String, LeaveVo> getLeaveDetail(LeaveVo leaveVo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-
+    public Map<String, LeaveVo> getLeaveDetail(LeaveVo leaveVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         // 휴가 상세 조회 (API)
         LeaveVo leaveDetailVo = service.getLeaveDetail(leaveVo);
         Map<String, LeaveVo> leaveDetailMap = new HashMap<>();

@@ -43,11 +43,6 @@ public class SignService {
         return dao.getEmployeeList();
     } // getEmployeeList
 
-    // 결재 (API)
-    public int updateSignApprove(SignVo signVo) {
-        return dao.updateSignApprove(signVo);
-    } // updateSignApprove
-
     // 결재 목록 조회 (기안자 입장) (API)
     public List<SignVo> getSignListForWriter(String empNo) {
         return dao.getSignListForWriter(empNo);
@@ -77,4 +72,15 @@ public class SignService {
     public SignVo getSignReferenceDetail(SignVo signVo) {
         return dao.getSignReferenceDetail(signVo);
     } // getSignReferenceDetail
+
+//    // 결재 (API)
+//    public int updateSignApprove(SignVo signVo) {
+//        int signResult = dao.updateSign(signVo);
+//        int fileResult = dao.updateFile(signVo);
+//        int commentResult = dao.writeComment(signVo);
+//
+//        int signApproveResult = signResult * fileResult * commentResult;
+//
+//        return signApproveResult;
+//    } // updateSignApprove
 } // class

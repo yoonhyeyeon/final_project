@@ -59,20 +59,11 @@ public class SignDao {
         return employeeVoList;
     } // getEmployeeList
 
-    // 결재 (API)
-    public int updateSignApprove(SignVo signVo) {
-        int signApproveResult = mapper.updateSignApprove(signVo);
-        if(signApproveResult != 1){
-            throw new RuntimeException("[S-005] SIGN APPROVE UPDATE ERROR");
-        }
-        return signApproveResult;
-    } // updateSignApprove
-
     // 결재 목록 조회 (기안자 입장) (API)
     public List<SignVo> getSignListForWriter(String empNo) {
         List<SignVo> signVoListForWriter = mapper.getSignListForWriter(empNo);
         if(signVoListForWriter == null){
-            throw new RuntimeException("[S-006] SIGN LIST FOR WRITER SELECT ERROR");
+            throw new RuntimeException("[S-005] SIGN LIST FOR WRITER SELECT ERROR");
         }
         return signVoListForWriter;
     } // getSignListForWriter
@@ -81,7 +72,7 @@ public class SignDao {
     public List<SignVo> getSignListForApprover(String approverNo) {
         List<SignVo> signVoListForApprover = mapper.getSignListForApprover(approverNo);
         if(signVoListForApprover == null){
-            throw new RuntimeException("[S-007] SIGN LIST FOR APPROVER SELECT ERROR");
+            throw new RuntimeException("[S-006] SIGN LIST FOR APPROVER SELECT ERROR");
         }
         return signVoListForApprover;
     } // getSignListForApprover
@@ -90,7 +81,7 @@ public class SignDao {
     public List<SignVo> getSignListForReference(String refNo) {
         List<SignVo> signVoListForReference = mapper.getSignListForReference(refNo);
         if(signVoListForReference == null){
-            throw new RuntimeException("[S-008] SIGN LIST FOR REFERENCE SELECT ERROR");
+            throw new RuntimeException("[S-007] SIGN LIST FOR REFERENCE SELECT ERROR");
         }
         return signVoListForReference;
     } // getSignListForReference
@@ -99,7 +90,7 @@ public class SignDao {
     public SignVo getSignDetail(SignVo signVo) {
         SignVo signDetailVo = mapper.getSignDetail(signVo);
         if(signDetailVo == null){
-            throw new RuntimeException("[S-009] SIGN DETAIL SELECT ERROR");
+            throw new RuntimeException("[S-008] SIGN DETAIL SELECT ERROR");
         }
         return signDetailVo;
     } // getSignDetail
@@ -108,7 +99,7 @@ public class SignDao {
     public SignVo getSignApproverDetail(SignVo signVo) {
         SignVo signApproverDetailVo = mapper.getSignApproverDetail(signVo);
         if(signApproverDetailVo == null){
-            throw new RuntimeException("[S-010] SIGN APPROVER DETAIL SELECT ERROR");
+            throw new RuntimeException("[S-009] SIGN APPROVER DETAIL SELECT ERROR");
         }
         return signApproverDetailVo;
     } // getSignApproverDetail
@@ -116,9 +107,33 @@ public class SignDao {
     // 참조자 상세 조회 (API)
     public SignVo getSignReferenceDetail(SignVo signVo) {
         SignVo signReferenceDetailVo = mapper.getSignReferenceDetail(signVo);
-        if(signReferenceDetailVo == null){
-            throw new RuntimeException("[S-011] SIGN REFERENCE DETAIL SELECT ERROR");
-        }
         return signReferenceDetailVo;
     } // getSignReferenceDetail
+
+//    // 결재 (SIGN) (API)
+//    public int updateSign(SignVo signVo) {
+//        int signResult = mapper.updateSign(signVo);
+//        if(signResult != 1){
+//            throw new RuntimeException("[S-010] SIGN APPROVE UPDATE ERROR");
+//        }
+//        return signResult;
+//    } // updateSign
+//
+//    // 결재 (SIGN_FILE) (API)
+//    public int updateFile(SignVo signVo) {
+//        int fileResult = mapper.updateFile(signVo);
+//        if(fileResult != 1){
+//            throw new RuntimeException("[S-011] SIGN_FIEL APPROVE UPDATE ERROR");
+//        }
+//        return fileResult;
+//    } // updateFile
+//
+//    // 결재 (SIGN_COM) (API)
+//    public int writeComment(SignVo signVo) {
+//        int commentResult = mapper.writeComment(signVo);
+//        if(commentResult != 1){
+//            throw new RuntimeException("[S-012] SIGN_COM APPROVE INSERT ERROR");
+//        }
+//        return commentResult;
+//    } // writeComment
 } // class

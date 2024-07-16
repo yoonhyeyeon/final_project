@@ -13,7 +13,7 @@
             <h1>현재 위치 날씨</h1>
             <div id="weather"></div>
         </div>
-    <script defer src="/js/util/myLocation.js"></script>
+    <script defer src="/js/util/weather.js"></script>
 
 </body>
 </html>

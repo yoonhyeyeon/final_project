@@ -67,6 +67,8 @@
 
                     </div>
                 </div>
+                <br>
+                <button id="listBtn" onclick="location.href='http://127.0.0.1:8383/evaluation/list'">목록</button>
             </div>
     </div>
 </div>

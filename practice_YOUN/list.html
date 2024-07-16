@@ -8,64 +8,77 @@
 </head>
 <body>
   
-  <div id="out">
-    <h2>🔵 공지사항</h2>
-    <hr>
-    <div id="out2">
-      <button id="writeBtn">작성하기</button>
-      <div id="search">
-        <span>게시글 검색</span>&nbsp
-        <select name="" id="">
-          <option value="title">제목</option>
-          <option value="content">게시글</option>
-        </select>&nbsp;<input type="text">
-        <button style="cursor: pointer;">검색🔍</button>
-      </div>
-    </div>
+  <div id="calendarContainer" class="calendar-container">
 
-    <br><br>
-    <div class="body">
-      <div id="left">
-        <span>게시판</span>
-        <p>- 공지사항</p>
-        <p>- 자유게시판</p>
-        <p>- 건의게시판</p>
-        
-      </div>
-      <div id="right">
-        <table border="1" id="rightBox">
-          <tr id="listBox">
-            <th>No.</th>
-            <th>제목</th>
-            <th>등록일</th>
-            <th>등록자</th>
-            <th>조회수</th>
-          </tr>
-          <tbody>
-            <tr class="list">
-              <td>1</td>
-              <td>속보 김제민 끼쟁이</td>
-              <td>2024-07-13</td>
-              <td>관리자</td>
-              <td>1</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div id="out">
+        <h1>동료 평가</h1>
+            <div id="list">
+                <span id="date">평가 기간 : 2024-07-08 ~ 2024-07-30</span>
+                <br><hr><br>
+                <c:forEach var="vo" items="${voList}">
+                   <c:if test="${sessionScope.loginMemberVo.no == vo.no}">
+                    <div id="evaluatorNo">
+                        <p>평가자 : ${vo.name}</p>
+                    </div>
+                   </c:if>
+                </c:forEach>
+                <div class="listBox">
+                    <div id="listItemBox">
+                        <span>번호</span>
+                        <span>이름</span>
+                        <span>잠재력</span>
+                        <span>소통력</span>
+                        <span>문제해결력</span>
+                        <span>책임감</span>
+                        <span>칭찬할 점</span>
+                        <span>아쉬운 점</span>
+                        <span>하고 싶은 말</span>
+                        <span>평가일</span>
+                    </div>
+                    <div id="Item">
+                      <div id='listItem'>
+                        <span>1</span>
+                        <span>박연칠</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>칭찬할 점</span>
+                        <span>아쉬운 점</span>
+                        <span>하고 싶은 말</span>
+                        <span>2024-07-18</span>
+                      </div>
+                      <div id='listItem'>
+                        <span>1</span>
+                        <span>박연칠</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>칭찬할 점</span>
+                        <span>아쉬운 점</span>
+                        <span>하고 싶은 말</span>
+                        <span>2024-07-18</span>
+                      </div>
+                      <div id='listItem'>
+                        <span>1</span>
+                        <span>박연칠</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>50</span>
+                        <span>칭찬할 점</span>
+                        <span>아쉬운 점</span>
+                        <span>하고 싶은 말</span>
+                        <span>2024-07-18</span>
+                      </div>
+                    </div>
+                </div>
+                <br>
+                <button>목록</button>
+            </div>
     </div>
-    <br>
-    <div id="footerBtn">
-      <div id="footBtn">
-        <button>이전</button>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <button>다음</button>
-      </div>
-    </div>
-  </div>
-  
-  
+</div>
 
 </body>
 </html>

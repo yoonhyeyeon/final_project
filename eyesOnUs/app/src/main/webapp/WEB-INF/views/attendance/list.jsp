@@ -42,6 +42,7 @@
               <div id="listMain">
                 <span>조회</span>
                 <select name="month" id="month" onchange="monthData();">
+                  <option value="">--선택--</option>
                   <option value="01">1월</option>
                   <option value="02">2월</option>
                   <option value="03">3월</option>

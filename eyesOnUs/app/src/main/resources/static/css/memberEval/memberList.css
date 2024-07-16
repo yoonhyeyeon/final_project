@@ -40,6 +40,7 @@
     text-align: center;
     border-bottom: 1px solid #ccc;
     border-left: 1px solid #ccc;
+
 }
 
 #listItem > span{
@@ -48,4 +49,18 @@
     align-items: center;
     justify-content: center;
     border-right: 1px solid #ccc;
+    padding: 4%;
+}
+
+#listBtn{
+  width: 80px;
+  height: 40px;
+  background-color: #e0f7fa;
+  border: 1px solid rgb(58, 66, 88);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#listItem:hover{
+  background-color: #e0f7fa;
 }

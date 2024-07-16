@@ -1,123 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 #out {
-  margin: 2%;
-  font-family: 'Do Hyeon', sans-serif;
+    margin: 5%;
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
 }
 
-#out > h2 {
-  text-align: center;
+#list > #date {
+    float: right;
+    color: #00062b;
 }
 
-#out2 {
-  display: flex;
-  text-align: center;
-  justify-content: center;
+.listBox{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
 }
 
-#writeBtn{
-  margin-top: 2%;
-  margin-right: 5%;
-  width: 100px;
-  height: 30px;
-  cursor: pointer;
+#listItemBox{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 2fr 2fr 2fr 2fr;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-bottom: 1px solid #000;
+}
+
+#listItem{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 2fr 2fr 2fr 2fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    
+}
+
+#listItem > span{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ccc;
+    padding: 4%;
+}
+
+#listBtn{
+  width: 80px;
+  height: 40px;
   background-color: #e0f7fa;
-  border: 1px solid lightgrey;
-  border-radius: 5%;
-}
-
-#writeBtn:hover{
-  background-color: rgb(86, 101, 144);
-}
-
-
-#search {
-  width: 40%;
-  padding: 1%;
-  border: 1px solid black;
-}
-
-.body{
-  display: grid;
-  grid-template-columns: 2fr 10fr;
-  height: 500px;
-}
-
-#left{
-  border: 1px solid lightgrey;
-  margin-right: 10%;
-}
-
-#left > p{
-  font-size: 0.9em;
-  text-decoration-line: none;
-  margin: 10%;
-  cursor: pointer;
-}
-
-#left > span {
-  font-size: 1.2em;
-  font-weight: bold;
-  background-color: lightgrey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 13%;
-}
-
-#right{
-  border: 1px solid lightgrey;
-  width: 90%;
-}
-
-#right > table {
-  width: 100%;
-  text-align: center;
-}
-
-#rightBox{
-  border-collapse: collapse;
-  border-color: lightgrey;
-}
-
-#listBox{
-  height: 40px;
-  background-color: lightgrey;
-}
-
-.list{
-  height: 40px;
-  cursor: pointer;
-}
-
-#footerBtn{
-  display: flex;
-  justify-content: center;
-}
-
-#footBtn{
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
-}
-
-#footBtn > button {
-  width: 60px;
-  height: 30px;
-  background-color: e0f7fa;
   border: 1px solid rgb(58, 66, 88);
   border-radius: 4px;
   cursor: pointer;
 }
 
-.list:hover{
-  background-color: #e0f7fa;
-}
-
-#rightBox tr:nth-child(even){
-  background-color: #f9f9f9;
-}
-
-#rightBox tr:nth-child(even):hover{
+#listItem:hover{
   background-color: #e0f7fa;
 }

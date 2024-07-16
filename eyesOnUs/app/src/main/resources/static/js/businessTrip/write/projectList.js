@@ -16,7 +16,7 @@ function getProjectList(){
             getEmployeeList();
         },
         error: (error) => {
-            console.log("통신 실패");
+            console.log("프로젝트 리스트 통신 실패");
             console.log(error);
         }
     });

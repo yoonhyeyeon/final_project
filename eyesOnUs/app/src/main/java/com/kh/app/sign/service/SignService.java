@@ -64,14 +64,14 @@ public class SignService {
     } // getSignDetail
 
     // 결재자 상세 조회 (API)
-    public SignVo getSignApproverDetail(SignVo signVo) {
-        return dao.getSignApproverDetail(signVo);
-    } // getSignApproverDetail
+    public List<SignVo> getSignApproverDetailList(SignVo signVo) {
+        return dao.getSignApproverDetailList(signVo);
+    } // getSignApproverDetailList
 
     // 참조자 상세 조회 (API)
-    public SignVo getSignReferenceDetail(SignVo signVo) {
-        return dao.getSignReferenceDetail(signVo);
-    } // getSignReferenceDetail
+    public List<SignVo> getSignReferenceDetailList(SignVo signVo) {
+        return dao.getSignReferenceDetailList(signVo);
+    } // getSignReferenceDetailList
 
 //    // 결재 (API)
 //    public int updateSignApprove(SignVo signVo) {

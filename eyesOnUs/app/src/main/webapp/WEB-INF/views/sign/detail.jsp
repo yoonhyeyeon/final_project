@@ -51,61 +51,47 @@
                 </div>
                 <div id="approverLayout" class="first">
                     <div id="firstApprover" class="th top">
-                        <span>1차 결재자</span>
                     </div>
                     <div id="secondApprover" class="th top">
-                        <span>2차 결재자</span>
                     </div>
                     <div id="thirdApprover" class="th top">
-                        <span>3차 결재자</span>
                     </div>
                     <div id="firstApproverState" class="state">
-                        <span>결재 상태</span>
                     </div>
                     <div id="secondApproverState" class="state">
-                        <span>결재 상태</span>
                     </div>
                     <div id="thirdApproverState" class="state">
-                        <span>결재 상태</span>
                     </div>
                 </div>
                 <div id="titleDiv" class="th second">
                     <span>제목</span>
                 </div>
                 <div id="titleValueDiv" class="appApp second">
-                    <span>제목이다</span>
                 </div>
                 <div id="contentDiv" class="th third">
                     <span>내용</span>
                 </div>
                 <div id="contentValueDiv" class="appApp third">
-                    <span>내용이다</span>
                 </div>
                 <div id="writerDiv" class="th forth">
                     <span>기안자</span>
                 </div>
                 <div id="writerValueDiv" class="appApp forth">
-                    <span>기안자 누구누구</span>
                 </div>
                 <div id="refDiv" class="th forth">
                     <span>참조자</span>
                 </div>
                 <div id="refValueDiv" class="appApp forth">
-                    <span>참조자1</span>
-                    <span>참조자2</span>
-                    <span>참조자3</span>
                 </div>
                 <div id="enrollDateDiv" class="th fifth">
                     <span>기안일</span>
                 </div>
                 <div id="enrollDateValueDiv" class="appApp fifth">
-                    <span>며칠</span>
                 </div>
                 <div id="lastApproveDateDiv" class="th fifth">
                     <span>마지막 승인일</span>
                 </div>
                 <div id="lastApproveDateValueDiv" class="appApp fifth">
-                    <span>며칠</span>
                 </div>
                 <div id="fileDiv" class="th">
                     <span>첨부파일</span>
@@ -119,22 +105,15 @@
                 <div id="commentValueInput">
                     <textarea name="commenArea" id="commenArea"></textarea>
                 </div>
-                
-                <script>
-                    document.querySelector("input[type=file]").disabled = true;
-                    document.querySelector("textarea[name=commenArea]").disabled = true;
-                </script>
             </div>
             <div id="approveBtnDiv">
                 <button id="openModalBtn" onclick="openModal();">결재파일 열기</button>
-                <button onclick="approveProcess">승인</button>
-                <button onclick="returnProcess">반려</button>
             </div>
         </div>
 
         <div id="modalDiv">
             <div id="modalContentDiv">
-                <iframe name="file" src="/file/file.pdf" width="100%" height="100%"></iframe>
+                <iframe id="fileIframe" name="file" src="" width="100%" height="100%"></iframe>
             </div>
         </div>
 
@@ -143,42 +122,191 @@
 </html>
 
 <script>
+    const signNo = "${signVo.no}";
 
-</script>
+    window.addEventListener("load", onPageLoad);
 
-<script>
-    // 승인 처리
-    function approveProcess(){
+    function onPageLoad(){
         $.ajax({
-            url: "/api/sign/approve",
-            method: "put",
+            url: "/api/sign/detail",
+            method: "get",
             data: {
-                no: signNo
+                no: signNo,
             },
             success: (data) => {
-                console.log("승인 처리 통신 성공");
+                console.log("결재 상세 조회 통신 성공");
 
+                document.querySelector("input[type=file]").disabled = true;
+                document.querySelector("textarea[name=commenArea]").disabled = true;
+
+                // div 태그 가져오기
+                const titleValueDiv = document.querySelector("#titleValueDiv");
+                const contentValueDiv = document.querySelector("#contentValueDiv");
+                const writerValueDiv = document.querySelector("#writerValueDiv");
+                const enrollDateValueDiv = document.querySelector("#enrollDateValueDiv");
+                const lastApproveDateValueDiv = document.querySelector("#lastApproveDateValueDiv");
+
+                // div 태그 비우기
+                titleValueDiv.innerHTML = "";
+                contentValueDiv.innerHTML = "";
+                writerValueDiv.innerHTML = "";
+                enrollDateValueDiv.innerHTML = "";
+                lastApproveDateValueDiv.innerHTML = "";
+
+                // div 태그에 들어갈 span 태그 생성
+                const titleValueSpan = addTag("span", data.signDetailVo.title);
+                const contentValueSpan = addTag("span", data.signDetailVo.content);
+                const writerValueSpan = addTag("span", data.signDetailVo.divName + " " + data.signDetailVo.empName + " " + data.signDetailVo.positionName);
+                const enrollDateValueSpan = addTag("span", data.signDetailVo.enrollDate.substring(0, 10));
+                const lastApproveDateValueSpan = addTag("span", data.signDetailVo.modifyDate ? data.signDetailVo.modifyDate.substring(0, 10) : "");
+
+                // div 태그에 span 태그 붙이기
+                titleValueDiv.appendChild(titleValueSpan);
+                contentValueDiv.appendChild(contentValueSpan);
+                writerValueDiv.appendChild(writerValueSpan);
+                enrollDateValueDiv.appendChild(enrollDateValueSpan);
+                lastApproveDateValueDiv.appendChild(lastApproveDateValueSpan);
+
+                getApproverAndReferenceDetailList(data);
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("결재 상세 조회 통신 실패");
                 console.log(error);
             }
         });
     }
 
-    // 반려 처리
-    function returnProcess(){
+    function getApproverAndReferenceDetailList(extData){
         $.ajax({
-            url: "/api/sign/approve",
+            url: "/api/sign/detailList",
             method: "get",
             data: {
-                no: signNo
+                no: signNo,
             },
             success: (data) => {
-                console.log("반려 처리 통신 성공");
+                console.log("결재 승인자, 참조자 상세 리스트 통신 성공");
+
+                // 결재자 div 태그 가져오기
+                const firstApproverDiv = document.querySelector("#firstApprover");
+                const secondApproverDiv = document.querySelector("#secondApprover");
+                const thirdApproverDiv = document.querySelector("#thirdApprover");
+
+                // 결재 상태 div 태그 가져오기
+                const firstApproverStateDiv = document.querySelector("#firstApproverState");
+                const secondApproverStateDiv = document.querySelector("#secondApproverState");
+                const thirdApproverStateDiv = document.querySelector("#thirdApproverState");
+
+                // 결재자 div 태그 비우기
+                firstApproverDiv.innerHTML = "";
+                secondApproverDiv.innerHTML = "";
+                thirdApproverDiv.innerHTML = "";
+
+                // 결재 상태 div 태그 비우기
+                firstApproverStateDiv.innerHTML = "";
+                secondApproverStateDiv.innerHTML = "";
+                thirdApproverStateDiv.innerHTML = "";
+
+                // 결재자 div 태그에 들어갈 span 태그 생성
+                const approverSpanTag01 = addTag("span", data.signApproverDetailVoList[0].divName + " " + data.signApproverDetailVoList[0].empName + " " + data.signApproverDetailVoList[0].positionName);
+                const approverSpanTag02 = addTag("span", data.signApproverDetailVoList[1].divName + " " + data.signApproverDetailVoList[1].empName + " " + data.signApproverDetailVoList[1].positionName);
+                const approverSpanTag03 = addTag("span", data.signApproverDetailVoList[2].divName + " " + data.signApproverDetailVoList[2].empName + " " + data.signApproverDetailVoList[2].positionName);
+
+                // 결재 상태 div 태그에 들어갈 span 태그 생성
+                let stateSpanTag01 = addTag("span", "");;
+                let stateSpanTag02 = addTag("span", "");;
+                let stateSpanTag03 = addTag("span", "");;
+                if(data.signApproverDetailVoList[0].result === "0"){
+                    if(data.signApproverDetailVoList[0].step === "2"){
+                        stateSpanTag01 = addTag("span", "승인");
+                    } else if(data.signApproverDetailVoList[0].step === "3"){
+                        stateSpanTag01 = addTag("span", "승인");
+                        stateSpanTag02 = addTag("span", "승인");
+                    }
+                } else if(data.signApproverDetailVoList[0].result === "1"){
+                    stateSpanTag01 = addTag("span", "승인");
+                    stateSpanTag02 = addTag("span", "승인");
+                    stateSpanTag03 = addTag("span", "승인");
+                } else if(data.signApproverDetailVoList[0].result === "2"){
+                    if(data.signApproverDetailVoList[0].step === "1"){
+                        stateSpanTag01 = addTag("span", "반려");
+                    } else if(data.signApproverDetailVoList[0].step === "2"){
+                        stateSpanTag01 = addTag("span", "승인");
+                        stateSpanTag02 = addTag("span", "반려");
+                    } else if(data.signApproverDetailVoList[0].step === "3"){
+                        stateSpanTag01 = addTag("span", "승인");
+                        stateSpanTag02 = addTag("span", "승인");
+                        stateSpanTag03 = addTag("span", "반려");
+                    }
+                }
+
+                // 결재자 div 태그에 span 태그 붙이기
+                firstApproverDiv.appendChild(approverSpanTag01);
+                secondApproverDiv.appendChild(approverSpanTag02);
+                thirdApproverDiv.appendChild(approverSpanTag03);
+
+                // 결재 상태 div 태그에 span 태그 붙이기
+                firstApproverStateDiv.appendChild(stateSpanTag01);
+                secondApproverStateDiv.appendChild(stateSpanTag02);
+                thirdApproverStateDiv.appendChild(stateSpanTag03);
+
+                // 참조자 div 태그 가져오기
+                const refValueDiv = document.querySelector("#refValueDiv");
+
+                // 참조자 div 태그 비우기 
+                refValueDiv.innerHTML = "";
+
+                // span 생성하고, 참조자 div 태그에 붙이기
+                let refSpanTag = addTag("span", "");
+                for(let i = 0; i < data.signReferenceDetailVoList.length; ++i){
+                    refSpanTag = addTag("span", data.signReferenceDetailVoList[i].divName + " " + data.signReferenceDetailVoList[i].empName + " " + data.signReferenceDetailVoList[i].positionName);
+                    refValueDiv.appendChild(refSpanTag);
+                }
+
+                // iframe src 설정 (toolbar 안 보이기)
+                const fileIframe = document.querySelector("#fileIframe");
+                fileIframe.src = "/file/sign/file.pdf#toolbar=0";
+
+                // 현재 결재자에 해당하는지 판단
+                let isApprover = false;
+                let num = 0;
+                for(let i = 0; i < data.signApproverDetailVoList.length; ++i){
+                    if(data.signApproverDetailVoList[i].appNo === extData.vo.empNo){
+                        isApprover = true;
+                        num = i;
+                    }
+                }
+
+                // 현재 결재자에 해당하면 승인, 반려 버튼 보여주기
+                if(isApprover && data.signApproverDetailVoList[num].step === data.signApproverDetailVoList[num].signSeq){
+                    // 첨언, 결재파일 첨부 가능하게 하기
+                    document.querySelector("input[type=file]").disabled = false;
+                    document.querySelector("textarea[name=commenArea]").disabled = false;
+
+                    // 버튼 태그 담을 div 가져오기
+                    const approveBtnDiv = document.querySelector("#approveBtnDiv");
+
+                    // 버튼 태그 만들기
+                    const btnTag01 = document.createElement("button");
+                    const btnTag02 = document.createElement("button");
+
+                    // 버튼 태그 텍스트 담기
+                    btnTag01.innerHTML = "승인";
+                    btnTag02.innerHTML = "반려";
+
+                    // 버튼 태그 함수 담기
+                    btnTag01.onclick = approveProcess;
+                    btnTag02.onclick = returnProcess;
+
+                    // 버튼 태그 붙이기
+                    approveBtnDiv.appendChild(btnTag01);
+                    approveBtnDiv.appendChild(btnTag02);
+
+                    // iframe toolbar 보이기
+                    fileIframe.src = "/file/sign/file.pdf";
+                }
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("결재 승인자, 참조자 상세 리스트통신 실패");
                 console.log(error);
             }
         });
@@ -216,7 +344,7 @@
                 alert("승인 실패");
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("승인 처리 통신 실패");
                 console.log(error);
             }
         });
@@ -247,7 +375,7 @@
                 step: "1"
             },
             success: (data) => {
-                console.log("휴가 반려 처리 통신 성공");
+                console.log("반려 처리 통신 성공");
 
                 if(data.signApproveResult === 1){
                     alert("반려 완료");
@@ -257,7 +385,7 @@
                 alert("반려 실패");
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("반려 처리 통신 실패");
                 console.log(error);
             }
         });

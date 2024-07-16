@@ -198,9 +198,7 @@ public interface SignMapper {
     // 결재 상세 조회 (API)
     @Select({"""
             SELECT
-                H.SIGN_NO
-                , H.SIGN_SEQ
-                , H.APPROVER_NO
+                S.NO
                 , S.EMP_NO
                 , E.NAME            EMP_NAME
                 , S.RESULT
@@ -219,15 +217,13 @@ public interface SignMapper {
                 , D.NAME            DIV_NAME
                 , T.CODE            DEPT_CODE
                 , T.NAME            DEPT_NAME
-            FROM SIGN_PATH H
-            JOIN SIGN S ON (H.SIGN_NO = S.NO)
+            FROM SIGN S
             JOIN SIGN_FILE F ON (S.NO = F.SIGN_NO)
-            JOIN EMPLOYEE E ON (H.APPROVER_NO = E.NO)
+            JOIN EMPLOYEE E ON (S.EMP_NO = E.NO)
             JOIN POSITION P ON (E.POSITION_CODE = P.CODE)
             JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
             JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
-            WHERE H.SIGN_NO = #{no}
-            ORDER BY H.SIGN_SEQ DESC
+            WHERE S.NO = #{no}
             """})
     SignVo getSignDetail(SignVo signVo);
 
@@ -236,7 +232,7 @@ public interface SignMapper {
             SELECT
                 H.SIGN_NO
                 , H.SIGN_SEQ
-                , H.APPROVER_NO
+                , H.APPROVER_NO     APP_NO
                 , S.EMP_NO
                 , E.NAME            EMP_NAME
                 , S.RESULT
@@ -263,9 +259,9 @@ public interface SignMapper {
             JOIN DIVISION D ON (E.DIV_CODE = D.CODE)
             JOIN DEPARTMENT T ON (D.DEPT_CODE = T.CODE)
             WHERE H.SIGN_NO = #{no}
-            ORDER BY H.SIGN_SEQ DESC
+            ORDER BY H.SIGN_SEQ ASC
             """})
-    SignVo getSignApproverDetail(SignVo signVo);
+    List<SignVo> getSignApproverDetailList(SignVo signVo);
 
     // 참조자 상세 조회 (API)
     @Select({"""
@@ -302,7 +298,7 @@ public interface SignMapper {
                 , T.CODE ASC
                 , D.CODE ASC
             """})
-    SignVo getSignReferenceDetail(SignVo signVo);
+    List<SignVo> getSignReferenceDetailList(SignVo signVo);
 
 //    // 결재 (SIGN) (API)
 //    @Update({"""

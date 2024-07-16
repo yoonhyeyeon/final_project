@@ -81,7 +81,7 @@ function onPageLoad(){
             }
         },
         error: (error) => {
-            console.log("통신 실패");
+            console.log("신청한 휴가 리스트 통신 실패");
             console.log(error);
         }
     });

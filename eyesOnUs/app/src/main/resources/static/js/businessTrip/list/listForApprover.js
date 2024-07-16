@@ -82,7 +82,7 @@ function onPageLoad(){
             }
         },
         error: (error) => {
-            console.log("통신 실패");
+            console.log("승인할 출장 리스트 통신 실패");
             console.log(error);
         }
     });

@@ -4,9 +4,11 @@ import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.service.SignService;
 import com.kh.app.sign.vo.EmployeeVo;
 import com.kh.app.sign.vo.SignVo;
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.HashMap;
 import java.util.List;
@@ -70,19 +72,12 @@ public class SignRestController {
     } // getSignListForReference
 
     // 결재 상세 조회 (API)
+    @GetMapping("detail")
     public Map<String, SignVo> getSignDetail(SignVo signVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         // 결재 상세 조회 (API)
         SignVo signDetailVo = service.getSignDetail(signVo);
         Map<String, SignVo> signDetailMap = new HashMap<>();
         signDetailMap.put("signDetailVo", signDetailVo);
-
-        // 결재자 상세 조회 (API)
-        SignVo signApproverDetailVo = service.getSignApproverDetail(signVo);
-        signDetailMap.put("signApproverDetailVo", signApproverDetailVo);
-
-        // 참조자 상세 조회 (API)
-        SignVo signReferenceDetailVo = service.getSignReferenceDetail(signVo);
-        signDetailMap.put("signReferenceDetailVo", signReferenceDetailVo);
 
         // 승인, 반려 버튼 판단용 로그인 사원 번호
         SignVo vo = new SignVo();
@@ -91,6 +86,22 @@ public class SignRestController {
 
         return signDetailMap;
     } // getSignDetail
+
+    // 결재자, 참조자 상세 조회 (API)
+    @GetMapping("detailList")
+    public Map<String, List> getSignApproverAndReferenceDetailList(SignVo signVo){
+        Map<String, List> signApproverAndReferenceDetailMap = new HashMap<>();
+
+        // 결재자 상세 조회 (API)
+        List<SignVo> signApproverDetailVoList = service.getSignApproverDetailList(signVo);
+        signApproverAndReferenceDetailMap.put("signApproverDetailVoList", signApproverDetailVoList);
+
+        // 참조자 상세 조회 (API)
+        List<SignVo> signReferenceDetailVoList = service.getSignReferenceDetailList(signVo);
+        signApproverAndReferenceDetailMap.put("signReferenceDetailVoList", signReferenceDetailVoList);
+
+        return signApproverAndReferenceDetailMap;
+    } // getSignApproverAndReferenceDetailList
 
 //    // 결재 (API)
 //    @PutMapping("approve")

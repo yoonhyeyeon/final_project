@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
     <link rel="stylesheet" href="/css/teamRoom/list.css">
     <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+    <link rel="stylesheet" href="/css/teamRoom/clock.css">
     <link rel="stylesheet" type="text/css" href="/css/evaluation/list.css">
 </head>
 <body>
@@ -81,6 +82,7 @@
 <script defer src="../js/evaluation/list.js"></script>
 <script defer src="../js/evaluation/leader.js"></script>
 <script defer src="../js/evaluation/member.js"></script>
+<script src="/js/teamRoom/clock.js"></script>
 <script defer src="../js/evaluation/colleage.js"></script>
 
 </body>

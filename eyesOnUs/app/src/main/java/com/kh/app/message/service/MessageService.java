@@ -71,4 +71,22 @@ public class MessageService {
     public void updateSendMsgDelYn(String no) {
         dao.updateSendMsgDelYn(no);
     }
+
+    public int getTotalReceiveDeleteCount(String receiverNo) {
+        return dao.getTotalReceiveDeleteCount(receiverNo);
+    }
+
+    public List<MessageVo> messageReceiveDeleteListData(String receiverNo, int page, int size) {
+        int offset = (page - 1) * size;
+        return dao.messageReceiveDeleteListData(receiverNo, offset, size);
+    }
+
+    public int getSearchTotalReceiveDeleteCount(String receiverNo, String empCategory, String searchBox) {
+        return dao.getSearchTotalReceiveDeleteCount(receiverNo, empCategory, searchBox);
+    }
+
+    public List<MessageVo> messageReceiveDeleteListSearchData(String receiverNo, String empCategory, String searchBox, int page, int size) {
+        int offset = (page - 1) * size;
+        return dao.messageReceiveDeleteListSearchData(receiverNo, empCategory, searchBox, page, offset);
+    }
 }

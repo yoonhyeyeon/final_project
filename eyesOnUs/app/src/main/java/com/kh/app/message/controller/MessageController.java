@@ -249,7 +249,7 @@ public class MessageController {
     }
     
     //메시지 읽음
-    @PostMapping("updateReadYn")
+    @PutMapping("updateReadYn")
     public void updateReadYn(@RequestBody String no) {
         service.updateMessageReadYn(no);
     }
@@ -278,4 +278,87 @@ public class MessageController {
         }
     }
 
+    // 삭제된 받은 메시지함 뷰
+    @GetMapping("messageReceiveDeleteList")
+    public String messageReceiveDeleteList(){
+        return "message/messageReceiveDeleteList";
+    }
+
+    // 받은 메시지함 데이터
+    @GetMapping("messageReceiveDeleteListData")
+    @ResponseBody
+    public Map<String, Object> messageReceiveDeleteListData(
+            HttpSession session,
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "20") int size){
+
+        // 세션에서 로그인 정보 가져오기
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
+        // 로그인 정보 확인
+        if (loginMemberVo == null) {
+            // 로그인이 되어 있지 않으면 로그인 페이지로 리다이렉트
+            Map<String, Object> result = new HashMap<>();
+            result.put("error", "로그인이 필요합니다.");
+            return result;
+        }
+
+        // 수신자 정보 가져오기
+        String receiverNo = loginMemberVo.getNo();
+
+        // 발신자의 메시지 목록 조회
+        List<MessageVo> voList = service.messageReceiveDeleteListData(receiverNo, page, size);
+        int totalCount = service.getTotalReceiveDeleteCount(receiverNo);
+        int totalPages = (int) Math.ceil((double) totalCount / size);
+
+        // 결과 맵 생성
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        result.put("currentPage", page);
+        result.put("totalPages", totalPages);
+
+        return result;
+
+    }
+
+    // 받은 메시지함 검색 데이터
+    @PostMapping("messageReceiveDeleteListSearchData")
+    @ResponseBody
+    public Map<String, Object> messageReceiveDeleteListSearchData(
+            HttpSession session,
+            @RequestParam("empCategory") String empCategory,
+            @RequestParam("searchBox") String searchBox,
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "20") int size){
+
+        // 세션에서 로그인 정보 가져오기
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
+        // 로그인 정보 확인
+        if (loginMemberVo == null) {
+            // 로그인이 되어 있지 않으면 로그인 페이지로 리다이렉트
+            Map<String, Object> result = new HashMap<>();
+            result.put("error", "로그인이 필요합니다.");
+            return result;
+        }
+
+        // 수신자 정보 가져오기
+        String receiverNo = loginMemberVo.getNo();
+
+        // 발신자의 메시지 목록 조회
+        List<MessageVo> voList = service.messageReceiveDeleteListSearchData(receiverNo, empCategory, searchBox, page, size);
+        int totalCount = service.getSearchTotalReceiveDeleteCount(receiverNo, empCategory, searchBox);
+        int totalPages = (int) Math.ceil((double) totalCount / size);
+
+        // 결과 맵 생성
+        Map<String, Object> result = new HashMap<>();
+        result.put("voList", voList);
+        result.put("currentPage", page);
+        result.put("totalPages", totalPages);
+
+        return result;
+
+    }
+
 }
+

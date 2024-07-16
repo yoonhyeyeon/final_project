@@ -65,4 +65,20 @@ public class MessageDao {
     public void updateSendMsgDelYn(String no) {
         mapper.updateSendMsgDelYn(no);
     }
+
+    public int getTotalReceiveDeleteCount(String receiverNo) {
+        return mapper.getTotalReceiveDeleteCount(receiverNo);
+    }
+
+    public List<MessageVo> messageReceiveDeleteListData(String receiverNo, int offset, int size) {
+        return mapper.messageReceiveDeleteListData(receiverNo, offset, size);
+    }
+
+    public int getSearchTotalReceiveDeleteCount(String receiverNo, String empCategory, String searchBox) {
+        return mapper.getSearchTotalReceiveDeleteCount(receiverNo, empCategory, searchBox);
+    }
+
+    public List<MessageVo> messageReceiveDeleteListSearchData(String receiverNo, String empCategory, String searchBox, int page, int offset) {
+        return mapper.messageReceiveDeleteListSearchData(receiverNo, empCategory, searchBox, page, offset);
+    }
 }

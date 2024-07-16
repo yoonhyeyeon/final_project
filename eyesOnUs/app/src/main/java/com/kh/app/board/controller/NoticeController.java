@@ -77,4 +77,14 @@ public class NoticeController {
         return service.noticeByNo(vo.getNo());
     }
 
+
+//////////홈 공지사항 조회///////////////
+
+    // 목록
+    @GetMapping("homeList")
+    public String homeList(){
+        return "board/notice/homeList";
+    }
+
+
 }

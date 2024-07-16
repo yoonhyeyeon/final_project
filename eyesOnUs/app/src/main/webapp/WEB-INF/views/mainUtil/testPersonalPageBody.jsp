@@ -24,7 +24,7 @@
       <%@ include file="/WEB-INF/views/mainUtil/location.jsp" %>
     </div>
     <div>
-      <h1>피드3</h1>
+      <%@ include file="/WEB-INF/views/board/notice/homeList.jsp" %>
     </div>
   </div>
 </div>

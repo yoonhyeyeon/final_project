@@ -20,7 +20,7 @@
     <div>
       <%@ include file="/WEB-INF/views/mainUtil/weather.jsp" %>
     </div>
-    <div>
+    <div id="map">
       <%@ include file="/WEB-INF/views/mainUtil/location.jsp" %>
     </div>
     <div>

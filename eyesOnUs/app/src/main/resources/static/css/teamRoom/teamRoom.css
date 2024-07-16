@@ -106,3 +106,10 @@ body {
                 color: #333;
                 text-align: center;
                }
+
+#id{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

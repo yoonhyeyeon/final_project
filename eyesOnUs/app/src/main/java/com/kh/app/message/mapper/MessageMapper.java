@@ -327,5 +327,21 @@ public interface MessageMapper {
             WHERE NO = #{no}
             AND DEL_YN = 'N'
             """)
-    void updateMessageDelYn(String no);
+    void updateMessageReadYn(String no);
+
+    @Update("""
+            UPDATE MESSAGE
+            SET DEL_YN = 'Y'
+            WHERE NO = #{no}
+            AND DEL_YN = 'N'
+            """)
+    int updateReceiveMsgDelYn(String no);
+
+    @Update("""
+            UPDATE MESSAGE
+            SET DEL_YN = 'Y'
+            WHERE NO = #{no}
+            AND DEL_YN = 'N'
+            """)
+    void updateSendMsgDelYn(String no);
 }

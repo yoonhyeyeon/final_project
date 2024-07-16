@@ -31,7 +31,7 @@ $(document).ready(function() {
                         '<div class="emp-data list-body-low">' + vo.senderPositionName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.senderName + '</div>' +
                         '<div class="emp-data list-body-low">' + readStatus + '</div>' +
-                        `<div class="emp-data list-body-low"><a class="team-link" href="/message/delete?no=${vo.no}">삭제</a></div>` +
+                        '<div class="emp-data list-body-low">' + `<button class="team-link delete-message-btn" id="delete-receive-message" data-no="${vo.no}">삭제</button>` +'</div>' +
                         '</div>';
                     $('#empContainer').append(row);
                 }
@@ -101,7 +101,7 @@ $(document).ready(function() {
                         '<div class="emp-data list-body-low">' + vo.senderPositionName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.senderName + '</div>' +
                         '<div class="emp-data list-body-low">' + readStatus + '</div>' +
-                        `<div class="emp-data list-body-low"><a class="team-link" href="/message/delete?no=${vo.no}">삭제</a></div>` +
+                        '<div class="emp-data list-body-low">' + `<button class="team-link" id="delete-receive-message" data-no="${vo.no}">삭제</button>` +'</div>' +
                         '</div>';
                     $('#empContainer').append(row);
                 }

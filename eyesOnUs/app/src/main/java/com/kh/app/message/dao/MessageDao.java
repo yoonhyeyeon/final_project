@@ -54,8 +54,15 @@ public class MessageDao {
         return mapper.messageDetailData(no);
     }
 
-    @Transactional
-    public void updateMessageDelYn(String no) {
-        mapper.updateMessageDelYn(no);
+    public void updateMessageReadYn(String no) {
+        mapper.updateMessageReadYn(no);
+    }
+
+    public int updateReceiveMsgDelYn(String no) {
+        return mapper.updateReceiveMsgDelYn(no);
+    }
+
+    public void updateSendMsgDelYn(String no) {
+        mapper.updateSendMsgDelYn(no);
     }
 }

@@ -32,7 +32,6 @@
         <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
         <section>
-          <%@ include file="/WEB-INF/views/mainUtil/testPersonalPageHeadMenu.jsp" %>
           <%@ include file="/WEB-INF/views/mainUtil/testPersonalPageBody.jsp" %>
         </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>

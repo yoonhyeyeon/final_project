@@ -6,6 +6,7 @@ import com.kh.app.sign.vo.SignVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,5 +85,9 @@ public class SignController {
 
     // 결재 상세 조회 (화면)
     @GetMapping("detail")
-    public void signDetail(){} // signDetail
+    public String signDetail(Model model, SignVo signVo){
+        // 결재 상세 조회할 signNo 넘겨주기
+        model.addAttribute("signVo", signVo);
+        return "sign/detail";
+    } // signDetail
 } // class

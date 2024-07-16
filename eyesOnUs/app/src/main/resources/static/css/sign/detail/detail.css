@@ -1,0 +1,212 @@
+#calendarContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 2px solid lightgray;
+}
+
+#form{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    height: 100vh;
+    width: 800px;
+}
+
+.th{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(210, 226, 231);
+}
+
+.appApp{
+    display: flex;
+    align-items: center;
+}
+
+.appApp > span{
+    padding-left: 10%;
+}
+
+.first{
+    border-bottom: 2px solid lightgray;
+}
+
+.second{
+    border-bottom: 2px solid lightgray;
+}
+
+.third{
+    border-bottom: 2px solid lightgray;
+}
+
+.forth{
+    border-bottom: 2px solid lightgray;
+}
+
+.fifth{
+    border-bottom: 2px solid lightgray;
+}
+
+#titleDiv{
+    border-right: 2px solid lightgray;
+}
+
+#contentDiv{
+    border-right: 2px solid lightgray;
+}
+
+#writerDiv{
+    border-right: 2px solid lightgray;
+}
+
+#enrollDateDiv{
+    border-right: 2px solid lightgray;
+}
+
+#lastApproveDateDiv{
+    border-right: 2px solid lightgray;
+}
+
+#writerDiv{
+    border-right: 2px solid lightgray;
+}
+
+#fileDiv{
+    border-right: 2px solid lightgray;
+}
+
+#commentDiv{
+    border-right: 2px solid lightgray;
+}
+
+#enrollDateValueDiv{
+    border-right: 2px solid lightgray;
+}
+
+#enrollDateValueDiv > span{
+    padding-left: 26.453px;
+}
+
+#approverValueDiv{
+    padding-left: 26.453px;
+}
+
+#fileValueDiv{
+    border-right: 2px solid lightgray;
+}
+
+#approverValueDiv{
+    grid-column: span 3;
+}
+
+#titleValueDiv{
+    grid-column: span 3;
+}
+
+#titleValueDiv > span{
+    padding-left: 26.453px;
+}
+
+#writerValueDiv{
+    border-right: 2px solid lightgray;
+}
+
+#writerValueDiv > span{
+    padding-left: 26.453px;
+}
+
+#refDiv{
+    border-right: 2px solid lightgray;
+    display: flex;
+    flex-direction: column;
+}
+
+#refValueDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#refValueDiv > span{
+    padding-left: 26.453px;
+}
+
+#contentValueDiv{
+    grid-column: span 3;
+}
+
+#contentValueDiv > span{
+    grid-column: span 3;
+    padding-left: 26.453px;
+}
+
+#approverLayout{
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 2fr;
+}
+
+.top{
+    border-bottom: 2px solid lightgray;
+}
+
+#approverDiv{
+    border-right: 2px solid lightgray;
+}
+
+#firstApprover{
+    border-right: 2px solid lightgray;
+}
+
+#secondApprover{
+    border-right: 2px solid lightgray;
+}
+
+#firstApproverState{
+    border-right: 2px solid lightgray;
+}
+
+#secondApproverState{
+    border-right: 2px solid lightgray;
+}
+
+.state{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#approveBtnDiv{
+    margin: 2%;
+}
+
+#approveBtnDiv > button{
+    margin: 2px;
+}
+
+#approveBtnDiv > button:hover,
+#approveBtnDiv > button:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type=file]{
+    margin: 26.453px;
+}
+
+textarea{
+    margin: 26.453px;
+    padding: 0;
+    border: 0;
+    resize: none;
+    width: 100%;
+    height: 60%;
+}

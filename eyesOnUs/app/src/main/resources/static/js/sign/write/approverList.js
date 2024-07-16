@@ -27,7 +27,7 @@ function getApproverList(){
             }
         },
         error: (error) => {
-            console.log("통신 실패");
+            console.log("결재자 리스트 통신 실패");
             console.log(error);
         }
     });

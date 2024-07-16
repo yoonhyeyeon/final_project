@@ -36,7 +36,7 @@ public class SignController {
         MultipartFile file = vo.getFile();
         if(!file.isEmpty()){
             // 저장할 경로, 원래  파일명, 사이즈
-            String uploadDir = "C:\\Users\\seong\\project\\final\\eyesOnUs\\app\\src\\main\\resources\\static\\sign\\";
+            String uploadDir = "C:\\Users\\seong\\project\\final\\eyesOnUs\\app\\src\\main\\resources\\static\\file\\sign\\";
             String originName = file.getOriginalFilename();
             String size = String.valueOf(file.getSize());
 

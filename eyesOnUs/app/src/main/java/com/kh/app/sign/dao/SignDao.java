@@ -96,19 +96,19 @@ public class SignDao {
     } // getSignDetail
 
     // 결재자 상세 조회 (API)
-    public SignVo getSignApproverDetail(SignVo signVo) {
-        SignVo signApproverDetailVo = mapper.getSignApproverDetail(signVo);
-        if(signApproverDetailVo == null){
-            throw new RuntimeException("[S-009] SIGN APPROVER DETAIL SELECT ERROR");
+    public List<SignVo> getSignApproverDetailList(SignVo signVo) {
+        List<SignVo> signApproverDetailVoList = mapper.getSignApproverDetailList(signVo);
+        if(signApproverDetailVoList == null){
+            throw new RuntimeException("[S-009] SIGN APPROVER DETAIL LIST SELECT ERROR");
         }
-        return signApproverDetailVo;
-    } // getSignApproverDetail
+        return signApproverDetailVoList;
+    } // getSignApproverDetailList
 
     // 참조자 상세 조회 (API)
-    public SignVo getSignReferenceDetail(SignVo signVo) {
-        SignVo signReferenceDetailVo = mapper.getSignReferenceDetail(signVo);
-        return signReferenceDetailVo;
-    } // getSignReferenceDetail
+    public List<SignVo> getSignReferenceDetailList(SignVo signVo) {
+        List<SignVo> signReferenceDetailVoList = mapper.getSignReferenceDetailList(signVo);
+        return signReferenceDetailVoList;
+    } // getSignReferenceDetailList
 
 //    // 결재 (SIGN) (API)
 //    public int updateSign(SignVo signVo) {

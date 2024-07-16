@@ -18,7 +18,7 @@ function getLeaveTypeList(){
             getEmployeeList();
         },
         error: (error) => {
-            console.log("통신 실패");
+            console.log("휴가 타입 리스트 통신 실패");
             console.log(error);
         }
     });

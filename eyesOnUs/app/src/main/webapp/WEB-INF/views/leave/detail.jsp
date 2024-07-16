@@ -200,46 +200,7 @@
                 }
             },
             error: (error) => {
-                console.log("통신 실패");
-                console.log(error);
-            }
-        });
-    }
-</script>
-
-<script>
-    // 승인 처리
-    function approveProcess(){
-        $.ajax({
-            url: "/api/leave/approve",
-            method: "put",
-            data: {
-                no: leaveNo
-            },
-            success: (data) => {
-                console.log("출장 승인 처리 통신 성공");
-
-            },
-            error: (error) => {
-                console.log("통신 실패");
-                console.log(error);
-            }
-        });
-    }
-
-    // 반려 처리
-    function returnProcess(){
-        $.ajax({
-            url: "/api/leave/approve",
-            method: "get",
-            data: {
-                no: leaveNo
-            },
-            success: (data) => {
-                console.log("출장 반려 처리 통신 성공");
-            },
-            error: (error) => {
-                console.log("통신 실패");
+                console.log("휴가 상세 조회 통신 실패");
                 console.log(error);
             }
         });
@@ -276,7 +237,7 @@
                 alert("휴가 승인 실패");
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("휴가 승인 처리 통신 실패");
                 console.log(error);
             }
         });
@@ -316,7 +277,7 @@
                 alert("휴가 반려 실패");
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("휴가 반려 처리 통신 실패");
                 console.log(error);
             }
         });

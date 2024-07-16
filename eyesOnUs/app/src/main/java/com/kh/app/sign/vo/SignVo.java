@@ -24,6 +24,7 @@ public class SignVo {
     private String signNo;
     private List<String> approverNo;
     private String signSeq;
+    private String appNo;
 
     // SIGN_FILE
     private MultipartFile file;
@@ -34,7 +35,6 @@ public class SignVo {
 
     // SIGN_COM
     private List<String> comment;
-    private List<String> approveDate;
 
     // EMPLOYEE
     private String empName;

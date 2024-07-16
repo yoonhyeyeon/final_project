@@ -208,7 +208,7 @@
                 }
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("출장 상세 조회 통신 실패");
                 console.log(error);
             }
         });
@@ -245,7 +245,7 @@
                 alert("출장 승인 실패");
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("출장 승인 처리 통신 실패");
                 console.log(error);
             }
         });
@@ -285,7 +285,7 @@
                 alert("출장 반려 실패");
             },
             error: (error) => {
-                console.log("통신 실패");
+                console.log("출장 반려 처리 통신 실패");
                 console.log(error);
             }
         });

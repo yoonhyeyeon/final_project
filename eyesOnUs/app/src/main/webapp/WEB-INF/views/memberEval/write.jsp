@@ -56,11 +56,11 @@
       <br>
       <br>
       <span>평가 대상&nbsp;</span>
-      <select id="evaluateeNo">
-         <option value="">------선택------</option>
-           <c:forEach var="vo" items="${voList}">
-               <option value="${vo.no}">${vo.name}</option>
-           </c:forEach>
+      <select id="evaluateeNo" name="evaluateeNo">
+          <option value="">------선택------</option>
+          <c:forEach var="vo" items="${voList}">
+              <option value="${vo.no}" ${vo.no == selectedEvaluateeNo ? 'selected' : ''}>${vo.name}</option>
+          </c:forEach>
       </select>
       <p>잠재력</p>
       <div class="myform">

@@ -14,7 +14,7 @@ $.ajax({
         str += "</tr>";
         str += "<tr>";
         str += "<td>퇴근</td>";
-        str += "<td>" + data.quitTime + "</td>";
+        str += "<td>" + (data.quitTime !== null ? data.quitTime : "미등록") + "</td>";
         str += "</tr>";
         str += "<tr>";
         str += "<td>총시간</td>";

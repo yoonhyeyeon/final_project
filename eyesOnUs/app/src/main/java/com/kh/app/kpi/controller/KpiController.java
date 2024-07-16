@@ -6,6 +6,8 @@ import com.kh.app.member.vo.MemberVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,23 +33,19 @@ public class KpiController {
     }
 
     @PostMapping("write")
-    public HashMap<String, String> kpiWrite(KpiVo vo, HttpSession session){
+    public ResponseEntity<HashMap<String, String>> kpiWrite(KpiVo vo, HttpSession session){
 
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-
-        HashMap<String , String > map = new HashMap<>();
-        if( loginMemberVo == null ){
-            map.put("msg", "로그인 필요");
-            return map;
-        }
-
         int result = service.kpiWrite(vo);
 
-        map.put("msg", "작성 성공");
-        if( result != 1){
+        HashMap<String , String > map = new HashMap<>();
+        if (result == 1) {
+            map.put("msg", "작성 성공");
+            return ResponseEntity.ok(map);
+        } else {
             map.put("msg", "작성 실패");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
         }
-        return map;
     }
 
     // 게시글 목록
@@ -89,30 +87,33 @@ public class KpiController {
     }
 
     @PostMapping("modify")
-    public HashMap<String, String> kpiModify(KpiVo vo){
+    public ResponseEntity<HashMap<String, String>> kpiModify(KpiVo vo){
         int result = service.kpiModify(vo);
 
         HashMap<String, String> map = new HashMap<>();
-        map.put("msg", "수정 성공");
-
-        if( result != 1){
+        if (result == 1) {
+            map.put("msg", "수정 성공");
+            return ResponseEntity.ok(map);
+        } else {
             map.put("msg", "수정 실패");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
         }
-        return map;
     }
 
     // 게시글 삭제
     @DeleteMapping("delete")
     @ResponseBody
-    public HashMap<String, String> kpiDelete(String no){
+    public ResponseEntity<HashMap<String, String>> kpiDelete(String no){
         int result = service.kpiDelete(no);
 
         HashMap<String , String > map = new HashMap<>();
-        map.put("msg", "삭제 성공");
-        if( result != 1){
+        if (result == 1) {
+            map.put("msg", "삭제 성공");
+            return ResponseEntity.ok(map);
+        } else {
             map.put("msg", "삭제 실패");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
         }
-        return map;
     }
 
 }

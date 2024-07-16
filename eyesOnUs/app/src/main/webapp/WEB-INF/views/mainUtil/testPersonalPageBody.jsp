@@ -21,7 +21,7 @@
       <%@ include file="/WEB-INF/views/mainUtil/weather.jsp" %>
     </div>
     <div>
-      <h1>피드2</h1>
+      <%@ include file="/WEB-INF/views/mainUtil/location.jsp" %>
     </div>
     <div>
       <h1>피드3</h1>

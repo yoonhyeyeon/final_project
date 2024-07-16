@@ -45,18 +45,6 @@ function whereami(elt) {
             " 경도 " + pos.coords.longitude + "에서 "+
             " 약 " + pos.coords.accuracy + " 미터 떨어진 곳에 있습니다.";
 
-        // 해당 기기가 고도 (altitude)를 반환하면, 해당 정보를 추가한다.
-        if(pos.coords.altitude) {
-            msg += " 당신은 해발 " + pos.coords.altitude + " ± " +
-                pos.coords.altitudeAccuracy + " 미터에 있습니다.";
-        }
-
-        // 해당 기기가 속도와 북쪽 기준 각 (heading)을 반환한다면 역시 추가해준다.
-        if(pos.coords.speed) {
-            msg += " 당신은 " + pos.coords.heading + " 방향으로 " +
-                "초속 " + pos.coords.speed + "(m/s)의 속도로 움직이고 있습니다.";
-        }
-
         elt.innerHTML = msg;     // 모든 위치 정보를 출력한다.
     }
 }

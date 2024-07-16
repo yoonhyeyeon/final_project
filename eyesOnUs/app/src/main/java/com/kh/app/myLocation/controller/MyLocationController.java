@@ -14,5 +14,11 @@ public class MyLocationController {
         return "mainUtil/weather";
     }
 
+    //카카오 맵
+    @GetMapping("kakao")
+    public String kakao(){
+        return "mainUtil/location";
+    }
+
 
 }//class

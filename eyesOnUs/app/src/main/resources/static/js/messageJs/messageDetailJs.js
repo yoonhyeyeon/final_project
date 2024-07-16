@@ -2,6 +2,8 @@ $(document).ready(function() {
     // URL에서 쿼리 파라미터 'no'의 값을 가져오기
     let no = new URL(window.location.href).searchParams.get('no');
     let url = new URL(window.location.href);
+    console.log(no);
+    console.log(url);
 
     // 로그인 세션에서 사원번호를 가져오는 함수 (AJAX 요청)
     function loginNo() {
@@ -31,8 +33,9 @@ $(document).ready(function() {
                     // delYn을 'Y'로 업데이트하는 AJAX 요청
                     $.ajax({
                         url: '/message/updateReadYn',
-                        method: 'POST',
-                        data: no,
+                        method: 'PUT',
+                        contentType: 'text/plain',
+                        data: no.toString(),
                         success: function(response) {
                             console.log('readYn 업데이트 성공:', response);
                         },

@@ -10,15 +10,15 @@
             <link rel="stylesheet" type="text/css" href="/css/messageCss/messageWriteCss.css">
             <link rel="stylesheet" type="text/css" href="/css/messageCss/messageListCss.css">
             <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
-            <script defer src="/js/messageJs/messageReceiveListJs.js"></script>
+            <script defer src="/js/messageJs/messageReceiveDeleteListJs.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <title>받은 메시지 함</title>
+            <title>삭제된 받은 메시지 함</title>
         </head>
 
         <body>
             <section>
-                <h1>받은 메시지 목록</h1>
+                <h1>삭제된 받은 메시지 함</h1>
                 <div class="message-list list-container" id="empContainer"></div>
                 <div class="pagination" id="pagination"></div>
                 <div class="search-form" id="search-form">

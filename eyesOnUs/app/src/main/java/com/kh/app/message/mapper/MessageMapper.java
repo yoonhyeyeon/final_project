@@ -344,4 +344,120 @@ public interface MessageMapper {
             AND DEL_YN = 'N'
             """)
     void updateSendMsgDelYn(String no);
+
+    @Select("""
+                SELECT COUNT(*)
+                FROM MESSAGE
+                WHERE RECEIVER = #{receiverNo}
+                AND DEL_YN = 'Y'
+            """)
+    int getTotalReceiveDeleteCount(String receiverNo);
+
+    @Select("""
+                SELECT
+                    M.NO
+                    , TO_CHAR(M.SEND_TIME, 'YYYY/MM/DD HH24:MI') AS SEND_TIME
+                    , M.TITLE
+                    , M.SENDER
+                    , M.RECEIVER
+                    , M.READ_YN
+                    , M.DEL_YN
+                    , SENDER_EMP.NAME AS SENDER_NAME
+                    , SENDER_DEPT.NAME AS SENDER_DEPT_NAME
+                    , SENDER_DIV.NAME AS SENDER_DIV_NAME
+                    , SENDER_POSITION.NAME AS SENDER_POSITION_NAME
+                FROM MESSAGE M
+                JOIN EMPLOYEE SENDER_EMP ON M.SENDER = SENDER_EMP.NO
+                JOIN DEPARTMENT SENDER_DEPT ON SENDER_EMP.DEPT_CODE = SENDER_DEPT.CODE
+                JOIN DIVISION SENDER_DIV ON SENDER_EMP.DIV_CODE = SENDER_DIV.CODE
+                JOIN POSITION SENDER_POSITION ON SENDER_EMP.POSITION_CODE = SENDER_POSITION.CODE
+                JOIN EMPLOYEE RECEIVER_EMP ON M.RECEIVER = RECEIVER_EMP.NO
+                JOIN DEPARTMENT RECEIVER_DEPT ON RECEIVER_EMP.DEPT_CODE = RECEIVER_DEPT.CODE
+                JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
+                JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
+                WHERE M.RECEIVER = #{receiverNo}
+                AND DEL_YN = 'Y'
+                ORDER BY M.SEND_TIME DESC
+                OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY
+            """)
+    List<MessageVo> messageReceiveDeleteListData(String receiverNo, int offset, int size);
+
+    @Select("""
+                <script>
+                SELECT COUNT(*)
+                FROM MESSAGE M
+                JOIN EMPLOYEE SENDER_EMP ON M.SENDER = SENDER_EMP.NO
+                JOIN DEPARTMENT SENDER_DEPT ON SENDER_EMP.DEPT_CODE = SENDER_DEPT.CODE
+                JOIN DIVISION SENDER_DIV ON SENDER_EMP.DIV_CODE = SENDER_DIV.CODE
+                JOIN POSITION SENDER_POSITION ON SENDER_EMP.POSITION_CODE = SENDER_POSITION.CODE
+                JOIN EMPLOYEE RECEIVER_EMP ON M.RECEIVER = RECEIVER_EMP.NO
+                JOIN DEPARTMENT RECEIVER_DEPT ON RECEIVER_EMP.DEPT_CODE = RECEIVER_DEPT.CODE
+                JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
+                JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
+                WHERE M.RECEIVER = #{receiverNo}
+                AND DEL_YN = 'Y'
+                AND
+                <choose>
+                    <when test='empCategory == "senderDeptName"'>
+                        SENDER_DEPT.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "senderDivName"'>
+                        SENDER_DIV.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "senderPositionName"'>
+                        SENDER_POSITION.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "senderName"'>
+                        SENDER_EMP.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                </choose>
+                ORDER BY M.SEND_TIME DESC
+                </script>
+            """)
+    int getSearchTotalReceiveDeleteCount(String receiverNo, String empCategory, String searchBox);
+
+    @Select("""
+                <script>
+                SELECT
+                    M.NO
+                    , TO_CHAR(M.SEND_TIME, 'YYYY/MM/DD HH24:MI') AS SEND_TIME
+                    , M.TITLE
+                    , M.SENDER
+                    , M.RECEIVER
+                    , M.READ_YN
+                    , M.DEL_YN
+                    , SENDER_EMP.NAME AS SENDER_NAME
+                    , SENDER_DEPT.NAME AS SENDER_DEPT_NAME
+                    , SENDER_DIV.NAME AS SENDER_DIV_NAME
+                    , SENDER_POSITION.NAME AS SENDER_POSITION_NAME
+                FROM MESSAGE M
+                JOIN EMPLOYEE SENDER_EMP ON M.SENDER = SENDER_EMP.NO
+                JOIN DEPARTMENT SENDER_DEPT ON SENDER_EMP.DEPT_CODE = SENDER_DEPT.CODE
+                JOIN DIVISION SENDER_DIV ON SENDER_EMP.DIV_CODE = SENDER_DIV.CODE
+                JOIN POSITION SENDER_POSITION ON SENDER_EMP.POSITION_CODE = SENDER_POSITION.CODE
+                JOIN EMPLOYEE RECEIVER_EMP ON M.RECEIVER = RECEIVER_EMP.NO
+                JOIN DEPARTMENT RECEIVER_DEPT ON RECEIVER_EMP.DEPT_CODE = RECEIVER_DEPT.CODE
+                JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
+                JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
+                WHERE M.RECEIVER = #{receiverNo}
+                AND DEL_YN = 'Y'
+                AND
+                <choose>
+                    <when test='empCategory == "senderDeptName"'>
+                        SENDER_DEPT.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "senderDivName"'>
+                        SENDER_DIV.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "senderPositionName"'>
+                        SENDER_POSITION.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "senderName"'>
+                        SENDER_EMP.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                </choose>
+                ORDER BY M.SEND_TIME DESC
+                </script>
+            """)
+    List<MessageVo> messageReceiveDeleteListSearchData(String receiverNo, String empCategory, String searchBox, int page, int offset);
 }

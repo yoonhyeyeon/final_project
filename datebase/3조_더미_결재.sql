@@ -1546,34 +1546,32 @@ DECLARE
   v_random_minute PLS_INTEGER;
   v_random_interval INTERVAL DAY TO SECOND;
   v_day_of_week VARCHAR2(10); 
+  v_total_work_hours NUMBER;
+  v_max_work_hours CONSTANT NUMBER := 10;
   
 BEGIN
-  -- 7월 1일부터 11일까지의 데이터 삽입
-  FOR day IN 1..11 LOOP
+  -- 7월 1일부터 15일까지의 데이터 삽입
+  FOR day IN 1..15 LOOP
     v_work_time := TO_TIMESTAMP('2024-07-' || TO_CHAR(day, 'FM00') || ' ' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(6, 10)), 'FM00') || ':' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                   'YYYY-MM-DD HH24:MI:SS');
-    
+
     v_day_of_week := TO_CHAR(v_work_time, 'DY');
-    
+
     IF v_day_of_week IN ('SAT', 'SUN') THEN
       CONTINUE;
     END IF;
-    
-    v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 60));
-    v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE'); 
 
-    v_quit_time := v_work_time + INTERVAL '10' HOUR + v_random_interval; 
+    v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 120));
+    v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE'); 
     
-    IF EXTRACT(HOUR FROM v_quit_time) < 18 THEN
-      v_quit_time := v_quit_time + INTERVAL '6' HOUR;
+    v_quit_time := TRUNC(v_work_time) + INTERVAL '18' HOUR + v_random_interval;
+    
+    IF v_quit_time > TRUNC(v_work_time) + INTERVAL '20' HOUR THEN
+      v_quit_time := TRUNC(v_work_time) + INTERVAL '20' HOUR;
     END IF;
-    
-    IF EXTRACT(HOUR FROM v_quit_time) >= 24 THEN
-      v_quit_time := v_quit_time + INTERVAL '1' DAY;
-    END IF;
-    
+
     INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
     VALUES (SEQ_COMMUTE.NEXTVAL, 43, v_work_time, v_quit_time);
   END LOOP;
@@ -1587,39 +1585,34 @@ BEGIN
                       TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(6, 10)), 'FM00') || ':' || 
                       TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                       'YYYY-MM-DD HH24:MI:SS');
-        
+
         v_day_of_week := TO_CHAR(v_work_time, 'DY');
-        
+
         IF v_day_of_week IN ('SAT', 'SUN') THEN
           CONTINUE;
         END IF;
-        
-        v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 60));
+
+        v_random_minute := FLOOR(DBMS_RANDOM.VALUE(0, 120));
         v_random_interval := NUMTODSINTERVAL(v_random_minute, 'MINUTE');
 
-        v_quit_time := v_work_time + INTERVAL '10' HOUR + v_random_interval;
+        v_quit_time := TRUNC(v_work_time) + INTERVAL '18' HOUR + v_random_interval;
         
-        IF EXTRACT(HOUR FROM v_quit_time) < 18 THEN
-          v_quit_time := v_quit_time + INTERVAL '6' HOUR;
+        IF v_quit_time > TRUNC(v_work_time) + INTERVAL '20' HOUR THEN
+          v_quit_time := TRUNC(v_work_time) + INTERVAL '20' HOUR;
         END IF;
-        
-        IF EXTRACT(HOUR FROM v_quit_time) >= 24 THEN
-          v_quit_time := v_quit_time + INTERVAL '1' DAY;
-        END IF;
-        
+
         INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
         VALUES (SEQ_COMMUTE.NEXTVAL, 43, v_work_time, v_quit_time);
-      
+
       EXCEPTION
         WHEN OTHERS THEN
           NULL;
       END;
     END LOOP;
   END LOOP;
+
 END;
 /
-
-
 
 -- TENDINOUS
 

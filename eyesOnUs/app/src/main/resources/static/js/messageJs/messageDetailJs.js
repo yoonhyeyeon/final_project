@@ -27,15 +27,11 @@ $(document).ready(function() {
 
             // 로그인된 사원번호를 가져와서 delYn과 receiver를 확인
             loginNo().done(function(currentLoginNo) {
-                            console.log(messageDetail.receiver);
-                            console.log(currentLoginNo);
-                            console.log(messageDetail.delYn);
                 if (messageDetail.readYn === "N" && messageDetail.receiver === currentLoginNo) {
                     // delYn을 'Y'로 업데이트하는 AJAX 요청
                     $.ajax({
-                        url: '/message/updateDelYn',
+                        url: '/message/updateReadYn',
                         method: 'POST',
-                        contentType: 'application/json',
                         data: no,
                         success: function(response) {
                             console.log('readYn 업데이트 성공:', response);

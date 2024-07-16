@@ -6,6 +6,8 @@ import com.kh.app.message.service.MessageService;
 import com.kh.app.message.vo.MessageVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +36,7 @@ public class MessageController {
 //        return "message/messageWrite";
 //    }
 
+    // 메시지 작성 뷰(+보낸사람 정보 넣기)
     @GetMapping("messageWrite")
     public String messageWrite(Model model, HttpSession session) {
         // 세션에서 로그인 정보 가져오기
@@ -54,17 +57,20 @@ public class MessageController {
         return "message/messageWrite";
     }
 
+    // 메시지 작성 데이터
     @PostMapping("messageWriteData")
     public String messageWriteData(MessageVo vo){
         service.messageWriteData(vo);
         return "redirect:/message/messageSendList";
     }
 
+    // 보낸 메시지함 뷰
     @GetMapping("messageSendList")
     public String messageSendList(){
         return "message/messageSendList";
     }
 
+    // 보낸 메시지함 데이터
     @GetMapping("messageSendListData")
     @ResponseBody
     public Map<String, Object> messageSendListData(
@@ -100,6 +106,7 @@ public class MessageController {
         return result;
     }
 
+    // 보낸 메시지함 검색 데이터
     @PostMapping("messageSendListSearchData")
     @ResponseBody
     public Map<String, Object> messageSendListSearchData(
@@ -138,11 +145,13 @@ public class MessageController {
 
     }
 
+    // 받은 메시지함 뷰
     @GetMapping("messageReceiveList")
     public String messageReceiveList(){
         return "message/messageReceiveList";
     }
 
+    // 받은 메시지함 데이터
     @GetMapping("messageReceiveListData")
     @ResponseBody
     public Map<String, Object> messageReceiveListData(
@@ -179,6 +188,7 @@ public class MessageController {
 
     }
 
+    // 받은 메시지함 검색 데이터
     @PostMapping("messageReceiveListSearchData")
     @ResponseBody
     public Map<String, Object> messageReceiveListSearchData(
@@ -217,29 +227,55 @@ public class MessageController {
 
     }
 
+    // 메시지 상세 보기 뷰
     @GetMapping("messageDetail")
     public String messageDetail(){
         return "message/messageDetail";
     }
 
+    // 메시지 상세 보기 데이터
     @GetMapping("messageDetailData")
     @ResponseBody
     public MessageVo messageDetailData(@RequestParam("no") String no){
         return service.messageDetailData(no);
     }
 
+    // 로그인 사원 번호 받아오기
     @GetMapping("loginNo")
     @ResponseBody
     public String getLoginNo(HttpSession session) {
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-        System.out.println("loginMemberVo = " + loginMemberVo);
-        System.out.println("loginMemberVo.getNo = " + loginMemberVo.getNo());
         return loginMemberVo.getNo();
     }
-
-    @PostMapping("updateDelYn")
-    public void updateDelYn(@RequestBody String no) {
-        System.out.println("no = " + no);
-        service.updateMessageDelYn(no);
+    
+    //메시지 읽음
+    @PostMapping("updateReadYn")
+    public void updateReadYn(@RequestBody String no) {
+        service.updateMessageReadYn(no);
     }
+
+    //받은 메시지 삭제
+    @PutMapping("updateReceiveMsgDelYn")
+    public ResponseEntity<String> updateReceiveMsgDelYn(@RequestBody String no) {
+        try {
+            service.updateReceiveMsgDelYn(no);
+            return ResponseEntity.ok("success");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error");
+        }
+    }
+
+    //보낸 메시지 삭제
+    @PutMapping("updateSendMsgDelYn")
+    public ResponseEntity<String> updateSendMsgDelYn(@RequestBody String no) {
+        try {
+            service.updateReceiveMsgDelYn(no);
+            return ResponseEntity.ok("success");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error");
+        }
+    }
+
 }

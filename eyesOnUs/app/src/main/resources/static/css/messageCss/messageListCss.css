@@ -143,3 +143,14 @@
   align-items: center;
   font-family: 'Do Hyeon', sans-serif;
 }
+
+.delete-message-btn{
+    height: 30px;
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 13pt;
+    cursor: pointer;
+}

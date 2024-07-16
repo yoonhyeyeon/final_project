@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("location")
+@RequestMapping("weather")
 public class MyLocationController {
 
 
     @GetMapping
     public String write(){
-        return "mainUtil/location";
+        return "mainUtil/weather";
     }
 
 

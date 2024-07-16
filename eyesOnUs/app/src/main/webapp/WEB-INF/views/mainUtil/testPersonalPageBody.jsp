@@ -18,7 +18,7 @@
   </div>
   <div id="personalPage-body-right">
     <div>
-      <%@ include file="/WEB-INF/views/mainUtil/location.jsp" %>
+      <%@ include file="/WEB-INF/views/mainUtil/weather.jsp" %>
     </div>
     <div>
       <h1>피드2</h1>

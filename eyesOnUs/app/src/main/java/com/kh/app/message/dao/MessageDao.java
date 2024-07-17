@@ -101,4 +101,8 @@ public class MessageDao {
     public int updateReceiveMsgRecover(String no) {
         return mapper.updateReceiveMsgRecover(no);
     }
+
+    public int updateSendMsgRecover(String no) {
+        return mapper.updateSendMsgRecover(no);
+    }
 }

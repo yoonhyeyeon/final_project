@@ -32,6 +32,10 @@
                             <input type="text" name="senderInfo" id="senderInfo" class="title-body do-hyeon-regular" value="${senderInfo}" readonly>
                         </div>
                         <div class="row">
+                            <div class="emp do-hyeon-regular">수신인</div>
+                            <input type="text" name="receiverInfo" id="receiverInfo" class="title-body do-hyeon-regular" value="${receiverInfo}" readonly>
+                        </div>
+                        <div class="row">
                             <div class="emp do-hyeon-regular">보낸 시간</div>
                             <input type="text" name="sendTime" id="sendTime" class="title-body do-hyeon-regular" readonly>
                         </div>

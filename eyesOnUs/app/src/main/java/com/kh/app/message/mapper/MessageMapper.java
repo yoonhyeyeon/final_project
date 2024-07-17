@@ -307,6 +307,10 @@ public interface MessageMapper {
                 , SENDER_DEPT.NAME AS SENDER_DEPT_NAME
                 , SENDER_DIV.NAME AS SENDER_DIV_NAME
                 , SENDER_POSITION.NAME AS SENDER_POSITION_NAME
+                , RECEIVER_EMP.NAME AS RECEIVER_NAME
+                , RECEIVER_DEPT.NAME AS RECEIVER_DEPT_NAME
+                , RECEIVER_DIV.NAME AS RECEIVER_DIV_NAME
+                , RECEIVER_POSITION.NAME AS RECEIVER_POSITION_NAME
                 FROM MESSAGE M
                 JOIN EMPLOYEE SENDER_EMP ON M.SENDER = SENDER_EMP.NO
                 JOIN DEPARTMENT SENDER_DEPT ON SENDER_EMP.DEPT_CODE = SENDER_DEPT.CODE
@@ -583,4 +587,12 @@ public interface MessageMapper {
             AND DEL_YN = 'Y'
             """)
     int updateReceiveMsgRecover(String no);
+
+    @Update("""
+            UPDATE MESSAGE
+            SET DEL_YN = 'N'
+            WHERE NO = #{no}
+            AND DEL_YN = 'Y'
+            """)
+    int updateSendMsgRecover(String no);
 }

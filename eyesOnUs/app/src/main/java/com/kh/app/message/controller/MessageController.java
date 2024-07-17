@@ -453,16 +453,16 @@ public class MessageController {
         }
     }
 
-//    // 삭제된 보낸 메시지 복구
-//    @PutMapping("updateSendMsgRecover")
-//    public ResponseEntity<String> updateSendMsgRecover(@RequestBody String no) {
-//        try {
-//            service.updateSendMsgRecover(no);
-//            return ResponseEntity.ok("success");
-//        } catch (RuntimeException e) {
-//            e.printStackTrace();
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error");
-//        }
-//    }
+    // 삭제된 보낸 메시지 복구
+    @PutMapping("updateSendMsgRecover")
+    public ResponseEntity<String> updateSendMsgRecover(@RequestBody String no) {
+        try {
+            service.updateSendMsgRecover(no);
+            return ResponseEntity.ok("success");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error");
+        }
+    }
 }
 

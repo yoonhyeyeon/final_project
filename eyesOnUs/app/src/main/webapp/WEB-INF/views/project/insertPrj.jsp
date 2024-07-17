@@ -45,7 +45,11 @@
                 </div>
                 &nbsp;&nbsp;<p>주제 :</p> <input type="text" name="title" id="title"><hr>
                 &nbsp;&nbsp;<p>PM-CODE</p> : <input type="text" name="empNo" id="emp" value="${sessionScope.loginMemberVo.no}" placeholder="${sessionScope.loginMemberVo.no}" readonly><br><hr>
-                &nbsp;&nbsp;상태 : <input type="text" name="state" id="state" placeholder="1.등록  2.중지  3.해산"><br>
+                &nbsp;&nbsp;상태 : <select name="state" id="state">
+                    <option value="1">등록</option>
+                    <option value="2">중지</option>
+                    <option value="3">해산</option>
+                </select>
                 <hr>
                 &nbsp;&nbsp;<p>부서코드 :</p> <input type="text" name="code" id="code" value="${sessionScope.loginMemberVo.deptCode}" placeholder="${sessionScope.loginMemberVo.deptCode}" readonly><br><br>
                 <textarea name="content" id="projectContent" placeholder="내용"></textarea><br>

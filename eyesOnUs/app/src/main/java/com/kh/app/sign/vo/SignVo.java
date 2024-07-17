@@ -28,6 +28,7 @@ public class SignVo {
 
     // SIGN_FILE
     private MultipartFile file;
+    private List<MultipartFile> fileList;
     private String changeName;
     private String originName;
     private String size;

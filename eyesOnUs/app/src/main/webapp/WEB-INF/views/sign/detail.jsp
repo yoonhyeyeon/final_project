@@ -107,7 +107,7 @@
                     <span>첨언</span>
                 </div>
                 <div id="commentValueInput">
-                    <textarea name="commenArea" id="commenArea"></textarea>
+                    <textarea name="commentArea" id="commentArea"></textarea>
                 </div>
             </div>
             <div id="approveBtnDiv">
@@ -156,8 +156,8 @@
             success: (data) => {
                 console.log("결재 상세 조회 통신 성공");
 
-                document.querySelector("input[type=file]").disabled = true;
-                document.querySelector("textarea[name=commenArea]").disabled = true;
+                document.querySelector("input[name=file]").disabled = true;
+                document.querySelector("textarea[name=commentArea]").disabled = true;
 
                 // div 태그 가져오기
                 const titleValueDiv = document.querySelector("#titleValueDiv");
@@ -299,8 +299,8 @@
                 // 현재 결재자에 해당하면 승인, 반려 버튼 보여주기
                 if(isApprover && data.signApproverDetailVoList[num].step === data.signApproverDetailVoList[num].signSeq){
                     // 첨언, 결재파일 첨부 가능하게 하기
-                    document.querySelector("input[type=file]").disabled = false;
-                    document.querySelector("textarea[name=commenArea]").disabled = false;
+                    document.querySelector("input[name=file]").disabled = false;
+                    document.querySelector("textarea[name=commentArea]").disabled = false;
 
                     // 버튼 태그 담을 div 가져오기
                     const approveBtnDiv = document.querySelector("#approveBtnDiv");
@@ -345,14 +345,25 @@
 
     // 승인 처리 (진행)
     function approveProcessGoOn(){
+        const fileInput = document.querySelector("input[name=file]");
+        const comment = document.querySelector("textarea[name=commentArea]").value;
+        const file = fileInput.files[0];
+
+        const formData = new FormData();
+        formData.append("no", signNo);
+        formData.append("result", result);
+        formData.append("step", step);
+        formData.append("comment", comment);
+        if(file) {
+            formData.append("file", file);
+        }
+        
         $.ajax({
             url: "/api/sign/approve",
             method: "put",
-            data: {
-                no: signNo,
-                result: result,
-                step: step
-            },
+            data: formData,
+            processData: false,
+            contentType: false,
             success: (data) => {
                 console.log("승인 처리 통신 성공");
 
@@ -386,14 +397,20 @@
 
     // 반려 처리 (진행)
     function returnProcessGoOn(){
+        const file = document.querySelector("input[name=file]");
+        const comment = document.querySelector("textarea[name=commentArea]").value;
+
         $.ajax({
             url: "/api/sign/approve",
             method: "put",
             data: {
                 no: signNo,
                 result: "2",
-                step: step
+                step: step,
+                comment: comment
             },
+            processData: false,
+            contentType: false,
             success: (data) => {
                 console.log("반려 처리 통신 성공");
 

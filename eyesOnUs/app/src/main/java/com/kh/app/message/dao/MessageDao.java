@@ -81,4 +81,20 @@ public class MessageDao {
     public List<MessageVo> messageReceiveDeleteListSearchData(String receiverNo, String empCategory, String searchBox, int page, int offset) {
         return mapper.messageReceiveDeleteListSearchData(receiverNo, empCategory, searchBox, page, offset);
     }
+
+    public int getTotalSendDeleteCount(String senderNo) {
+        return mapper.getTotalSendDeleteCount(senderNo);
+    }
+
+    public int getSearchTotalSendDeleteCount(String senderNo, String empCategory, String searchBox) {
+        return mapper.getSearchTotalSendDeleteCount(senderNo, empCategory, searchBox);
+    }
+
+    public List<MessageVo> messageSendDeleteListData(String senderNo, int offset, int size) {
+        return mapper.messageSendDeleteListData(senderNo, offset, size);
+    }
+
+    public List<MessageVo> messageSendDeleteListSearchData(String senderNo, String empCategory, String searchBox, int offset, int size) {
+        return mapper.messageSendDeleteListSearchData(senderNo, empCategory, searchBox, offset, size);
+    }
 }

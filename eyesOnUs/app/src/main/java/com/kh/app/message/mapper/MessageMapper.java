@@ -317,7 +317,6 @@ public interface MessageMapper {
                 JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
                 JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
                 WHERE M.NO = #{no}
-                AND DEL_YN = 'N'
             """)
     MessageVo messageDetailData(String no);
 
@@ -460,4 +459,120 @@ public interface MessageMapper {
                 </script>
             """)
     List<MessageVo> messageReceiveDeleteListSearchData(String receiverNo, String empCategory, String searchBox, int page, int offset);
+
+    @Select("""
+                SELECT COUNT(*)
+                FROM MESSAGE
+                WHERE SENDER = #{senderNo}
+                AND DEL_YN = 'Y'
+            """)
+    int getTotalSendDeleteCount(String senderNo);
+
+    @Select("""
+                <script>
+                SELECT COUNT(*)
+                FROM MESSAGE M
+                JOIN EMPLOYEE SENDER_EMP ON M.SENDER = SENDER_EMP.NO
+                JOIN DEPARTMENT SENDER_DEPT ON SENDER_EMP.DEPT_CODE = SENDER_DEPT.CODE
+                JOIN DIVISION SENDER_DIV ON SENDER_EMP.DIV_CODE = SENDER_DIV.CODE
+                JOIN POSITION SENDER_POSITION ON SENDER_EMP.POSITION_CODE = SENDER_POSITION.CODE
+                JOIN EMPLOYEE RECEIVER_EMP ON M.RECEIVER = RECEIVER_EMP.NO
+                JOIN DEPARTMENT RECEIVER_DEPT ON RECEIVER_EMP.DEPT_CODE = RECEIVER_DEPT.CODE
+                JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
+                JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
+                WHERE M.SENDER = #{senderNo}
+                AND DEL_YN = 'Y'
+                AND
+                <choose>
+                    <when test='empCategory == "receiverDeptName"'>
+                        RECEIVER_DEPT.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "receiverDivName"'>
+                        RECEIVER_DIV.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "receiverPositionName"'>
+                        RECEIVER_POSITION.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "receiverName"'>
+                        RECEIVER_EMP.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                </choose>
+                ORDER BY M.SEND_TIME DESC
+                </script>
+            """)
+    int getSearchTotalSendDeleteCount(String senderNo, String empCategory, String searchBox);
+
+    @Select("""
+                SELECT
+                    M.NO
+                    , TO_CHAR(M.SEND_TIME, 'YYYY/MM/DD HH24:MI') AS SEND_TIME
+                    , M.TITLE
+                    , M.SENDER
+                    , M.RECEIVER
+                    , M.READ_YN
+                    , M.DEL_YN
+                    , RECEIVER_EMP.NAME AS RECEIVER_NAME
+                    , RECEIVER_DEPT.NAME AS RECEIVER_DEPT_NAME
+                    , RECEIVER_DIV.NAME AS RECEIVER_DIV_NAME
+                    , RECEIVER_POSITION.NAME AS RECEIVER_POSITION_NAME
+                FROM MESSAGE M
+                JOIN EMPLOYEE SENDER_EMP ON M.SENDER = SENDER_EMP.NO
+                JOIN DEPARTMENT SENDER_DEPT ON SENDER_EMP.DEPT_CODE = SENDER_DEPT.CODE
+                JOIN DIVISION SENDER_DIV ON SENDER_EMP.DIV_CODE = SENDER_DIV.CODE
+                JOIN POSITION SENDER_POSITION ON SENDER_EMP.POSITION_CODE = SENDER_POSITION.CODE
+                JOIN EMPLOYEE RECEIVER_EMP ON M.RECEIVER = RECEIVER_EMP.NO
+                JOIN DEPARTMENT RECEIVER_DEPT ON RECEIVER_EMP.DEPT_CODE = RECEIVER_DEPT.CODE
+                JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
+                JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
+                WHERE M.SENDER = #{senderNo}
+                AND DEL_YN = 'Y'
+                ORDER BY M.SEND_TIME DESC
+                OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY
+            """)
+    List<MessageVo> messageSendDeleteListData(String senderNo, int offset, int size);
+
+    @Select("""
+                <script>
+                SELECT
+                    M.NO
+                    , TO_CHAR(M.SEND_TIME, 'YYYY/MM/DD HH24:MI') AS SEND_TIME
+                    , M.TITLE
+                    , M.SENDER
+                    , M.RECEIVER
+                    , M.READ_YN
+                    , M.DEL_YN
+                    , RECEIVER_EMP.NAME AS RECEIVER_NAME
+                    , RECEIVER_DEPT.NAME AS RECEIVER_DEPT_NAME
+                    , RECEIVER_DIV.NAME AS RECEIVER_DIV_NAME
+                    , RECEIVER_POSITION.NAME AS RECEIVER_POSITION_NAME
+                FROM MESSAGE M
+                JOIN EMPLOYEE SENDER_EMP ON M.SENDER = SENDER_EMP.NO
+                JOIN DEPARTMENT SENDER_DEPT ON SENDER_EMP.DEPT_CODE = SENDER_DEPT.CODE
+                JOIN DIVISION SENDER_DIV ON SENDER_EMP.DIV_CODE = SENDER_DIV.CODE
+                JOIN POSITION SENDER_POSITION ON SENDER_EMP.POSITION_CODE = SENDER_POSITION.CODE
+                JOIN EMPLOYEE RECEIVER_EMP ON M.RECEIVER = RECEIVER_EMP.NO
+                JOIN DEPARTMENT RECEIVER_DEPT ON RECEIVER_EMP.DEPT_CODE = RECEIVER_DEPT.CODE
+                JOIN DIVISION RECEIVER_DIV ON RECEIVER_EMP.DIV_CODE = RECEIVER_DIV.CODE
+                JOIN POSITION RECEIVER_POSITION ON RECEIVER_EMP.POSITION_CODE = RECEIVER_POSITION.CODE
+                WHERE M.SENDER = #{senderNo}
+                AND DEL_YN = 'Y'
+                AND
+                <choose>
+                    <when test='empCategory == "receiverDeptName"'>
+                        RECEIVER_DEPT.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "receiverDivName"'>
+                        RECEIVER_DIV.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "receiverPositionName"'>
+                        RECEIVER_POSITION.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                    <when test='empCategory == "receiverName"'>
+                        RECEIVER_EMP.NAME LIKE '%' || #{searchBox} || '%'
+                    </when>
+                </choose>
+                ORDER BY M.SEND_TIME DESC
+                </script>
+            """)
+    List<MessageVo> messageSendDeleteListSearchData(String senderNo, String empCategory, String searchBox, int offset, int size);
 }

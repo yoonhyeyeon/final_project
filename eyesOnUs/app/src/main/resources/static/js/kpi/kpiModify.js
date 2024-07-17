@@ -72,8 +72,8 @@ $(document).ready(() => {
             alert("수정 완료!");
             window.location.href = "http://127.0.0.1:8383/kpi/list";
           },
-          error : (x)=>{
-            console.log("오류");
+          fail : ()=>{
+            console.log("수정 실패");
           },
       });
     }

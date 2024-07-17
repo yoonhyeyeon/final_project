@@ -40,6 +40,12 @@ $(document).ready(() => {
 
           list.innerHTML = str;
 
+          document.querySelectorAll("#btn01").forEach((sub)=>{
+            sub.addEventListener("click" , ()=>{
+              const no = sub.getAttribute("data-id");
+              location.href="http://127.0.0.1:8383/notice/modify?no="+no;
+            });
+          });
         },
         fail : ()=>{
           console.log("상세조회 실패");

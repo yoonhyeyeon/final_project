@@ -114,4 +114,11 @@ public class MessageService {
             throw new RuntimeException("해당 메시지가 존재하지 않거나 이미 삭제되었습니다.");
         }
     }
+
+    public void updateSendMsgRecover(String no) {
+        int updatedRows = dao.updateSendMsgRecover(no);
+        if (updatedRows == 0) {
+            throw new RuntimeException("해당 메시지가 존재하지 않거나 이미 삭제되었습니다.");
+        }
+    }
 }

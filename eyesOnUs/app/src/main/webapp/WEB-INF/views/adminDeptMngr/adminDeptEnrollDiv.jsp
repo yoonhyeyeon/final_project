@@ -11,10 +11,10 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="/css/testMain/footer.css">
-            <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
-            <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
-            <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
+            <link rel="stylesheet" type="text/css" href="/css/homeUtil/footer.css">
+            <link rel="stylesheet" type="text/css" href="/css/homeUtil/popUpBoard.css">
+            <link rel="stylesheet" type="text/css" href="/css/homeUtil/sidebar.css">
+            <link rel="stylesheet" type="text/css" href="/css/homeUtil/teamRoom.css">
             <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminList.css">
             <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminEnroll.css">
             <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
@@ -29,8 +29,8 @@
 
         <body id="container">
             <div id="warp">
-                <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
-                    <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
+                <%@ include file="/WEB-INF/views/homeUtil/header.jsp" %>
+                    <%@ include file="/WEB-INF/views/homeUtil/nav.jsp" %>
                         <section>
                             <div class="form-container">
                                 <div class="form-group">
@@ -81,10 +81,9 @@
                             <div class="list-container" id="teamContainer"></div>
                             <div class="pagination" id="pagination"></div>
                         </section>
-                        <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
+                        <%@ include file="/WEB-INF/views/homeUtil/footer.jsp" %>
             </div>
-            <%@ include file="/WEB-INF/views/mainUtil/sidebar.jsp" %>
-                <button id="sidebarBtn"><span>메뉴</span></button>
+            <button id="sidebarBtn"><span>메뉴</span></button>
         </body>
 
 </html>

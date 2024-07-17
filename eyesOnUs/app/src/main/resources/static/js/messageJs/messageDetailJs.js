@@ -2,8 +2,6 @@ $(document).ready(function() {
     // URL에서 쿼리 파라미터 'no'의 값을 가져오기
     let no = new URL(window.location.href).searchParams.get('no');
     let url = new URL(window.location.href);
-    console.log(no);
-    console.log(url);
 
     // 로그인 세션에서 사원번호를 가져오는 함수 (AJAX 요청)
     function loginNo() {
@@ -18,6 +16,7 @@ $(document).ready(function() {
         url: '/message/messageDetailData?no=' + no,
         method: 'GET',
         success: function(messageDetail) {
+        console.log(messageDetail);
             $('#title').val(messageDetail.title);
             $('#content').val(messageDetail.content);
             let senderInfo = messageDetail.senderDeptName + ' ' +
@@ -25,6 +24,11 @@ $(document).ready(function() {
                              messageDetail.senderPositionName + ' ' +
                              messageDetail.senderName;
             $('#senderInfo').val(senderInfo);
+            let receiverInfo = messageDetail.receiverDeptName + ' ' +
+                               messageDetail.receiverDivName + ' ' +
+                               messageDetail.receiverPositionName + ' ' +
+                               messageDetail.receiverName;
+            $('#receiverInfo').val(receiverInfo);
             $('#sendTime').val(messageDetail.sendTime);
 
             // 로그인된 사원번호를 가져와서 delYn과 receiver를 확인

@@ -575,4 +575,12 @@ public interface MessageMapper {
                 </script>
             """)
     List<MessageVo> messageSendDeleteListSearchData(String senderNo, String empCategory, String searchBox, int offset, int size);
+
+    @Update("""
+            UPDATE MESSAGE
+            SET DEL_YN = 'N'
+            WHERE NO = #{no}
+            AND DEL_YN = 'Y'
+            """)
+    int updateReceiveMsgRecover(String no);
 }

@@ -97,4 +97,8 @@ public class MessageDao {
     public List<MessageVo> messageSendDeleteListSearchData(String senderNo, String empCategory, String searchBox, int offset, int size) {
         return mapper.messageSendDeleteListSearchData(senderNo, empCategory, searchBox, offset, size);
     }
+
+    public int updateReceiveMsgRecover(String no) {
+        return mapper.updateReceiveMsgRecover(no);
+    }
 }

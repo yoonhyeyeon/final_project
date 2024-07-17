@@ -27,7 +27,7 @@ $(document).ready(function() {
                         '<div class="emp-data list-body-low">' + vo.senderDivName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.senderPositionName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.senderName + '</div>' +
-                        '<div class="emp-data list-body-low">' + `<button class="team-link delete-message-btn" id="delete-receive-message" data-no="${vo.no}">복구</button>` +'</div>' +
+                        '<div class="emp-data list-body-low">' + `<button class="team-link delete-message-btn" id="recover-deleted-receive-message" data-no="${vo.no}">복구</button>` +'</div>' +
                         '</div>';
                     $('#empContainer').append(row);
                 }
@@ -94,7 +94,7 @@ $(document).ready(function() {
                         '<div class="emp-data list-body-low">' + vo.senderDivName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.senderPositionName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.senderName + '</div>' +
-                        '<div class="emp-data list-body-low">' + `<button class="team-link" id="delete-receive-message" data-no="${vo.no}">복구</button>` +'</div>' +
+                        '<div class="emp-data list-body-low">' + `<button class="team-link" id="recover-deleted-receive-message" data-no="${vo.no}">복구</button>` +'</div>' +
                         '</div>';
                     $('#empContainer').append(row);
                 }

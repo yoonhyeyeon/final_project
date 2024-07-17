@@ -11,6 +11,7 @@
             <link rel="stylesheet" type="text/css" href="/css/messageCss/messageListCss.css">
             <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
             <script defer src="/js/messageJs/messageReceiveDeleteListJs.js"></script>
+            <script defer src="/js/messageJs/messageReceiveRecoverJs.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <title>삭제된 받은 메시지 함</title>

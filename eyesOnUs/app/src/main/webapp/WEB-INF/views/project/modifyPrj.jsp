@@ -20,10 +20,14 @@
     <input type="text" name="svo" id="svo" value="${sessionScope.loginMemberVo.no}" hidden>
     <input type="text" name="vo" id="vo" value="${vo.empNo}" hidden>
     <div class="time">
-    <div id="time">
-        <!-- 현재 시간을 표시할 div 추가 -->
-    </div>
+        <div id="time">
+            <!-- 현재 시간을 표시할 div 추가 -->
+        </div>
 
+        <div id="work-time-table">
+            <!-- 근무 시간을 표시할 div 추가 -->
+            <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
+        </div>
     </div>
 
 
@@ -74,7 +78,7 @@
 
 
     <script src="/js/teamRoom/teamRoom.js"></script>
-
+    <script src="/js/teamRoom/clock.js"></script>
 </body>
 
 </html>

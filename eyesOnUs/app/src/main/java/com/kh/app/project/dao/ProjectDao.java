@@ -70,7 +70,7 @@ public class ProjectDao {
     }
 
     public List<ProjectVo> listData2(ProjectVo vo) {
-        return mapper.listData(vo);
+        return mapper.listData2(vo);
     }
 
     public List<EmployeeVo> deptListByNo(String deptCode) {
@@ -78,5 +78,8 @@ public class ProjectDao {
     }
 
 
+    public List<ProjectVo> listData3(ProjectVo vo) {
+        return mapper.listData3(vo);
+    }
 }
 

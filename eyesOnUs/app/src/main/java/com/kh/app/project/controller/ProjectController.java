@@ -102,6 +102,23 @@ public class ProjectController {
         List<ProjectVo> voList = service.projectList(loginMemberVo.getDeptCode());
         return  voList;
     }
+    @GetMapping("listData2")
+    @ResponseBody
+    public List<ProjectVo> listData2(ProjectVo vo){
+
+        List<ProjectVo> voList = service.listData2(vo);
+        return voList;
+    }
+
+    @GetMapping("listData3")
+    @ResponseBody
+    public List<ProjectVo> listData3(ProjectVo vo){
+
+        List<ProjectVo> voList = service.listData3(vo);
+        return voList;
+    }
+
+
     @GetMapping("projectList")
     public String projectList(){
         return "project/projectList";
@@ -130,13 +147,6 @@ public class ProjectController {
        return voList;
     }
 
-    @GetMapping("listData2")
-    @ResponseBody
-    public List<ProjectVo> listData2(ProjectVo vo){
-
-        List<ProjectVo> voList = service.listData2(vo);
-        return voList;
-    }
 
 
 

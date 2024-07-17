@@ -19,14 +19,14 @@
 <body>
 <input type="text"id="ingProjectData" value="${sessionScope.loginMemberVo.deptCode}" hidden>
 <div class="time">
- <div id="time">
-  <!-- 현재 시간을 표시할 div 추가 -->
-  </div>
+    <div id="time">
+        <!-- 현재 시간을 표시할 div 추가 -->
+    </div>
 
-  <div id="work-time-table">
-  <!-- 근무 시간을 표시할 div 추가 -->
-  <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
-  </div>
+    <div id="work-time-table">
+        <!-- 근무 시간을 표시할 div 추가 -->
+        <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
+    </div>
 </div>
 
   <div id="sidebar" class="sidebar">
@@ -79,8 +79,8 @@
         </tbody>
     </table>
     
-    <h4>진행 중인 프로젝트 일정</h4>
-    
+    <h4>중지된 프로젝트 일정</h4>
+        
     <table>
         <thead>
             <tr>
@@ -91,6 +91,7 @@
         </thead>
         <tbody id="personalTableBody2">
             <!-- 두 번째 테이블의 동적 데이터가 여기에 추가됩니다 -->
+
         </tbody>
     </table>
     </div>
@@ -105,7 +106,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
-
+<script src="/js/teamRoom/clock.js"></script>
 </body>
 </html>
 

@@ -73,7 +73,23 @@ public interface ProjectMapper {
             ")\n" +
             "WHERE rnum <= 5\n" +
             "ORDER BY NO ASC")
-    List<ProjectVo> listData(ProjectVo vo);
+    List<ProjectVo> listData2(ProjectVo vo);
+
+    @Select("SELECT NO, CODE, EMP_NO, STATE_A_NO, TITLE, CONTENT,\n" +
+            "        startDate,endDate,modifyDate\n" +
+            "FROM (\n" +
+            "    SELECT NO, CODE, EMP_NO, STATE_A_NO, TITLE, CONTENT,\n" +
+            "           TO_CHAR(START_DATE, 'YYYY/MM/DD') AS startDate,\n" +
+            "           TO_CHAR(END_DATE, 'YYYY/MM/DD') AS endDate,\n" +
+            "           TO_CHAR(MODIFY_DATE, 'YYYY/MM/DD') AS modifyDate,\n" +
+            "           ROW_NUMBER() OVER (ORDER BY NO ASC) AS rnum\n" +
+            "    FROM PROJECT\n" +
+            "    WHERE STATE_A_NO = 2\n" +
+            "      AND CODE = #{code}\n" +
+            ")\n" +
+            "WHERE rnum <= 5\n" +
+            "ORDER BY NO ASC")
+    List<ProjectVo> listData3(ProjectVo vo);
 
 
     ////////////////////////PROJECT RECORD CRUD ///////////////////////////////////////
@@ -135,6 +151,7 @@ public interface ProjectMapper {
            """
     )
     List<EmployeeVo> deptListByNo(String deptCode);
+
 
 
 }

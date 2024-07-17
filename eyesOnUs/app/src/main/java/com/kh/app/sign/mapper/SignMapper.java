@@ -327,7 +327,7 @@ public interface SignMapper {
             INSERT INTO SIGN_COM(
                 NO
                 , SIGN_NO
-                , "COMMENT"
+                , \"COMMENT\"
             )
             VALUES(
                 SEQ_SIGN_COM.NEXTVAL

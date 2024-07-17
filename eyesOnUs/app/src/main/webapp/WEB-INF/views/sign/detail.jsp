@@ -284,7 +284,7 @@
 
                 // iframe src 설정 (toolbar 안 보이기)
                 const fileIframe = document.querySelector("#fileIframe");
-                fileIframe.src = "/file/sign/file.pdf#toolbar=0";
+                fileIframe.src = "/file/sign/" + data.signApproverDetailVoList[0].changeName + "#toolbar=0";
 
                 // 현재 결재자에 해당하는지 판단
                 let isApprover = false;
@@ -322,7 +322,7 @@
                     approveBtnDiv.appendChild(btnTag02);
 
                     // iframe toolbar 보이기
-                    fileIframe.src = "/file/sign/file.pdf";
+                    fileIframe.src = "/file/sign/" + data.signApproverDetailVoList[0].changeName;
                 }
             },
             error: (error) => {

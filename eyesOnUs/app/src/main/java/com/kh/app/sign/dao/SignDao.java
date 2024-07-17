@@ -123,7 +123,7 @@ public class SignDao {
     public int updateFile(SignVo signVo) {
         int fileResult = mapper.updateFile(signVo);
         if(fileResult != 1){
-            throw new RuntimeException("[S-011] SIGN_FIEL APPROVE UPDATE ERROR");
+            throw new RuntimeException("[S-011] SIGN_FILE APPROVE UPDATE ERROR");
         }
         return fileResult;
     } // updateFile

@@ -27,15 +27,19 @@
           <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
             <section>
 
-            <a href="http://127.0.0.1:8383/test/main">할일 페이지</a>
+            <a href="/test/main">할일 페이지</a>
             <br>
-            <a href="http://127.0.0.1:8383/test/person">개인 페이지</a>
+            <a href="/test/person">개인 페이지</a>
             <br>
-            <a href="http://127.0.0.1:8383/message/messageWrite">메시지 보내기</a>
+            <a href="/message/messageWrite">메시지 보내기</a>
             <br>
-            <a href="http://127.0.0.1:8383/message/messageSendList">보낸 메시지 함</a>
+            <a href="/message/messageSendList">보낸 메시지 함</a>
             <br>
-            <a href="http://127.0.0.1:8383/message/messageReceiveList">받은 메시지 함</a>
+            <a href="/message/messageReceiveList">받은 메시지 함</a>
+            <br>
+            <a href="/message/messageReceiveDeleteList">삭제된 받은 메시지 함</a>
+            <br>
+            <a href="/message/messageSendDeleteList">삭제된 보낸 메시지 함</a>
 
             <h1>URL 모음</h1>
             <table border="1">

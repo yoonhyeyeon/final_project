@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentPath = window.location.pathname;
 
         if (currentPath.includes('/message/messageReceiveList')) {
-            window.location.href = 'http://127.0.0.1:8383/message/messageReceiveList';
+            window.location.href = '/message/messageReceiveList';
         } else if (currentPath.includes('/message/messageSendList')) {
-            window.location.href = 'http://127.0.0.1:8383/message/messageSendList';
+            window.location.href = '/message/messageSendList';
         } else {
             // 이전 URL이 저장된 경우 해당 URL로 이동
             if (previousUrl) {

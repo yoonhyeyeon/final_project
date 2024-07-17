@@ -89,4 +89,22 @@ public class MessageService {
         int offset = (page - 1) * size;
         return dao.messageReceiveDeleteListSearchData(receiverNo, empCategory, searchBox, page, offset);
     }
+
+    public int getTotalSendDeleteCount(String senderNo) {
+        return dao.getTotalSendDeleteCount(senderNo);
+    }
+
+    public int getSearchTotalSendDeleteCount(String senderNo, String empCategory, String searchBox) {
+        return dao.getSearchTotalSendDeleteCount(senderNo, empCategory, searchBox);
+    }
+
+    public List<MessageVo> messageSendDeleteListData(String senderNo, int page, int size) {
+        int offset = (page - 1) * size;
+        return dao.messageSendDeleteListData(senderNo, offset, size);
+    }
+
+    public List<MessageVo> messageSendDeleteListSearchData(String senderNo, String empCategory, String searchBox, int page, int size) {
+        int offset = (page - 1) * size;
+        return dao.messageSendDeleteListSearchData(senderNo, empCategory, searchBox, offset, size);
+    }
 }

@@ -26,7 +26,7 @@ public class TestController {
 
     @GetMapping("url")
     public String testurl(){
-        return "test/testUrl";
+        return "mainUtil/siteMap";
     }
 
     @GetMapping("main")

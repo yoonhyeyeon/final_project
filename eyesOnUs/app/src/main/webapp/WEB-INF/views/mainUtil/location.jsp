@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/css/util/myLocation.css">
 </head>
 <body>
-  <div id="map" style="width:500px;height:400px;"></div>
+  <div id="map" style="width:495px;height:395px;"></div>
 
 
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4d196cac5c3eee04acdfa3a284795608"></script>

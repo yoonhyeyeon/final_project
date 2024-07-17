@@ -24,7 +24,7 @@ public class ProjectWorkController {
     //팀룸 화면
     @GetMapping
     public String teamRoom(){
-        return "projectWork/teamRoom";
+        return "projectWork/projectShow";
     }
 
 }//class

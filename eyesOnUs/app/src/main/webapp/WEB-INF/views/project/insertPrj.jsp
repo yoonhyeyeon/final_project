@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/css/projectCss/projectInsert.css">
 </head>
 <body>
-
+<input type="text" name="insertPm" id="insertPm" value="${sessionScope.loginMemberVo.no}" hidden>
     <div class="time">
         <div id="time">
             <!-- 현재 시간을 표시할 div 추가 -->
@@ -35,7 +35,7 @@
 
 
 
-<c:if test="${sessionScope.loginMemberVo.rank eq 10}">
+<c:if test="${sessionScope.loginMemberVo.rank eq 10 }">
     
     <div id="calendarContainer" class="calendar-container">
         <div id="out">
@@ -44,7 +44,7 @@
                     <h1>프로젝트</h1>
                 </div>
                 &nbsp;&nbsp;<p>주제 :</p> <input type="text" name="title" id="title"><hr>
-                &nbsp;&nbsp;<p>PM-CODE</p> : <input type="text" name="empNo" id="emp" value="${sessionScope.loginMemberVo.no}" placeholder="${sessionScope.loginMemberVo.no}" readonly><br><hr>
+                &nbsp;&nbsp;<p>PM</p> : <input type="text" name="empNo" id="emp" value="${sessionScope.loginMemberVo.no}" placeholder="${sessionScope.loginMemberVo.no}" readonly><br><hr>
                 &nbsp;&nbsp;상태 : <select name="state" id="state">
                     <option value="1">등록</option>
                     <option value="2">중지</option>
@@ -66,7 +66,7 @@
     </div>
 </c:if>
 
-<c:if test="${sessionScope.loginMemberVo.rank > 10}">
+<c:if test="${sessionScope.loginMemberVo.rank ne 10}">
     <div id="notLogin">
         <h1>권한이 없습니다</h1><br><br>
         <a href="http://127.0.0.1:8383/project/projectMain">돌아가기</a>

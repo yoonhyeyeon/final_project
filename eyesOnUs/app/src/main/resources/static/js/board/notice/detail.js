@@ -29,7 +29,7 @@ $(document).ready(() => {
           str += "<p>내용</p>";
           str += "<p id='content'>" + detailData.content + "</p>";
           str += "<p>등록 날짜</p>";
-          str += "<p>"+ detailData.entollDate + "</p>";
+          str += "<p>"+ detailData.enrollDate + "</p>";
           str += "</div>";
           str += "</div>";
           str += "</div>";

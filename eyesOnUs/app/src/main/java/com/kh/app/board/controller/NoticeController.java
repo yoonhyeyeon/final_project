@@ -68,7 +68,7 @@ public class NoticeController {
     // 상세조회
     @GetMapping("detail")
     public String noticeByNo(){
-        return "";
+        return "board/notice/detail";
     }
 
     @GetMapping("detailData")

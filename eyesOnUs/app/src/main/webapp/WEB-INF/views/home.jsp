@@ -11,14 +11,16 @@
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/footer.css">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/popUpBoard.css">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
-      <link rel="stylesheet" type="text/css" href="/css/testMain/testPersonalPage.css">
+      <link rel="stylesheet" type="text/css" href="/css/homeUtil/footer.css">
+      <link rel="stylesheet" type="text/css" href="/css/homeUtil/popUpBoard.css">
+      <link rel="stylesheet" type="text/css" href="/css/homeUtil/sidebar.css">
+      <link rel="stylesheet" type="text/css" href="/css/homeUtil/teamRoom.css">
+      <link rel="stylesheet" type="text/css" href="/css/homeUtil/testPersonalPage.css">
+      <link rel="stylesheet" type="text/css" href="/css/teamRoom/clock.css">
       <script defer src="../js/adminUtil.js"></script>
-      <script defer src="../js/testMain/sidebar.js"></script>
-      <script defer src="../js/testMain/calender.js"></script>
+      <script defer src="../js/Util/clock.js"></script>
+      <script defer src="../js/util/sidebar.js"></script>
+      <script defer src="../js/util/calendar.js"></script>
       <script defer src="../js/commute/write.js"></script>
       <script defer src="../js/commute/quit.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

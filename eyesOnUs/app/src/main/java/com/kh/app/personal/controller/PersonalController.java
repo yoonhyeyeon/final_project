@@ -44,7 +44,7 @@ public class PersonalController {
     //기타일정 삭제하기 화면
     @GetMapping
     public String teamRoom(){
-        return "personal/teamRoom";
+        return "personal/personalShow";
     }
 
 }

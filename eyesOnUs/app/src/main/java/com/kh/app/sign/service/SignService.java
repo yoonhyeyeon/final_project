@@ -73,14 +73,14 @@ public class SignService {
         return dao.getSignReferenceDetailList(signVo);
     } // getSignReferenceDetailList
 
-//    // 결재 (API)
-//    public int updateSignApprove(SignVo signVo) {
-//        int signResult = dao.updateSign(signVo);
-//        int fileResult = dao.updateFile(signVo);
-//        int commentResult = dao.writeComment(signVo);
-//
-//        int signApproveResult = signResult * fileResult * commentResult;
-//
-//        return signApproveResult;
-//    } // updateSignApprove
+    // 결재 (API)
+    public int updateSignApprove(SignVo signVo) {
+        int signResult = dao.updateSign(signVo);
+        int fileResult = dao.updateFile(signVo);
+        int commentResult = dao.writeComment(signVo);
+
+        int signApproveResult = signResult * fileResult * commentResult;
+
+        return signApproveResult;
+    } // updateSignApprove
 } // class

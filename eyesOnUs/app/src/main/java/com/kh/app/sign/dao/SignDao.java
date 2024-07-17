@@ -110,30 +110,30 @@ public class SignDao {
         return signReferenceDetailVoList;
     } // getSignReferenceDetailList
 
-//    // 결재 (SIGN) (API)
-//    public int updateSign(SignVo signVo) {
-//        int signResult = mapper.updateSign(signVo);
-//        if(signResult != 1){
-//            throw new RuntimeException("[S-010] SIGN APPROVE UPDATE ERROR");
-//        }
-//        return signResult;
-//    } // updateSign
-//
-//    // 결재 (SIGN_FILE) (API)
-//    public int updateFile(SignVo signVo) {
-//        int fileResult = mapper.updateFile(signVo);
-//        if(fileResult != 1){
-//            throw new RuntimeException("[S-011] SIGN_FIEL APPROVE UPDATE ERROR");
-//        }
-//        return fileResult;
-//    } // updateFile
-//
-//    // 결재 (SIGN_COM) (API)
-//    public int writeComment(SignVo signVo) {
-//        int commentResult = mapper.writeComment(signVo);
-//        if(commentResult != 1){
-//            throw new RuntimeException("[S-012] SIGN_COM APPROVE INSERT ERROR");
-//        }
-//        return commentResult;
-//    } // writeComment
+    // 결재 (SIGN) (API)
+    public int updateSign(SignVo signVo) {
+        int signResult = mapper.updateSign(signVo);
+        if(signResult != 1){
+            throw new RuntimeException("[S-010] SIGN APPROVE UPDATE ERROR");
+        }
+        return signResult;
+    } // updateSign
+
+    // 결재 (SIGN_FILE) (API)
+    public int updateFile(SignVo signVo) {
+        int fileResult = mapper.updateFile(signVo);
+        if(fileResult != 1){
+            throw new RuntimeException("[S-011] SIGN_FIEL APPROVE UPDATE ERROR");
+        }
+        return fileResult;
+    } // updateFile
+
+    // 결재 (SIGN_COM) (API)
+    public int writeComment(SignVo signVo) {
+        int commentResult = mapper.writeComment(signVo);
+        if(commentResult != 1){
+            throw new RuntimeException("[S-012] SIGN_COM APPROVE INSERT ERROR");
+        }
+        return commentResult;
+    } // writeComment
 } // class

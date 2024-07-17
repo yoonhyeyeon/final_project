@@ -300,40 +300,40 @@ public interface SignMapper {
             """})
     List<SignVo> getSignReferenceDetailList(SignVo signVo);
 
-//    // 결재 (SIGN) (API)
-//    @Update({"""
-//            <script>
-//                UPDATE SIGN
-//                SET STEP = #{step}
-//                    , RESULT = #{result}
-//                WHERE NO = #{no}
-//            </script>
-//            """})
-//    int updateSign(SignVo signVo);
-//
-//    // 결재 (SIGN_FILE) (API)
-//    @Update({"""
-//            <script>
-//                UPDATE SIGN_FILE
-//                SET MODIFY_DATE = SYSDATE
-//                    , \"SIZE\" = #{size}
-//                WHERE SIGN_NO = #{no}
-//            </script>
-//            """})
-//    int updateFile(SignVo signVo);
-//
-//    // 결재 (SIGN_COM) (API)
-//    @Insert({"""
-//            INSERT INTO SIGN_COM(
-//                NO
-//                , SIGN_NO
-//                , "COMMENT"
-//            )
-//            VALUES(
-//                SEQ_SIGN_COM.NEXTVAL
-//                , #{no}
-//                , #{comment}
-//            )
-//            """})
-//    int writeComment(SignVo signVo);
+    // 결재 (SIGN) (API)
+    @Update({"""
+            <script>
+                UPDATE SIGN
+                SET STEP = #{step}
+                    , RESULT = #{result}
+                WHERE NO = #{no}
+            </script>
+            """})
+    int updateSign(SignVo signVo);
+
+    // 결재 (SIGN_FILE) (API)
+    @Update({"""
+            <script>
+                UPDATE SIGN_FILE
+                SET MODIFY_DATE = SYSDATE
+                    , \"SIZE\" = #{size}
+                WHERE SIGN_NO = #{no}
+            </script>
+            """})
+    int updateFile(SignVo signVo);
+
+    // 결재 (SIGN_COM) (API)
+    @Insert({"""
+            INSERT INTO SIGN_COM(
+                NO
+                , SIGN_NO
+                , "COMMENT"
+            )
+            VALUES(
+                SEQ_SIGN_COM.NEXTVAL
+                , #{no}
+                , #{comment}
+            )
+            """})
+    int writeComment(SignVo signVo);
 } // interface

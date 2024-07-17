@@ -107,4 +107,11 @@ public class MessageService {
         int offset = (page - 1) * size;
         return dao.messageSendDeleteListSearchData(senderNo, empCategory, searchBox, offset, size);
     }
+
+    public void updateReceiveMsgRecover(String no) {
+        int updatedRows = dao.updateReceiveMsgRecover(no);
+        if (updatedRows == 0) {
+            throw new RuntimeException("해당 메시지가 존재하지 않거나 이미 삭제되었습니다.");
+        }
+    }
 }

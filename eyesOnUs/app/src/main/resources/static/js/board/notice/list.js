@@ -1,5 +1,5 @@
 $.ajax({
-    url:"http://127.0.0.1:8383/notice/listData",
+    url:"/notice/listData",
     type:"get",
     success : (data)=>{
         console.log("목록 조회 성공");
@@ -24,7 +24,7 @@ $.ajax({
         document.querySelectorAll(".list").forEach((x)=>{
           x.addEventListener("click", ()=>{
             const no = x.getAttribute("data-id");
-           window.location.href="http://127.0.0.1:8383/notice/detail?no="+no;
+            location.href="/notice/detail?no="+no;
           });
         });
     },

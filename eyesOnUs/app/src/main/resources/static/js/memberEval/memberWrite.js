@@ -12,7 +12,7 @@ function write01(){
   const responsibilityValue = document.querySelector("input[name=responsibility]:checked").value;
 
   $.ajax({
-    url : "http://127.0.0.1:8383/memberEval/write",
+    url : "/memberEval/write",
     type : "post",
     data : {
       evaluatorNo : evaluatorNoValue,
@@ -28,7 +28,7 @@ function write01(){
     success : (x)=>{
       console.log("작성 성공");
       alert("평가 완료");
-      location.href="http://127.0.0.1:8383/memberEval/list";
+      location.href="/memberEval/list";
     },
     fail : (x)=>{
       console.log("작성 실패");

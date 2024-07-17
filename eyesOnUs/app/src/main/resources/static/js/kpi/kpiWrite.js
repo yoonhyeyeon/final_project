@@ -17,7 +17,7 @@ function write01(empNo) {
         success: (x) => {
             console.log("작성 성공");
             alert("등록 성공");
-            location.href = "http://127.0.0.1:8383/kpi/list";
+            location.href = "/kpi/list";
         },
         error: (x) => {
             console.log("통신 실패");

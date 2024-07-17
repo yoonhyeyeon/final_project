@@ -1,5 +1,5 @@
 $.ajax({
-    url : "http://127.0.0.1:8383/leaderEval/listData",
+    url : "/leaderEval/listData",
     type : "get",
     success : (data)=>{
         console.log("통신 성공");

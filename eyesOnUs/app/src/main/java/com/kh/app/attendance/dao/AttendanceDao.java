@@ -1,7 +1,7 @@
 package com.kh.app.attendance.dao;
 
 import com.kh.app.attendance.mapper.AttendanceMapper;
-import com.kh.app.home.vo.CommuteVo;
+import com.kh.app.home.vo.HomeVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +13,7 @@ public class AttendanceDao {
 
     private final AttendanceMapper mapper;
 
-    public List<CommuteVo> list(String empNo, String month) {
+    public List<HomeVo> list(String empNo, String month) {
         return mapper.list(empNo, month);
     }
 

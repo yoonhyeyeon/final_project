@@ -1,9 +1,8 @@
-package com.kh.app.personal.serviec;
+package com.kh.app.personal.service;
 
-import com.kh.app.personal.personal.dao.PersonalDao;
+import com.kh.app.personal.dao.PersonalDao;
 import com.kh.app.personal.vo.PersonalVo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

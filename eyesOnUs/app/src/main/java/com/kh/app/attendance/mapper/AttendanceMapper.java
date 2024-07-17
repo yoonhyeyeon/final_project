@@ -1,6 +1,6 @@
 package com.kh.app.attendance.mapper;
 
-import com.kh.app.home.vo.CommuteVo;
+import com.kh.app.home.vo.HomeVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -38,6 +38,6 @@ public interface AttendanceMapper {
             </if>
             </script>
             """)
-    List<CommuteVo> list(String empNo, String month);
+    List<HomeVo> list(String empNo, String month);
 
 }

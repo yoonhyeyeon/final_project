@@ -1,6 +1,6 @@
 package com.kh.app.personal.controller;
 
-import com.kh.app.personal.serviec.PersonalService;
+import com.kh.app.personal.service.PersonalService;
 import com.kh.app.personal.vo.PersonalVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

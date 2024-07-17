@@ -1,7 +1,7 @@
 package com.kh.app.home.controller;
 
-import com.kh.app.home.service.CommuteService;
-import com.kh.app.home.vo.CommuteVo;
+import com.kh.app.home.service.HomeService;
+import com.kh.app.home.vo.HomeVo;
 import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.vo.EmployeeVo;
 import jakarta.servlet.http.HttpSession;
@@ -21,7 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HomeController {
 
-    private final CommuteService service;
+    private final HomeService service;
 
     @GetMapping
     public String home(EmployeeVo vo, Model model,HttpSession session){
@@ -36,7 +36,7 @@ public class HomeController {
     // 출근
     @PostMapping("go")
     @ResponseBody
-    public HashMap<String, String> write(CommuteVo vo, HttpSession session){
+    public HashMap<String, String> write(HomeVo vo, HttpSession session){
         int result = service.write(vo);
 
         MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
@@ -53,7 +53,7 @@ public class HomeController {
     // 퇴근
     @PostMapping("quit")
     @ResponseBody
-    public HashMap<String, String> quit(CommuteVo vo,HttpSession session){
+    public HashMap<String, String> quit(HomeVo vo, HttpSession session){
         int result = service.quit(vo);
 
         MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");

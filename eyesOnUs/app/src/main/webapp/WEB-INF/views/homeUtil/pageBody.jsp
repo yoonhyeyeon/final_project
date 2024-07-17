@@ -18,13 +18,13 @@
   </div>
   <div id="personalPage-body-right">
     <div>
-      <%@ include file="/WEB-INF/views/mainUtil/weather.jsp" %>
+      <%@ include file="/WEB-INF/views/homeUtil/weather.jsp" %>
     </div>
 
 
     <div class="map">
         <div id="mapBox">
-       <%@ include file="/WEB-INF/views/mainUtil/location.jsp" %>
+       <%@ include file="/WEB-INF/views/homeUtil/location.jsp" %>
        </div>
     </div>
 

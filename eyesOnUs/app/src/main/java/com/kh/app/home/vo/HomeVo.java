@@ -3,7 +3,7 @@ package com.kh.app.home.vo;
 import lombok.Data;
 
 @Data
-public class CommuteVo {
+public class HomeVo {
 
     private String no;
     private String empNo;

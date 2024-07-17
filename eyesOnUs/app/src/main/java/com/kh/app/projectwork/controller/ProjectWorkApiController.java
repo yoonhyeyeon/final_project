@@ -1,8 +1,6 @@
 package com.kh.app.projectwork.controller;
 
 
-import com.kh.app.personal.serviec.PersonalService;
-import com.kh.app.personal.vo.PersonalVo;
 import com.kh.app.projectwork.service.ProjectWorkService;
 import com.kh.app.projectwork.vo.ProjectWorkVo;
 import lombok.RequiredArgsConstructor;

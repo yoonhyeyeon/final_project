@@ -1,6 +1,5 @@
 package com.kh.app.teamRoom.dao;
 
-import com.kh.app.home.vo.CommuteVo;
 import com.kh.app.teamRoom.mapper.TeamRoomMapper;
 import com.kh.app.teamRoom.vo.TeamRoomVo;
 import lombok.RequiredArgsConstructor;

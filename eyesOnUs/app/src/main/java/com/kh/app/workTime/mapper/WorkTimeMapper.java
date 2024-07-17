@@ -1,10 +1,8 @@
 package com.kh.app.workTime.mapper;
 
-import com.kh.app.home.vo.CommuteVo;
+import com.kh.app.home.vo.HomeVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-
-import java.util.List;
 
 @Mapper
 public interface WorkTimeMapper {
@@ -29,6 +27,6 @@ public interface WorkTimeMapper {
         )
         WHERE ROWNUM = 1
         """)
-    CommuteVo workTimeByNo(String empNo);
+    HomeVo workTimeByNo(String empNo);
 
 }

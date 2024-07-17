@@ -1,4 +1,4 @@
-package com.kh.app.personal.personal.dao;
+package com.kh.app.personal.dao;
 
 import com.kh.app.personal.mapper.PersonalMapper;
 import com.kh.app.personal.vo.PersonalVo;

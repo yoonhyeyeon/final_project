@@ -1,15 +1,10 @@
 package com.kh.app.personal.controller;
 
-import com.kh.app.personal.serviec.PersonalService;
-import com.kh.app.personal.vo.PersonalVo;
+import com.kh.app.personal.service.PersonalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("personal")

@@ -1,6 +1,6 @@
 package com.kh.app.home.mapper;
 
-import com.kh.app.home.vo.CommuteVo;
+import com.kh.app.home.vo.HomeVo;
 import com.kh.app.sign.vo.EmployeeVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -10,14 +10,14 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 @Mapper
-public interface CommuteMapper {
+public interface HomeMapper {
 
     @Select("SELECT * FROM EMPLOYEE")
     List<EmployeeVo> list(EmployeeVo vo);
 
     // 출근시간
     @Insert("INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME) VALUES (SEQ_COMMUTE.NEXTVAL, #{empNo}, SYSDATE)")
-    int write(CommuteVo vo);
+    int write(HomeVo vo);
 
     // 퇴근시간
     @Update("UPDATE COMMUTE\n" +
@@ -27,6 +27,6 @@ public interface CommuteMapper {
             "    FROM COMMUTE \n" +
             "    WHERE EMP_NO = #{empNo}\n" +
             ")")
-    int quit(CommuteVo vo);
+    int quit(HomeVo vo);
 
 }

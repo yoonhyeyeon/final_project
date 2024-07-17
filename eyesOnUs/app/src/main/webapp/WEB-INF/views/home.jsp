@@ -29,12 +29,12 @@
 
     <body id="container">
       <div id="warp">
-        <%@ include file="/WEB-INF/views/mainUtil/header.jsp" %>
-        <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
+        <%@ include file="/WEB-INF/views/homeUtil/header.jsp" %>
+        <%@ include file="/WEB-INF/views/homeUtil/nav.jsp" %>
         <section>
-          <%@ include file="/WEB-INF/views/mainUtil/testPersonalPageBody.jsp" %>
+          <%@ include file="/WEB-INF/views/homeUtil/pageBody.jsp" %>
         </section>
-        <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>
+        <%@ include file="/WEB-INF/views/homeUtil/footer.jsp" %>
       </div>
     </body>
 </html>

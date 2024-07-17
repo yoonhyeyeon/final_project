@@ -123,12 +123,14 @@ public interface ProjectMapper {
     int recordDelete(String no);
 
     @Select("""
-           SELECT D.NAME as deptName, E.NAME as name, P.NAME as positionName, E.NO as NO
+           SELECT D.NAME as deptName, E.NAME as name, P.NAME as positionName, E.NO as NO, A.NAME as STATE
            FROM EMPLOYEE E
            JOIN DEPARTMENT D
            ON E.DEPT_CODE = D.CODE
            JOIN POSITION P
            ON P.CODE = E.POSITION_CODE
+           JOIN ATTEND A
+           ON E.STATE = A.STATE
            WHERE E.DEPT_CODE = #{deptCode}
            """
     )

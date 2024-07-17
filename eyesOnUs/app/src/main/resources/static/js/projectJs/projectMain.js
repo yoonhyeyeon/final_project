@@ -16,6 +16,7 @@ $.ajax({
       str += "<td>" + x[i].name +"</td>";
       str += "<td>" + x[i].positionName +"</td>";
       str += "<td>" + x[i].no +"</td>";
+      str += "<td>" + x[i].state +"</td>";
       str += "</tr>";
     }
     deptTag.innerHTML = str;

@@ -38,9 +38,13 @@
                     &nbsp;&nbsp;<p class="title"></p><hr>
                     &nbsp;&nbsp;<p class="dept"></p><hr>
                     &nbsp;&nbsp;<p class="employee"></p><br><hr>
-                    &nbsp;&nbsp;상태 : <input type="text" name="stateANo" id="stateANo"  placeholder="1:등록, 2:중지, 3:해산">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <p id="pModify">수정일 : </p>
+                    &nbsp;&nbsp;상태 : 
+                    <select name="stateANo" id="stateANo">
+                        <option value="1">등록</option>
+                        <option value="2">중지</option>
+                        <option value="3">해산</option>
+                    </select>
+                    &nbsp;&nbsp;<p id="pModify"></p>
                     <hr>
                     <h2>내용</h2>
                     <textarea name="content" id="projectContent" ></textarea><br>

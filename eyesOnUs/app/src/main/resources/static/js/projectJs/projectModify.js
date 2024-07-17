@@ -17,27 +17,23 @@ function getParam(param){
                 const dept = document.querySelector(".dept");
                 const pm = document.querySelector(".employee");
                 const prjContent = document.querySelector("#projectContent");
-                const state = document.querySelector("#stateANo");
                 const title = document.querySelector(".title");
                 const pModif = document.querySelector("#pModify");
     
                 let str1 = "";
                 let str2 = "";
                 let str3 = "";
-                let str4 = "";
                 let str5 = "";
                 let str6 = "";
                 str1 += "부서코드 : " + detailData.dept
                 str2 += "담당자 : " +  detailData.pm
                 str3 += detailData.content
-                str4 += detailData.state
-                str5 += "주제 :" + detailData.title
-                str6 += detailData.modifyDate
+                str5 += "주제 : " + detailData.title
+                str6 += "수정일 : " + detailData.modifyDate
     
                 dept.innerHTML = str1;
                 pm.innerHTML = str2;
                 prjContent.innerHTML = str3;
-                state.innerHTML = str4;
                 title.innerHTML = str5;
                 pModif.innerHTML = str6;
     

@@ -9,7 +9,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TEAM ROOM</title>
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <link rel="stylesheet" href="/css/teamRoom/clock.css">
@@ -38,12 +37,21 @@
 
 <c:if test="${not empty sessionScope.loginMemberVo.no}">
     <div id="calendarContainer" class="calendar-container">
-        <button id="prjListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectList'">프로젝트 리스트</button>
-        <button id="prjLnsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectInsert'">프로젝트 등록하기</button>
-        <br><br>
-        <button id="recordListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/list'">회의록 리스트</button>
-        <button id="recordInsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/insert'">회의록 등록하기</button>
-    </div>
+    <h1 id="h1Title"></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>직급</th>
+                <th>사원번호</th>
+                <th>상태</th>
+            </tr>
+        </thead>
+        <tbody id="personalTableBody2">
+            <!-- 두 번째 테이블의 동적 데이터가 여기에 추가됩니다 -->
+        </tbody>
+    </table>
+</div>
 </c:if>
 
 
@@ -54,20 +62,13 @@
 
 
 
-<div id="listContainer" class="list-container">
-    <h1 id="h1Title"></h1>
-<table>
-    <thead>
-        <tr>
-            <th>이름</th>
-            <th>직급</th>
-            <th>사원번호</th>
-        </tr>
-    </thead>
-    <tbody id="personalTableBody2">
-        <!-- 두 번째 테이블의 동적 데이터가 여기에 추가됩니다 -->
-    </tbody>
-</table>
+<div id="listContainer" class="list-container"> 
+    <div id="buttonDiv">
+        <button id="prjListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectList'">프로젝트 리스트</button><br><br>
+        <button id="prjLnsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectInsert'">프로젝트 등록하기</button><br><br>
+        <button id="recordListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/list'">회의록 리스트</button><br><br>
+        <button id="recordInsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/insert'">회의록 등록하기</button><br><br>
+    </div>
 </div>
 
 

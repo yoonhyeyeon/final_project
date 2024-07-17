@@ -59,6 +59,13 @@
 #rightBox tr:nth-child(even):hover{
   background-color: #e0f7fa;
 }
+
+#notice{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
   </style>
 
 

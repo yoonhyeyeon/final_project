@@ -20,11 +20,18 @@
     <div>
       <%@ include file="/WEB-INF/views/mainUtil/weather.jsp" %>
     </div>
-    <div id="map">
-      <%@ include file="/WEB-INF/views/mainUtil/location.jsp" %>
+
+
+    <div class="map">
+        <div id="mapBox">
+       <%@ include file="/WEB-INF/views/mainUtil/location.jsp" %>
+       </div>
     </div>
-    <div>
+
+
+    <div id="notice">
       <%@ include file="/WEB-INF/views/board/notice/homeList.jsp" %>
     </div>
+
   </div>
 </div>

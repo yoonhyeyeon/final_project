@@ -47,61 +47,61 @@
                     <span>시작일</span>
                 </div>
                 <div id="startDateValue" class="appApp first">
-                    <span id="startDateSpan">시작일</span>
+                    <span id="startDateSpan"></span>
                 </div>
                 <div id="endDate" class="formApponent first th">
                     <span>종료일</span>
                 </div>
                 <div id="endDateValue" class="appApp first">
-                    <span id="endDateSpan">종료일</span>
+                    <span id="endDateSpan"></span>
                 </div>
                 <div id="project" class="formApponent second th">
                     <span>프로젝트</span>
                 </div>
                 <div id="projectValue" class="appApp second">
-                    <span id="projectSpan">프로젝트</span>
+                    <span id="projectSpan"></span>
                 </div>
                 <div id="destination" class="formApponent second th">
                     <span>출장지</span>
                 </div>
                 <div id="destinationValue" class="appApp second">
-                    <span id="destinationSpan">출장지</span>
+                    <span id="destinationSpan"></span>
                 </div>
                 <div id="reason" class="formApponent third th">
                     <span>사유</span>
                 </div>
                 <div id="reasonValue" class="appApp third">
-                    <pre id="reasonPre">사유</pre>
+                    <pre id="reasonPre"></pre>
                 </div>
                 <div id="approver" class="formApponent th">
                     <span>승인자</span>
                 </div>
                 <div id="approverValue" class="appApp">
-                    <span id="approverSpan">승인자</span>
+                    <span id="approverSpan"></span>
                 </div>
                 <div id="writer" class="formApponent th">
                     <span>신청자</span>
                 </div>
                 <div id="writerValue" class="appApp">
-                    <span id="writerSpan">신청자</span>
+                    <span id="writerSpan"></span>
                 </div>
                 <div id="enrollDate" class="formApponent th forth">
                     <span>신청일</span>
                 </div>
                 <div id="enrollDateValue" class="appApp forth">
-                    <span id="enrollDateSpan">신청일</span>
+                    <span id="enrollDateSpan"></span>
                 </div>
                 <div id="approveDate" class="formApponent th forth">
                     <span>승인일</span>
                 </div>
                 <div id="approveDateValue" class="appApp forth">
-                    <span id="approveDateSpan">승인일</span>
+                    <span id="approveDateSpan"></span>
                 </div>
                 <div id="state" class="formApponent th fifth">
                     <span>승인 상태</span>
                 </div>
                 <div id="stateValue" class="appApp fifth">
-                    <span id="stateSpan">승인 상태</span>
+                    <span id="stateSpan"></span>
                 </div>
                 <div class="fifth"></div>
                 <div class="fifth"></div>

@@ -26,7 +26,7 @@ function onPageLoad(){
                 const trTag = document.createElement("tr");
     
                 trTag.addEventListener("click", () => {
-                    location.href = `/sign/detail?no=${data.signVoListForApprover[i].no}`;
+                    location.href = `/sign/detail?no=${data.signVoListForApprover[i].no}&result=${data.signVoListForApprover[i].result}&step=${data.signVoListForApprover[i].step}`;
                 });
                 trTag.style.cursor = "pointer";
     

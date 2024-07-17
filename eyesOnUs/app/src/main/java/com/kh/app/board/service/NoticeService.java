@@ -29,4 +29,9 @@ public class NoticeService {
     public NoticeVo noticeByNo(String no) {
         return dao.noticeByNo(no);
     }
+
+    // 수정하기
+    public int modify(NoticeVo vo) {
+        return dao.modify(vo);
+    }
 }

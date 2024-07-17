@@ -27,4 +27,9 @@ public class NoticeDao {
     public NoticeVo noticeByNo(String no) {
         return mapper.noticeByNo(no);
     }
+
+    // 수정하기
+    public int modify(NoticeVo vo) {
+        return mapper.modify(vo);
+    }
 }

@@ -5,7 +5,7 @@ function write01(empNo) {
     const focusValue = document.querySelector("#focus").value;
 
     $.ajax({
-        url: "http://127.0.0.1:8383/kpi/write",
+        url: "/kpi/write",
         type: "POST",
         data: {
             empNo : empNo ,

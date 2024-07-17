@@ -5,6 +5,8 @@ import com.kh.app.board.vo.NoticeVo;
 import com.kh.app.member.vo.MemberVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -77,6 +79,29 @@ public class NoticeController {
         return service.noticeByNo(vo.getNo());
     }
 
+    // 수정하기
+    @GetMapping("modify")
+    public String modify(){
+        return "board/notice/modify";
+    }
+
+    @PostMapping("modify")
+    @ResponseBody
+    public ResponseEntity<HashMap<String, String>> modify(NoticeVo vo){
+        int result = service.modify(vo);
+
+        HashMap<String, String> map = new HashMap<>();
+
+        if( result == 1 ){
+            map.put("msg", "작성성공");
+            return ResponseEntity.ok(map);
+        }else{
+            map.put("msg", "작성실패");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
+        }
+
+
+    }
 
 //////////홈 공지사항 조회///////////////
 

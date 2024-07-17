@@ -4,6 +4,7 @@ import com.kh.app.board.vo.NoticeVo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -61,5 +62,11 @@ public interface NoticeMapepr {
             """)
     NoticeVo noticeByNo(String no);
 
+    // 수정하기
+    @Update("""
+            UPDATE NOTICE_BOARD 
+            SET TITLE = #{title} , CONTENT = #{content} WHERE NO = #{no}
+            """)
+    int modify(NoticeVo vo);
 }
 

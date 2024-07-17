@@ -16,13 +16,12 @@
       <link rel="stylesheet" type="text/css" href="/css/testMain/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/teamRoom.css">
       <link rel="stylesheet" type="text/css" href="/css/testMain/testPersonalPage.css">
-      <link rel="stylesheet" type="text/css" href="/css/board/notice/detail.css">
+      <link rel="stylesheet" type="text/css" href="/css/board/notice/modify.css">
       <script defer src="../js/adminUtil.js"></script>
       <script defer src="../js/testMain/sidebar.js"></script>
       <script defer src="../js/testMain/calender.js"></script>
       <script defer src="../js/commute/write.js"></script>
       <script defer src="../js/commute/quit.js"></script>
-      <script defer src="../js/board/notice/detail.js"></script>
       <script defer src="../js/board/notice/modify.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
@@ -36,12 +35,17 @@
         <%@ include file="/WEB-INF/views/mainUtil/nav.jsp" %>
         <section>
 
-          <div class="out-list">
+             <div id="out">
+                 <div class="modify-form">
+                         <div id="titleList">
+                             <h2>수정</h2>
+                         </div>
+                         <hr>
+                     <div id="form">
 
-          </div>
-          <div class="notice-list">
-            <button id="list-btn" onclick="location.href='http://127.0.0.1:8383/notice/list'">목록</button>
-          </div>
+                     </div>
+                 </div>
+             </div>
 
         </section>
         <%@ include file="/WEB-INF/views/mainUtil/footer.jsp" %>

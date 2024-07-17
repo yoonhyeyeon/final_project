@@ -1,5 +1,5 @@
 $.ajax({
-    url : "http://127.0.0.1:8383/memberEval/listData",
+    url : "/memberEval/listData",
     type : "get",
     success : (data)=>{
         console.log(data);

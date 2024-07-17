@@ -11,7 +11,7 @@ function write01(){
     const suggestionValue = document.querySelector("#suggestion").value;
 
     $.ajax({
-        url : "http://127.0.0.1:8383/leaderEval/write",
+        url : "/leaderEval/write",
         type : "post",
         data : {
             evaluatorNo : evaluatorNoValue,
@@ -27,7 +27,7 @@ function write01(){
         success : (data)=>{
             console.log(data);
             alert("작성 성공!");
-            location.href="http://127.0.0.1:8383/leaderEval/list";
+            location.href="/leaderEval/list";
         },
         fail : (x)=>{
             console.log("통신 실패");

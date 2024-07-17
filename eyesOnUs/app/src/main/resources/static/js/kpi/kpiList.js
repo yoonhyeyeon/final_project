@@ -1,5 +1,5 @@
   $.ajax({
-    url: "http://127.0.0.1:8383/kpi/listData",
+    url: "/kpi/listData",
     type: "get",
     success: (data) => {
       console.log("통신 성공");
@@ -25,7 +25,7 @@
     document.querySelectorAll(".list-item").forEach((x)=>{
       x.addEventListener("click", ()=>{
         const no = x.getAttribute("data-id");
-       window.location.href="http://127.0.0.1:8383/kpi/detail?no="+no;
+       window.location.href="/kpi/detail?no="+no;
       });
     });
     },

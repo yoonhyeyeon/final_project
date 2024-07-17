@@ -10,7 +10,7 @@ $(document).ready(() => {
   if (no) {
 
       $.ajax({
-        url : "http://127.0.0.1:8383/kpi/detailData",
+        url : "/kpi/detailData",
         type : "get",
         data : { no : no },
         success : (detailData)=>{
@@ -59,7 +59,7 @@ $(document).ready(() => {
       const no = getParam("no");
       if (no) {
         $.ajax({
-          url : "http://127.0.0.1:8383/kpi/modify",
+          url : "/kpi/modify",
           type : "post",
           data : {
             no : no ,
@@ -70,7 +70,7 @@ $(document).ready(() => {
           success : (data)=>{
             console.log(data);
             alert("수정 완료!");
-            window.location.href = "http://127.0.0.1:8383/kpi/list";
+            window.location.href = "/kpi/list";
           },
           fail : ()=>{
             console.log("수정 실패");

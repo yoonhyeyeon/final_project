@@ -3,7 +3,7 @@ function write01(){
     const contentValue = document.querySelector("#content").value;
 
     $.ajax({
-        url : "http://127.0.0.1:8383/notice/write",
+        url : "/notice/write",
         type : "post",
         data : {
             title : titleValue ,
@@ -12,7 +12,7 @@ function write01(){
         success : (data)=>{
             console.log("작성 성공");
             alert("등록 성공 !");
-            location.href = "http://127.0.0.1:8383/notice/list";
+            location.href = "/notice/list";
         } ,
         fail : ()=>{
             console.log("작성 실패");

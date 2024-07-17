@@ -7,7 +7,7 @@ $(document).ready(() => {
   const no = getParam("no");
   if (no) {
       $.ajax({
-        url : "http://127.0.0.1:8383/notice/detailData",
+        url : "/notice/detailData",
         method : "get",
         data : { no : no },
         success : (detailData)=>{
@@ -43,7 +43,7 @@ $(document).ready(() => {
           document.querySelectorAll("#btn01").forEach((sub)=>{
             sub.addEventListener("click" , ()=>{
               const no = sub.getAttribute("data-id");
-              location.href="http://127.0.0.1:8383/notice/modify?no="+no;
+              location.href="/notice/modify?no="+no;
             });
           });
         },

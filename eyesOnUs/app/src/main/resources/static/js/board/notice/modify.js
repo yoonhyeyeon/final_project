@@ -8,7 +8,7 @@ $(document).ready(() => {
   if (no) {
 
       $.ajax({
-        url : "http://127.0.0.1:8383/notice/detailData",
+        url : "/notice/detailData",
         type : "get",
         data : { no : no },
         success : (detailData)=>{
@@ -54,7 +54,7 @@ function modify01(){
     const no = getParam("no");
     if(no){
       $.ajax({
-        url : "http://127.0.0.1:8383/notice/modify",
+        url : "/notice/modify",
         type : "post",
         data : {
           no : no ,
@@ -65,7 +65,7 @@ function modify01(){
         success : (data)=>{
           console.log(data);
           alert("수정 완료");
-          location.href = "http://127.0.0.1:8383/notice/list";
+          location.href = "/notice/list";
         },
         fail : ()=>{
           console.log("수정 실패");

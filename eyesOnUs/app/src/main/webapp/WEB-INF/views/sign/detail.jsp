@@ -123,6 +123,8 @@
 
 <script>
     const signNo = "${signVo.no}";
+    const result = "${signVo.result}";
+    const step = "${signVo.step}";
 
     window.addEventListener("load", onPageLoad);
 
@@ -252,7 +254,7 @@
                 // 참조자 div 태그 가져오기
                 const refValueDiv = document.querySelector("#refValueDiv");
 
-                // 참조자 div 태그 비우기 
+                // 참조자 div 태그 비우기
                 refValueDiv.innerHTML = "";
 
                 // span 생성하고, 참조자 div 태그에 붙이기
@@ -330,8 +332,8 @@
             method: "put",
             data: {
                 no: signNo,
-                result: "1",
-                step: "2"
+                result: result,
+                step: step
             },
             success: (data) => {
                 console.log("승인 처리 통신 성공");
@@ -372,7 +374,7 @@
             data: {
                 no: signNo,
                 result: "2",
-                step: "1"
+                step: step
             },
             success: (data) => {
                 console.log("반려 처리 통신 성공");

@@ -35,6 +35,7 @@
   <style>
 
 #rightBox{
+  width: 100%;
   text-align: center;
   border-collapse: collapse;
   border-color: lightgrey;

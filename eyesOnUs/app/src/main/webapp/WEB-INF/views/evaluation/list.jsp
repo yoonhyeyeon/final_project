@@ -45,9 +45,13 @@
       <br><br><br>
       <span class="evaluatorNo"></span>
       <div id="listBtn">
-        <button onclick="leader(${vo.no});">팀장 평가</button>
+        <c:if test="${sessionScope.loginMemberVo.positionCode != 40 }">
+            <button onclick="leader(${vo.no});">팀장 평가</button>
+        </c:if>
         <br><br>
+        <c:if test="${sessionScope.loginMemberVo.positionCode == 40 }">
         <button onclick="member(${vo.no});">팀원 평가</button>
+        </c:if>
         <br><br>
         <button onclick="colleage(${vo.no});">동료 평가</button>
         <br><br>

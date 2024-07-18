@@ -71,6 +71,7 @@ $(document).ready(() => {
             str5 += "주제 :" + detailData.title
             str1 += "부서 : " +  detailData.dept
             str2 += "PM : " +  detailData.pm
+
             str3 += detailData.content
             str4 += "상태 : " + detailData.state
             str6 += `<button id ="dBtn" onclick='del(${detailData.no});'>삭제하기</button>`;

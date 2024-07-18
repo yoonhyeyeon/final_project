@@ -15,8 +15,8 @@ public class SignDao {
     private final SignMapper mapper;
 
     // 기안 (SIGN)
-    public int signWrite(SignVo vo) {
-        int signResult = mapper.signWrite(vo);
+    public int signWrite(SignVo signVo) {
+        int signResult = mapper.signWrite(signVo);
         if(signResult != 1){
             throw new RuntimeException("[S-000] SIGN INSERT ERROR");
         }
@@ -24,8 +24,8 @@ public class SignDao {
     } // signWrite
 
     // 기안 (SIGN_FILE)
-    public int signFileWrite(SignVo vo) {
-        int fileResult = mapper.signFileWrite(vo);
+    public int signFileWrite(SignVo signVo) {
+        int fileResult = mapper.signFileWrite(signVo);
         if(fileResult != 1){
             throw new RuntimeException("[S-001] SIGN_FILE INSERT ERROR");
         }

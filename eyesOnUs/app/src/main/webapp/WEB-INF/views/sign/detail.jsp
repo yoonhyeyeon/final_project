@@ -141,8 +141,8 @@
 
 <script>
     const signNo = "${signVo.no}";
-    const result = "${signVo.result}";
-    const step = "${signVo.step}";
+    let result = "${signVo.result}";
+    let step = "${signVo.step}";
 
     window.addEventListener("load", onPageLoad);
 
@@ -204,7 +204,7 @@
                 no: signNo,
             },
             success: (data) => {
-                console.log("결재 승인자, 참조자 상세 리스트 통신 성공");
+                console.log("결재자, 참조자 상세 리스트 통신 성공");
 
                 // 결재자 div 태그 가져오기
                 const firstApproverDiv = document.querySelector("#firstApprover");
@@ -297,36 +297,38 @@
                 }
 
                 // 현재 결재자에 해당하면 승인, 반려 버튼 보여주기
-                if(isApprover && data.signApproverDetailVoList[num].step === data.signApproverDetailVoList[num].signSeq){
-                    // 첨언, 결재파일 첨부 가능하게 하기
-                    document.querySelector("input[name=file]").disabled = false;
-                    document.querySelector("textarea[name=commentArea]").disabled = false;
-
-                    // 버튼 태그 담을 div 가져오기
-                    const approveBtnDiv = document.querySelector("#approveBtnDiv");
-
-                    // 버튼 태그 만들기
-                    const btnTag01 = document.createElement("button");
-                    const btnTag02 = document.createElement("button");
-
-                    // 버튼 태그 텍스트 담기
-                    btnTag01.innerHTML = "승인";
-                    btnTag02.innerHTML = "반려";
-
-                    // 버튼 태그 함수 담기
-                    btnTag01.onclick = approveProcess;
-                    btnTag02.onclick = returnProcess;
-
-                    // 버튼 태그 붙이기
-                    approveBtnDiv.appendChild(btnTag01);
-                    approveBtnDiv.appendChild(btnTag02);
-
-                    // iframe toolbar 보이기
-                    fileIframe.src = "/file/sign/" + data.signApproverDetailVoList[0].changeName;
+                if(data.signApproverDetailVoList[num].result === "0"){
+                    if(isApprover && data.signApproverDetailVoList[num].step === data.signApproverDetailVoList[num].signSeq){
+                        // 첨언, 결재파일 첨부 가능하게 하기
+                        document.querySelector("input[name=file]").disabled = false;
+                        document.querySelector("textarea[name=commentArea]").disabled = false;
+    
+                        // 버튼 태그 담을 div 가져오기
+                        const approveBtnDiv = document.querySelector("#approveBtnDiv");
+    
+                        // 버튼 태그 만들기
+                        const btnTag01 = document.createElement("button");
+                        const btnTag02 = document.createElement("button");
+    
+                        // 버튼 태그 텍스트 담기
+                        btnTag01.innerHTML = "승인";
+                        btnTag02.innerHTML = "반려";
+    
+                        // 버튼 태그 함수 담기
+                        btnTag01.onclick = approveProcess;
+                        btnTag02.onclick = returnProcess;
+    
+                        // 버튼 태그 붙이기
+                        approveBtnDiv.appendChild(btnTag01);
+                        approveBtnDiv.appendChild(btnTag02);
+    
+                        // iframe toolbar 보이기
+                        fileIframe.src = "/file/sign/" + data.signApproverDetailVoList[0].changeName;
+                    }
                 }
             },
             error: (error) => {
-                console.log("결재 승인자, 참조자 상세 리스트통신 실패");
+                console.log("결재자, 참조자 상세 리스트 통신 실패");
                 console.log(error);
             }
         });
@@ -349,11 +351,23 @@
         const comment = document.querySelector("textarea[name=commentArea]").value;
         const file = fileInput.files[0];
 
+        if(step === "1"){
+            step = "2";
+        } else if(step === "2"){
+            step = "3";
+        } else if(step === "3"){
+            result = "1";
+        }
+
         const formData = new FormData();
         formData.append("no", signNo);
         formData.append("result", result);
         formData.append("step", step);
-        formData.append("comment", comment);
+
+        if(comment){
+            formData.append("comment", comment);
+        }
+
         if(file) {
             formData.append("file", file);
         }
@@ -397,20 +411,19 @@
 
     // 반려 처리 (진행)
     function returnProcessGoOn(){
-        const file = document.querySelector("input[name=file]");
         const comment = document.querySelector("textarea[name=commentArea]").value;
+
+        result = "2";
 
         $.ajax({
             url: "/api/sign/approve",
             method: "put",
             data: {
                 no: signNo,
-                result: "2",
+                result: result,
                 step: step,
                 comment: comment
             },
-            processData: false,
-            contentType: false,
             success: (data) => {
                 console.log("반려 처리 통신 성공");
 

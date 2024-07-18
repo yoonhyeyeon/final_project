@@ -74,11 +74,12 @@ function onPageLoad(){
                 trTag.appendChild(tdTag05);
                 trTag.appendChild(tdTag06);
     
-                if(data.signVoListForApprover[i].step === data.signVoListForApprover[i].signSeq){
-                    doSignTable.appendChild(trTag);
-                }
-                else if(data.signVoListForApprover[i].result === "0"){
-                    waitTable.appendChild(trTag);
+                if(data.signVoListForApprover[i].result === "0"){
+                    if(data.signVoListForApprover[i].step === data.signVoListForApprover[i].signSeq){
+                        doSignTable.appendChild(trTag);
+                    } else{
+                        waitTable.appendChild(trTag);
+                    }
                 } else if(data.signVoListForApprover[i].result === "1"){
                     approvalTable.appendChild(trTag);
                 } else if(data.signVoListForApprover[i].result === "2"){

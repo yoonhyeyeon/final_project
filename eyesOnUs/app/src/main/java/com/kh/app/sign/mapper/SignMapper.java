@@ -24,7 +24,7 @@ public interface SignMapper {
                 , #{title}, #{content}
             )
             """})
-    int signWrite(SignVo vo);
+    int signWrite(SignVo signVo);
 
     // 기안 (SIGN_FILE)
     @Insert({"""
@@ -304,8 +304,17 @@ public interface SignMapper {
     @Update({"""
             <script>
                 UPDATE SIGN
-                SET STEP = #{step}
-                    , RESULT = #{result}
+                <choose>
+                    <when test=\"result == 0\">
+                        SET STEP = #{step}
+                    </when>
+                    <when test=\"result == 1\">
+                        SET RESULT = #{result}
+                    </when>
+                    <when test=\"result == 2\">
+                        SET RESULT = #{result}
+                    </when>
+                </choose>
                 WHERE NO = #{no}
             </script>
             """})
@@ -316,7 +325,10 @@ public interface SignMapper {
             <script>
                 UPDATE SIGN_FILE
                 SET MODIFY_DATE = SYSDATE
+                <if test=\"changeName != null\">
+                    , CHANGE_NAME = #{changeName}
                     , \"SIZE\" = #{size}
+                </if>
                 WHERE SIGN_NO = #{no}
             </script>
             """})

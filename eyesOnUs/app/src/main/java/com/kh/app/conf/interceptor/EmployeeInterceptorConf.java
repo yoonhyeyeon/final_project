@@ -26,6 +26,10 @@ public class EmployeeInterceptorConf implements WebMvcConfigurer {
                 .addPathPatterns("/home/**")
                 .addPathPatterns("/notice/**")
                 .addPathPatterns("/attendance/**")
+                .addPathPatterns("/evaluation/**")
+                .addPathPatterns("/colleageEval/**")
+                .addPathPatterns("/leaderEval/**")
+                .addPathPatterns("/memberEval/**")
                 .excludePathPatterns("/member/login");
     } // addInterceptors
 } // class

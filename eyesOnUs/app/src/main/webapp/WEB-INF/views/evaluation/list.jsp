@@ -6,14 +6,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEAM ROOM</title>
-    <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
-    <link rel="stylesheet" href="/css/teamRoom/list.css">
-    <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-    <link rel="stylesheet" href="/css/teamRoom/clock.css">
-    <link rel="stylesheet" type="text/css" href="/css/evaluation/list.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>TEAM ROOM</title>
+      <link rel="stylesheet" href="/css/teamRoom/clock.css">
+      <link rel="stylesheet" href="/css/teamRoom/list.css">
+      <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+      <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+      <link rel="stylesheet" type="text/css" href="/css/evaluation/list.css">
+      <script defer src="../js/teamRoom/teamList.js"></script>
+      <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
 </head>
 <body>
 
@@ -31,10 +33,7 @@
   <div id="sidebar" class="sidebar">
    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
 </div>
-<button id="openBtn" class="open-btn">☰ Sidebar</button>
-
-
-
+<button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 <div id="calendarContainer" class="calendar-container">
 
@@ -73,8 +72,9 @@
 </div>
 
 <div id="listContainer" class="list-container">
-  <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
-  <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+
+ <p>ddd</p>
+
 </div>
 
 
@@ -83,11 +83,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/js/teamRoom/list.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
+<script src="/js/util/clock.js"></script>
 <script defer src="../js/evaluation/list.js"></script>
 <script defer src="../js/evaluation/leader.js"></script>
 <script defer src="../js/evaluation/member.js"></script>
-<script src="/js/teamRoom/clock.js"></script>
 <script defer src="../js/evaluation/colleage.js"></script>
 
 </body>
+<div id="sidebar" class="sidebar">
+  <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+</div>
 </html>

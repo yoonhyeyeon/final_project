@@ -3,7 +3,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,8 +59,6 @@
             </div>
         
             <div id="listContainer" class="list-container">
-            <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
-            <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
             </div>
     </c:if>
 
@@ -71,13 +68,7 @@
             <a href="http://127.0.0.1:8383/project/projectList">돌아가기</a>
     </c:if>
 
-    <div id="listContainer" class="list-container">
-    <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
-    <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
-    </div>
 
-
-    <script src="/js/teamRoom/teamRoom.js"></script>
     <script src="/js/teamRoom/clock.js"></script>
 </body>
 

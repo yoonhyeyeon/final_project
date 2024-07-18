@@ -69,8 +69,6 @@
 </div>
 
 <div id="listContainer" class="list-container">
-<!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
-<%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

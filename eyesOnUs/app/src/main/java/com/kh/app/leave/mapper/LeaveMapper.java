@@ -203,7 +203,7 @@ public interface LeaveMapper {
             """})
     int updateLeaveApprove(LeaveVo leaveVo);
 
-    // 휴가 타입 리스트 (API)
+    // 휴가 타입 목록 (API)
     @Select("""
             SELECT
                 NO          LEAVE_TYPE

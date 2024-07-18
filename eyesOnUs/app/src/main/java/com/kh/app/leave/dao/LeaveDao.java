@@ -85,7 +85,7 @@ public class LeaveDao {
         return leaveApproveResult;
     } // updateLeaveApprove
 
-    // 휴가 타입 리스트 (API)
+    // 휴가 타입 목록 (API)
     public List<LeaveVo> getLeaveTypeList() {
         List<LeaveVo> leaveTypeVoList = mapper.getLeaveTypeList();
         if(leaveTypeVoList == null){

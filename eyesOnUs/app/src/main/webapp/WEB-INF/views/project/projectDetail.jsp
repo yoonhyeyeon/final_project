@@ -51,7 +51,10 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <p class="division"></p><hr>
-        &nbsp;&nbsp;<p class="employee"></p><br><hr>
+        &nbsp;&nbsp;<p class="employee"></p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p class="sPm"></p>
+        <br><hr>
         &nbsp;&nbsp;<p class="state" ></p><br>
         <hr>
         <h2>내용</h2>

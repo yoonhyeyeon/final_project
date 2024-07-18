@@ -35,16 +35,18 @@ public interface ProjectMapper {
     @Delete("DELETE PROJECT WHERE NO = #{no}")
     int deletePrj(String no);
 
-    @Select("SELECT P.NO as NO,P.title as title,P.EMP_NO as empNo, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
-            ",TO_CHAR(P.MODIFY_DATE,'YYYY.MM.DD')  as modifyDate , P.START_DATE as startDate\n" +
-            "FROM PROJECT P\n" +
-            "JOIN STATE_A S\n" +
-            "ON P.STATE_A_NO = S.NO\n" +
-            "JOIN EMPLOYEE E\n" +
-            "ON P.EMP_NO = E.NO\n" +
-            "JOIN DEPARTMENT D\n" +
-            "ON P.CODE = D.CODE\n" +
-            "WHERE P.NO = #{no}")
+    @Select("""
+            SELECT P.NO as NO,P.title as title,P.EMP_NO as empNo, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT
+                        ,TO_CHAR(P.MODIFY_DATE,'YYYY.MM.DD')  as modifyDate , P.START_DATE as startDate
+                        FROM PROJECT P
+                        JOIN STATE_A S
+                        ON P.STATE_A_NO = S.NO
+                        JOIN EMPLOYEE E
+                        ON P.EMP_NO = E.NO
+                        JOIN DEPARTMENT D
+                        ON P.CODE = D.CODE
+                        WHERE P.NO = #{no}                       
+            """)
     ProjectVo getProjectByNo(String no);
 
     @Select("SELECT P.NO as NO, P.title as title, E.NAME as PM, D.NAME as DEPT,S.CONTENT as STATE, P.CONTENT AS CONTENT \n" +
@@ -153,7 +155,16 @@ public interface ProjectMapper {
     List<EmployeeVo> deptListByNo(String deptCode);
 
 
-
+    @Select("""
+            SELECT P.NO as no, E.NAME as pm, M.EMP_NO as empNo
+            FROM PROJECT_MANAGER M
+            JOIN EMPLOYEE E
+            ON M.EMP_NO = E.NO
+            JOIN PROJECT P
+            ON P.NO = M.PRO_NO
+            WHERE P.NO = #{no}
+            """)
+    List<ProjectVo> getsPmByNo(String no);
 }
 
 

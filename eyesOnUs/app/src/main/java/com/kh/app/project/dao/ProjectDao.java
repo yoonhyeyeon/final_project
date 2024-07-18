@@ -81,5 +81,9 @@ public class ProjectDao {
     public List<ProjectVo> listData3(ProjectVo vo) {
         return mapper.listData3(vo);
     }
+
+    public List<ProjectVo> getsPmByNo(String no) {
+        return mapper.getsPmByNo(no);
+    }
 }
 

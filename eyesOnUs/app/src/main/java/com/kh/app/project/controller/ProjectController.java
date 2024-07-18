@@ -11,8 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Delete;
-import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -131,6 +129,12 @@ public class ProjectController {
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
         ProjectVo vo1 = service.getProjectByNo(vo.getNo());
         return vo1;
+    }
+
+    @GetMapping("detailData2")
+    @ResponseBody
+    public List<ProjectVo> getsPmByNo(ProjectVo vo){
+        return service.getsPmByNo(vo.getNo());
     }
 
     @GetMapping("detail")

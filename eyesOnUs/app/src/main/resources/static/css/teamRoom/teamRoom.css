@@ -1,14 +1,16 @@
 /* styles.css */
 body {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1.5fr;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     position: relative; /* 하단 버튼을 절대 위치로 배치할 때 기준 */
     height: 100vh; /* 전체 화면 높이 */
-    display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center; /* 수직 중앙 정렬 */
+    justify-items: center;
     background-color: #eae9f0; /* 연한 하늘색 배경 */
 }
 
@@ -42,7 +44,7 @@ body {
 
 
 .calendar-container {
-  width: 80%;
+  width: 90%;
   max-width: 900px;
   max-height: 80vh; /* 최대 높이 설정 */
   background-color: white; /* 배경 색상 */
@@ -57,8 +59,6 @@ body {
 
 .list-container {
   height: 100%;
-  width: 20%;
-  position: fixed;
   top: 0;
   right: 0;
   background-color: #f1f1f1;
@@ -76,9 +76,9 @@ body {
 
 .time{
 
-  position: absolute;
-  height: 10%;
-  width: 10%;
+  display: grid;
+  align-items: center;
+  margin-left: 30px;
   top: 100px;  /* 상단에서 20px 떨어진 위치 */
   left: 70px;  /* 좌측에서 20px 떨어진 위치 */
   z-index: 1;  /* 낮은 z-index 값으로 sidebar 뒤에 위치 */

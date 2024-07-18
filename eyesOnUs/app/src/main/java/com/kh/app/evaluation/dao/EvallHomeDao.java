@@ -32,4 +32,9 @@ public class EvallHomeDao {
     public List<EvalHomeVo> colleage(String no) {
         return mapper.colleage(no);
     }
+
+    // 남은사원 목록
+    public List<EvalHomeVo> list2(String no) {
+        return mapper.list2(no);
+    }
 }

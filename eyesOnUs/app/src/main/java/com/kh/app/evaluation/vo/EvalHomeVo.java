@@ -11,4 +11,7 @@ public class EvalHomeVo {
     private String division;
     private String position;
 
+    private String evaluatorNo;
+    private String evaluateeNo;
+
 }

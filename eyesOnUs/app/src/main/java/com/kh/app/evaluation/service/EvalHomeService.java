@@ -34,5 +34,10 @@ public class EvalHomeService {
     public List<EvalHomeVo> colleage(String no) {
         return dao.colleage(no);
     }
+
+    // 남은사원 목록
+    public List<EvalHomeVo> list2(String no) {
+        return dao.list2(no);
+    }
 }
 

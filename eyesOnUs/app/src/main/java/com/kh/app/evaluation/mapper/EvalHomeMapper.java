@@ -107,4 +107,33 @@ public interface EvalHomeMapper {
             "AND POSITION_CODE IN (50,60,70,80,90)\n" +
             "AND NO NOT IN #{no}")
     List<EvalHomeVo> colleage(String no);
+
+    // 남은 사원 목록
+    @Select("""
+            SELECT
+                E.NO
+                , E.NAME
+            FROM EMPLOYEE E
+            JOIN DEPARTMENT D
+            ON E.DEPT_CODE = D.CODE
+            WHERE (E.DEPT_CODE =\s
+            (SELECT\s
+                DEPT_CODE
+            FROM EMPLOYEE
+            WHERE NO = #{no})
+            OR E.DIV_CODE =\s
+            (SELECT
+                DIV_CODE
+            FROM EMPLOYEE
+            WHERE NO = #{no}))
+            AND E.NO != #{no}
+            AND E.NO NOT IN (
+                SELECT EVALUATEE_NO FROM LEADER_EVAL WHERE EVALUATOR_NO = #{no}
+                UNION
+                SELECT EVALUATEE_NO FROM MEMBER_EVAL WHERE EVALUATOR_NO = #{no}
+                UNION
+                SELECT EVALUATEE_NO FROM COLLEAGE_EVAL WHERE EVALUATOR_NO = #{no}
+            )
+            """)
+    List<EvalHomeVo> list2(String no);
 }

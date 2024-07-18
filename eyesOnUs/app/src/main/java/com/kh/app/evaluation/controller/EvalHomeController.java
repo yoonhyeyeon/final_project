@@ -72,4 +72,17 @@ public class EvalHomeController {
         return voList;
     }
 
+    // 평가 남은 사원 목록
+    @GetMapping("listData2")
+    @ResponseBody
+    public List<EvalHomeVo> evalListData2(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        String no = loginMemberVo.getNo();
+
+        List<EvalHomeVo> voList = service.list2(no);
+        return voList;
+
+    }
+
 }

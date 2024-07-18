@@ -2,14 +2,11 @@ package com.kh.app.sign.controller;
 
 import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.service.SignService;
-import com.kh.app.sign.vo.EmployeeVo;
 import com.kh.app.sign.vo.SignVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.swing.plaf.multi.MultiListUI;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,10 +20,7 @@ public class SignRestController {
     // 직원 전체 목록 조회 (API)
     @GetMapping("employeeList")
     public Map<String, List> getEmployeeList(){
-        List<EmployeeVo> employeeVoList = service.getEmployeeList();
-
-        Map<String, List> employeeListMap = new HashMap<>();
-        employeeListMap.put("employeeVoList", employeeVoList);
+        Map<String, List> employeeListMap = service.getEmployeeList();
 
         return employeeListMap;
     } // getEmployeeList
@@ -35,11 +29,8 @@ public class SignRestController {
     @GetMapping("listForWriter")
     public Map<String, List> getSignListForWriter(@SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String empNo = loginMemberVo.getNo();
-
-        List<SignVo> signVoListForWriter = service.getSignListForWriter(empNo);
         
-        Map<String, List> signListMapForWriter = new HashMap<>();
-        signListMapForWriter.put("signVoListForWriter", signVoListForWriter);
+        Map<String, List> signListMapForWriter = service.getSignListForWriter(empNo);
 
         return signListMapForWriter;
     } // getSignListForWriter
@@ -49,10 +40,7 @@ public class SignRestController {
     public Map<String, List> getSignListForApprover(@SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String approverNo = loginMemberVo.getNo();
 
-        List<SignVo> signVoListForApprover = service.getSignListForApprover(approverNo);
-
-        Map<String, List> signListMapForApprover = new HashMap<>();
-        signListMapForApprover.put("signVoListForApprover", signVoListForApprover);
+        Map<String, List> signListMapForApprover = service.getSignListForApprover(approverNo);
 
         return signListMapForApprover;
     } // getSignListForApprover
@@ -62,10 +50,7 @@ public class SignRestController {
     public Map<String, List> getSignListForReference(@SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
         String refNo = loginMemberVo.getNo();
 
-        List<SignVo> signVoListForReference = service.getSignListForReference(refNo);
-
-        Map<String, List> signListMapForReference = new HashMap<>();
-        signListMapForReference.put("signVoListForReference", signVoListForReference);
+        Map<String, List> signListMapForReference = service.getSignListForReference(refNo);
 
         return signListMapForReference;
     } // getSignListForReference
@@ -73,15 +58,7 @@ public class SignRestController {
     // 결재 상세 조회 (API)
     @GetMapping("detail")
     public Map<String, SignVo> getSignDetail(SignVo signVo, @SessionAttribute("loginMemberVo") MemberVo loginMemberVo){
-        // 결재 상세 조회 (API)
-        SignVo signDetailVo = service.getSignDetail(signVo);
-        Map<String, SignVo> signDetailMap = new HashMap<>();
-        signDetailMap.put("signDetailVo", signDetailVo);
-
-        // 승인, 반려 버튼 판단용 로그인 사원 번호
-        SignVo vo = new SignVo();
-        vo.setEmpNo(loginMemberVo.getNo());
-        signDetailMap.put("vo", vo);
+        Map<String, SignVo> signDetailMap = service.getSignDetail(signVo, loginMemberVo);
 
         return signDetailMap;
     } // getSignDetail
@@ -89,15 +66,7 @@ public class SignRestController {
     // 결재자, 참조자 상세 조회 (API)
     @GetMapping("detailList")
     public Map<String, List> getSignApproverAndReferenceDetailList(SignVo signVo){
-        Map<String, List> signApproverAndReferenceDetailMap = new HashMap<>();
-
-        // 결재자 상세 조회 (API)
-        List<SignVo> signApproverDetailVoList = service.getSignApproverDetailList(signVo);
-        signApproverAndReferenceDetailMap.put("signApproverDetailVoList", signApproverDetailVoList);
-
-        // 참조자 상세 조회 (API)
-        List<SignVo> signReferenceDetailVoList = service.getSignReferenceDetailList(signVo);
-        signApproverAndReferenceDetailMap.put("signReferenceDetailVoList", signReferenceDetailVoList);
+        Map<String, List> signApproverAndReferenceDetailMap = service.getSignApproverDetailList(signVo);
 
         return signApproverAndReferenceDetailMap;
     } // getSignApproverAndReferenceDetailList
@@ -105,18 +74,13 @@ public class SignRestController {
     // 결재 (API)
     @PutMapping("approve")
     public Map<String, Integer> updateSignApprove(SignVo signVo){
-        System.out.println("signVo = " + signVo);
         MultipartFile file = signVo.getFile();
-
         if(file != null && !file.isEmpty()){
             signVo.setSize(String.valueOf(file.getSize()));
             signVo.setChangeName(file.getOriginalFilename());
         }
 
-        int signApproveResult = service.updateSignApprove(signVo);
-
-        Map<String, Integer> signApproveResultMap = new HashMap<>();
-        signApproveResultMap.put("signApproveResult", signApproveResult);
+        Map<String, Integer> signApproveResultMap = service.updateSignApprove(signVo);
 
         return signApproveResultMap;
     } // updateSignApprove

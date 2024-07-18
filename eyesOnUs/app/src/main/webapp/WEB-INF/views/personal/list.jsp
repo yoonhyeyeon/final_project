@@ -8,10 +8,6 @@
 <meta charset="UTF-8">
 <title>기타일정 목록</title>
 <style>
-  body {
-         font-family: Arial, sans-serif;
-         padding: 20px;
-     }
 
      h1 {
          color: #333;

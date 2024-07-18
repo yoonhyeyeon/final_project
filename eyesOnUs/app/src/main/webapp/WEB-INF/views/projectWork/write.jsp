@@ -10,66 +10,56 @@
 <meta charset="UTF-8">
 <title>프로젝트일정 작성</title>
 <style>
-  body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-      }
+ h1 {
+           text-align: center;
+           color: #007bb5; /* 신뢰감을 주는 파란색 텍스트 */
+       }
 
-      h1 {
-          text-align: center;
-          color: #007bb5; /* 신뢰감을 주는 파란색 텍스트 */
-      }
+       form {
+           background-color: #fff;
+           padding: 20px;
+           border-radius: 8px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           width: 300px;
+           height: 600px; /* 폼 높이 고정 */
+           display: flex;
+           flex-direction: column; /* 세로 방향 배치 */
+           justify-content: space-between; /* 공간 균등 배분 */
+           align-items: center; /* 중앙 정렬 */
+       }
 
-      form {
-          background-color: #fff;
-          padding: 20px;
-          border-radius: 8px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          width: 300px;
-          height: 600px; /* 폼 높이 고정 */
-          display: flex;
-          flex-direction: column; /* 세로 방향 배치 */
-          justify-content: space-between; /* 공간 균등 배분 */
-          align-items: center; /* 중앙 정렬 */
-      }
+       input[type="text"],
+       textarea,
+       select {
+           width: calc(100% - 20px);
+           padding: 10px;
+           margin-bottom: 10px;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+       }
 
-      input[type="text"],
-      textarea,
-      select {
-          width: calc(100% - 20px);
-          padding: 10px;
-          margin-bottom: 10px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-      }
+       textarea {
+           height: 200px; /* "내용" 영역의 높이 증가 */
+       }
 
-      textarea {
-          height: 200px; /* "내용" 영역의 높이 증가 */
-      }
+       input[type="submit"] {
+           width: 100%;
+           padding: 10px;
+           background-color: #007BFF;
+           border: none;
+           border-radius: 4px;
+           color: white;
+           font-size: 16px;
+           cursor: pointer;
+       }
 
-      input[type="submit"] {
-          width: 100%;
-          padding: 10px;
-          background-color: #007BFF;
-          border: none;
-          border-radius: 4px;
-          color: white;
-          font-size: 16px;
-          cursor: pointer;
-      }
+       input[type="submit"]:hover {
+           background-color: #0056b3;
+       }
 
-      input[type="submit"]:hover {
-        background-color: #0056b3;
-      }
-
-      select {
-          height: 40px;
-      }
+       select {
+           height: 40px;
+       }
 </style>
 
 </head>

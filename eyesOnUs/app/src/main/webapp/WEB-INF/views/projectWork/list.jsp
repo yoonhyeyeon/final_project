@@ -8,11 +8,6 @@
 <meta charset="UTF-8">
 <title>프로젝트 일정 목록</title>
 <style>
-      body {
-           font-family: Arial, sans-serif;
-           padding: 20px;
-       }
-
        h4 {
            color: #333;
            text-align: center;

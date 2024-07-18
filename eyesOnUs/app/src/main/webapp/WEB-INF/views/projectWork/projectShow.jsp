@@ -14,6 +14,7 @@
       <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
       <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
       <script defer src="../js/teamRoom/teamList.js"></script>
+      <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
 </head>
 <body>
 
@@ -33,10 +34,8 @@
          </div>
      </div>
 
-  <div id="sidebar" class="sidebar">
-   <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-</div>
-<button id="openBtn" class="open-btn">☰ Sidebar</button>
+
+ <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 
 
@@ -74,4 +73,8 @@
 <script src="/js/util/clock.js"></script>
 
 </body>
+    <div id="sidebar" class="sidebar">
+      <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+    </div>
+
 </html>

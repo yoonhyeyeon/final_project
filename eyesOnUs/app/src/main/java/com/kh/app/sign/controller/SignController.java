@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -28,13 +29,13 @@ public class SignController {
 
     // 기안
     @PostMapping("write")
-    public String signWrite(SignVo vo, HttpSession session) throws IOException {
+    public String signWrite(SignVo signVo, HttpSession session) throws IOException {
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
         String empNo = loginMemberVo.getNo();
-        vo.setEmpNo(empNo);
+        signVo.setEmpNo(empNo);
+        MultipartFile file = signVo.getFile();
 
-        MultipartFile file = vo.getFile();
-        if(!file.isEmpty()){
+        if(file != null && !file.isEmpty()){
             // 저장할 경로, 원래  파일명, 사이즈
             String uploadDir = "C:\\Users\\seong\\project\\final\\eyesOnUs\\app\\src\\main\\resources\\static\\file\\sign\\";
             String originName = file.getOriginalFilename();
@@ -49,11 +50,11 @@ public class SignController {
             File targetFile = new File(fullPath);
             file.transferTo(targetFile);
 
-            vo.setSize(size);
-            vo.setOriginName(originName);
-            vo.setChangeName(changeName);
+            signVo.setSize(size);
+            signVo.setOriginName(originName);
+            signVo.setChangeName(changeName);
         }
-        int signWriteResult = service.signWrite(vo);
+        int signWriteResult = service.signWrite(signVo);
 
         if(signWriteResult == 0){
             session.setAttribute("alertMsg", "기안 실패");

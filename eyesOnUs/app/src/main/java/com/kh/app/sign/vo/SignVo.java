@@ -34,7 +34,7 @@ public class SignVo {
     private String modifyDate;
 
     // SIGN_COM
-    private List<String> comment;
+    private String comment;
 
     // EMPLOYEE
     private String empName;

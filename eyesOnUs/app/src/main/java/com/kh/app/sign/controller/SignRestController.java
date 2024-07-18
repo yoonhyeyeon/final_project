@@ -5,11 +5,10 @@ import com.kh.app.sign.service.SignService;
 import com.kh.app.sign.vo.EmployeeVo;
 import com.kh.app.sign.vo.SignVo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.swing.plaf.multi.MultiListUI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -103,14 +102,22 @@ public class SignRestController {
         return signApproverAndReferenceDetailMap;
     } // getSignApproverAndReferenceDetailList
 
-//    // 결재 (API)
-//    @PutMapping("approve")
-//    public Map<String, Integer> updateSignApprove(SignVo signVo){
-//        int signApproveResult = service.updateSignApprove(signVo);
-//
-//        Map<String, Integer> signApproveResultMap = new HashMap<>();
-//        signApproveResultMap.put("signApproveResult", signApproveResult);
-//
-//        return signApproveResultMap;
-//    } // updateSignApprove
+    // 결재 (API)
+    @PutMapping("approve")
+    public Map<String, Integer> updateSignApprove(SignVo signVo){
+        System.out.println("signVo = " + signVo);
+        MultipartFile file = signVo.getFile();
+
+        if(file != null && !file.isEmpty()){
+            signVo.setSize(String.valueOf(file.getSize()));
+            signVo.setChangeName(file.getOriginalFilename());
+        }
+
+        int signApproveResult = service.updateSignApprove(signVo);
+
+        Map<String, Integer> signApproveResultMap = new HashMap<>();
+        signApproveResultMap.put("signApproveResult", signApproveResult);
+
+        return signApproveResultMap;
+    } // updateSignApprove
 } // class

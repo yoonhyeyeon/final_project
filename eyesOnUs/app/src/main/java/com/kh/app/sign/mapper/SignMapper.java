@@ -24,7 +24,7 @@ public interface SignMapper {
                 , #{title}, #{content}
             )
             """})
-    int signWrite(SignVo vo);
+    int signWrite(SignVo signVo);
 
     // 기안 (SIGN_FILE)
     @Insert({"""
@@ -300,40 +300,52 @@ public interface SignMapper {
             """})
     List<SignVo> getSignReferenceDetailList(SignVo signVo);
 
-//    // 결재 (SIGN) (API)
-//    @Update({"""
-//            <script>
-//                UPDATE SIGN
-//                SET STEP = #{step}
-//                    , RESULT = #{result}
-//                WHERE NO = #{no}
-//            </script>
-//            """})
-//    int updateSign(SignVo signVo);
-//
-//    // 결재 (SIGN_FILE) (API)
-//    @Update({"""
-//            <script>
-//                UPDATE SIGN_FILE
-//                SET MODIFY_DATE = SYSDATE
-//                    , \"SIZE\" = #{size}
-//                WHERE SIGN_NO = #{no}
-//            </script>
-//            """})
-//    int updateFile(SignVo signVo);
-//
-//    // 결재 (SIGN_COM) (API)
-//    @Insert({"""
-//            INSERT INTO SIGN_COM(
-//                NO
-//                , SIGN_NO
-//                , "COMMENT"
-//            )
-//            VALUES(
-//                SEQ_SIGN_COM.NEXTVAL
-//                , #{no}
-//                , #{comment}
-//            )
-//            """})
-//    int writeComment(SignVo signVo);
+    // 결재 (SIGN) (API)
+    @Update({"""
+            <script>
+                UPDATE SIGN
+                <choose>
+                    <when test=\"result == 0\">
+                        SET STEP = #{step}
+                    </when>
+                    <when test=\"result == 1\">
+                        SET RESULT = #{result}
+                    </when>
+                    <when test=\"result == 2\">
+                        SET RESULT = #{result}
+                    </when>
+                </choose>
+                WHERE NO = #{no}
+            </script>
+            """})
+    int updateSign(SignVo signVo);
+
+    // 결재 (SIGN_FILE) (API)
+    @Update({"""
+            <script>
+                UPDATE SIGN_FILE
+                SET MODIFY_DATE = SYSDATE
+                <if test=\"changeName != null\">
+                    , CHANGE_NAME = #{changeName}
+                    , \"SIZE\" = #{size}
+                </if>
+                WHERE SIGN_NO = #{no}
+            </script>
+            """})
+    int updateFile(SignVo signVo);
+
+    // 결재 (SIGN_COM) (API)
+    @Insert({"""
+            INSERT INTO SIGN_COM(
+                NO
+                , SIGN_NO
+                , \"COMMENT\"
+            )
+            VALUES(
+                SEQ_SIGN_COM.NEXTVAL
+                , #{no}
+                , #{comment}
+            )
+            """})
+    int writeComment(SignVo signVo);
 } // interface

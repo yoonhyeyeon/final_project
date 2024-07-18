@@ -8,17 +8,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>승인할 출장 목록 조회</title>
-
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
+        <link rel="stylesheet" href="/css/homeUtil/calendar.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <script defer src="/js/teamRoom/list.js"></script>
-        <script defer src="/js/teamRoom/teamRoom.js"></script>
-        <script defer src="/js/workTime/workTime.js"></script>
-        <script defer src="/js/teamRoom/clock.js"></script>
-        <link rel="stylesheet" href="/css/teamRoom/clock.css">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <script defer src="../js/util/calendar.js"></script>
+        <script defer src="../js/teamRoom/teamList.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="/css/businessTrip/list/listForApprover.css">
         <script defer src="/js/businessTrip/list/listForApprover.js"></script>
@@ -29,10 +28,15 @@
             <div id="time">
                 <!-- 현재 시간을 표시할 div 추가 -->
             </div>
-
+   
             <div id="work-time-table">
                 <!-- 근무 시간을 표시할 div 추가 -->
                 <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
+            </div>
+   
+            <div id="team-List-table">
+                <!-- 팀원목록을 표시할 div 추가 -->
+                <%@ include file="/WEB-INF/views/teamRoom/teamList.jsp" %>
             </div>
         </div>
 
@@ -119,6 +123,20 @@
             </div>
         </div>
 
-        <div id="listContainer" class="list-container"></div>
+        <div id="listContainer" class="list-container">
+            <div id="out">
+                <c:if test="${sessionScope.loginMemberVo.no == null}">
+                </c:if>
+                <c:if test="${sessionScope.loginMemberVo.no != null}">
+                    <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
+                    <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+                </c:if>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="/js/teamRoom/list.js"></script>
+        <script src="/js/teamRoom/teamRoom.js"></script>
+        <script src="/js/util/clock.js"></script>
     </body>
 </html>

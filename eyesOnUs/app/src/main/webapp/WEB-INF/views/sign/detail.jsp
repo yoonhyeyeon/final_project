@@ -9,16 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>결재 상세 조회</title>
 
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
+        <link rel="stylesheet" href="/css/homeUtil/calendar.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <script defer src="/js/teamRoom/list.js"></script>
-        <script defer src="/js/teamRoom/teamRoom.js"></script>
-        <script defer src="/js/workTime/workTime.js"></script>
-        <script defer src="/js/teamRoom/clock.js"></script>
-        <link rel="stylesheet" href="/css/teamRoom/clock.css">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <script defer src="../js/util/calendar.js"></script>
+        <script defer src="../js/teamRoom/teamList.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script defer src="/js/sign/detail/fileModal.js"></script>
         <link rel="stylesheet" href="/css/sign/detail/fileModal.css">
@@ -31,10 +30,15 @@
             <div id="time">
                 <!-- 현재 시간을 표시할 div 추가 -->
             </div>
-
+   
             <div id="work-time-table">
                 <!-- 근무 시간을 표시할 div 추가 -->
                 <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
+            </div>
+   
+            <div id="team-List-table">
+                <!-- 팀원목록을 표시할 div 추가 -->
+                <%@ include file="/WEB-INF/views/teamRoom/teamList.jsp" %>
             </div>
         </div>
 
@@ -103,7 +107,7 @@
                     <span>첨언</span>
                 </div>
                 <div id="commentValueInput">
-                    <textarea name="commenArea" id="commenArea"></textarea>
+                    <textarea name="commentArea" id="commentArea"></textarea>
                 </div>
             </div>
             <div id="approveBtnDiv">
@@ -117,14 +121,28 @@
             </div>
         </div>
 
-        <div id="listContainer" class="list-container"></div>
+        <div id="listContainer" class="list-container">
+            <div id="out">
+                <c:if test="${sessionScope.loginMemberVo.no == null}">
+                </c:if>
+                <c:if test="${sessionScope.loginMemberVo.no != null}">
+                    <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
+                    <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+                </c:if>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="/js/teamRoom/list.js"></script>
+        <script src="/js/teamRoom/teamRoom.js"></script>
+        <script src="/js/util/clock.js"></script>
     </body>
 </html>
 
 <script>
     const signNo = "${signVo.no}";
-    const result = "${signVo.result}";
-    const step = "${signVo.step}";
+    let result = "${signVo.result}";
+    let step = "${signVo.step}";
 
     window.addEventListener("load", onPageLoad);
 
@@ -138,8 +156,8 @@
             success: (data) => {
                 console.log("결재 상세 조회 통신 성공");
 
-                document.querySelector("input[type=file]").disabled = true;
-                document.querySelector("textarea[name=commenArea]").disabled = true;
+                document.querySelector("input[name=file]").disabled = true;
+                document.querySelector("textarea[name=commentArea]").disabled = true;
 
                 // div 태그 가져오기
                 const titleValueDiv = document.querySelector("#titleValueDiv");
@@ -186,7 +204,7 @@
                 no: signNo,
             },
             success: (data) => {
-                console.log("결재 승인자, 참조자 상세 리스트 통신 성공");
+                console.log("결재자, 참조자 상세 리스트 통신 성공");
 
                 // 결재자 div 태그 가져오기
                 const firstApproverDiv = document.querySelector("#firstApprover");
@@ -266,7 +284,7 @@
 
                 // iframe src 설정 (toolbar 안 보이기)
                 const fileIframe = document.querySelector("#fileIframe");
-                fileIframe.src = "/file/sign/file.pdf#toolbar=0";
+                fileIframe.src = "/file/sign/" + data.signApproverDetailVoList[0].changeName + "#toolbar=0";
 
                 // 현재 결재자에 해당하는지 판단
                 let isApprover = false;
@@ -279,36 +297,38 @@
                 }
 
                 // 현재 결재자에 해당하면 승인, 반려 버튼 보여주기
-                if(isApprover && data.signApproverDetailVoList[num].step === data.signApproverDetailVoList[num].signSeq){
-                    // 첨언, 결재파일 첨부 가능하게 하기
-                    document.querySelector("input[type=file]").disabled = false;
-                    document.querySelector("textarea[name=commenArea]").disabled = false;
-
-                    // 버튼 태그 담을 div 가져오기
-                    const approveBtnDiv = document.querySelector("#approveBtnDiv");
-
-                    // 버튼 태그 만들기
-                    const btnTag01 = document.createElement("button");
-                    const btnTag02 = document.createElement("button");
-
-                    // 버튼 태그 텍스트 담기
-                    btnTag01.innerHTML = "승인";
-                    btnTag02.innerHTML = "반려";
-
-                    // 버튼 태그 함수 담기
-                    btnTag01.onclick = approveProcess;
-                    btnTag02.onclick = returnProcess;
-
-                    // 버튼 태그 붙이기
-                    approveBtnDiv.appendChild(btnTag01);
-                    approveBtnDiv.appendChild(btnTag02);
-
-                    // iframe toolbar 보이기
-                    fileIframe.src = "/file/sign/file.pdf";
+                if(data.signApproverDetailVoList[num].result === "0"){
+                    if(isApprover && data.signApproverDetailVoList[num].step === data.signApproverDetailVoList[num].signSeq){
+                        // 첨언, 결재파일 첨부 가능하게 하기
+                        document.querySelector("input[name=file]").disabled = false;
+                        document.querySelector("textarea[name=commentArea]").disabled = false;
+    
+                        // 버튼 태그 담을 div 가져오기
+                        const approveBtnDiv = document.querySelector("#approveBtnDiv");
+    
+                        // 버튼 태그 만들기
+                        const btnTag01 = document.createElement("button");
+                        const btnTag02 = document.createElement("button");
+    
+                        // 버튼 태그 텍스트 담기
+                        btnTag01.innerHTML = "승인";
+                        btnTag02.innerHTML = "반려";
+    
+                        // 버튼 태그 함수 담기
+                        btnTag01.onclick = approveProcess;
+                        btnTag02.onclick = returnProcess;
+    
+                        // 버튼 태그 붙이기
+                        approveBtnDiv.appendChild(btnTag01);
+                        approveBtnDiv.appendChild(btnTag02);
+    
+                        // iframe toolbar 보이기
+                        fileIframe.src = "/file/sign/" + data.signApproverDetailVoList[0].changeName;
+                    }
                 }
             },
             error: (error) => {
-                console.log("결재 승인자, 참조자 상세 리스트통신 실패");
+                console.log("결재자, 참조자 상세 리스트 통신 실패");
                 console.log(error);
             }
         });
@@ -327,14 +347,37 @@
 
     // 승인 처리 (진행)
     function approveProcessGoOn(){
+        const fileInput = document.querySelector("input[name=file]");
+        const comment = document.querySelector("textarea[name=commentArea]").value;
+        const file = fileInput.files[0];
+
+        if(step === "1"){
+            step = "2";
+        } else if(step === "2"){
+            step = "3";
+        } else if(step === "3"){
+            result = "1";
+        }
+
+        const formData = new FormData();
+        formData.append("no", signNo);
+        formData.append("result", result);
+        formData.append("step", step);
+
+        if(comment){
+            formData.append("comment", comment);
+        }
+
+        if(file) {
+            formData.append("file", file);
+        }
+        
         $.ajax({
             url: "/api/sign/approve",
             method: "put",
-            data: {
-                no: signNo,
-                result: result,
-                step: step
-            },
+            data: formData,
+            processData: false,
+            contentType: false,
             success: (data) => {
                 console.log("승인 처리 통신 성공");
 
@@ -368,13 +411,18 @@
 
     // 반려 처리 (진행)
     function returnProcessGoOn(){
+        const comment = document.querySelector("textarea[name=commentArea]").value;
+
+        result = "2";
+
         $.ajax({
             url: "/api/sign/approve",
             method: "put",
             data: {
                 no: signNo,
-                result: "2",
-                step: step
+                result: result,
+                step: step,
+                comment: comment
             },
             success: (data) => {
                 console.log("반려 처리 통신 성공");

@@ -17,20 +17,20 @@ public class SignService {
     private final SignDao dao;
 
     // 기안
-    public int signWrite(SignVo vo) {
-        int signResult = dao.signWrite(vo);
-        int fileResult = dao.signFileWrite(vo);
+    public int signWrite(SignVo signVo) {
+        int signResult = dao.signWrite(signVo);
+        int fileResult = dao.signFileWrite(signVo);
 
         int signSeq = 1;
         int pathResult = 0;
-        for (String approver : vo.getApproverNo()) {
+        for (String approver : signVo.getApproverNo()) {
             pathResult = dao.signPathWrite(approver, signSeq);
             signSeq++;
         }
 
         int refResult = 1;
-        if(vo.getRefNo() != null){
-            for (String ref : vo.getRefNo()) {
+        if(signVo.getRefNo() != null){
+            for (String ref : signVo.getRefNo()) {
                 refResult = dao.signRefWrite(ref);
             }
         }
@@ -73,14 +73,14 @@ public class SignService {
         return dao.getSignReferenceDetailList(signVo);
     } // getSignReferenceDetailList
 
-//    // 결재 (API)
-//    public int updateSignApprove(SignVo signVo) {
-//        int signResult = dao.updateSign(signVo);
-//        int fileResult = dao.updateFile(signVo);
-//        int commentResult = dao.writeComment(signVo);
-//
-//        int signApproveResult = signResult * fileResult * commentResult;
-//
-//        return signApproveResult;
-//    } // updateSignApprove
+    // 결재 (API)
+    public int updateSignApprove(SignVo signVo) {
+        int signResult = dao.updateSign(signVo);
+        int fileResult = dao.updateFile(signVo);
+        int commentResult = dao.writeComment(signVo);
+
+        int signApproveResult = signResult * fileResult * commentResult;
+
+        return signApproveResult;
+    } // updateSignApprove
 } // class

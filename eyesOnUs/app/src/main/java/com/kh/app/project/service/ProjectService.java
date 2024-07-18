@@ -84,4 +84,8 @@ public class ProjectService {
     public List<ProjectVo> listData3(ProjectVo vo) {
         return dao.listData3(vo);
     }
+
+    public List<ProjectVo> getsPmByNo(String no) {
+        return dao.getsPmByNo(no);
+    }
 }

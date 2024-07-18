@@ -6,12 +6,16 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RECORD LIST</title>
-        <link rel="stylesheet" href="/css/teamRoom/list.css">
-        <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <link rel="stylesheet" href="/css/prjConfRecord/recordList.css">
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>RECORD LIST</title>
+          <link rel="stylesheet" href="/css/teamRoom/clock.css">
+          <link rel="stylesheet" href="/css/teamRoom/list.css">
+          <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+          <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+          <script defer src="../js/teamRoom/teamList.js"></script>
+          <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
+          <link rel="stylesheet" href="/css/prjConfRecord/recordList.css">
           <script defer src="/js/prjConfRecord/recordList.js"></script>
     </head>
 <body>
@@ -27,10 +31,7 @@
   </div>
 </div>
 
-  <div id="sidebar" class="sidebar">
-   <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-</div>
-<button id="openBtn" class="open-btn">☰ Sidebar</button>
+    <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 
 <c:if test="${not empty sessionScope.loginMemberVo.no}">
@@ -84,13 +85,14 @@
     <div id="listContainer" class="list-container"></div>
 </c:if>
 
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
+<script src="/js/util/clock.js"></script>
 
 </body>
+    <div id="sidebar" class="sidebar">
+      <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+    </div>
 </html>
 
 

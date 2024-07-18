@@ -19,7 +19,6 @@
     <br>
     <div class="animation" id="text2">지금 바로 시작하세요.</div>
   </div>
-
   <div class="login">
     <h1>Sign up Now</h1>
     <form id="loginForm" action="/adminHr/adminHrLoginData" method="post">

@@ -30,6 +30,7 @@
 
       <button id="loginButton">로그인</button>
     </form>
+    <button onclick="location.href='/adminHr/adminHrLogin'">인사관리페이지</button>
 
 </body>
 </html>

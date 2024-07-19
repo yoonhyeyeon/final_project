@@ -22,7 +22,7 @@
         <script defer src="/js/sign/detail/fileModal.js"></script>
         <link rel="stylesheet" href="/css/sign/detail/fileModal.css">
         <link rel="stylesheet" href="/css/sign/detail/detail.css">
-
+        <link rel="stylesheet" href="/css/sign/detail/detail.css">
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -338,6 +338,22 @@
 <script>
     // 승인 처리
     function approveProcess(){
+        const commentElement = document.querySelector("textarea[name=commentArea]");
+        const commentValue = commentElement ? commentElement.value : "";
+
+        const fileElement = document.querySelector("input[name=file]");
+        const fileLength = fileElement ? fileElement.files.length : 0;
+
+        if(commentValue === ""){
+            alert("첨언을 입력하세요");
+            return ;
+        }
+
+        if(fileLength === 0){
+            alert("결재파일을 첨부하세요");
+            return ;
+        }
+
         if(confirm("승인 처리를 진행하겠습니까?")){
             approveProcessGoOn();
         } else{
@@ -402,6 +418,14 @@
 
     // 반려 처리
     function returnProcess(){
+        const commentElement = document.querySelector("textarea[name=commentArea]");
+        const commentValue = commentElement ? commentElement.value : "";
+
+        if(commentValue === ""){
+            alert("첨언을 입력하세요");
+            return ;
+        }
+
         if(confirm("반려 처리를 진행하겠습니까?")){
             returnProcessGoOn();
         } else{

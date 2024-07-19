@@ -9,16 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>휴가 상세 조회</title>
 
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
+        <link rel="stylesheet" href="/css/homeUtil/calendar.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <script defer src="/js/teamRoom/list.js"></script>
-        <script defer src="/js/teamRoom/teamRoom.js"></script>
-        <script defer src="/js/workTime/workTime.js"></script>
-        <script defer src="/js/teamRoom/clock.js"></script>
-        <link rel="stylesheet" href="/css/teamRoom/clock.css">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <script defer src="../js/util/calendar.js"></script>
+        <script defer src="../js/teamRoom/teamList.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="/css/leave/detail.css">
         <script defer src="/js/common/addTag.js"></script>

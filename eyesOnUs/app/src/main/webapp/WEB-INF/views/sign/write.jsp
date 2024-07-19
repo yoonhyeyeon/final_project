@@ -19,10 +19,18 @@
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+        <script>
+            <c:if test="${not empty alertMsg}">
+                alert("${alertMsg}");
+            </c:if>
+        </script>
+        <c:remove var="alertMsg" scope="session"/>
+
         <link rel="stylesheet" href="/css/sign/write.css">
         <script defer src="/js/sign/write/write.js"></script>
         <script defer src="/js/sign/write/approverList.js"></script>
         <script defer src="/js/sign/write/addRefNo.js"></script>
+        <script defer src="/js/sign/write/check.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -47,7 +55,7 @@
         </div>
         <button id="openBtn" class="open-btn">☰ Sidebar</button>
 
-        <form action="/sign/write" method="post" enctype="multipart/form-data">
+        <form onsubmit="return check();" action="/sign/write" method="post" enctype="multipart/form-data">
             <div id="calendarContainer" class="calendar-container">
                 <h3>기안</h3>
                 <div id="form">

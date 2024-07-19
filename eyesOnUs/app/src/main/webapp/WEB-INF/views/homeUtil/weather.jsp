@@ -7,13 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/css/util/myloc.css">
+<script defer src="/js/util/weather.js"></script>
 </head>
-<body>
     <div class="weather-container">
-            <h1>현재 위치 날씨</h1>
-            <div id="weather"></div>
-        </div>
-    <script defer src="/js/util/weather.js"></script>
-
-</body>
+        <h1>현재 위치 날씨</h1>
+        <div id="weather"></div>
+    </div>
 </html>

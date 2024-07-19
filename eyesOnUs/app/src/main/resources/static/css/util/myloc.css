@@ -5,6 +5,9 @@
   }
 
 .weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-family: "Jua";
     background-color: #f4f4f4; /* 밝은 파란색 배경 */
     text-align: center;
@@ -12,7 +15,6 @@
     border-radius: 20px; /* 둥근 모서리 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
     max-width: 400px; /* 최대 너비 설정 */
-    margin: 40px auto; /* 상하 마진을 추가하여 중앙 배치 */
     border: 2px solid #00bcd4; /* 파란색 테두리 */
 }
 

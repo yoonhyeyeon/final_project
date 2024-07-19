@@ -19,6 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+        <script defer src="/js/common/removeTag.js"></script>
         <link rel="stylesheet" href="/css/leave/detail.css">
         <script defer src="/js/common/addTag.js"></script>
     </head>
@@ -151,15 +152,15 @@
                 const approveDateSpan = document.querySelector("#approveDateSpan");
                 const stateSpan = document.querySelector("#stateSpan");
 
-                startDateSpan.innerHTML = "";
-                endDateSpan.innerHTML = "";
-                leaveTypeSpan.innerHTML = "";
-                reasonPre.innerHTML = "";
-                approverSpan.innerHTML = "";
-                writerSpan.innerHTML = "";
-                enrollDateSpan.innerHTML = "";
-                approveDateSpan.innerHTML = "";
-                stateSpan.innerHTML = "";
+                removeTag(startDateSpan);
+                removeTag(endDateSpan);
+                removeTag(leaveTypeSpan);
+                removeTag(reasonPre);
+                removeTag(approverSpan);
+                removeTag(writerSpan);
+                removeTag(enrollDateSpan);
+                removeTag(approveDateSpan);
+                removeTag(stateSpan);
 
                 const startDate = data.leaveDetailVo.startDate.substring(0, 10);
                 const endDate = data.leaveDetailVo.endDate.substring(0, 10);

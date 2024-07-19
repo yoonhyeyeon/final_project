@@ -11,9 +11,9 @@ function onPageLoad(){
             const approvalTable = document.querySelector("#approval > tbody");
             const returnTable = document.querySelector("#return > tbody");
     
-            waitTable.innerHTML = "";
-            approvalTable.innerHTML = "";
-            returnTable.innerHTML = "";
+            removeTag(waitTable);
+            removeTag(approvalTable);
+            removeTag(returnTable);
     
             let waitTableCnt = 0;
             let approvalTableCnt = 0;

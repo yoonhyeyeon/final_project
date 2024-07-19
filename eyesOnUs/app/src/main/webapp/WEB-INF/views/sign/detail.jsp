@@ -19,6 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+        <script defer src="/js/common/removeTag.js"></script>
         <script defer src="/js/sign/detail/fileModal.js"></script>
         <link rel="stylesheet" href="/css/sign/detail/fileModal.css">
         <link rel="stylesheet" href="/css/sign/detail/detail.css">
@@ -167,11 +168,11 @@
                 const lastApproveDateValueDiv = document.querySelector("#lastApproveDateValueDiv");
 
                 // div 태그 비우기
-                titleValueDiv.innerHTML = "";
-                contentValueDiv.innerHTML = "";
-                writerValueDiv.innerHTML = "";
-                enrollDateValueDiv.innerHTML = "";
-                lastApproveDateValueDiv.innerHTML = "";
+                removeTag(titleValueDiv);
+                removeTag(contentValueDiv);
+                removeTag(writerValueDiv);
+                removeTag(enrollDateValueDiv);
+                removeTag(lastApproveDateValueDiv);
 
                 // div 태그에 들어갈 span 태그 생성
                 const titleValueSpan = addTag("span", data.signDetailVo.title);
@@ -217,14 +218,14 @@
                 const thirdApproverStateDiv = document.querySelector("#thirdApproverState");
 
                 // 결재자 div 태그 비우기
-                firstApproverDiv.innerHTML = "";
-                secondApproverDiv.innerHTML = "";
-                thirdApproverDiv.innerHTML = "";
+                removeTag(firstApproverDiv);
+                removeTag(secondApproverDiv);
+                removeTag(thirdApproverDiv);
 
                 // 결재 상태 div 태그 비우기
-                firstApproverStateDiv.innerHTML = "";
-                secondApproverStateDiv.innerHTML = "";
-                thirdApproverStateDiv.innerHTML = "";
+                removeTag(firstApproverStateDiv);
+                removeTag(secondApproverStateDiv);
+                removeTag(thirdApproverStateDiv);
 
                 // 결재자 div 태그에 들어갈 span 태그 생성
                 const approverSpanTag01 = addTag("span", data.signApproverDetailVoList[0].divName + " " + data.signApproverDetailVoList[0].empName + " " + data.signApproverDetailVoList[0].positionName);
@@ -273,7 +274,7 @@
                 const refValueDiv = document.querySelector("#refValueDiv");
 
                 // 참조자 div 태그 비우기
-                refValueDiv.innerHTML = "";
+                removeTag(refValueDiv);
 
                 // span 생성하고, 참조자 div 태그에 붙이기
                 let refSpanTag = addTag("span", "");

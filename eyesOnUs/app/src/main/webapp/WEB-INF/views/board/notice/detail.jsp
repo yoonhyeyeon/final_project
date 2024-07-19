@@ -33,7 +33,7 @@
         <%@ include file="/WEB-INF/views/homeUtil/header.jsp" %>
         <%@ include file="/WEB-INF/views/homeUtil/nav.jsp" %>
         <section>
-
+          <input type="hidden" id="adminHrLoginVo" value="${sessionScope.adminHrLoginVo != null ? 'true' : 'false'}">
           <div class="out-list">
 
           </div>

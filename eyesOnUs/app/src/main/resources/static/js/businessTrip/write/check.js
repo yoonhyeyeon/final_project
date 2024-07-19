@@ -17,13 +17,6 @@ function check(){
     const approverNoElement = document.querySelector("select[name=approverNo]");
     const approverNoValue = approverNoElement ? approverNoElement.value : "";
 
-    console.log(startDateValue);
-    console.log(endDateValue);
-    console.log(proNoValue);
-    console.log(destinationValue);
-    console.log(reasonValue);
-    console.log(approverNoValue);
-
     if(startDateValue === ""
         || endDateValue === ""
         || proNoValue === ""

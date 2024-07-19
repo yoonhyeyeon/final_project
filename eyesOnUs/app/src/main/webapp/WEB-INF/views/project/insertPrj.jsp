@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEAM ROOM</title>
     <script defer src="../js/projectJs/projectInsert.js"></script>
+    <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
     <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
     <link rel="stylesheet" href="/css/teamRoom/list.css">
     <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
@@ -28,10 +29,10 @@
         </div>
     </div>
 
-  <div id="sidebar" class="sidebar">
-   <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-</div>
-<button id="openBtn" class="open-btn">☰ Sidebar</button>
+    <div id="sidebar" class="sidebar">
+        <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+      </div>
+      <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 
 

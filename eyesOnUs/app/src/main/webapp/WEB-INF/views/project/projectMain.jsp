@@ -13,8 +13,8 @@
       <link rel="stylesheet" href="/css/teamRoom/list.css">
       <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
       <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
-      <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
       <link rel="stylesheet" href="/css/projectCss/projectMain.css">
+      <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
       <script defer src="/js/projectJs/projectMain.js"></script>
     </head>
 <body>
@@ -31,7 +31,6 @@
      </div>
 
       <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
-
 
 
 <c:if test="${not empty sessionScope.loginMemberVo.no}">

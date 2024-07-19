@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEAM ROOM</title>
+    <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
     <script defer src="/js/prjManager/managerInsert.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/prjManager/managerInsert.css">
     <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
@@ -20,10 +21,10 @@
 
     </div>
 
-  <div id="sidebar" class="sidebar">
-   <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-</div>
-<button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
+<div id="sidebar" class="sidebar">
+    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+    </div>
+    <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 
 

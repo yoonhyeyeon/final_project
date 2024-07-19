@@ -15,7 +15,6 @@ $(document).ready(()=>{
             success : function(x){
                 console.log(x);
 
-                if(vo == svo){
                     const sPmVal = document.querySelector(".sPm");
     
                     let str7 = "";
@@ -25,7 +24,6 @@ $(document).ready(()=>{
                         str7 += x[i].pm + "    ";
                     }
                     sPmVal.innerHTML = str7;
-                }
             },
             error : function(y){
                 console.log("에러");
@@ -47,19 +45,32 @@ $(document).ready(() => {
           console.log("상세 정보 통신 성공");
           console.log(detailData)
 
+          
+          
+          const dept = document.querySelector(".deptCode");
+          const pm = document.querySelector(".employee");
+          const prjContent = document.querySelector("#projectContent");
+          const state = document.querySelector(".state");
+          const sbtn = document.querySelector("#sBtn");
+          const dbtn = document.querySelector("#dBtn");
+          const title = document.querySelector(".title");
+          const managerInsert = document.querySelector("#buttonDiv");
+          const managerList = document.querySelector("#buttonDiv1");
+          const recordInsert = document.querySelector("#buttonDiv2");
+          const recordList = document.querySelector("#buttonDiv3");
+
+          let str9 = "";
+          str9 += "<button id='recordListGoBtn' data-id='"+detailData.no+"'>"+"회의록 목록";
+          recordList.innerHTML = str9;
+      
+          document.querySelectorAll("#recordListGoBtn").forEach( (recordList) =>{
+              recordList.addEventListener("click", ()=> {
+                  const no = recordList.getAttribute("data-id");
+                  location.href="/project/record/list?no=" + no;
+              });
+          });
+          
           if(vo == svo){
-
-
-            const dept = document.querySelector(".deptCode");
-            const pm = document.querySelector(".employee");
-            const prjContent = document.querySelector("#projectContent");
-            const state = document.querySelector(".state");
-            const sbtn = document.querySelector("#sBtn");
-            const dbtn = document.querySelector("#dBtn");
-            const title = document.querySelector(".title");
-            const managerInsert = document.querySelector("#buttonDiv");
-            const recordInsert = document.querySelector("#buttonDiv2");
-
 
 
             let str1 = "";
@@ -97,7 +108,17 @@ $(document).ready(() => {
             let str8 = "";
             str8 += "<button id='recordInsertGoBtn' data-id='"+detailData.no+"'>"+ "회의록 등록하기";
             recordInsert.innerHTML = str8;
-
+            
+            let str10 = "";
+            str10 += "<button id='managerListGoBtn' data-id='"+detailData.no+"'>"+ "담당자 관리";
+            managerList.innerHTML = str10;
+            
+            document.querySelectorAll("#managerListGoBtn").forEach( (managerList) =>{
+                managerList.addEventListener("click", ()=> {
+                    const no = managerList.getAttribute("data-id");
+                    location.href="/project/manager/list?no=" + no;
+                });
+            });
 
 
             document.querySelectorAll("#recordInsertGoBtn").forEach( (recordInsert) =>{
@@ -116,15 +137,17 @@ $(document).ready(() => {
                 });
             });
             
-
             document.querySelectorAll(".list-item").forEach((sbtn)=>{
                 sbtn.addEventListener("click", ()=>{
             const no = sbtn.getAttribute("data-id");
             window.location.href="/project/projectModify?no="+no;
             });
         });
-
-            }else{
+    }
+    
+            
+            
+            else{
                 const dept = document.querySelector(".deptCode");
                 const pm = document.querySelector(".employee");
                 const prjContent = document.querySelector("#projectContent");
@@ -142,7 +165,7 @@ $(document).ready(() => {
     
                 str5 += "주제 :" + detailData.title
                 str1 += "부서 : " +  detailData.dept
-                str2 += "담당자 : " +  detailData.pm
+                str2 += "PM : " +  detailData.pm
                 str3 += detailData.content
                 str4 += "상태 : " + detailData.state   
                 dept.innerHTML = str1;

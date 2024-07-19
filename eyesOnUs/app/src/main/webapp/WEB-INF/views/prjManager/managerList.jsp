@@ -11,11 +11,13 @@
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <link rel="stylesheet" href="/css/prjManager/managerList.css">
-          <script defer src="/js/prjManager/managerList.js"></script>
+        <script defer src="/js/prjManager/managerList.js"></script>
+        <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
           <script defer src="/js/prjManager/managerDelete.js"></script>
     </head>
     <body>
-        <input type="text"id="ingProjectData" value="${sessionScope.loginMemberVo.rank}" hidden>
+        <input type="hidden"id="ingProjectData" value="${sessionScope.loginMemberVo.rank}">
+        <input type="hidden" id="noVal" value="${sessionScope.loginMemberVo.no}">
         <div class="time">
             <div id="time">
               <!-- 현재 시간을 표시할 div 추가 -->
@@ -27,12 +29,11 @@
             </div>
           </div>
     
-      <div id="sidebar" class="sidebar">
-       <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-    </div>
-    <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
+        <div id="sidebar" class="sidebar">
+            <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+        </div>
+        <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
     
-    <c:if test="${sessionScope.loginMemberVo.rank eq 20 }">
         <div id="calendarContainer" class="calendar-container">
             <div id="out">
                 <div id="in">
@@ -62,19 +63,6 @@
         <div id="listContainer" class="list-container">
     
         </div>
-    </c:if>
-  <c:if test="${empty sessionScope.loginMemberVo.no}">
-      <h1>로그인하고 오세요</h1>
-      <div id="listContainer" class="list-container"></div>
-  </c:if>
-
-<c:if test="${sessionScope.loginMemberVo.rank ne 20}">
-    <div id="notLogin">
-        <h1>권한이 없습니다</h1><br><br>
-        <a href="/project/projectMain">돌아가기</a>
-    </div>
-    <div id="listContainer" class="list-container"></div>
-</c:if>
   
   
   

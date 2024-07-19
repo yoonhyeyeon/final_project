@@ -20,7 +20,7 @@ $(document).ready( ()=> {
             success : function(x){
                 console.log("x");
                 alert("담당자 등록 완료!");
-                location.href="/project/manager/list";
+                location.href="/project/manager/list?no="+no;
             },
             error : function(error){
                 console.log("에러");

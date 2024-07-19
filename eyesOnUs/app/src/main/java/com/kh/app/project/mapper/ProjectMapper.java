@@ -100,8 +100,16 @@ public interface ProjectMapper {
     @Insert("INSERT INTO CONFERENCE_RECORD(NO,PRJ_NO,TITLE,CONTENT) VALUES(SEQ_CONFERENCE_RECORD.NEXTVAL,#{prjNo},#{title},#{content})")
     int recordInsert(ProjectRecordVo vo);
 
-    @Select("SELECT * FROM CONFERENCE_RECORD WHERE DEL_YN ='N' ORDER BY PRJ_NO ASC")
-    List<ProjectRecordVo> recordList();
+    @Select("""
+            SELECT C.NO as no, C.TITLE as title, TO_CHAR(C.ENL_DATE,'YYYY/MM/DD') as enlDate, E.NAME as name, P.EMP_NO as empNo
+            FROM CONFERENCE_RECORD C
+            JOIN PROJECT P
+            ON P.NO = C.PRJ_NO
+            JOIN EMPLOYEE E
+            ON E.NO = P.EMP_NO
+            WHERE P.NO = #{prjNo} AND C.DEL_YN = 'N'
+            """)
+    List<ProjectRecordVo> recordList(String prjNo);
 
 
     @Select("""
@@ -135,7 +143,7 @@ public interface ProjectMapper {
             ON M.EMP_NO = E.NO
             JOIN PROJECT P
             ON P.NO = M.PRO_NO
-            WHERE P.EMP_NO = #{no}
+            WHERE P.NO = #{no}
             ORDER BY M.PRO_NO ASC
             """)
     List<ProjectManagerVo> managerList(String no);

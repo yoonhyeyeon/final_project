@@ -24,4 +24,14 @@ public class MemberVo {
     private String enrollDate;
     private String retireDate;
     private String retireYn;
+
+    // DIVISION
+    private String divName;
+
+    // POSITION
+    private String positionName;
+
+    // DEPARTMENT
+    private String deptName;
+
 }

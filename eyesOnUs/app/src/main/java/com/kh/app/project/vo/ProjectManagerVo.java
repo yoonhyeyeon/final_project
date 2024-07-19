@@ -10,4 +10,9 @@ public class ProjectManagerVo {
     private String empNo;
 
     private String name;
+    private String pmNo;
+
+
+    //
+    private String title;
 }

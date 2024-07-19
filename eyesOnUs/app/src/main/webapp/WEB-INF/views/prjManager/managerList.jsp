@@ -15,7 +15,7 @@
           <script defer src="/js/prjManager/managerDelete.js"></script>
     </head>
     <body>
-        <input type="text"id="ingProjectData" value="${sessionScope.loginMemberVo.deptCode}" hidden>
+        <input type="text"id="ingProjectData" value="${sessionScope.loginMemberVo.rank}" hidden>
         <div class="time">
             <div id="time">
               <!-- 현재 시간을 표시할 div 추가 -->
@@ -31,6 +31,7 @@
        <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
     </div>
     <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
+    
     <c:if test="${sessionScope.loginMemberVo.rank eq 20 }">
         <div id="calendarContainer" class="calendar-container">
             <div id="out">
@@ -66,13 +67,13 @@
       <h1>로그인하고 오세요</h1>
       <div id="listContainer" class="list-container"></div>
   </c:if>
-  <c:if test="${sessionScope.loginMemberVo.rank ne 20}">
+
+<c:if test="${sessionScope.loginMemberVo.rank ne 20}">
     <div id="notLogin">
         <h1>권한이 없습니다</h1><br><br>
-        <a href="http://127.0.0.1:8383/project/projectMain">돌아가기</a>
+        <a href="/project/projectMain">돌아가기</a>
     </div>
-<div id="listContainer" class="list-container">
-</div>
+    <div id="listContainer" class="list-container"></div>
 </c:if>
   
   
@@ -82,9 +83,6 @@
     <script src="/js/teamRoom/teamRoom.js"></script>
     <script src="/js/util/clock.js"></script>
   </body>
-      <div id="sidebar" class="sidebar">
-        <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-      </div>
   </html>
   
   

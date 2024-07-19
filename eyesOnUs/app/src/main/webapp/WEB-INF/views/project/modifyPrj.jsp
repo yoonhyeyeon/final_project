@@ -64,8 +64,7 @@
 
     <c:if test="${sessionScope.loginMemberVo.no ne vo.empNo}">
             <h1>권한이 없습니다.</h1>
-            <br><br>
-            <a href="http://127.0.0.1:8383/project/projectList">돌아가기</a>
+            <a href="/project/projectList">돌아가기</a>
     </c:if>
 
 

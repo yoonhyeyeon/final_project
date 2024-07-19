@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+#out {
+    margin: 5%;
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+#list > #date {
+    float: right;
+    color: #00062b;
+}
+
+.listBox{
+    width: 80%;
+    height: auto;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+#listItemBox{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 2fr 2fr 2fr 2fr;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-bottom: 1px solid #000;
+}
+
+#listItem{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 2fr 2fr 2fr 2fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+
+}
+
+#listItem > span{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ccc;
+    padding: 4%;
+}
+
+#listBtn{
+  width: 80px;
+  height: 40px;
+  background-color: #e0f7fa;
+  border: 1px solid rgb(58, 66, 88);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#listItem:hover{
+  background-color: #e0f7fa;
+}
+
+#finishEval{
+  height: 40px;
+  background-color: #e0f7fa;
+  border: 1px solid rgb(58, 66, 88);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #e0f7fa;
+}
+

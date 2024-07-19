@@ -57,8 +57,8 @@ public class ProjectService {
         return dao.managerInsert(vo);
     }
 
-    public List<ProjectManagerVo> managerList() {
-        return  dao.managerList();
+    public List<ProjectManagerVo> managerList(String no) {
+        return  dao.managerList(no);
     }
 
     public int managerDelete(String no) {

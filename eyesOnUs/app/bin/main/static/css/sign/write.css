@@ -1,0 +1,101 @@
+#calendarContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 2px solid lightgray;
+}
+
+.formApponent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    height: 100vh;
+}
+
+.th{
+    background-color: rgb(210, 226, 231);
+}
+
+.first{
+    border-bottom: 2px solid lightgray;
+}
+
+.second{
+    border-bottom: 2px solid lightgray;
+}
+
+.third{
+    border-bottom: 2px solid lightgray;
+}
+
+.forth{
+    border-bottom: 2px solid lightgray;
+}
+
+.fifth{
+    border-bottom: 2px solid lightgray;
+}
+
+.sixth{
+    border-bottom: 2px solid lightgray;
+}
+
+#titleDiv{
+    border-right: 2px solid lightgray;
+}
+
+#contentDiv{
+    border-right: 2px solid lightgray;
+}
+
+#fileDiv{
+    border-right: 2px solid lightgray;
+}
+
+#firstApproverDiv{
+    border-right: 2px solid lightgray;
+}
+
+#secondApproverDiv{
+    border-right: 2px solid lightgray;
+}
+
+#thirdApproverDiv{
+    border-right: 2px solid lightgray;
+}
+
+#refDiv{
+    border-right: 2px solid lightgray;
+}
+
+#refSelectDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=text]{
+    width: 100%;
+    border: 0;
+}
+
+input[type=submit]{
+    border: 2px solid rgb(179, 178, 178);
+    border-radius: 5px;
+    background-color: lightgray;
+    margin: 2%;
+}
+
+input[type=submit]:hover{
+    background-color: rgb(188, 218, 228);
+    cursor: pointer;
+}

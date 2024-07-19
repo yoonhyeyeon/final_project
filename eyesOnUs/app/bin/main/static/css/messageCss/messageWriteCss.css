@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+.do-hyeon-regular {
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#msg-section {
+  display: grid;
+  justify-content: center;
+}
+.msg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.msg-container,
+#empSearchDiv {
+  width: 700px;
+}
+
+form#messageForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.row{
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.title,
+.content{
+  width: 100px;
+}
+
+.title-body,
+.content-body {
+  width: 450px;
+}
+
+input[type="text"] {
+  width: 450px;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15pt;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+textarea {
+  width: 450px;
+  height: 300px;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15pt;
+  font-family: 'Do Hyeon', sans-serif;
+  resize: none;
+}
+
+.button {
+  width: 200px;
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 13pt;
+}
+
+.button:hover {
+    background-color: #357594;
+    box-shadow: 0 0 15px rgba(138, 228, 255, 0.6);
+    cursor: pointer;
+}
+
+#empSearchDiv {
+  display: grid;
+  justify-content: center;
+}

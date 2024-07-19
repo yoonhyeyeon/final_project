@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+.do-hyeon-regular {
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-header-row {
+  display: grid;
+  align-items: center;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 4px;
+  border-bottom: 1px solid #000;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.list-header-row > div{
+  padding: 8px;
+}
+
+.msg-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+}
+
+.list-body-row {
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.msg-list-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+}
+
+.team-data, .emp-data {
+  padding: 8px;
+}
+
+.team-link {
+  text-decoration: none;
+  color: blue;
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+  z-index: 10;
+  position: relative;
+}
+
+#msgReceiveList{
+  color: black;
+  text-decoration-line: none;
+}
+

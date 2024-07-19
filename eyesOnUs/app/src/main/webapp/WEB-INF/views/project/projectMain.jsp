@@ -63,10 +63,8 @@
 
 <div id="listContainer" class="list-container"> 
     <div id="buttonDiv">
-        <button id="prjListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectList'">프로젝트 리스트</button><br><br>
-        <button id="prjLnsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/projectInsert'">프로젝트 등록하기</button><br><br>
-        <button id="recordListGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/list'">회의록 리스트</button><br><br>
-        <button id="recordInsertGoBtn" onclick="location.href='http://127.0.0.1:8383/project/record/insert'">회의록 등록하기</button><br><br>
+        <button id="prjListGoBtn" onclick="location.href='/project/projectList'">프로젝트 리스트</button><br><br>
+        <button id="prjLnsertGoBtn" onclick="location.href='/project/projectInsert'">프로젝트 등록하기</button><br><br>
     </div>
 </div>
 

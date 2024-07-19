@@ -31,7 +31,7 @@ public class SignService {
             signSeq++;
         }
 
-        int refResult = 0;
+        int refResult = 1;
         if(signVo.getRefNo() != null){
             for (String ref : signVo.getRefNo()) {
                 refResult = dao.signRefWrite(ref);

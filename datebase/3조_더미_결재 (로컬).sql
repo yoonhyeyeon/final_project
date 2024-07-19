@@ -291,63 +291,63 @@ INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 1, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign01.pdf', 'file01.pdf', 1200000, ''
+    SEQ_SIGN_FILE.NEXTVAL, 1, 'sign01.pdf', 'file01.pdf', 1200000, ''
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 2, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign02.pdf', 'file02.pdf', 1450000, '2024-04-09'
+    SEQ_SIGN_FILE.NEXTVAL, 2, 'sign02.pdf', 'file02.pdf', 1450000, '2024-04-09'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 3, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign03.pdf', 'file03.pdf', 900000, '2024-04-30'
+    SEQ_SIGN_FILE.NEXTVAL, 3, 'sign03.pdf', 'file03.pdf', 900000, '2024-04-30'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 4, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign04.pdf', 'file04.pdf', 1130000, '2024-05-15'
+    SEQ_SIGN_FILE.NEXTVAL, 4, 'sign04.pdf', 'file04.pdf', 1130000, '2024-05-15'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 5, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign05.pdf', 'file05.pdf', 870000, '2024-06-04'
+    SEQ_SIGN_FILE.NEXTVAL, 5, 'sign05.pdf', 'file05.pdf', 870000, '2024-06-04'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 6, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign06.pdf', 'file06.pdf', 1230000, '2024-06-09'
+    SEQ_SIGN_FILE.NEXTVAL, 6, 'sign06.pdf', 'file06.pdf', 1230000, '2024-06-09'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 7, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign07.pdf', 'file07.pdf', 1740000, '2024-07-01'
+    SEQ_SIGN_FILE.NEXTVAL, 7, 'sign07.pdf', 'file07.pdf', 1740000, '2024-07-01'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 8, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign08.pdf', 'file08.pdf', 957000, '2024-07-12'
+    SEQ_SIGN_FILE.NEXTVAL, 8, 'sign08.pdf', 'file08.pdf', 957000, '2024-07-12'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 9, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign09.pdf', 'file09.pdf', 998000, ''
+    SEQ_SIGN_FILE.NEXTVAL, 9, 'sign09.pdf', 'file09.pdf', 998000, ''
 );
 
 ----- SIGN_PATH -----
@@ -609,22 +609,6 @@ INSERT INTO KPI (NO, EMP_NO, PROJECT_NO, GOAL, PERSONAL_SCHEDULE, FOCUS)
 VALUES (SEQ_KPI.NEXTVAL, 43, 4, '새로운 제품 개발', '디자인 및 개발 생각', 20);
 
 -- COMMUTE
-INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
-VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-22 09:00:00', TIMESTAMP '2024-06-22 18:00:00');
-
-INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
-VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-23 09:15:00', TIMESTAMP '2024-06-23 18:15:00');
-
-INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
-VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-24 08:45:00', TIMESTAMP '2024-06-24 17:45:00');
-
-INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
-VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-25 09:30:00', TIMESTAMP '2024-06-25 18:30:00');
-
-INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
-VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-26 09:00:00', TIMESTAMP '2024-06-26 18:00:00');
-
-
 INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
 VALUES (SEQ_COMMUTE.NEXTVAL, 2, TIMESTAMP '2024-06-22 09:00:00', TIMESTAMP '2024-06-22 18:00:00');
 
@@ -1565,15 +1549,15 @@ DECLARE
   
 BEGIN
   -- 7월 1일부터 11일까지의 데이터 삽입
-  FOR day IN 1..22 LOOP
+  FOR day IN 1..11 LOOP
     v_work_time := TO_TIMESTAMP('2024-07-' || TO_CHAR(day, 'FM00') || ' ' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(6, 10)), 'FM00') || ':' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                   'YYYY-MM-DD HH24:MI:SS');
     
-    v_day_of_week := TO_CHAR(v_work_time, 'D');
+    v_day_of_week := TO_CHAR(v_work_time, 'DY');
     
-    IF v_day_of_week IN ('7', '1') THEN
+    IF v_day_of_week IN ('SAT', 'SUN') THEN
       CONTINUE;
     END IF;
     
@@ -1604,9 +1588,9 @@ BEGIN
                       TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                       'YYYY-MM-DD HH24:MI:SS');
         
-        v_day_of_week := TO_CHAR(v_work_time, 'D');
+        v_day_of_week := TO_CHAR(v_work_time, 'DY');
         
-        IF v_day_of_week IN ('7', '1') THEN
+        IF v_day_of_week IN ('SAT', 'SUN') THEN
           CONTINUE;
         END IF;
         
@@ -1634,6 +1618,8 @@ BEGIN
   END LOOP;
 END;
 /
+
+
 
 -- TENDINOUS
 

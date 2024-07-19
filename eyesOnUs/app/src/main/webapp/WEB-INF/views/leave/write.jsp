@@ -9,21 +9,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>휴가 신청</title>
 
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <link rel="stylesheet" href="/css/teamRoom/clock.css">
+        <link rel="stylesheet" href="/css/homeUtil/calendar.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <script defer src="/js/teamRoom/list.js"></script>
-        <script defer src="/js/teamRoom/teamRoom.js"></script>
-        <script defer src="/js/workTime/workTime.js"></script>
-        <script defer src="/js/teamRoom/clock.js"></script>
-        <link rel="stylesheet" href="/css/teamRoom/clock.css">
+        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <script defer src="../js/util/calendar.js"></script>
+        <script defer src="../js/teamRoom/teamList.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            <c:if test="${not empty alertMsg}">
+                alert("${alertMsg}");
+            </c:if>
+        </script>
+        <c:remove var="alertMsg" scope="session"/>
 
         <link rel="stylesheet" href="/css/leave/write.css">
         <script defer src="/js/common/employeeList.js"></script>
         <script defer src="/js/leave/write/write.js"></script>
         <script defer src="/js/leave/write/leaveTypeList.js"></script>
+        <script defer src="/js/leave/write/check.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -48,7 +55,7 @@
         </div>
         <button id="openBtn" class="open-btn">☰ Sidebar</button>
 
-        <form action="/leave/write" method="post">
+        <form onsubmit="return check();" action="/leave/write" method="post">
             <div id="calendarContainer" class="calendar-container">
                 <h3>휴가 신청</h3>
                 <div id="form">

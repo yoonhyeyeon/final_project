@@ -1,20 +1,22 @@
 package com.kh.app.sign.controller;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.kh.app.member.vo.MemberVo;
 import com.kh.app.sign.service.SignService;
 import com.kh.app.sign.vo.SignVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,6 +24,13 @@ import java.io.IOException;
 public class SignController {
 
     private final SignService service;
+    private final AmazonS3 s3;
+
+    @Value("${aws.s3.bucket-name}")
+    private String bucketName;
+
+    @Value("${path}")
+    private String path;
 
     // 기안 (화면)
     @GetMapping("write")
@@ -37,7 +46,6 @@ public class SignController {
 
         if(file != null && !file.isEmpty()){
             // 저장할 경로, 원래  파일명, 사이즈
-            String uploadDir = "C:\\Users\\user1\\Desktop\\final\\eyesOnUs\\app\\src\\main\\resources\\static\\file\\sign\\";
             String originName = file.getOriginalFilename();
             String size = String.valueOf(file.getSize());
 
@@ -46,13 +54,24 @@ public class SignController {
             String ext = originName.substring(originName.lastIndexOf("."));
             String changeName = "SIGN_" + System.nanoTime() + "_" + random + ext;
 
-            String fullPath = uploadDir + changeName;
-            File targetFile = new File(fullPath);
-            file.transferTo(targetFile);
+            // 로컬에 파일 저장
+//            String uploadDir = path;
+//            String fullPath = uploadDir + changeName;
+//            File targetFile = new File(fullPath);
+//            file.transferTo(targetFile);
+//            signVo.setChangeName(fullPath);
+
+            // AWS S3에 파일 저장
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentType(file.getContentType());
+            metadata.setContentLength(file.getSize());
+            s3.putObject(bucketName, changeName, file.getInputStream(), metadata);
+            URL url = s3.getUrl(bucketName, changeName);
+            String filePath = String.valueOf(url);
 
             signVo.setSize(size);
             signVo.setOriginName(originName);
-            signVo.setChangeName(changeName);
+            signVo.setChangeName(filePath);
         }
         int signWriteResult = service.signWrite(signVo);
 

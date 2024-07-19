@@ -19,10 +19,18 @@
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+        <script>
+            <c:if test="${not empty alertMsg}">
+                alert("${alertMsg}");
+            </c:if>
+        </script>
+        <c:remove var="alertMsg" scope="session"/>
+
         <link rel="stylesheet" href="/css/businessTrip/write.css">
         <script defer src="/js/common/employeeList.js"></script>
         <script defer src="/js/businessTrip/write/write.js"></script>
         <script defer src="/js/businessTrip/write/projectList.js"></script>
+        <script defer src="/js/businessTrip/write/check.js"></script>
         <script defer src="/js/common/addTag.js"></script>
     </head>
     <body>
@@ -47,7 +55,7 @@
         </div>
         <button id="openBtn" class="open-btn">☰ Sidebar</button>
 
-        <form action="/businessTrip/write" method="post">
+        <form onsubmit="return check();" action="/businessTrip/write" method="post">
             <div id="calendarContainer" class="calendar-container">
                 <h3>출장 신청</h3>
                 <div id="form">

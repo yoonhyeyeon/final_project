@@ -32,4 +32,9 @@ public class NoticeDao {
     public int modify(NoticeVo vo) {
         return mapper.modify(vo);
     }
+
+    // 삭제하기
+    public int delete(String no) {
+        return mapper.delete(no);
+    }
 }

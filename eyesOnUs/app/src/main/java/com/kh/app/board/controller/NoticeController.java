@@ -8,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -99,9 +96,24 @@ public class NoticeController {
             map.put("msg", "작성실패");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
         }
-
-
     }
+
+    // 삭제하기
+    @DeleteMapping("delete")
+    @ResponseBody
+    public ResponseEntity<HashMap<String, String>> delete(String no){
+        int result = service.delete(no);
+
+        HashMap<String, String> map = new HashMap<>();
+        if( result == 1 ){
+            map.put("msg", "삭제성공");
+            return ResponseEntity.ok(map);
+        } else{
+            map.put("msg", "삭제 실패");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
+        }
+    }
+
 
 //////////홈 공지사항 조회///////////////
 

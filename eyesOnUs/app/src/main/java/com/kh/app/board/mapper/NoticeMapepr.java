@@ -1,10 +1,7 @@
 package com.kh.app.board.mapper;
 
 import com.kh.app.board.vo.NoticeVo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -68,5 +65,9 @@ public interface NoticeMapepr {
             SET TITLE = #{title} , CONTENT = #{content} WHERE NO = #{no}
             """)
     int modify(NoticeVo vo);
+
+    // 삭제하기
+    @Delete("DELETE FROM NOTICE_BOARD WHERE NO = #{no}")
+    int delete(String no);
 }
 

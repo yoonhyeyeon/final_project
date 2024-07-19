@@ -21,6 +21,7 @@
       <script defer src="../js/commute/quit.js"></script>
       <script defer src="../js/board/notice/detail.js"></script>
       <script defer src="../js/board/notice/modify.js"></script>
+      <script defer src="../js/board/notice/delete.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
 

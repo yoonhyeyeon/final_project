@@ -610,6 +610,22 @@ VALUES (SEQ_KPI.NEXTVAL, 43, 4, '새로운 제품 개발', '디자인 및 개발 생각', 20);
 
 -- COMMUTE
 INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
+VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-22 09:00:00', TIMESTAMP '2024-06-22 18:00:00');
+
+INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
+VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-23 09:15:00', TIMESTAMP '2024-06-23 18:15:00');
+
+INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
+VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-24 08:45:00', TIMESTAMP '2024-06-24 17:45:00');
+
+INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
+VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-25 09:30:00', TIMESTAMP '2024-06-25 18:30:00');
+
+INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
+VALUES (SEQ_COMMUTE.NEXTVAL, 1, TIMESTAMP '2024-06-26 09:00:00', TIMESTAMP '2024-06-26 18:00:00');
+
+
+INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
 VALUES (SEQ_COMMUTE.NEXTVAL, 2, TIMESTAMP '2024-06-22 09:00:00', TIMESTAMP '2024-06-22 18:00:00');
 
 INSERT INTO COMMUTE (NO, EMP_NO, WORK_TIME, QUIT_TIME)
@@ -1549,15 +1565,15 @@ DECLARE
   
 BEGIN
   -- 7월 1일부터 11일까지의 데이터 삽입
-  FOR day IN 1..11 LOOP
+  FOR day IN 1..22 LOOP
     v_work_time := TO_TIMESTAMP('2024-07-' || TO_CHAR(day, 'FM00') || ' ' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(6, 10)), 'FM00') || ':' || 
                   TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                   'YYYY-MM-DD HH24:MI:SS');
     
-    v_day_of_week := TO_CHAR(v_work_time, 'DY');
+    v_day_of_week := TO_CHAR(v_work_time, 'D');
     
-    IF v_day_of_week IN ('SAT', 'SUN') THEN
+    IF v_day_of_week IN ('7', '1') THEN
       CONTINUE;
     END IF;
     
@@ -1588,9 +1604,9 @@ BEGIN
                       TO_CHAR(FLOOR(DBMS_RANDOM.VALUE(0, 60)), 'FM00') || ':00', 
                       'YYYY-MM-DD HH24:MI:SS');
         
-        v_day_of_week := TO_CHAR(v_work_time, 'DY');
+        v_day_of_week := TO_CHAR(v_work_time, 'D');
         
-        IF v_day_of_week IN ('SAT', 'SUN') THEN
+        IF v_day_of_week IN ('7', '1') THEN
           CONTINUE;
         END IF;
         
@@ -1618,8 +1634,6 @@ BEGIN
   END LOOP;
 END;
 /
-
-
 
 -- TENDINOUS
 

@@ -34,4 +34,9 @@ public class NoticeService {
     public int modify(NoticeVo vo) {
         return dao.modify(vo);
     }
+
+    // 삭제하기
+    public int delete(String no) {
+        return dao.delete(no);
+    }
 }

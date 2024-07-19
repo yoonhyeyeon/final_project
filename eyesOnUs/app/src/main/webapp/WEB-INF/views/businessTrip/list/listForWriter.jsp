@@ -26,6 +26,7 @@
         </script>
         <c:remove var="alertMsg" scope="session"/>
 
+        <script defer src="/js/common/removeTag.js"></script>
         <link rel="stylesheet" href="/css/businessTrip/list/listForWriter.css">
         <script defer src="/js/businessTrip/list/listForWriter.js"></script>
         <script defer src="/js/common/addTag.js"></script>

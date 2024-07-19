@@ -11,11 +11,11 @@ function onPageLoad(){
             const waitTable = document.querySelector("#wait > tbody");
             const approvalTable = document.querySelector("#approval > tbody");
             const returnTable = document.querySelector("#return > tbody");
-    
-            doSignTable.innerHTML = "";
-            waitTable.innerHTML = "";
-            approvalTable.innerHTML = "";
-            returnTable.innerHTML = "";
+            
+            removeTag(doSignTable);
+            removeTag(waitTable);
+            removeTag(approvalTable);
+            removeTag(returnTable);
     
             let doSignTableCnt = 0;
             let waitTableCnt = 0;

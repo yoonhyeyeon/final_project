@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COLLEAGE EVALUATION</title>
+    <link rel="stylesheet" href="/css/teamRoom/clock.css">
     <link rel="stylesheet" href="/css/evaluation/teamList.css">
     <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
     <link rel="stylesheet" type="text/css" href="/css/colleageEval/colleageWrite.css">
@@ -212,8 +213,12 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/js/util/clock.js"></script>
 <script defer src="../js/colleageEval/colleageWrite.js"></script>
 <script defer src="../js/evaluation/sublist.js"></script>
 
 </body>
+<div id="sidebar" class="sidebar">
+  <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+</div>
 </html>

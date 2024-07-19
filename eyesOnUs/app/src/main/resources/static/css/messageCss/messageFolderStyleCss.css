@@ -14,7 +14,7 @@
 
 #folderHead {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   border-bottom: 1px solid black;
   position: relative;
@@ -48,6 +48,11 @@
   padding: 20px;
   height: auto;
   font-family: "Do Hyeon", sans-serif;
+}
+
+#messageWrite{
+  display: grid;
+  justify-content: center;
 }
 
 .tab-content {

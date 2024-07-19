@@ -1,6 +1,7 @@
 package com.kh.app.kpi.mapper;
 
 import com.kh.app.kpi.vo.KpiVo;
+import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectVo;
 import org.apache.ibatis.annotations.*;
 
@@ -16,6 +17,17 @@ public interface KpiMapper {
     // vo 값 가져오기
     @Select("SELECT * FROM PROJECT")
     List<ProjectVo> writeList(ProjectVo vo);
+
+    @Select("""
+            SELECT\s
+                M.PRO_NO
+                , M.EMP_NO
+                , P.TITLE
+            FROM PROJECT_MANAGER M
+            JOIN PROJECT P
+            ON M.PRO_NO = P.NO
+            """)
+    List<ProjectManagerVo> writeList2(ProjectManagerVo vo2);
 
     // 게시글 목록
     @Select("""

@@ -3,6 +3,7 @@ package com.kh.app.kpi.controller;
 import com.kh.app.kpi.service.KpiService;
 import com.kh.app.kpi.vo.KpiVo;
 import com.kh.app.member.vo.MemberVo;
+import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectVo;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +26,12 @@ public class KpiController {
 
     // KPI 작성
     @GetMapping("write")
-    public String kpiWrite(ProjectVo vo, Model model){
+    public String kpiWrite(ProjectVo vo, ProjectManagerVo vo2, Model model){
         List<ProjectVo> voList = service.writeList(vo);
+        List<ProjectManagerVo> voList2 = service.writeList2(vo2);
+
         model.addAttribute("voList", voList);
+        model.addAttribute("voList2", voList2);
 
         return "kpi/write";
     }
@@ -35,10 +39,21 @@ public class KpiController {
     @PostMapping("write")
     public ResponseEntity<HashMap<String, String>> kpiWrite(KpiVo vo, HttpSession session){
 
+        HashMap<String , String > map = new HashMap<>();
+        if( vo.getEmpNo() == null || vo.getProjectNo() == null || vo.getTitle() == null || vo.getPersonalSchedule() == null ){
+            map.put("msg", "필수 입력사항을 입력해주세요.");
+            return ResponseEntity.badRequest().body(map);
+        }
+
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+
+        if( loginMemberVo == null || !loginMemberVo.getNo().equals(vo.getEmpNo())){
+            map.put("msg", "권한이 없습니다.");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(map);
+        }
+
         int result = service.kpiWrite(vo);
 
-        HashMap<String , String > map = new HashMap<>();
         if (result == 1) {
             map.put("msg", "작성 성공");
             return ResponseEntity.ok(map);

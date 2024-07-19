@@ -47,14 +47,19 @@
                  </div>
                  <hr>
              <div id="form">
-                 프로젝트 번호 : <select name="projectNo" id="projectNo" style="width:100px">
-                   <option value="">------선택------</option>
-                   <c:forEach var="vo" items="${voList}">
-                       <c:if test="${sessionScope.loginMemberVo.no == vo.empNo}">
-                        <option value="${vo.no}">${vo.no} : ${vo.title}</option>
-                       </c:if>
-                   </c:forEach>
-                 </select>
+                    프로젝트 번호 : <select name="projectNo" id="projectNo" style="width:100px">
+                        <option value="">------선택------</option>
+                        <c:forEach var="vo" items="${voList}">
+                            <c:if test="${sessionScope.loginMemberVo.no == vo.empNo}">
+                                <option value="${vo.no}">${vo.no} : ${vo.title}</option>
+                            </c:if>
+                        </c:forEach>
+                        <c:forEach var="vo2" items="${voList2}">
+                            <c:if test="${sessionScope.loginMemberVo.no == vo2.empNo}">
+                                <option value="${vo2.proNo}">${vo2.proNo} : ${vo2.title}</option>
+                            </c:if>
+                        </c:forEach>
+                    </select>
                  <br />
                  목표
                  <br>

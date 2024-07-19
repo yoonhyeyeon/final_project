@@ -15,7 +15,7 @@
         </div>
       </div>
       <div>
-        <h3><a href="/message/messageReceiveList" id="msgReceiveList">받은 메시지 함</a></h3>
+        <h3><a href="/message/messageSendList" id="msgReceiveList">메시지 함</a></h3>
         <%@ include file="/WEB-INF/views/message/messageReceiveListHomeVer.jsp" %>
       </div>
 

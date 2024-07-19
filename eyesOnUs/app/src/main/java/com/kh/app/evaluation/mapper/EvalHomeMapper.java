@@ -113,9 +113,12 @@ public interface EvalHomeMapper {
             SELECT
                 E.NO
                 , E.NAME
+                , P.NAME AS POSITION
             FROM EMPLOYEE E
             JOIN DEPARTMENT D
             ON E.DEPT_CODE = D.CODE
+            JOIN POSITION P
+            ON E.POSITION_CODE = P.CODE
             WHERE (E.DEPT_CODE =\s
             (SELECT\s
                 DEPT_CODE

@@ -8,12 +8,10 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>TEAM ROOM</title>
+      <title>MEMBER EVALUATION</title>
+      <link rel="stylesheet" href="/css/evaluation/teamList.css">
       <link rel="stylesheet" href="/css/teamRoom/clock.css">
-      <link rel="stylesheet" href="/css/teamRoom/list.css">
       <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-      <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
-      <script defer src="../js/teamRoom/teamList.js"></script>
       <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
       <link rel="stylesheet" type="text/css" href="/css/memberEval/memberList.css">
 </head>
@@ -71,17 +69,42 @@
 </div>
 
 <div id="listContainer" class="list-container">
-  <!-- 여기에 **서브** 내용을 추가할 수 있습니다 -->
-  <%@ include file="/WEB-INF/views/teamRoom/list.jsp" %>
+
+    <c:if test="${sessionScope.loginMemberVo.positionCode != 40 }">
+        <button id="finishEval" onclick="location.href='/leaderEval/list'">완료된 팀장평가 목록</button>
+    </c:if>
+    <br />
+    <c:if test="${sessionScope.loginMemberVo.positionCode == 40 }">
+        <button id="finishEval" onclick="location.href='/memberEval/list'">완료된 팀원평가 목록</button>
+    </c:if>
+    <br />
+        <button id="finishEval" onclick="location.href='/colleageEval/list'">완료된 동료평가 목록</button>
+
+    <h4>남은 평가 목록</h4>
+
+    <div id="boxList">
+        <table>
+            <thead>
+                <tr>
+                    <th>사원 번호</th>
+                    <th>이름</th>
+                    <th>직급</th>
+                </tr>
+            </thead>
+            <tbody id="personalTableBody2">
+
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="/js/teamRoom/list.js"></script>
-<script src="/js/teamRoom/teamRoom.js"></script>
 <script src="/js/util/clock.js"></script>
+<script defer src="../js/evaluation/sublist.js"></script>
 <script defer src="../js/memberEval/memberList.js"></script>
 
 </body>

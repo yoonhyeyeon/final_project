@@ -79,13 +79,9 @@
             </div>
             <br>
             <div id="footerBtn">
-              <div id="footBtn">
                 <button>이전</button>
                 <span>1</span>
-                <span>2</span>
-                <span>3</span>
                 <button>다음</button>
-              </div>
             </div>
           </div>
         </section>

@@ -1,0 +1,116 @@
+/* styles.css */
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1.5fr;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative; /* 하단 버튼을 절대 위치로 배치할 때 기준 */
+    height: 100vh; /* 전체 화면 높이 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-items: center;
+    background-color: #eae9f0; /* 연한 하늘색 배경 */
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* 초기 상태에서는 화면 밖에 위치 */
+    background-color: #1a1a1a; /* 어두운 배경 */
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.open-btn {
+    position: absolute;
+    bottom: 20px; /* 하단에 위치 */
+    left: 20px;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007BFF; /* 파란색 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.calendar-container {
+  width: 90%;
+  max-width: 900px;
+  max-height: 80vh; /* 최대 높이 설정 */
+  background-color: white; /* 배경 색상 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  padding: 20px;
+  overflow: auto; /* 컨테이너 오버플로우 숨기기 */
+}
+
+
+
+.list-container {
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #f1f1f1;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+  transition: 0.5s;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#boxList{
+  width: 80%;
+}
+
+.time{
+
+  display: grid;
+  align-items: center;
+  margin-left: 30px;
+  top: 100px;  /* 상단에서 20px 떨어진 위치 */
+  left: 70px;  /* 좌측에서 20px 떨어진 위치 */
+  z-index: 1;  /* 낮은 z-index 값으로 sidebar 뒤에 위치 */
+}
+
+    #time {
+
+            color: #333;  /* 어두운 텍스트 색상 */
+            font-family: 'Arial', sans-serif;  /* 폰트 스타일 */
+            font-size: 25px;  /* 폰트 크기 */
+            border-radius: 10px;  /* 둥근 모서리 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 그림자 효과 */
+            border: 1px solid #ccc;  /* 연한 회색 테두리 */
+
+        }
+
+             .sidebar, #openBtn {
+                z-index: 10; /* sidebar가 time div보다 앞에 오도록 높은 z-index 설정 */
+            }
+
+
+         h4 {
+                color: #333;
+                text-align: center;
+               }
+
+#id{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

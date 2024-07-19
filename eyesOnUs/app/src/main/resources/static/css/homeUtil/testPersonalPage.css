@@ -52,6 +52,7 @@
 #personalPage-body-left-currentTime{
     display: grid;
     grid-template-columns: 1fr 2fr;
+    justify-items: center
 }
 
 #personalPage-body-left-currentTime > div{

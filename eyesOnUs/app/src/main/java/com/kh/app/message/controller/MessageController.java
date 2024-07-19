@@ -464,5 +464,11 @@ public class MessageController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error");
         }
     }
+
+    // 메시지 폴더
+    @GetMapping("messageFolder")
+    public String messageFoler(){
+        return "message/messageFolder";
+    }
 }
 

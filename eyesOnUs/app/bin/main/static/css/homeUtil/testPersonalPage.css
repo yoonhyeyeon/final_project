@@ -1,0 +1,103 @@
+/* Define the Jua regular style */
+.jua-regular {
+  font-family: 'Jua', sans-serif;
+  font-weight: 400; /* Normal font weight */
+  font-style: normal; /* Normal font style */
+}
+
+/* Additional styling for the personalPage-head */
+#personalPage-head {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px; /* Add some gap between columns */
+}
+
+.personalPage-head-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.personalPage-head-div:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+}
+
+.personalPage-head-div-name {
+  font-size: 12px; /* Adjust font size */
+  margin-top: 5px; /* Space between icon and name */
+}
+
+.personalPage-head-div-icon {
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 50%; /* Circular shape for icons */
+  margin-bottom: 5px; /* Space below the icon */
+}
+
+/* Styling for personalPage-body */
+#personalPage-body {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: center;
+  margin-top: 20px; /* Add margin space on top */
+}
+
+#personalPage-body-left-currentTime{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: center
+}
+
+#personalPage-body-left-currentTime > div{
+    margin: 10px;
+}
+
+#personalPage-body-left,
+#personalPage-body-right {
+  padding: 10px; /* Padding around the content */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#personalPage-body-left{
+  min-width: 550px;
+}
+
+#personalPage-body-right{
+  min-width: 350px;
+}
+
+#personalPage-body-left > div {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#personalPage-body-right > div {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9; /* Light gray background */
+  padding: 10px;
+  margin-bottom: 10px; /* Space between items */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 800px) {
+  #personalPage-body {
+    display: flex;
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+  }
+
+  #personalPage-body-left,
+  #personalPage-body-right {
+    width: 100%; /* Full width on smaller screens */
+    min-width: 0; /* Reset min-width */
+  }
+
+

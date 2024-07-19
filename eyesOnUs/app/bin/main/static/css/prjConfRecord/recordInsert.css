@@ -1,0 +1,71 @@
+#out{
+  display: flex;
+  justify-content: center;
+
+}
+
+
+#in{
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  width: 700px;
+  height: 850px;
+  border: 1px solid black;
+
+}
+
+
+#div-title{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#title{
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  height: 30px;
+  font-size: 1.5em;
+  background-color: white;
+}
+
+#prjNo{
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  font-size: 1.2em;
+  background-color: white;
+}
+p{
+  font-size: 1.2em;
+  display:   inline;
+}
+
+input{
+  border: none;
+}
+
+h2{
+  text-align: center;
+}
+#recordContent{
+  margin-left: 15px;
+  width: 95%;
+  height: 500px;
+  resize: none;
+}
+
+#div-submit{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#submitButton{
+  width: 100px;
+  height: 30px;
+  background-color: rgb(211, 211, 255);
+  border: 1px solid black;
+}

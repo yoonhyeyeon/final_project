@@ -88,6 +88,10 @@
         
     </div><br><br>
     <button id="prjLnsertGoBtn" onclick="location.href='/project/manager/list'">담당자 관리</button><br><br>
+    <div id="buttonDiv2">
+        
+    </div><br><br>
+    <button id="prjLnsertGoBtn" onclick="location.href='/project/record/list'">회의록 관리</button><br><br>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

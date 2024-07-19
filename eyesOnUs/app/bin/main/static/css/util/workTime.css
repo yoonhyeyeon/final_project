@@ -1,0 +1,19 @@
+.work-time-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.work-time-table th, .work-time-table td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: medium;
+}
+
+.work-time-table th {
+  background-color: #f2f2f2;
+}

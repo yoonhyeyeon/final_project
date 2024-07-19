@@ -128,12 +128,17 @@ public interface ProjectMapper {
     int managerInsert(ProjectManagerVo vo);
 
 
-    @Select("SELECT M.NO as NO, M.PRO_NO as PRONO, M.EMP_NO as EMPNO, E.NAME as NAME  FROM\n" +
-            "PROJECT_MANAGER M\n" +
-            "JOIN EMPLOYEE E\n" +
-            "ON M.EMP_NO = E.NO\n" +
-    "ORDER BY M.PRO_NO ASC")
-    List<ProjectManagerVo> managerList();
+    @Select("""
+            SELECT M.NO as NO, M.PRO_NO as PRONO, M.EMP_NO as EMPNO, E.NAME as NAME,P.emp_NO as pmNo FROM
+            PROJECT_MANAGER M
+            JOIN EMPLOYEE E
+            ON M.EMP_NO = E.NO
+            JOIN PROJECT P
+            ON P.NO = M.PRO_NO
+            WHERE P.EMP_NO = #{no}
+            ORDER BY M.PRO_NO ASC
+            """)
+    List<ProjectManagerVo> managerList(String no);
 
     @Delete("DELETE PROJECT_MANAGER WHERE NO = #{no}")
     int managerDelete(String no);

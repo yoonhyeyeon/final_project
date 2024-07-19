@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+#out{
+  display: flex;
+  justify-content: center;
+  font-family: "Do Hyeon", sans-serif;
+  font-style: normal;
+}
+
+#in{
+  width: 700px;
+  height: 850px;
+  border: 1px solid black;
+  background-color: white;
+
+}
+
+table > tbody >tr:hover{
+    background-color: lightblue;
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+}
+table{
+  width: 700px;
+}
+table > tbody > tr > td{
+  text-align: center;
+}
+
+table > thead > tr{
+  text-align: center;
+}
+
+
+
+#divSearch{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+}

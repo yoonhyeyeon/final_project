@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+
+.list-container {
+height: 100%;
+position: fixed;
+top: 0;
+right: 0;
+background-color: #f1f1f1;
+box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+display: flex;
+flex-direction: column;
+padding: 20px;
+overflow-y: auto;
+transition: 0.5s;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+#id{
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+/* styles.css */
+#out{
+  display: flex;
+  justify-content: center;
+  font-family: "Do Hyeon", sans-serif;
+  font-style: normal;
+}
+
+
+#mainTable > tbody >tr:hover{
+    background-color: lightblue;
+    box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+}
+#mainTable{
+  width: 700px;
+}
+#mainTable > tbody > tr > td{
+  text-align: center;
+}
+
+table > thead > tr{
+  text-align: center;
+}
+
+
+
+#divSearch{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+}

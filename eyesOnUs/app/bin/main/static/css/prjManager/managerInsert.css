@@ -1,0 +1,60 @@
+#out{
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#in{
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    width: 500px;
+    height: 250px;
+    border: 1px solid black;
+
+}
+
+
+#div-title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+p{
+    font-size: 1.2em;
+    display: inline;
+}
+
+input{
+    border: none;
+    border-radius: 5px;
+}
+
+#empNo,
+#proNo{
+    font-size: 1.1rem;
+    width: 200px;
+    background-color: white;
+}
+#state{
+    background-color: white;
+}
+
+h2{
+    text-align: center;
+}
+
+
+#div-submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#submitButton{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(211, 211, 255);
+    border: 1px solid black;
+}

@@ -231,8 +231,9 @@ public class ProjectController {
 
     @GetMapping("manager/listData")
     @ResponseBody
-    public List<ProjectManagerVo> managerListData(){
-        List<ProjectManagerVo> voList = service.managerList();
+    public List<ProjectManagerVo> managerListData(HttpSession session,String no){
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        List<ProjectManagerVo> voList = service.managerList(loginMemberVo.getNo());
         return  voList;
     }
 

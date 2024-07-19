@@ -1,0 +1,135 @@
+#calendarContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 2px solid lightgray;
+}
+
+.formApponent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.appApp{
+    display: flex;
+    align-items: center;
+}
+
+.appApp > span{
+    padding-left: 10%;
+}
+
+.appApp > pre{
+    padding-left: 4%;
+    font-family: Arial, sans-serif;
+}
+
+#form{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    width: 70%;
+    height: 50%;
+}
+
+#startDate{
+    border-right: 2px solid lightgray;
+}
+
+#startDateValue{
+    border-right: 2px solid lightgray;
+}
+
+#endDate{
+    border-right: 2px solid lightgray;
+}
+
+#leaveType{
+    border-right: 2px solid lightgray;
+}
+
+#reason{
+    border-right: 2px solid lightgray;
+}
+
+#reasonValue{
+    grid-column: span 3;
+}
+
+#approver{
+    border-right: 2px solid lightgray;
+}
+
+.first{
+    border-bottom: 2px solid lightgray;
+}
+
+.second{
+    border-bottom: 2px solid lightgray;
+}
+
+.third{
+    border-bottom: 2px solid lightgray;
+}
+
+.th{
+    background-color: rgb(210, 226, 231);
+}
+
+button{
+    border: 2px solid rgb(179, 178, 178);
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+button:hover{
+    background-color: rgb(188, 218, 228);
+    cursor: pointer;
+}
+
+.forth{
+    border-top: 2px solid lightgray;
+}
+
+#approverValue{
+    border-right: 2px solid lightgray;
+}
+
+#writer{
+    border-right: 2px solid lightgray;
+}
+
+#enrollDate{
+    border-right: 2px solid lightgray;
+}
+
+#enrollDateValue{
+    border-right: 2px solid lightgray;
+}
+
+#approveDate{
+    border-right: 2px solid lightgray;
+}
+
+.appApp > pre{
+    padding-left: 4%;
+    font-family: Arial, sans-serif;
+}
+
+.fifth{
+    border-top: 2px solid lightgray;
+}
+
+#approveBtnDiv{
+    margin: 2%;
+}
+
+#approveBtnDiv > button{
+    margin: 2px;
+}

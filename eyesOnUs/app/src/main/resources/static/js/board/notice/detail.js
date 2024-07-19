@@ -33,10 +33,15 @@ $(document).ready(() => {
           str += "</div>";
           str += "</div>";
           str += "</div>";
-          str += "<div class='btn-box'>";
-          str += "<button id='btn01' data-id='" + detailData.no + "'>수정</button>";
-          str += `<button id='btn02' onclick='del(${detailData.no});'>삭제</button>`;
-          str += "</div>";
+
+          const admin = document.querySelector("#adminHrLoginVo").value === 'true';
+
+          if(admin){
+              str += "<div class='btn-box'>";
+              str += "<button id='btn01' data-id='" + detailData.no + "'>수정</button>";
+              str += `<button id='btn02' onclick='del(${detailData.no});'>삭제</button>`;
+              str += "</div>";
+          }
 
           list.innerHTML = str;
 

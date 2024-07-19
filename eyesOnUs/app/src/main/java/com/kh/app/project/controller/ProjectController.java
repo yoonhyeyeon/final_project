@@ -212,7 +212,12 @@ public class ProjectController {
     ///////////////////////////////////////////// PROJECT_MANAGER //////////////////////////////////////////////////////////////////
 
     @GetMapping("manager/insert")
-    public String managerInsert(){
+    public String managerInsert(HttpSession session,HttpServletRequest req){
+
+        MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
+        List<MemberVo> voList = service.empListBydeptCode(loginMemberVo.getDeptCode());
+
+        req.setAttribute("voList",voList);
         return "prjManager/managerInsert";
     }
 

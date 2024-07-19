@@ -1,6 +1,7 @@
 package com.kh.app.project.service;
 
 
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.project.dao.ProjectDao;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
@@ -87,5 +88,9 @@ public class ProjectService {
 
     public List<ProjectVo> getsPmByNo(String no) {
         return dao.getsPmByNo(no);
+    }
+
+    public List<MemberVo> empListBydeptCode(String deptCode) {
+        return dao.empListBydeptCode(deptCode);
     }
 }

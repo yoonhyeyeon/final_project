@@ -57,7 +57,7 @@ $(document).ready(() => {
             const sbtn = document.querySelector("#sBtn");
             const dbtn = document.querySelector("#dBtn");
             const title = document.querySelector(".title");
-
+            const managerInsert = document.querySelector("#buttonDiv");
 
 
 
@@ -88,10 +88,24 @@ $(document).ready(() => {
             str += "<button class='list-item' data-id='"+detailData.no +"'>" + "수정하기";
             sbtn.innerHTML = str;
 
+
+            let str7 = "";
+            str7 += "<button id='prjListGoBtn' data-id='"+detailData.no+"'>"+ "담당자 등록하기";
+            managerInsert.innerHTML = str7;
+
+
+            document.querySelectorAll("#prjListGoBtn").forEach((managerInsert) => {
+                managerInsert.addEventListener("click", ()=>{
+                    const no = managerInsert.getAttribute("data-id");
+                    window.location.href= "/project/manager/insert?no="+no;
+                });
+            });
+            
+
             document.querySelectorAll(".list-item").forEach((sbtn)=>{
                 sbtn.addEventListener("click", ()=>{
             const no = sbtn.getAttribute("data-id");
-            window.location.href="http://127.0.0.1:8383/project/projectModify?no="+no;
+            window.location.href="/project/projectModify?no="+no;
             });
         });
 

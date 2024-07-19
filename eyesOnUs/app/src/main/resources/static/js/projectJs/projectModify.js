@@ -29,7 +29,7 @@ function getParam(param){
                 str2 += "담당자 : " +  detailData.pm
                 str3 += detailData.content
                 str5 += "주제 : " + detailData.title
-                str6 += "수정일 : " + detailData.modifyDate
+                str6 += "수정일 : " + (detailData.modifyDate !== null ? detailData.modifyDate : "-")
     
                 dept.innerHTML = str1;
                 pm.innerHTML = str2;

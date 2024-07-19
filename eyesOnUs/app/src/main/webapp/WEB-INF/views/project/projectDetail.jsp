@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <input type="text" name="svo" id="svo" value="${sessionScope.loginMemberVo.no}" hidden>
-    <input type="text" name="vo" id="vo" value="${vo.empNo}" hidden>
+    <input type="hidden" name="svo" id="svo" value="${sessionScope.loginMemberVo.no}">
+    <input type="hidden" name="vo" id="vo" value="${vo.empNo}">
     <div class="time">
         <div id="time">
             <!-- 현재 시간을 표시할 div 추가 -->
@@ -42,8 +42,14 @@
         <div id="div-title">
             <h1>프로젝트</h1>
         </div>
-        &nbsp;&nbsp;<p class="title"></p><hr>
-        &nbsp;&nbsp;<p class="deptCode"></p>
+        
+        &nbsp;&nbsp;
+        
+        <p class="title"></p><hr>
+        
+        &nbsp;&nbsp;
+        
+        <p class="deptCode"></p>
         
         
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -51,11 +57,20 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <p class="division"></p><hr>
-        &nbsp;&nbsp;<p class="employee"></p>
+        
+        &nbsp;&nbsp;
+        
+        <p class="employee"></p>
+        
+
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <p class="sPm"></p>
         <br><hr>
-        &nbsp;&nbsp;<p class="state" ></p><br>
+
+        &nbsp;&nbsp;
+
+        <p class="state" ></p><br>
         <hr>
         <h2>내용</h2>
         <textarea name="content" id="projectContent" readonly></textarea><br>
@@ -69,6 +84,10 @@
 </div>
 
 <div id="listContainer" class="list-container">
+    <div id="buttonDiv">
+        
+    </div><br><br>
+    <button id="prjLnsertGoBtn" onclick="location.href='/project/manager/list'">담당자 관리</button><br><br>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

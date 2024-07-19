@@ -1,5 +1,6 @@
 package com.kh.app.project.mapper;
 
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
@@ -165,6 +166,14 @@ public interface ProjectMapper {
             WHERE P.NO = #{no}
             """)
     List<ProjectVo> getsPmByNo(String no);
+
+    @Select("""
+            SELECT NO,NAME
+            FROM EMPLOYEE
+            WHERE DEPT_CODE = #{deptCode} AND RANK > 20
+            ORDER BY NO ASC                      
+            """)
+    List<MemberVo> empListBydeptCode(String deptCode);
 }
 
 

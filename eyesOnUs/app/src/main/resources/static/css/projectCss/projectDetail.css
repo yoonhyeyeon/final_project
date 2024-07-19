@@ -88,4 +88,12 @@ h2{
   align-items: center;
   justify-content: center;
   }
+
+
+  #prjLnsertGoBtn,
+  #prjListGoBtn{
+    width: 200px;
+    height: 30px;
+    background-color: lightgray;
+  }
   

@@ -1,6 +1,7 @@
 package com.kh.app.project.dao;
 
 
+import com.kh.app.member.vo.MemberVo;
 import com.kh.app.project.mapper.ProjectMapper;
 import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
@@ -84,6 +85,10 @@ public class ProjectDao {
 
     public List<ProjectVo> getsPmByNo(String no) {
         return mapper.getsPmByNo(no);
+    }
+
+    public List<MemberVo> empListBydeptCode(String deptCode) {
+        return mapper.empListBydeptCode(deptCode);
     }
 }
 

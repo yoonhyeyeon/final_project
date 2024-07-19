@@ -54,6 +54,10 @@
     grid-template-columns: 1fr 2fr;
 }
 
+#personalPage-body-left-currentTime > div{
+    margin: 10px;
+}
+
 #personalPage-body-left,
 #personalPage-body-right {
   padding: 10px; /* Padding around the content */
@@ -83,15 +87,16 @@
 }
 
 /* Media query for responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   #personalPage-body {
+    display: flex;
     flex-direction: column; /* Stack columns vertically on smaller screens */
   }
-  
+
   #personalPage-body-left,
   #personalPage-body-right {
     width: 100%; /* Full width on smaller screens */
+    min-width: 0; /* Reset min-width */
   }
-}
 
 

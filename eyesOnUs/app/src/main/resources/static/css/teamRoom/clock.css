@@ -1,4 +1,5 @@
 #time {
+    width: 110px;
     display: grid;
     font-family: "Jua";
     background-color: #f4f4f4;
@@ -7,7 +8,6 @@
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-    margin: 40px auto;
     border: 2px solid #00bcd4;
     align-items: center;
     font-size: 18px;

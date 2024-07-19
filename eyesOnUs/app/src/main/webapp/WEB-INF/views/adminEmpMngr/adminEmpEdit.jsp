@@ -29,8 +29,8 @@
 
         <body id="container">
             <div id="warp">
-                <%@ include file="/WEB-INF/views/homeUtil/header.jsp" %>
-                    <%@ include file="/WEB-INF/views/homeUtil/nav.jsp" %>
+                <%@ include file="/WEB-INF/views/adminHr/adminHeader.jsp" %>
+                    <%@ include file="/WEB-INF/views/adminHr/adminNav.jsp" %>
                         <section>
                             <div class="form-container">
                                 <div class="form-group">
@@ -98,7 +98,6 @@
                         </section>
                         <%@ include file="/WEB-INF/views/homeUtil/footer.jsp" %>
             </div>
-            <button id="sidebarBtn"><span>메뉴</span></button>
         </body>
 
 </html>

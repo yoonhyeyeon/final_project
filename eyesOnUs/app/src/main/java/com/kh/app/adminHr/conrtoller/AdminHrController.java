@@ -32,4 +32,11 @@ public class AdminHrController {
         }
     }
 
+    @GetMapping("logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("adminHrLoginVo");
+        System.out.println("session = " + session);
+        return "redirect:/adminHr/adminHrLogin";
+    } // logout
+
 }

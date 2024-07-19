@@ -91,7 +91,10 @@ h2{
 
 
   #prjLnsertGoBtn,
-  #prjListGoBtn{
+  #prjListGoBtn,
+  #recordListGoBtn,
+  #recordInsertGoBtn,
+  #managerListGoBtn{
     width: 200px;
     height: 30px;
     background-color: lightgray;

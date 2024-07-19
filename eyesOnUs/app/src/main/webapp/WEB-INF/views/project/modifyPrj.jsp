@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <link rel="stylesheet" href="/css/projectCss/projectModify.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
         <script defer src="/js/projectJs/projectModify.js"></script>
     </head>
 
@@ -29,6 +30,10 @@
         </div>
     </div>
 
+<div id="sidebar" class="sidebar">
+    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+  </div>
+  <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 
     <c:if test="${sessionScope.loginMemberVo.no eq vo.empNo}">

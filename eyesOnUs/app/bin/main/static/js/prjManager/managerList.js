@@ -1,13 +1,21 @@
+function getParam(param){
+    const url = new URLSearchParams(window.location.search);
+    return url.get(param);
+}
 
-const rankVal = document.querySelector("#ingProjectData").value;
+$(document).ready( ()=> {
+    const no = getParam("no");
+    if(no){
 
+        const rankVal = document.querySelector("#ingProjectData").value;
+        const noVal = document.querySelector("#noVal").value;
 
     $.ajax({
         url : "/project/manager/listData",
         method : "GET",
-        data : {},
+        data : {no : no},
         success : function(x){
-            if(rankVal == 20){
+            if(noVal == x[0].pmNo){
                 let str = "";
                 const tbody = document.querySelector("tbody");
                 for (let i = 0; i < x.length; i++) {
@@ -20,6 +28,9 @@ const rankVal = document.querySelector("#ingProjectData").value;
             }
             tbody.innerHTML = str;
             }
-            
         }
     });
+        
+    }
+
+});

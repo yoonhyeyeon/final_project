@@ -16,6 +16,7 @@
           <script defer src="../js/teamRoom/teamList.js"></script>
           <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
           <link rel="stylesheet" href="/css/prjConfRecord/recordList.css">
+          <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
           <script defer src="/js/prjConfRecord/recordList.js"></script>
     </head>
 <body>
@@ -31,7 +32,10 @@
   </div>
 </div>
 
-    <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
+<div id="sidebar" class="sidebar">
+    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+</div>
+<button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 
 <c:if test="${not empty sessionScope.loginMemberVo.no}">
@@ -42,9 +46,9 @@
       <table id="recordTable">
             <thead>
                 <tr>
-                    <td>프로젝트 번호</td>
                     <td>제목</td>
                     <td>등록일</td>
+                    <td>작성자</td>
                 </tr>
             </thead>
             <tbody id="recordList">
@@ -90,9 +94,6 @@
 <script src="/js/util/clock.js"></script>
 
 </body>
-    <div id="sidebar" class="sidebar">
-      <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-    </div>
 </html>
 
 

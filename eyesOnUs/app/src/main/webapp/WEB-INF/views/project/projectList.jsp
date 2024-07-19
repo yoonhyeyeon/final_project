@@ -9,12 +9,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TEAM ROOM</title>
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/projectCss/projectList.css">
-          <script defer src="/js/projectJs/projectSearch.js"></script>
-          <script defer src="/js/projectJs/projectList.js"></script>
+        <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
+        <script defer src="/js/projectJs/projectSearch.js"></script>
+        <script defer src="/js/projectJs/projectList.js"></script>
     </head>
 <body>
 <input type="text"id="ingProjectData" value="${sessionScope.loginMemberVo.deptCode}" hidden>
@@ -30,10 +31,8 @@
         </div>
       </div>
 
-  <div id="sidebar" class="sidebar">
-   <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-</div>
-<button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
+
+        <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 <c:if test="${not empty sessionScope.loginMemberVo.no}">
     <div id="calendarContainer" class="calendar-container">

@@ -159,7 +159,9 @@ public class ProjectController {
 
     /////////////////////////////////// PROJECT RECORD 컨트롤러////////////////////////////////////////////////////////////////////
     @GetMapping("record/insert")
-    public String recordInsert(){
+    public String recordInsert(ProjectVo vo,HttpServletRequest req){
+        ProjectVo vo1 = service.getProjectByNo(vo.getNo());
+        req.setAttribute("vo",vo1);
         return "prjConfRecord/recordInsert";
     }
 
@@ -175,10 +177,10 @@ public class ProjectController {
 
     @ResponseBody
     @GetMapping("record/listData")
-    public List<ProjectRecordVo> recordList(HttpServletRequest req, HttpSession session, Model model){
+    public List<ProjectRecordVo> recordList(HttpServletRequest req, HttpSession session, Model model,String prjNo){
 
         MemberVo loginVo = (MemberVo) session.getAttribute("loginMemberVo");
-        List<ProjectRecordVo> voList = service.recordList();
+        List<ProjectRecordVo> voList = service.recordList(prjNo);
 
         model.addAttribute("voList",voList);
 
@@ -199,7 +201,9 @@ public class ProjectController {
     }
 
     @GetMapping("record/detail")
-    public String recordDetail(){
+    public String recordDetail(HttpSession session){
+
+        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
         return "prjConfRecord/recordDetail";
     }
 
@@ -233,12 +237,14 @@ public class ProjectController {
     @ResponseBody
     public List<ProjectManagerVo> managerListData(HttpSession session,String no){
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-        List<ProjectManagerVo> voList = service.managerList(loginMemberVo.getNo());
+        List<ProjectManagerVo> voList = service.managerList(no);
         return  voList;
     }
 
     @GetMapping("manager/list")
-    public String managerList(){
+    public String managerList(ProjectVo vo,HttpServletRequest req){
+        ProjectVo vo1 = service.getProjectByNo(vo.getNo());
+        req.setAttribute("vo",vo1);
         return "prjManager/managerList";
     }
 

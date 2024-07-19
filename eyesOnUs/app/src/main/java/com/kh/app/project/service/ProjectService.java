@@ -40,8 +40,8 @@ public class ProjectService {
         return dao.recordInsert(vo);
     }
 
-    public List<ProjectRecordVo> recordList() {
-        return dao.recordList();
+    public List<ProjectRecordVo> recordList(String prjNo) {
+        return dao.recordList(prjNo);
     }
 
     public ProjectVo getProjectByNo(String no) {

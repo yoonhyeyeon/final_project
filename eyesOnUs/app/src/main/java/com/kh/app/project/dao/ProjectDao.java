@@ -38,8 +38,8 @@ public class ProjectDao {
         return mapper.recordInsert(vo);
     }
 
-    public List<ProjectRecordVo> recordList() {
-        return mapper.recordList();
+    public List<ProjectRecordVo> recordList(String prjNo) {
+        return mapper.recordList(prjNo);
     }
 
     public ProjectVo getProjectByNo(String no) {

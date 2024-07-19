@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
 <link rel="stylesheet" href="/css/teamRoom/list.css">
 <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
+<script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
 <script defer src="/js/projectJs/projectDelete.js"></script>
 <script defer src="/js/projectJs/projectDetail.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -31,10 +32,8 @@
         </div>
     </div>
 
-<div id="sidebar" class="sidebar">
-<%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-</div>
-<button id="openBtn" class="open-btn">☰ Sidebar</button>
+
+      <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 <div id="calendarContainer" class="calendar-container">
 <div id="out">
@@ -86,19 +85,32 @@
 <div id="listContainer" class="list-container">
     <div id="buttonDiv">
         
-    </div><br><br>
-    <button id="prjLnsertGoBtn" onclick="location.href='/project/manager/list'">담당자 관리</button><br><br>
+    </div>
+    <br><br>
+
+    <div id="buttonDiv1">
+        
+    </div>
+    <br><br>
+
     <div id="buttonDiv2">
         
-    </div><br><br>
-    <button id="prjLnsertGoBtn" onclick="location.href='/project/record/list'">회의록 관리</button><br><br>
+    </div>
+    <br><br>
+    
+    <div id="buttonDiv3">
+
+    </div>
+    <br><br>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
 <script src="/js/teamRoom/clock.js"></script>
 </body>
-
+<div id="sidebar" class="sidebar">
+    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+  </div>
 </html>
 
 

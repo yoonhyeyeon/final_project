@@ -37,4 +37,10 @@ public class NoticeDao {
     public int delete(String no) {
         return mapper.delete(no);
     }
+
+    // 검색
+    public List<NoticeVo> search(NoticeVo vo) {
+        return mapper.search(vo);
+    }
+
 }

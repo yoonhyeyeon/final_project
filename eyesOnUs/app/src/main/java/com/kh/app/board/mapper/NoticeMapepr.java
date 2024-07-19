@@ -69,5 +69,31 @@ public interface NoticeMapepr {
     // 삭제하기
     @Delete("DELETE FROM NOTICE_BOARD WHERE NO = #{no}")
     int delete(String no);
+
+    // 검색
+    @Select("""
+        <script>
+        SELECT\s
+            N.NO
+            , E.NAME AS WRITER_NO
+            , N.TITLE
+            , N.CONTENT
+            , N.HIT
+            , N.ENROLL_DATE
+        FROM NOTICE_BOARD N
+        JOIN EMPLOYEE E
+        ON N.WRITER_NO = E.NO
+        <where>
+            <if test="title != null">
+                TITLE LIKE '%' ||#{title}|| '%'
+            </if>
+            <if test="content != null">
+                CONTENT LIKE '%' ||#{content}|| '%'
+            </if>
+        </where>
+        </script>
+        """)
+    List<NoticeVo> search(NoticeVo vo);
+
 }
 

@@ -1,5 +1,6 @@
 package com.kh.app.board.controller;
 
+import com.kh.app.adminHr.vo.AdminHrVo;
 import com.kh.app.board.service.NoticeService;
 import com.kh.app.board.vo.NoticeVo;
 import com.kh.app.member.vo.MemberVo;
@@ -29,13 +30,13 @@ public class NoticeController {
     @PostMapping("write")
     @ResponseBody
     public HashMap<String, String > write(NoticeVo vo, HttpSession session){
-        MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
+        AdminHrVo adminHrLoginVo = (AdminHrVo) session.getAttribute("adminHrLoginVo");
 
         int result = service.write(vo);
 
         HashMap<String, String > map = new HashMap<>();
-        if( loginMemberVo == null ){
-            map.put("msg", "로그인 필요");
+        if( adminHrLoginVo == null ){
+            map.put("msg", "관리자 로그인 필요");
             return map;
         }
 
@@ -112,6 +113,14 @@ public class NoticeController {
             map.put("msg", "삭제 실패");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(map);
         }
+    }
+
+    // 검색
+    @GetMapping("search")
+    @ResponseBody
+    public List<NoticeVo> search(NoticeVo vo){
+        List<NoticeVo> voList = service.search(vo);
+        return voList;
     }
 
 

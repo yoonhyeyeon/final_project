@@ -39,4 +39,11 @@ public class NoticeService {
     public int delete(String no) {
         return dao.delete(no);
     }
+
+    // 검색
+    public List<NoticeVo> search(NoticeVo vo) {
+        return dao.search(vo);
+    }
+
+
 }

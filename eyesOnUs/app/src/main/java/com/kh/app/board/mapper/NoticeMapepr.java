@@ -95,5 +95,6 @@ public interface NoticeMapepr {
         """)
     List<NoticeVo> search(NoticeVo vo);
 
+
 }
 

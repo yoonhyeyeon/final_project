@@ -3,7 +3,7 @@ package com.kh.app.board.controller;
 import com.kh.app.adminHr.vo.AdminHrVo;
 import com.kh.app.board.service.NoticeService;
 import com.kh.app.board.vo.NoticeVo;
-import com.kh.app.member.vo.MemberVo;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -55,10 +55,7 @@ public class NoticeController {
 
     @GetMapping("listData")
     @ResponseBody
-    public List<NoticeVo> listData(HttpSession session){
-
-        //MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
-        //String empNo = loginMemberVo.getNo();
+    public List<NoticeVo> listData(HttpSession session, HttpServletRequest req){
 
         List<NoticeVo> voList = service.listData();
 
@@ -122,6 +119,7 @@ public class NoticeController {
         List<NoticeVo> voList = service.search(vo);
         return voList;
     }
+
 
 
 //////////홈 공지사항 조회///////////////

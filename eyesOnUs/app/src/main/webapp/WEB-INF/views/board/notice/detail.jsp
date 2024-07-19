@@ -37,6 +37,7 @@
           <div class="out-list">
 
           </div>
+          <br />
           <div class="notice-list">
             <button id="list-btn" onclick="location.href='http://127.0.0.1:8383/notice/list'">목록</button>
           </div>

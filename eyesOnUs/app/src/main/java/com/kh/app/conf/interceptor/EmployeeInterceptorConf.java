@@ -24,7 +24,6 @@ public class EmployeeInterceptorConf implements WebMvcConfigurer {
                 .addPathPatterns("/message/**")
                 .addPathPatterns("/file/**")
                 .addPathPatterns("/home/**")
-                .addPathPatterns("/notice/**")
                 .addPathPatterns("/attendance/**")
                 .addPathPatterns("/evaluation/**")
                 .addPathPatterns("/colleageEval/**")

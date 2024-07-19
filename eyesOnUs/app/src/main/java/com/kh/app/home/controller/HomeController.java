@@ -1,5 +1,6 @@
 package com.kh.app.home.controller;
 
+import com.kh.app.adminHr.vo.AdminHrVo;
 import com.kh.app.home.service.HomeService;
 import com.kh.app.home.vo.HomeVo;
 import com.kh.app.member.vo.MemberVo;
@@ -27,6 +28,7 @@ public class HomeController {
     public String home(EmployeeVo vo, Model model,HttpSession session){
 
         MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
+        AdminHrVo adminHrLoginVo = (AdminHrVo) session.getAttribute("adminHrLoginVo");
 
         List<EmployeeVo> voList = service.list(vo);
 

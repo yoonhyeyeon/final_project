@@ -24,6 +24,7 @@
       <script defer src="../js/commute/quit.js"></script>
       <script defer src="../js/board/notice/list.js"></script>
       <script defer src="../js/board/notice/detail.js"></script>
+      <script defer src="../js/board/notice/search.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
 
@@ -39,14 +40,16 @@
             <h2>🔵 공지사항</h2>
             <hr>
             <div id="out2">
+              <c:if test="${sessionScope.adminHrLoginVo != null }">
               <button id="writeBtn" onclick="location.href='http://127.0.0.1:8383/notice/write'">작성하기</button>
+              </c:if>
               <div id="search">
-                <span>게시글 검색</span>&nbsp
-                <select name="" id="">
+                <span>게시글 검색</span>&nbsp;
+                <select name="searchType" id="searchType">
                   <option value="title">제목</option>
                   <option value="content">게시글</option>
-                </select>&nbsp;<input type="text">
-                <button style="cursor: pointer;">검색🔍</button>
+                </select>&nbsp;<input type="text" name="searchValue">
+                <button style="cursor: pointer;" onclick="search();">검색🔍</button>
               </div>
             </div>
 

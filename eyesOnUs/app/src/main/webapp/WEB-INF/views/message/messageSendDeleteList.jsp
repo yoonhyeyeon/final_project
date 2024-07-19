@@ -21,7 +21,14 @@
       <section>
         <div id="folderOutline">
           <div id="folderHead">
-            <%@ include file="/WEB-INF/views/message/messageFolderHead.jsp" %>
+            <div id="folderHead1" class="folderTitleBar" onclick="location.href='/message/messageSendList'">보낸 메시지</div>
+            <div id="folderHead2" class="folderTitleBar" onclick="location.href='/message/messageReceiveList'">받은 메시지
+            </div>
+            <div id="folderHead3" class="folderTitleBar active"
+              onclick="location.href='/message/messageSendDeleteList'">삭제된 보낸 메시지</div>
+            <div id="folderHead4" class="folderTitleBar" onclick="location.href='/message/messageReceiveDeleteList'">삭제된
+              받은 메시지</div>
+            <div id="folderHead5" class="folderTitleBar" onclick="location.href='/message/messageWrite'">메시지 보내기</div>
           </div>
           <div id="folderBody">
             <div id="sentMessages" class="tab-content active">
@@ -42,14 +49,11 @@
                   <input type="text" id="searchBox" name="searchBox">
                   <button type="submit" class="tableButton">검색</button>
                 </form>
+                <button class="tableButton" onclick="window.location.href='/home'">홈으로</button>
               </div>
             </div>
             <div id="deletedReceivedMessages" class="tab-content">
             </div>
-          </div>
-        </div>
-
-
       </section>
     </body>
 

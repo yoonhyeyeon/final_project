@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
   <header id="headerContainer">
     <div class="btn">
       <div id="goto">
@@ -12,20 +15,19 @@
     </div>
     <div id="profile">
       <c:if test="${sessionScope.loginMemberVo != null}">
-        <pre>
+            <pre>
               안녕하세요. ${sessionScope.loginMemberVo.id} 님
               |${sessionScope.loginMemberVo.deptName}| ${sessionScope.loginMemberVo.name} ${sessionScope.loginMemberVo.positionName}
             </pre>
       </c:if>
-
       <div id="btn2">
         <button onclick="location.href='${pageContext.request.contextPath}/member/logout'">로그아웃</button>
       </div>
     </div>
 
     <div class="upload-container">
-      <h5></h5>
-      <!-- <input type="file" id="fileInput" accept="image/*"> -->
-      <img id="profileImage" src="#" alt="Profile Image">
+        <c:if test="${profileImage != null}">
+            <img src="${pageContext.request.contextPath}/images/${profileImage}" alt="Profile Image" style="width:100px;height:100px;">
+        </c:if>
     </div>
   </header>

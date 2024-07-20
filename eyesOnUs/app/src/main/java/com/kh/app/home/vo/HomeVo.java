@@ -13,6 +13,7 @@ public class HomeVo {
     private int totalMinutes;
     private String workDay;
     private String workDate;
+    private String profile;
 
     private String emp;
     private String division;

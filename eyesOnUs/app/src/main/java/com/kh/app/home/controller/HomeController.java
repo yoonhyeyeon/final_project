@@ -32,6 +32,18 @@ public class HomeController {
 
         List<EmployeeVo> voList = service.list(vo);
 
+        model.addAttribute("employeeList", voList);
+
+        // 프로필 이미지 경로를 추가
+        if (loginMemberVo != null) {
+            // 현재 로그인된 사용자 프로필을 리스트에서 찾아서 추가
+            for (EmployeeVo employee : voList) {
+                if (employee.getNo().equals(loginMemberVo.getNo())) {
+                    model.addAttribute("profileImage", employee.getProfile());
+                    break;
+                }
+            }
+        }
         return "home";
     }
 
@@ -69,4 +81,5 @@ public class HomeController {
         return map;
     }
 
-}
+
+}//class

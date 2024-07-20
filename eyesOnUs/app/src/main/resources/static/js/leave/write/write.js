@@ -1,4 +1,4 @@
-window.addEventListener("load", onPageLoad);
+window.addEventListener("DOMContentLoaded", onPageLoad);
 
 function onPageLoad(){
     getLeaveTypeList();

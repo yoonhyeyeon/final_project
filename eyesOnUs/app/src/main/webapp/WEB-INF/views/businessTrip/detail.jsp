@@ -134,7 +134,7 @@
 <script>
     const businessTripNo = "${businessTripVo.no}";
     
-    window.addEventListener("load", onPageLoad);
+    window.addEventListener("DOMContentLoaded", onPageLoad);
 
     function onPageLoad(){
         $.ajax({
@@ -187,16 +187,16 @@
                     state = "반려";
                 }
 
-                startDateSpan.innerHTML = startDate;
-                endDateSpan.innerHTML = endDate;
-                projectSpan.innerHTML = project;
-                destinationSpan.innerHTML = destination;
-                reasonPre.innerHTML = reason;
-                approverSpan.innerHTML = approver;
-                writerSpan.innerHTML = writer;
-                enrollDateSpan.innerHTML = enrollDate;
-                approveDateSpan.innerHTML = approveDate;
-                stateSpan.innerHTML = state;
+                startDateSpan.innerText = startDate;
+                endDateSpan.innerText = endDate;
+                projectSpan.innerText = project;
+                destinationSpan.innerText = destination;
+                reasonPre.innerText = reason;
+                approverSpan.innerText = approver;
+                writerSpan.innerText = writer;
+                enrollDateSpan.innerText = enrollDate;
+                approveDateSpan.innerText = approveDate;
+                stateSpan.innerText = state;
 
                 if(data.businessTripDetailVo.state === "0" && data.businessTripDetailVo.approverNo === data.vo.empNo){
                     // 버튼 태그 담을 div 가져오기
@@ -211,8 +211,8 @@
                     const btnTag02 = document.createElement("button");
 
                     // 버튼 태그 텍스트 담기
-                    btnTag01.innerHTML = "승인";
-                    btnTag02.innerHTML = "반려";
+                    btnTag01.innerText = "승인";
+                    btnTag02.innerText = "반려";
 
                     // 버튼 태그 함수 담기
                     btnTag01.onclick = approveProcess;

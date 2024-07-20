@@ -145,7 +145,7 @@
     let result = "${signVo.result}";
     let step = "${signVo.step}";
 
-    window.addEventListener("load", onPageLoad);
+    window.addEventListener("DOMContentLoaded", onPageLoad);
 
     function onPageLoad(){
         $.ajax({
@@ -312,12 +312,18 @@
                         const btnTag02 = document.createElement("button");
     
                         // 버튼 태그 텍스트 담기
-                        btnTag01.innerHTML = "승인";
-                        btnTag02.innerHTML = "반려";
+                        btnTag01.innerText = "승인";
+                        btnTag02.innerText = "반려";
     
                         // 버튼 태그 함수 담기
-                        btnTag01.onclick = approveProcess;
-                        btnTag02.onclick = returnProcess;
+                        btnTag01.addEventListener("click", (event) => {
+                            event.stopPropagation();
+                            approveProcess(data.signApproverDetailVoList[0].changeName);
+                        });
+                        btnTag02.addEventListener("click", (event) => {
+                            event.stopPropagation();
+                            returnProcess();
+                        });
     
                         // 버튼 태그 붙이기
                         approveBtnDiv.appendChild(btnTag01);
@@ -338,7 +344,7 @@
 
 <script>
     // 승인 처리
-    function approveProcess(){
+    function approveProcess(extData){
         const commentElement = document.querySelector("textarea[name=commentArea]");
         const commentValue = commentElement ? commentElement.value : "";
 
@@ -356,14 +362,14 @@
         }
 
         if(confirm("승인 처리를 진행하겠습니까?")){
-            approveProcessGoOn();
+            approveProcessGoOn(extData);
         } else{
             approveProcessCancel();
         }
     }
 
     // 승인 처리 (진행)
-    function approveProcessGoOn(){
+    function approveProcessGoOn(extData){
         const fileInput = document.querySelector("input[name=file]");
         const comment = document.querySelector("textarea[name=commentArea]").value;
         const file = fileInput.files[0];
@@ -380,6 +386,7 @@
         formData.append("no", signNo);
         formData.append("result", result);
         formData.append("step", step);
+        formData.append("changeName", extData);
 
         if(comment){
             formData.append("comment", comment);

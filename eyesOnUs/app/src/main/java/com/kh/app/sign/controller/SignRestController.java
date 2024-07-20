@@ -99,7 +99,11 @@ public class SignRestController {
 //            file.transferTo(targetFile);
 //            signVo.setChangeName(file.getOriginalFilename());
 
-            // AWS S3에 파일 저장
+            // AWS S3의 기존 파일 삭제
+            String str = signVo.getChangeName().substring(61, signVo.getChangeName().length());
+            s3.deleteObject(bucketName, str);
+
+            // AWS S3에 새로운 파일 저장
             ObjectMetadata metadata = new ObjectMetadata();
             metadata.setContentType(file.getContentType());
             metadata.setContentLength(file.getSize());

@@ -15,9 +15,7 @@
     </div>
     <div id="profile">
       <c:if test="${sessionScope.loginMemberVo != null}">
-            <pre>
-              안녕하세요. ${sessionScope.loginMemberVo.id} 님
-              |${sessionScope.loginMemberVo.deptName}| ${sessionScope.loginMemberVo.name} ${sessionScope.loginMemberVo.positionName}
+            <pre>안녕하세요. ${sessionScope.loginMemberVo.id} 님<br>|${sessionScope.loginMemberVo.deptName}| ${sessionScope.loginMemberVo.name} ${sessionScope.loginMemberVo.positionName}
             </pre>
       </c:if>
       <div id="btn2">
@@ -27,7 +25,7 @@
 
     <div class="upload-container">
         <c:if test="${profileImage != null}">
-            <img src="${pageContext.request.contextPath}${profileImage}?${currentTime}" alt="Profile Image" style="width:100px;height:100px;">
+            <img src="${pageContext.request.contextPath}${profileImage}?${currentTime}" alt="Profile Image" style="width:120px;height:120px;">
         </c:if>
     </div>
   </header>

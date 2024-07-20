@@ -1,4 +1,4 @@
-window.addEventListener("load", onPageLoad);
+window.addEventListener("DOMContentLoaded", onPageLoad);
 
 function onPageLoad(){
     $.ajax({
@@ -22,7 +22,8 @@ function onPageLoad(){
             for(let i = 0; i < data.signVoListForReference.length; ++i){
                 const trTag = document.createElement("tr");
     
-                trTag.addEventListener("click", () => {
+                trTag.addEventListener("click", (event) => {
+                    event.stopPropagation();
                     location.href = `/sign/detail?no=${data.signVoListForReference[i].no}`;
                 });
                 trTag.style.cursor = "pointer";
@@ -77,9 +78,9 @@ function onPageLoad(){
                 const approvalMarkTag = document.querySelector("#approvalMark");
                 const returnMarkTag = document.querySelector("#returnMark");
 
-                waitMarkTag.innerHTML = waitTableCnt + " 건";
-                approvalMarkTag.innerHTML = approvalTableCnt + " 건";
-                returnMarkTag.innerHTML = returnTableCnt + " 건";
+                waitMarkTag.innerText = waitTableCnt + " 건";
+                approvalMarkTag.innerText = approvalTableCnt + " 건";
+                returnMarkTag.innerText = returnTableCnt + " 건";
             }
         },
         error: (error) => {

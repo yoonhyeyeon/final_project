@@ -7,6 +7,7 @@ function openModal() {
 
 // 다른 화면 누르면 모달창 닫기
 window.onclick = function(event) {
+    event.stopPropagation();
     if (event.target === modalDiv) {
         modalDiv.style.display = "none";
     }

@@ -68,6 +68,8 @@
 #right{
   border: 1px solid lightgrey;
   width: 90%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #right > table {
@@ -87,26 +89,6 @@
 
 .list{
   height: 40px;
-  cursor: pointer;
-}
-
-#footerBtn{
-  display: flex;
-  justify-content: center;
-}
-
-#footBtn{
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
-}
-
-#footBtn > button {
-  width: 60px;
-  height: 30px;
-  background-color: #e0f7fa;
-  border: 1px solid rgb(58, 66, 88);
-  border-radius: 4px;
   cursor: pointer;
 }
 

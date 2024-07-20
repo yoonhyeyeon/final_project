@@ -78,11 +78,6 @@
               </div>
             </div>
             <br>
-            <div id="footerBtn">
-                <button>이전</button>
-                <span>1</span>
-                <button>다음</button>
-            </div>
           </div>
         </section>
         <%@ include file="/WEB-INF/views/homeUtil/footer.jsp" %>

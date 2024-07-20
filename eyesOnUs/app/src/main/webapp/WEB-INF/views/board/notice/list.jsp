@@ -15,6 +15,7 @@
       <link rel="stylesheet" type="text/css" href="/css/homeUtil/popUpBoard.css">
       <link rel="stylesheet" type="text/css" href="/css/homeUtil/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/homeUtil/teamRoom.css">
+      <link rel="stylesheet" type="text/css" href="/css/homeUtil/header.css">
       <link rel="stylesheet" type="text/css" href="/css/homeUtil/testPersonalPage.css">
       <link rel="stylesheet" type="text/css" href="/css/board/notice/list.css">
       <script defer src="../js/adminUtil.js"></script>

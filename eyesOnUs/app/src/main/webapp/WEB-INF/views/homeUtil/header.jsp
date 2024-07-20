@@ -27,7 +27,7 @@
 
     <div class="upload-container">
         <c:if test="${profileImage != null}">
-            <img src="${pageContext.request.contextPath}/images/${profileImage}" alt="Profile Image" style="width:100px;height:100px;">
+            <img src="${pageContext.request.contextPath}${profileImage}?${currentTime}" alt="Profile Image" style="width:100px;height:100px;">
         </c:if>
     </div>
   </header>

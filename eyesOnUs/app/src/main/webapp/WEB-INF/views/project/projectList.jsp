@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <link rel="stylesheet" href="/css/projectCss/projectList.css">
+
         <link rel="stylesheet" type="text/css" href="/css/homeUtil/header.css">
         <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
         <script defer src="/js/projectJs/projectSearch.js"></script>

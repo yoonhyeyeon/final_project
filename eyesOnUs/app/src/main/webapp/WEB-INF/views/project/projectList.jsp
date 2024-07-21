@@ -9,10 +9,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TEAM ROOM</title>
+        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
-        <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
         <link rel="stylesheet" href="/css/projectCss/projectList.css">
+        <link rel="stylesheet" type="text/css" href="/css/homeUtil/header.css">
         <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
         <script defer src="/js/projectJs/projectSearch.js"></script>
         <script defer src="/js/projectJs/projectList.js"></script>
@@ -36,6 +37,8 @@
 
 <c:if test="${not empty sessionScope.loginMemberVo.no}">
     <div id="calendarContainer" class="calendar-container">
+        <div id="out">
+            <div id="in">
       <div id="divSearch">
         <select name="search" id="search">
             <option value="1">제목</option>
@@ -58,6 +61,8 @@
         
             </tbody>
         </table>  
+        </div>
+        </div>
     </div>
     
     
@@ -104,7 +109,6 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="/js/teamRoom/teamRoom.js"></script>
   <script src="/js/util/clock.js"></script>
 </body>
     <div id="sidebar" class="sidebar">

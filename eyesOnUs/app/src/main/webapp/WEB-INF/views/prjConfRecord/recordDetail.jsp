@@ -24,9 +24,6 @@
         </div>
     </div>
 
-<div id="sidebar" class="sidebar">
-    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-  </div>
   <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
  
     <div id="calendarContainer" class="calendar-container">
@@ -59,6 +56,9 @@
 <script src="/js/util/clock.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
 </body>
+<div id="sidebar" class="sidebar">
+    <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+  </div>
 </html>
 
 

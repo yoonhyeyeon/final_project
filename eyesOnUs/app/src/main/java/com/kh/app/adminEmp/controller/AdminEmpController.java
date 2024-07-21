@@ -62,6 +62,8 @@ public class AdminEmpController {
             @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "size", defaultValue = "20") int size) {
 
+        System.out.println("empCategory = " + empCategory);
+        System.out.println("searchBox = " + searchBox);
         List<AdminEmpVo> voList = service.adminEmpSearchData(empCategory, searchBox, page, size);
         int totalCount = service.getSearchTotalCount(empCategory, searchBox);
         int totalPages = (int) Math.ceil((double) totalCount / size);

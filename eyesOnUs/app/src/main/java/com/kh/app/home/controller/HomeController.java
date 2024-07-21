@@ -81,5 +81,9 @@ public class HomeController {
         return map;
     }
 
+    //조직도 화면
+    @GetMapping("emp")
+    public String list(){ return "homeUtil/emp";}
+
 
 }//class

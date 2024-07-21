@@ -2,7 +2,7 @@
 <nav id="navContainer">
     <div id="up">
       <div id="adminPage" class="nav">
-        <a href="./adminPage.html">조직도</a>
+        <a href="http://127.0.0.1:8383/home/emp">조직도</a>
       </div>
       <div id="teamRoom" class="nav">
         <a href="/test/url">사이트맵</a>
@@ -15,6 +15,9 @@
       </div>
       <div id="adminFAQ" class="nav">
         <a href="http://127.0.0.1:8383/attendance/list">근태확인</a>
+      </div>
+      <div id="home" class="nav">
+        <a href="http://127.0.0.1:8383/home">홈</a>
       </div>
     </div>
 

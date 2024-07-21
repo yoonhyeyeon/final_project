@@ -298,49 +298,49 @@ INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 2, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign02.pdf', 'file02.pdf', 1450000, '2024-04-09'
+    SEQ_SIGN_FILE.NEXTVAL, 2, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign02_third_approve.pdf', 'file02.pdf', 1450000, '2024-04-09'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 3, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign03.pdf', 'file03.pdf', 900000, '2024-04-30'
+    SEQ_SIGN_FILE.NEXTVAL, 3, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign03_second_approve.pdf', 'file03.pdf', 900000, '2024-04-30'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 4, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign04.pdf', 'file04.pdf', 1130000, '2024-05-15'
+    SEQ_SIGN_FILE.NEXTVAL, 4, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign04_first_approve.pdf', 'file04.pdf', 1130000, '2024-05-15'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 5, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign05.pdf', 'file05.pdf', 870000, '2024-06-04'
+    SEQ_SIGN_FILE.NEXTVAL, 5, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign05_first_approve.pdf', 'file05.pdf', 870000, '2024-06-04'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 6, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign06.pdf', 'file06.pdf', 1230000, '2024-06-09'
+    SEQ_SIGN_FILE.NEXTVAL, 6, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign06_second_approve.pdf', 'file06.pdf', 1230000, '2024-06-09'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 7, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign07.pdf', 'file07.pdf', 1740000, '2024-07-01'
+    SEQ_SIGN_FILE.NEXTVAL, 7, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign07_third_approve.pdf', 'file07.pdf', 1740000, '2024-07-01'
 );
 
 INSERT INTO SIGN_FILE(
     NO, SIGN_NO, CHANGE_NAME, ORIGIN_NAME, "SIZE", MODIFY_DATE
 )
 VALUES(
-    SEQ_SIGN_FILE.NEXTVAL, 8, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign08.pdf', 'file08.pdf', 957000, '2024-07-12'
+    SEQ_SIGN_FILE.NEXTVAL, 8, 'https://s3.ap-southeast-2.amazonaws.com/jsg-bucket/file/sign/sign08_third_approve.pdf', 'file08.pdf', 957000, '2024-07-12'
 );
 
 INSERT INTO SIGN_FILE(

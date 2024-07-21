@@ -38,8 +38,6 @@
 
     <c:if test="${sessionScope.loginMemberVo.no eq vo.empNo}">
         <div id="calendarContainer" class="calendar-container">
-            <div id="out">
-                <div id="in">
                     <div id="div-title">
                         <h1>프로젝트</h1>
                     </div>
@@ -59,8 +57,6 @@
                     <div id="div-submit">
                         <button id="submitButton" onclick="f01();">수정하기</button>
                     </div>
-                </div>
-            </div>
             </div>
         
             <div id="listContainer" class="list-container">

@@ -36,8 +36,6 @@
       <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 <div id="calendarContainer" class="calendar-container">
-<div id="out">
-    <div id="in">
         <div id="div-title">
             <h1>프로젝트</h1>
         </div>
@@ -78,8 +76,6 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <p id="dBtn"></p>
         </div>
-    </div>
-</div>
 </div>
 
 <div id="listContainer" class="list-container">

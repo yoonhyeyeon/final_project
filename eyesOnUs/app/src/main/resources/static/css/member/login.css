@@ -174,3 +174,7 @@ body {
 .login button:active {
   box-shadow: 0 0 20px rgb(74, 143, 173);
 }
+
+.joinPage-btn {
+  width: 80%;
+}

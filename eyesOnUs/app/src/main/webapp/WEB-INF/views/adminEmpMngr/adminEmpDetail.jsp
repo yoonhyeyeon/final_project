@@ -85,7 +85,12 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="label">퇴사 여부</div>
-                                    <div class="value" id="retireYn">${vo.retireYn}</div>
+                                    <div class="value" id="retireYn">
+                                        <c:choose>
+                                            <c:when test="${vo.retireYn == 'Y'}">퇴사</c:when>
+                                            <c:otherwise>재직</c:otherwise>
+                                        </c:choose>
+                                    </div>
                                 </div>
                                 <button class="edit-button" id="updateButton">사원 정보 수정</button>
                                 <button class="getBack-button" id="listButton"

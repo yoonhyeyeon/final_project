@@ -3,6 +3,7 @@ package com.kh.app.adminEmp.controller;
 import com.kh.app.adminEmp.service.AdminEmpService;
 import com.kh.app.adminEmp.vo.DivisionVo;
 import com.kh.app.adminEmp.vo.PositionVo;
+import com.kh.app.exception.EmpJoinExceptions;
 import org.springframework.http.ResponseEntity;
 import com.kh.app.adminEmp.vo.AdminEmpVo;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ public class AdminEmpController {
     public String adminEmpList() {
         return "adminEmpMngr/adminEmpList";
     }//method
-    
+
     // 사원 목록 데이터
     @GetMapping("listData")
     @ResponseBody
@@ -116,12 +117,40 @@ public class AdminEmpController {
         return "adminEmpMngr/adminEmpEnroll";
     }//method
 
+//    // 사원 등록 데이터
+//    @PostMapping("enrollEmpData")
+//    public String adminEmpEnrollData(AdminEmpVo vo) {
+//        service.adminEmpEnrollData(vo);
+//        return "redirect:/adminEmpMngr/list";
+//    }//method
+
+    // 사원 아이디 중복 검사
+    @PostMapping("checkId")
+    @ResponseBody
+    public Map<String, Boolean> checkId(@RequestParam String id) {
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("exists", service.existsById(id));
+        return response;
+    }//method
+
     // 사원 등록 데이터
     @PostMapping("enrollEmpData")
-    public String adminEmpEnrollData(AdminEmpVo vo) {
-        service.adminEmpEnrollData(vo);
-        return "redirect:/adminEmpMngr/list";
-    }//method
+    public String adminEmpEnrollData(AdminEmpVo vo, Model model) {
+        System.out.println("vo = " + vo);
+        try {
+            service.adminEmpEnrollData(vo);
+            return "redirect:/adminEmpMngr/list";
+        } catch (EmpJoinExceptions.IdAlreadyExistsException
+                 | EmpJoinExceptions.InvalidIdFormatException
+                 | EmpJoinExceptions.WeakPasswordException
+                 | EmpJoinExceptions.PasswordMismatchException
+                 | EmpJoinExceptions.NicknameAlreadyExistsException
+                 | EmpJoinExceptions.InvalidNicknameFormatException e) {
+            model.addAttribute("errorMessage", e.getMessage());
+            return "adminEmpEnroll";
+        }
+    }
+
 
     // 사원 정보 수정 페이지
     @GetMapping("edit")
@@ -156,6 +185,7 @@ public class AdminEmpController {
     @PostMapping("updateEmpData")
     @ResponseBody
     public String updateEmpData(@RequestBody AdminEmpVo vo) {
+        System.out.println("vo = " + vo);
         int result = service.updateEmployee(vo);
 
         return "사원 정보가 성공적으로 수정되었습니다.";

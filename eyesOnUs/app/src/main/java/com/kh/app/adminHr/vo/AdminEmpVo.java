@@ -1,10 +1,11 @@
-package com.kh.app.adminEmp.vo;
+package com.kh.app.adminHr.vo;
 
 import lombok.Data;
 
 @Data
 public class AdminEmpVo {
 
+    //EMPLOYEE TABLE
     private String no;
     private String deptCode;
     private String divCode;
@@ -16,7 +17,6 @@ public class AdminEmpVo {
     private String bonus;
     private String id;
     private String pwd;
-    private String PwdCheck;
     private String nick;
     private String name;
     private String phone;
@@ -25,8 +25,12 @@ public class AdminEmpVo {
     private String retireDate;
     private String retireYn;
 
+    //DEPARTMENT TABLE
     private String deptName;
-    private String divName;
-    private String positionName;
 
+    //DIVISION TABLE
+    private String divName;
+
+    //POSITION TABLE
+    private String positionName;
 }

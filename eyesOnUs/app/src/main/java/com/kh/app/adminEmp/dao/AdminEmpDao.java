@@ -6,6 +6,7 @@ import com.kh.app.adminEmp.vo.DivisionVo;
 import com.kh.app.adminEmp.vo.PositionVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Map;
@@ -63,5 +64,13 @@ public class AdminEmpDao {
 
     public int updateEmployee(AdminEmpVo vo) {
         return mapper.updateEmployee(vo);
+    }
+
+    public boolean existsById(String id) {
+        return mapper.countById(id) > 0;
+    }
+
+    public boolean existsByNick(String nick) {
+        return mapper.countByNick(nick) > 0;
     }
 }

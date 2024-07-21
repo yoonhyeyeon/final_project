@@ -40,6 +40,7 @@
                     <option value="divName">팀</option>
                     <option value="positionName">직급</option>
                     <option value="name">이름</option>
+                    <option value="retireYn">재직</option>
                   </select>
                   <input type="text" id="searchBox" name="searchBox">
                   <button type="submit" class="tableButton">검색</button>

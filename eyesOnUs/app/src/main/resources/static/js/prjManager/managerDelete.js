@@ -10,7 +10,7 @@ function del(no){
         success : function(x){
             console.log(x);
             alert("해임 완료");
-            location.href="/project/manager/list";
+            location.href="/project/projectList";
         },
         error : function(error){
             console.log("에러");

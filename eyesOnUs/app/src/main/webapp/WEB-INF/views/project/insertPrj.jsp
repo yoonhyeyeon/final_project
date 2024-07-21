@@ -45,7 +45,7 @@
                     <h1>프로젝트</h1>
                 </div>
                 &nbsp;&nbsp;<p>주제 :</p> <input type="text" name="title" id="title"><hr>
-                &nbsp;&nbsp;<p>PM</p> : <input type="text" name="empNo" id="emp" value="${sessionScope.loginMemberVo.no}" placeholder="${sessionScope.loginMemberVo.no}" readonly><br><hr>
+                &nbsp;&nbsp;<p>PM</p> : <input type="text" name="empNo" id="emp"><br><hr>
                 &nbsp;&nbsp;상태 : <select name="state" id="state">
                     <option value="1">등록</option>
                     <option value="2">중지</option>

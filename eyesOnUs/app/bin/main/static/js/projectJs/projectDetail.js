@@ -86,7 +86,7 @@ $(document).ready(() => {
 
             str3 += detailData.content
             str4 += "상태 : " + detailData.state
-            str6 += `<button id ="dBtn" onclick='del(${detailData.no});'>삭제하기</button>`;
+            str6 += `<button id ="delBtn" onclick='del(${detailData.no});'>삭제하기</button>`;
 
             dept.innerHTML = str1;
             pm.innerHTML = str2;

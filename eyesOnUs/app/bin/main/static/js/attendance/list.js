@@ -30,7 +30,7 @@ function monthData() {
           str += "<span>" + data[i].workDate + "</span>";
           str += "<span>(" + data[i].workDay + ")</span>";
           str += "<span>" + data[i].workTime + "</span>";
-          str += "<span>" + data[i].quitTime + "</span>";
+          str += "<span>" + (data[i].quitTime !== null ? data[i].quitTime : "미등록") + "</span>";
           str += "<span>" + data[i].totalHours + "시간 " + data[i].totalMinutes + "분" + "</span>";
           str += "<span>" + data[i].attend + "</span>";
           str += "</div>";

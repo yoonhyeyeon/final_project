@@ -10,12 +10,6 @@
       <div id="adminInfo" class="nav">
         <a href="http://127.0.0.1:8383/teamRoom">팀룸</a>
       </div>
-      <div id="adminInfo" class="nav">
-        <a href="./adminEmpList.html">자유게시판</a>
-      </div>
-      <div id="adminInfo" class="nav">
-        <a href="./adminDeptList.html">건의게시판</a>
-      </div>
       <div id="adminNotice" class="nav">
         <a href="http://127.0.0.1:8383/notice/list">공지사항</a>
       </div>

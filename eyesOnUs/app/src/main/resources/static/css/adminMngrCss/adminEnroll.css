@@ -59,3 +59,11 @@ section {
         font-size: 14px;
     }
 }
+
+.hide {
+    display: none;
+}
+
+.input-error {
+    border: 2px solid red;
+}

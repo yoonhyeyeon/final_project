@@ -12,7 +12,9 @@ $(document).ready(function() {
             enrollDate: $('#enrollDate').val(),
             deptCode: $('#deptCategory').val(),
             divCode: $('#divCategory').val(),
-            positionCode: $('#positionCategory').val()
+            positionCode: $('#positionCategory').val(),
+            retireYn: $('#retireCategory').val(),
+            retireDate: $('#retireDate').val()
             // 필요한 경우에 따라 추가적인 데이터도 포함할 수 있음
         };
 

@@ -19,7 +19,10 @@ $(document).ready(function() {
             $('#nick').text(employeeDetail.nick);
             $('#enrollDate').text(employeeDetail.enrollDate);
             $('#retireDate').text(employeeDetail.retireDate);
-            $('#retireYn').text(employeeDetail.retireYn);
+
+            // 삼항 연산자를 사용하여 'retireYn' 값에 따라 텍스트 변경
+            let retireStatus = employeeDetail.retireYn === 'Y' ? '퇴사' : '재직';
+            $('#retireYn').text(retireStatus);
         },
         error: function(xhr, status, error) {
             // 에러 처리 로직

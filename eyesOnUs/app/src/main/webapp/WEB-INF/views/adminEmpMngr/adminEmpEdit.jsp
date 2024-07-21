@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <div class="label">팀</div>
                                     <select name="divCategory" id="divCategory">
-                                        <!-- AJAX로 가져온 팀 정보가 여기에 추가될 예정 -->
+                                        <!-- AJAX 추가 -->
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -90,6 +90,17 @@
                                         <option value="80">주임</option>
                                         <option value="90">사원</option>
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label">퇴사처리</div>
+                                    <select name="retireCategory" id="retireCategory">
+                                        <option value="N">재직</option>
+                                        <option value="Y">퇴사</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label">퇴사일</div>
+                                    <input type="date" class="value" name="retireDate"  id="retireDate">
                                 </div>
                                 <button class="edit-button" id="updateButton">수정 완료</button>
                                 <button class="getBack-button" id="listButton"

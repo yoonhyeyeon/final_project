@@ -31,7 +31,7 @@
 
         <button id="loginButton">로그인</button>
       </form>
-      <button id="joinButton">회원가입</button>
+      <button class="joinPage-btn" onclick="location.href='/member/login'">사내 페이지</button>
     </div>
 
   </body>

@@ -14,13 +14,20 @@ $(document).ready(function() {
             $('#name').val(employeeDetail.name);
             $('#phone').val(employeeDetail.phone);
             $('#address').val(employeeDetail.address);
+            $('#enrollDate').val(employeeDetail.enrollDate);
             $('#deptCategory').val(employeeDetail.deptCode);
             $('#positionCategory').val(employeeDetail.positionCode);
+            $('#retireYn').val(employeeDetail.retireYn);
+            $('#retireDate').val(employeeDetail.retireDate);
 
             // 입사일 설정 (날짜 형식 맞추기)
             let enrollDate = new Date(employeeDetail.enrollDate);
             let formattedEnrollDate = enrollDate.getFullYear() + '-' + ('0' + (enrollDate.getMonth() + 1)).slice(-2) + '-' + ('0' + enrollDate.getDate()).slice(-2);
             $('#enrollDate').val(formattedEnrollDate);
+
+            let retireDate = new Date(employeeDetail.retireDate);
+            let formattedRetireDate = retireDate.getFullYear() + '-' + ('0' + (retireDate.getMonth() + 1)).slice(-2) + '-' + ('0' + retireDate.getDate()).slice(-2);
+            $('#retireDate').val(formattedRetireDate);
 
         },
         error: function(xhr, status, error) {

@@ -40,7 +40,7 @@ public class KpiController {
     public ResponseEntity<HashMap<String, String>> kpiWrite(KpiVo vo, HttpSession session){
 
         HashMap<String , String > map = new HashMap<>();
-        if( vo.getEmpNo() == null || vo.getProjectNo() == null || vo.getTitle() == null || vo.getPersonalSchedule() == null ){
+        if( vo.getEmpNo() == null || vo.getProjectNo() == null || vo.getGoal() == null || vo.getPersonalSchedule() == null ){
             map.put("msg", "필수 입력사항을 입력해주세요.");
             return ResponseEntity.badRequest().body(map);
         }

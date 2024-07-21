@@ -13,6 +13,9 @@
       <div id="adminInfo" class="nav">
         <a href="http://127.0.0.1:8383/adminDeptMngr/enrollDiv">부서 등록</a>
       </div>
+      <div id="adminInfo" class="nav">
+        <a href="http://127.0.0.1:8383/notice/list">공지사항</a>
+      </div>
     </div>
 
     <div id="down">

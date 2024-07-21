@@ -83,6 +83,7 @@ $(document).ready(function() {
                     '<div>팀명</div>' +
                     '<div>직급</div>' +
                     '<div>이름</div>' +
+                    '<div>상태</div>' +
                     '<div>정보수정</div>' +
                     '</div>';
                 $('#empContainer').append(headerRow);
@@ -95,6 +96,9 @@ $(document).ready(function() {
                         '<div class="emp-data list-body-low">' + vo.divName + '</div>' +
                         '<div class="emp-data list-body-low">' + vo.positionName + '</div>' +
                         `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/detail?no=${vo.no}">${vo.name}</a></div>` +
+                        '<div class="emp-data list-body-low">' +
+                            (vo.retireYn === 'N' ? '재직' : '퇴직') +
+                        '</div>' +
                         `<div class="emp-data list-body-low"><a class="team-link" href="/adminEmpMngr/edit?no=${vo.no}">수정</a></div>` +
                         '</div>';
                     $('#empContainer').append(row);

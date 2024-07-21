@@ -16,6 +16,7 @@
       <link rel="stylesheet" type="text/css" href="/css/homeUtil/sidebar.css">
       <link rel="stylesheet" type="text/css" href="/css/homeUtil/teamRoom.css">
       <link rel="stylesheet" type="text/css" href="/css/homeUtil/header.css">
+      <link rel="stylesheet" type="text/css" href="/css/homeUtil/header.css">
       <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminList.css">
       <link rel="stylesheet" type="text/css" href="/css/adminMngrCss/adminPageBtn.css">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

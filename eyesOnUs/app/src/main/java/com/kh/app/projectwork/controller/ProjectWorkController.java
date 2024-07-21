@@ -10,10 +10,7 @@ public class ProjectWorkController {
 
     //조회 화면
     @GetMapping("list")
-    public String list(){
-        return "projectWork/list";
-
-    }
+    public String list(){ return "projectWork/list";}
 
     //작성 화면
     @GetMapping("write")

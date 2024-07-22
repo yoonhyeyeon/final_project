@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="/css/teamRoom/list.css">
         <link rel="stylesheet" href="/css/teamRoom/sidebar.css">
         <link rel="stylesheet" href="/css/teamRoom/teamRoom.css">
+        <script defer src="../js/teamRoom/teamRoomSidebar.js"></script>
         <script defer src="../js/util/calendar.js"></script>
         <script defer src="../js/teamRoom/teamList.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
@@ -41,17 +42,12 @@
                 <!-- 근무 시간을 표시할 div 추가 -->
                 <%@ include file="/WEB-INF/views/util/workTime.jsp" %>
             </div>
-   
-            <div id="team-List-table">
-                <!-- 팀원목록을 표시할 div 추가 -->
-                <%@ include file="/WEB-INF/views/teamRoom/teamList.jsp" %>
-            </div>
         </div>
 
-        <div id="sidebar" class="sidebar">
-            <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-        </div>
-        <button id="openBtn" class="open-btn">☰ Sidebar</button>
+            <div id="sidebar" class="sidebar">
+                <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
+            </div>
+            <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
         <div id="calendarContainer" class="calendar-container">
             <div id="approveChange">
@@ -142,7 +138,8 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="/js/teamRoom/list.js"></script>
-        <script src="/js/teamRoom/teamRoom.js"></script>
+
         <script src="/js/util/clock.js"></script>
     </body>
+
 </html>

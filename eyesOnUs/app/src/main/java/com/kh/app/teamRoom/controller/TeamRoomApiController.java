@@ -43,6 +43,7 @@ public class TeamRoomApiController {
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
         String no = loginMemberVo.getNo();
 
+        System.out.println("loginMemberVo = " + loginMemberVo);
         List<TeamRoomVo> voList = service.list(no);
         return voList;
     }

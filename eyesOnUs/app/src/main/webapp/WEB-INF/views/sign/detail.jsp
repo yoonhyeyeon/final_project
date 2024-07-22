@@ -46,7 +46,7 @@
         <div id="sidebar" class="sidebar">
             <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
         </div>
-        <button id="openBtn" class="open-btn">☰ Sidebar</button>
+        <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
         <div id="calendarContainer" class="calendar-container">
             <h3>결재 상세 조회</h3>
@@ -135,7 +135,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="/js/teamRoom/list.js"></script>
-        <script src="/js/teamRoom/teamRoom.js"></script>
+        <script src="/js/teamRoom/teamRoomSidebar.js"></script>
         <script src="/js/util/clock.js"></script>
     </body>
 </html>

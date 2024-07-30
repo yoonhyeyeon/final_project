@@ -90,5 +90,9 @@ public class ProjectDao {
     public List<MemberVo> empListBydeptCode(String deptCode) {
         return mapper.empListBydeptCode(deptCode);
     }
+
+    public List<MemberVo> prjinserttBydeptCode(String deptCode) {
+        return mapper.prjinserttBydeptCode(deptCode);
+    }
 }
 

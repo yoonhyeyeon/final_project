@@ -1,6 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/css/projectCss/projectInsert.css">
 </head>
 <body>
-<input type="text" name="insertPm" id="insertPm" value="${sessionScope.loginMemberVo.no}" hidden>
+<input type="text" name="insertPm" id="insertPm" value="${sessionScope.loginMemberVo.rank}" hidden>
     <div class="time">
         <div id="time">
             <!-- 현재 시간을 표시할 div 추가 -->
@@ -40,7 +40,13 @@
                     <h1>프로젝트</h1>
                 </div>
                 &nbsp;&nbsp;<p>주제 :</p> <input type="text" name="title" id="title"><hr>
-                &nbsp;&nbsp;<p>PM</p> : <input type="text" name="empNo" id="emp"><br><hr>
+                &nbsp;&nbsp;<p>PM</p> : 
+                <select name="empNo" id="emp">
+                    <c:forEach var="vo" items="${voList}">
+                        <option value="${vo.no}">${vo.name}</option>
+                    </c:forEach>
+                </select>
+                <br><hr>
                 &nbsp;&nbsp;상태 : <select name="state" id="state">
                     <option value="1">등록</option>
                     <option value="2">중지</option>

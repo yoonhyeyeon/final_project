@@ -184,9 +184,17 @@ public interface ProjectMapper {
             SELECT NO,NAME
             FROM EMPLOYEE
             WHERE DEPT_CODE = #{deptCode} AND RANK > 20
-            ORDER BY NO ASC                      
+            ORDER BY NO ASC                     
             """)
     List<MemberVo> empListBydeptCode(String deptCode);
+
+    @Select("""
+            SELECT NO,NAME,RANK
+            FROM EMPLOYEE
+            WHERE DEPT_CODE = #{deptCode} AND RANK = 20
+            ORDER BY NO ASC    
+            """)
+    List<MemberVo> prjinserttBydeptCode(String deptCode);
 }
 
 

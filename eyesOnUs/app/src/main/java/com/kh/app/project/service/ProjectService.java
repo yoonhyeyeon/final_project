@@ -93,4 +93,8 @@ public class ProjectService {
     public List<MemberVo> empListBydeptCode(String deptCode) {
         return dao.empListBydeptCode(deptCode);
     }
+
+    public List<MemberVo> prjinserttBydeptCode(String deptCode) {
+        return dao.prjinserttBydeptCode(deptCode);
+    }
 }

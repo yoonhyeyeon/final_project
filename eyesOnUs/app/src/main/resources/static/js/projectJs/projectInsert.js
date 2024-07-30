@@ -1,6 +1,6 @@
 const insertPmVal = document.querySelector("#insertPm").value;
 
-if(insertPmVal != 10){
+if(insertPmVal == 10){
     function smt(){
         const titleVal = document.querySelector("#title").value;
         const codeVal = document.querySelector("#code").value;

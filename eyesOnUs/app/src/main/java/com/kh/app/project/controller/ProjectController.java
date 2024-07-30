@@ -47,7 +47,13 @@ public class ProjectController {
 
 
     @GetMapping("projectInsert")
-    public String insert(){
+    public String insert(HttpSession session,HttpServletRequest req){
+
+        MemberVo loginMemberVo = (MemberVo)session.getAttribute("loginMemberVo");
+        List<MemberVo> voList = service.prjinserttBydeptCode(loginMemberVo.getDeptCode());
+
+        req.setAttribute("voList",voList);
+
         return "project/insertPrj";
     }
 

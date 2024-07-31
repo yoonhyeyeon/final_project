@@ -18,11 +18,7 @@
 </head>
 <body>
 <input type="hidden" name="vo" id="vo" value="${sessionScope.loginMemberVo.no}">
-    <div class="time">
-        <div id="time">
-            <!-- 현재 시간을 표시할 div 추가 -->
-        </div>
-    </div>
+
 
   <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
  
@@ -53,7 +49,6 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="/js/util/clock.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
 </body>
 <div id="sidebar" class="sidebar">

@@ -19,15 +19,10 @@
 <body>
     <input type="text" name="svo" id="svo" value="${sessionScope.loginMemberVo.no}" hidden>
     <input type="text" name="vo" id="vo" value="${vo.empNo}" hidden>
-    <div class="time">
-        <div id="time">
-            <!-- 현재 시간을 표시할 div 추가 -->
-        </div>
-    </div>
 
-<div id="sidebar" class="sidebar">
+    <div id="sidebar" class="sidebar">
     <%@ include file="/WEB-INF/views/teamRoom/sidebar.jsp" %>
-  </div>
+    </div>
   <button id="sidebarBtn" class="open-btn">☰ Sidebar</button>
 
 
@@ -63,8 +58,6 @@
             <a href="/project/projectList">돌아가기</a>
     </c:if>
 
-
-    <script src="/js/teamRoom/clock.js"></script>
 </body>
 
 </html>

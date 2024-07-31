@@ -86,7 +86,6 @@ pageEncoding="UTF-8"%>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="/js/util/clock.js"></script>
 <script src="/js/teamRoom/teamRoom.js"></script>
 </body>
 </html>

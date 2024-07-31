@@ -32,6 +32,10 @@ public class ProjectController {
 
         MemberVo loginMemberVo = (MemberVo) session.getAttribute("loginMemberVo");
 
+        if(loginMemberVo == null){
+            throw new RuntimeException("loginMemberVo is NULL ERROR");
+        }
+
         return "project/projectMain";
     }
 

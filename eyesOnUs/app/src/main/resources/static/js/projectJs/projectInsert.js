@@ -8,6 +8,18 @@ if(insertPmVal == 10){
         const stateVal = document.querySelector("#state").value;
         const contentVal = document.querySelector("#projectContent").value;
     
+        titleVal != null ? titleVal : alert("제목을 입력하세요");
+        contentVal != null ? contentVal : alert("제목을 입력하세요");
+
+        if(titleVal === ""){
+            alert("제목 입력해주세요");
+            return
+        }
+        if(contentVal === ""){
+            alert("내용을 입력해주세요");
+            return
+        }
+
         $.ajax({
             url : '/project/projectInsert',
             type : 'post',

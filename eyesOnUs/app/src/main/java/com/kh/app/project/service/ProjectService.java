@@ -7,6 +7,8 @@ import com.kh.app.project.vo.ProjectManagerVo;
 import com.kh.app.project.vo.ProjectRecordVo;
 import com.kh.app.project.vo.ProjectVo;
 import com.kh.app.sign.vo.EmployeeVo;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,12 @@ public class ProjectService {
     private final ProjectDao dao;
 
     public int insertProject(ProjectVo vo) {
+
+        if(vo.getTitle() == null || vo.getStateANo() == null || vo.getContent() == null)
+        {
+            throw new RuntimeException("값이 NULL입니다.");
+        }
+
         return dao.insertProject(vo);
     }
 
@@ -94,7 +102,13 @@ public class ProjectService {
         return dao.empListBydeptCode(deptCode);
     }
 
-    public List<MemberVo> prjinserttBydeptCode(String deptCode) {
-        return dao.prjinserttBydeptCode(deptCode);
-    }
+    public List<MemberVo> prjinserttBydeptCode(String deptCode){
+            return dao.prjinserttBydeptCode(deptCode);
+        }
+
+
+
+
 }
+
+

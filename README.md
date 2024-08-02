@@ -112,11 +112,6 @@ Eyes on Us 그룹웨어
 <span>- 삭제</span> <br />
 <span>- 목록 조회</span> <br />
 <span>- 상세 조회</span> <br />
-- 등록
-- 삭제
-- 목록 조회
-- 상세 조회
-<br />
 
 ***
 

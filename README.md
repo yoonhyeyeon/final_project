@@ -238,13 +238,15 @@ Eyes on Us 그룹웨어
 
 - 평가 목록 <br />
 (오른쪽은 남은 평가 목록) <br />
-![image](https://github.com/user-attachments/assets/58032358-b70a-4b73-9365-be52aec848fa)
+로그인한 사원에 따라 팀장이면 팀원, 동료평가가 뜨고 <br />
+팀원이면 팀장, 동료평가가 뜨게 함 <br />
+![image](https://github.com/user-attachments/assets/98e65954-b56e-4bd9-a52a-f1490d3cbdd1)
 
 - 평가 작성 <br />
 ![image](https://github.com/user-attachments/assets/2b12715a-c4e0-4247-a1dd-7514d299561a)
 ![image](https://github.com/user-attachments/assets/837529e1-4c4b-4be7-9d76-9d436812ea6e)
 
-- 평가 목록 <br />
+- 평가한 상세 목록 <br />
 ![image](https://github.com/user-attachments/assets/fd244696-02b8-4ccc-bc7e-9a052c3e9b81)
 
 - 공지사항 목록 <br/>

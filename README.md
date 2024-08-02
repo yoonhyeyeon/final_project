@@ -209,6 +209,56 @@ Eyes on Us 그룹웨어
 
 ## 🖥️ 화면 구성
 
+- main 홈 <br />
+![image](https://github.com/user-attachments/assets/dd57a313-19be-4140-a893-716bcb00b961)
+
+- 로그인시 헤더에 로그인한 사원 정보 뜨게 함 <br />
+![image](https://github.com/user-attachments/assets/c161bab1-cfa9-405b-a673-b5b1397dc1b2)
+
+- 출.퇴근 버튼 <br />
+![image](https://github.com/user-attachments/assets/3e878107-67aa-45e2-a296-eefd4d2c6d32)
+
+- 출.퇴근 월별로 조회 <br />
+![image](https://github.com/user-attachments/assets/98f6ead2-c31d-4047-b4d7-7289a05448df)
+
+- 팀룸에 출.퇴근시간 <br />
+![image](https://github.com/user-attachments/assets/f6be88ac-9e75-479e-84b4-79315e1ee307)
+
+- KPI 목록 <br />
+![image](https://github.com/user-attachments/assets/891526ee-64f9-430c-ad77-f49241dab046)
+
+- KPI 상세조회 <br />
+![image](https://github.com/user-attachments/assets/be7c5d01-5ad9-4df3-8d8c-540e263b8f03)
+
+- KPI 작성하기 <br />
+![image](https://github.com/user-attachments/assets/157131fc-b5c8-4f71-9cb8-b45b985974e4)
+
+- KPI 수정하기 <br />
+![image](https://github.com/user-attachments/assets/0b5d6ea9-c9d4-4d6a-9345-8fd90797aeab)
+
+- 평가 목록 <br />
+(오른쪽은 남은 평가 목록) <br />
+![image](https://github.com/user-attachments/assets/58032358-b70a-4b73-9365-be52aec848fa)
+
+- 평가 작성 <br />
+![image](https://github.com/user-attachments/assets/2b12715a-c4e0-4247-a1dd-7514d299561a)
+![image](https://github.com/user-attachments/assets/837529e1-4c4b-4be7-9d76-9d436812ea6e)
+
+- 평가 목록 <br />
+![image](https://github.com/user-attachments/assets/fd244696-02b8-4ccc-bc7e-9a052c3e9b81)
+
+- 공지사항 목록 <br/>
+![image](https://github.com/user-attachments/assets/701acfa3-05ff-480b-b901-177a94308d69)
+
+- 공지사항 상세조회 <br/>
+![image](https://github.com/user-attachments/assets/5b0770d1-70ba-4958-bb7a-1477237b5d1e)
+
+- 공지사항 작성하기 <br />
+![image](https://github.com/user-attachments/assets/7c7da802-35dc-4b24-a8c1-ce3d8b219d10)
+
+- 공지사항 수정하기 <br />
+![image](https://github.com/user-attachments/assets/97f96813-ba61-4dec-a7b1-5a5a5a47776c)
+
 ## 🗒️ 회고록
 처음에 프로젝트 주제를 정하는 데 고민을 많이 했습니다. <br />
 그때 강사님이 “그룹웨어”가 다양한 기능을 제공하니 프로젝트에 적합할 것 같다고 말씀하셔서 그룹웨어를 주제로 진행하게 되었습니다. <br />

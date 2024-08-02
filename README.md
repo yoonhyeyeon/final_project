@@ -1,4 +1,4 @@
-# KH_FINAL_CLASS3
+# Eyes on Us
 Eyes on Us 그룹웨어
 
 ## 🖥️프로젝트 소개

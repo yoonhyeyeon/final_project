@@ -257,7 +257,7 @@ Eyes on Us 그룹웨어
 ![image](https://github.com/user-attachments/assets/7c7da802-35dc-4b24-a8c1-ce3d8b219d10)
 
 - 공지사항 수정하기 <br />
-![image](https://github.com/user-attachments/assets/97f96813-ba61-4dec-a7b1-5a5a5a47776c)
+![image](https://github.com/user-attachments/assets/d68a7072-c3c6-4237-8c15-f3d47eeee6f9)
 
 ## 🗒️ 회고록
 처음에 프로젝트 주제를 정하는 데 고민을 많이 했습니다. <br />

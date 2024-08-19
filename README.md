@@ -20,6 +20,8 @@ Eyes on Us 그룹웨어
 ![Github Pages](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)
 <img src="https://img.shields.io/badge/sourceTree-0052CC?style=for-the-badge&logo=sourcetree&logoColor=white">
 ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
+<img src='https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white'>
+<img src='https://img.shields.io/badge/ERD Cloud-82612C?style=for-the-badge'>
 <br />
 
 <h4>Back & Front</h3>
@@ -42,6 +44,9 @@ Eyes on Us 그룹웨어
 <h4>사용 툴</h4>
 
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+<img src='https://img.shields.io/badge/SQL Developer-2C2255?style=for-the-badge'>
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 <h4>Framework & library & server </h4>
 
@@ -189,7 +194,7 @@ Eyes on Us 그룹웨어
 <span>- 결재 (1차, 2차, 3차)</span> <br />
 <span>- 반려 (1차, 2차, 3차)</span> <br />
 
-## ⭐ 주요 기능
+## ⭐ 내가 맡은 주요 기능
 - KPI : 
 자신이 맡은 프로젝트에 목표 설정 , 집중도 % 로 한눈에 확인 가능.
 
